@@ -1,23 +1,27 @@
-# TÍTULO DO PROJETO
+# CONEXÃO SOLIDÁRIA
 
-`CURSO`
+`ANÁLISE E DESENVOLVIMENTO DE SISTEMAS - PUC MINAS`
 
-`DISCIPLINA`
+`DESENVOLVIMENTO DE UMA APLICAÇÃO INTERATIVA - TURMA 06`
 
-`SEMESTRE`
+`2026/1`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+O **Conexão Solidária** é uma plataforma web desenvolvida para conectar vítimas de desastres naturais a pessoas dispostas a ajudar, oferecendo um espaço seguro para solicitar apoio, realizar doações e participar de grupos de acolhimento.
+
+A aplicação permite que usuários registrem necessidades urgentes, encontrem doadores compatíveis e interajam em chats temáticos, criando uma rede colaborativa de solidariedade e reconstrução.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Arthur Eduardo Andrade Lobo
+* Gustavo Henrique Simão Bruno
+* Italo Natan de Oliveira Lopes
+* Luisa Clara de Sousa Lopes
+* Richard Rodrigues de Sousa
+* Tiago Pereira do Nascimento
 
 ## Orientador
 
-* Nome completo do professor
+* Bernardo Jeunon de Alencar
 
 ## Instruções de Instalação, Execução e Acesso
 
