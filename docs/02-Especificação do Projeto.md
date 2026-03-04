@@ -65,7 +65,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RNF-002| A aplicação deve processar requisições do usuário em no máximo 3s. |  MÉDIA | 
 |RNF-003| O sistema deve ter interface simples e objetiva. | ALTA |  
 |RNF-004| O sistema deve funcionar nas versões recentes do: (Google Chrome, Mozilla Firefox, Microsoft Edge).| MÉDIA |
-|RNF-005| O sistema deve estar disponível inicialmente em Português(BR) | BAIXA | 
+|RNF-005| O sistema deve estar disponível inicialmente em Português(BR). | BAIXA | 
 |RNF-006| O sistema deve exigir autenticação por e-mail e senha para acesso às funcionalidades de cadastro e registro de pedidos.| MÉDIA |
 Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
 
