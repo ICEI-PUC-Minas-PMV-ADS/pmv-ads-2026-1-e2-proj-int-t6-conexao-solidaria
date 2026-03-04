@@ -34,8 +34,6 @@ Plataformas centralizadas de doação aumentam a eficácia do apoio. Pessoas que
 Permitir comunicação por meio de redes sociais, onde os usuários poderão deixar números de telefone, e-mails, entre outras informações de contato.
 A interação direta entre vítimas, voluntários e doadores facilita a troca de informações.
 
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
 
 ## Público-Alvo
 
