@@ -16,7 +16,7 @@ Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thin
 
 ## Objetivos
 
-Desenvolver uma plataforma para conectar vítimas de desastres naturais a doadores e voluntários, promovendo apoio humanitário. O sistema busca facilitar a vida das vítimas que sofreram perdas materiais em decorrência de desastres, realizando a correspondência entre pedidos e ofertas de ajuda e permitindo a comunicação em tempo real. Implementado com arquitetura moderna em MVC e hospedado na nuvem por meio do GitHub e do Microsoft Azure, o projeto prioriza escalabilidade, segurança e impacto social.
+Plataforma criada para conectar pessoas afetadas por desastres naturais a doadores e voluntários, facilitando o acesso a apoio humanitário e à reconstrução. O sistema permite a correspondência entre necessidades e ofertas de ajuda, além de comunicação direta para agilizar o suporte. Desenvolvido com arquitetura MVC para manter organização e escalabilidade, e hospedado na nuvem utilizando GitHub e Microsoft Azure, priorizando disponibilidade, segurança e impacto social.
 
 ## Justificativa
 
