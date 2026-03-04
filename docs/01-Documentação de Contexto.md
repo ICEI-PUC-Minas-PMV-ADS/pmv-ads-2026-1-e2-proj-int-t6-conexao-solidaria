@@ -16,12 +16,7 @@ Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thin
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
-
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+Desenvolver uma plataforma para conectar vítimas de desastres naturais a doadores e voluntários, promovendo apoio humanitário. O sistema busca facilitar a vida das vítimas que sofreram perdas materiais em decorrência de desastres, realizando a correspondência entre pedidos e ofertas de ajuda e permitindo a comunicação em tempo real. Implementado com arquitetura moderna em MVC e hospedado na nuvem por meio do GitHub e do Microsoft Azure, o projeto prioriza escalabilidade, segurança e impacto social.
 
 ## Justificativa
 
