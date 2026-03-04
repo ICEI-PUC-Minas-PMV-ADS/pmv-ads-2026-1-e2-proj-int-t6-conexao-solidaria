@@ -25,9 +25,14 @@ Apresente também alguns (pelo menos 2) objetivos específicos dependendo de ond
 
 ## Justificativa
 
-Explique de forma clara a relevância da aplicação escolhida, justificando os objetivos específicos e os aspectos do software que serão aprofundados, e quantifique o impacto do problema com dados concretos (números, percentuais, indicadores) obtidos por bases oficiais ou outras fontes confiáveis, sempre citadas no padrão ABNT (no formato [Numérico] ou (AUTOR, ANO)).
+Oferecer um espaço seguro para vítimas registrarem necessidades urgentes:
+Após desastres, muitas pessoas ficam sem acesso a infraestrutura básica ou canais de comunicação oficiais, o que leva a atrasos no recebimento de ajuda.
 
-**Relacione o problema aos Objetivos de Desenvolvimento Sustentável (ODS), indicando quais ODS e subobjetivos são atendidos e descrevendo como o projeto contribui para cada um deles, garantindo coerência entre o impacto mensurado e as metas selecionadas.**
+Conectar vítimas a doadores compatíveis:
+Plataformas centralizadas de doação aumentam a eficácia do apoio. Pessoas que querem ajudar podem encontrar exatamente quem precisa e quais itens são mais urgentes.
+
+Permitir comunicação por meio de redes sociais, onde os usuários poderão deixar números de telefone, e-mails, entre outras informações de contato.
+A interação direta entre vítimas, voluntários e doadores facilita a troca de informações.
 
 > **Links Úteis**:
 > - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
