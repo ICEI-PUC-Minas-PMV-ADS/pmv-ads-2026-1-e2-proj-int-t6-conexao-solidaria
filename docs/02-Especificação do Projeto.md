@@ -53,9 +53,16 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| A aplicação deve permitir que o usuário avalie uma agência de intercâmbio com base na sua experiência| ALTA | 
-|RF-002| A aplicação deve permitir que o usuário inclua comentários ao fazer uma avaliação de uma agência de intercâmbio    | ALTA |
-|RF-003| A aplicação deve permitir que o usuário consulte todas as agências de intercâmbio cadastradas ordenando-as com base em suas notas | ALTA |
+|RF-001| visualização de solicitações | MEDIA | 
+|RF-002| cadastrar itens    | ALTA |
+|RF-003| Permitir que o usuário faça login  | ALTA |
+|RF-004| Permitir que o usuário crie uma conta | ALTA|
+|RF-005| Confirmação de Entrega/Recebimento | ALTA |
+|RF-006| Classificação de Urgência | ALTA |
+|RF-007| Avaliação de Usuários | BAIXA |
+|RF-008| Notificações de Atualização | MEDIA | 
+|RF-009| Sistema de Classificação por Urgência ( BAIXA, MEDIA OU ALTA )  | MEDIA |
+|RF-010| Envio de Feedback sobre a Plataforma | BAIXA |
 
 ### Requisitos não Funcionais
 
