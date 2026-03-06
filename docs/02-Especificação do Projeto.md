@@ -1,13 +1,63 @@
 # Especificações do Projeto
 
+A **Especificação do Projeto** do aplicativo *Conexão Solidária* tem como objetivo definir o problema e apresentar uma proposta de solução sob a perspectiva dos usuários da plataforma. O projeto busca facilitar a conexão entre pessoas afetadas por desastres naturais, voluntários e doadores, permitindo o registro de necessidades, a oferta de ajuda e a troca de informações de forma simples e acessível. Nessa etapa, procura-se compreender as necessidades dos usuários e estruturar funcionalidades que apoiem a organização da ajuda e o fortalecimento da rede de solidariedade.
+
+Para isso, serão utilizadas técnicas de levantamento e organização de requisitos comuns na engenharia de software, como a elaboração de **personas**, e a partir delas a criação de **histórias de usuários**, assim como a definição de **requisitos funcionais e não funcionais**. Também serão consideradas as **restrições do projeto**, relacionadas às tecnologias utilizadas e às limitações de desenvolvimento, garantindo uma documentação clara para orientar a implementação do sistema, além do **diagrama de casos de uso** para representar visualmente os principais atores do sistema e as interações que eles podem realizar na aplicação.
+
+<!--
 <span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
 
 Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
 
 Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+-->
 
 ## Personas
 
+## Persona 1
+
+| <div align="center"><img src="img/CarlosSilva.png" width="120"></div> | **Carlos Silva** | **Idade:** 42 anos <br> **Profissão:** Motorista de aplicativo <br> **Localização:** Canoas, Rio Grande do Sul, Brasil <br> **Formação:** Ensino Médio Completo <br> **Objetivo:** Encontrar ajuda para reconstruir sua casa após uma enchente |
+|---|---|---|
+| **Descrição** | **Dores** | **Expectativas** |
+| Carlos perdeu grande parte de seus bens após uma enchente que atingiu seu bairro. Ele utiliza o celular como principal meio de acesso à internet e redes sociais, mas possui conhecimento limitado em tecnologia. Carlos precisa de uma forma simples de informar suas necessidades e encontrar pessoas dispostas a ajudar sua família a se reerguer. | Carlos sente dificuldade em encontrar informações centralizadas sobre onde pedir ajuda. Muitas vezes precisa recorrer a diferentes redes sociais ou grupos de mensagens, o que gera confusão e atraso no recebimento de apoio. Além disso, ele teme que seus pedidos não sejam vistos ou priorizados. | Carlos espera encontrar uma plataforma simples e confiável onde possa registrar suas necessidades, receber apoio rapidamente e acompanhar as doações ou ajuda oferecida por voluntários e organizações. |
+
+---
+
+## Persona 2
+
+| <div align="center"><img src="img/MarinaOliveira.png" width="120"></div> | **Mariana Oliveira** | **Idade:** 34 anos <br> **Profissão:** Vendedora <br> **Localização:** Petrópolis, Rio de Janeiro, Brasil <br> **Formação:** Ensino Médio Completo <br> **Objetivo:** Conseguir apoio para sua família após um deslizamento de terra |
+|---|---|---|
+| **Descrição** | **Dores** | **Expectativas** |
+| Mariana vive em uma região que frequentemente sofre com deslizamentos durante períodos de chuva intensa. Após um desastre recente, ela precisou deixar sua casa e está temporariamente abrigada com familiares. Mariana utiliza aplicativos no celular diariamente, principalmente redes sociais e aplicativos de mensagens. | Mariana sente dificuldade em saber quais organizações estão ajudando e quais recursos estão disponíveis para sua comunidade. Muitas informações são desencontradas e nem sempre chegam rapidamente às pessoas afetadas. | Mariana espera utilizar uma plataforma que facilite a comunicação entre pessoas afetadas, voluntários e doadores, permitindo encontrar ajuda mais rapidamente e acompanhar informações importantes sobre assistência disponível. |
+
+---
+
+## Persona 3
+
+| <div align="center"><img src="img/RobertoAlmeida.png" width="120"></div> | **Roberto Almeida** | **Idade:** 51 anos <br> **Profissão:** Coordenador da Defesa Civil Municipal <br> **Localização:** Belo Horizonte, Minas Gerais, Brasil <br> **Formação:** Graduação em Administração Pública <br> **Objetivo:** Melhorar a organização e distribuição de ajuda em situações de emergência |
+|---|---|---|
+| **Descrição** | **Dores** | **Expectativas** |
+| Roberto trabalha na coordenação de ações emergenciais após desastres naturais e precisa lidar com grande volume de informações em pouco tempo. Ele utiliza sistemas digitais no trabalho, planilhas e aplicativos para acompanhar ocorrências e necessidades da população. | A falta de uma plataforma centralizada dificulta o acompanhamento das demandas da população e a organização da ajuda recebida. Muitas solicitações chegam por diferentes canais, como telefone, redes sociais e mensagens, o que torna o processo mais lento e desorganizado. | Roberto espera que uma plataforma digital possa centralizar pedidos de ajuda, facilitar o contato entre cidadãos e voluntários e fornecer dados organizados que auxiliem na tomada de decisões durante situações de emergência. |
+
+---
+
+## Persona 4
+
+| <div align="center"><img src="img/JulianaFerreira.png" width="120"></div> | **Juliana Ferreira** | **Idade:** 29 anos <br> **Profissão:** Professora de Ensino Fundamental <br> **Localização:** Blumenau, Santa Catarina, Brasil <br> **Formação:** Licenciatura em Pedagogia <br> **Objetivo:** Ajudar outras pessoas que estão passando por desastres naturais |
+|---|---|---|
+| **Descrição** | **Dores** | **Expectativas** |
+| Juliana já foi vítima de uma enchente quando era adolescente e recebeu apoio de voluntários durante aquele período. Desde então, sente o desejo de ajudar outras pessoas em situações semelhantes. Ela tem boa familiaridade com tecnologia e utiliza aplicativos com frequência. | Juliana encontra dificuldade em identificar onde sua ajuda é realmente necessária e como se conectar diretamente com pessoas que precisam de apoio imediato. Muitas campanhas são desorganizadas ou não possuem informações claras. | Juliana espera encontrar uma plataforma que facilite a identificação de necessidades reais e permita que voluntários possam oferecer ajuda de forma rápida, organizada e transparente. |
+
+---
+
+## Persona 5
+
+| <div align="center"><img src="img/LucasMartins.png" width="120"></div> | **Lucas Martins** | **Idade:** 38 anos <br> **Profissão:** Empresário <br> **Localização:** São Paulo, Brasil <br> **Formação:** Graduação em Administração de Empresas <br> **Objetivo:** Contribuir com doações para apoiar comunidades afetadas por desastres |
+|---|---|---|
+| **Descrição** | **Dores** | **Expectativas** |
+| Lucas costuma realizar doações para campanhas humanitárias sempre que ocorre algum desastre natural no país. Ele acompanha notícias e utiliza bastante aplicativos e plataformas digitais para fazer transferências e contribuir com projetos sociais. | Lucas muitas vezes não tem certeza se suas doações estão chegando diretamente a quem precisa. A falta de transparência e acompanhamento nas campanhas de ajuda faz com que ele se sinta inseguro em alguns casos. | Lucas espera utilizar uma plataforma confiável que conecte diretamente doadores com pessoas que precisam de ajuda, permitindo acompanhar o impacto de sua contribuição e garantindo maior transparência no processo de doação. |
+
+<!--
 Identifique, em torno de, 5 personas. Para cada persona, lembre-se de descrever suas angústicas, frustrações e expectativas de vida relacionadas ao problema. Além disso, defina uma "aparência" para a persona. Para isso, você poderá utilizar sites como [https://this-person-does-not-exist.com/pt#google_vignette](https://this-person-does-not-exist.com/pt) ou https://thispersondoesnotexist.com/ 
 
 Utilize também como referência o exemplo abaixo:
@@ -26,11 +76,27 @@ Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos 
 > - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
 >
 Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+-->
 
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
+## Histórias de Usuários
+
+|EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
+|--------------------|------------------------------------|----------------------------------------|
+| Carlos (Pessoa afetada por desastre) | Registrar um pedido de ajuda na plataforma | Informar minhas necessidades após perder bens em um desastre natural |
+| Carlos (Pessoa afetada por desastre) | Acompanhar o status das doações ou ajuda recebida | Saber se alguém já está atendendo meu pedido |
+| Mariana (Pessoa afetada por desastre) | Encontrar informações sobre apoio disponível na minha região | Conseguir ajuda de forma mais rápida e organizada |
+| Mariana (Pessoa afetada por desastre) | Participar de grupos de apoio ou comunicação | Compartilhar experiências e receber orientação de outras pessoas |
+| Roberto (Representante da Defesa Civil) | Visualizar os pedidos de ajuda registrados no sistema | Ter uma visão organizada das necessidades da população |
+| Roberto (Representante da Defesa Civil) | Acompanhar estatísticas e informações sobre os pedidos | Melhorar a tomada de decisão durante situações de emergência |
+| Juliana (Voluntária) | Encontrar pedidos de ajuda próximos da minha localização | Oferecer apoio de forma rápida para quem precisa |
+| Juliana (Voluntária) | Entrar em contato com pessoas que solicitaram ajuda | Organizar melhor a entrega de doações ou apoio |
+| Lucas (Doador) | Encontrar campanhas ou pedidos de ajuda confiáveis | Garantir que minha doação chegue a quem realmente precisa |
+| Lucas (Doador) | Acompanhar o impacto das minhas doações | Ter transparência sobre como minha ajuda está sendo utilizada |
+<!--
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
 |Ana Clara  | Uma forma de identificar se uma agência é realmente confiável           | Me sentir mais segura ao contratar seus serviços               |
@@ -44,6 +110,7 @@ Apresente aqui as histórias de usuário que são relevantes para o projeto de s
 > - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
 > - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
 > - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
+-->
 
 ## Requisitos
 
@@ -98,12 +165,13 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |01| O projeto deverá ser entregue até o final do semestre |
 |02| Não pode ser desenvolvido um módulo de backend        |
 
-
+<!--
 Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
 
 > **Links Úteis**:
 > - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
 > - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+-->
 
 ## Diagrama de Casos de Uso
 
@@ -117,3 +185,7 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de
 > - [Lucidchart](https://www.lucidchart.com/)
 > - [Astah](https://astah.net/)
 > - [Diagrams](https://app.diagrams.net/)
+
+## Imagens do Projeto
+
+Algumas imagens utilizadas no projeto, como as fotos das personas, foram geradas por Inteligência Artificial apenas para fins ilustrativos no contexto acadêmico deste trabalho.

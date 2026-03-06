@@ -32,6 +32,19 @@ A interação direta entre vítimas, voluntários e doadores facilita a troca de
 
 ## Público-Alvo
 
+O público-alvo da aplicação são *pessoas impactadas direta ou indiretamente por desastres naturais*, bem como *indivíduos e organizações interessados em oferecer ajuda humanitária*. 
+
+A aplicação será direcionada aos seguintes públicos:
+
+* **Pessoas afetadas por desastres naturais**: Um dos principais perfis de usuários são pessoas afetadas por desastres naturais, como enchentes, deslizamentos de terra, tempestades ou outros eventos climáticos extremos. Esses usuários podem ter conhecimentos básicos ou limitados sobre tecnologia e utilizar principalmente smartphones para acessar a internet. Em muitos casos, estão em situações de vulnerabilidade e precisam de uma plataforma simples e intuitiva para registrar suas necessidades e buscar apoio.
+
+* **Voluntários e Doadores**: Outro perfil importante são voluntários e doadores, que utilizam a aplicação para identificar demandas de ajuda e contribuir com doações de alimentos, roupas, recursos financeiros ou serviços. Esses usuários geralmente possuem maior familiaridade com ferramentas digitais e redes sociais, utilizando a tecnologia como meio de organização e mobilização social.
+
+* **Representantes de organizações sociais, ONGs ou órgãos públicos**: Além disso, a plataforma também pode ser utilizada por representantes de organizações sociais, ONGs ou órgãos públicos, que podem acompanhar demandas, auxiliar na coordenação de ações de apoio e facilitar a comunicação entre comunidades afetadas e redes de ajuda. Esses usuários tendem a ter um nível intermediário ou avançado de conhecimento tecnológico e podem utilizar a aplicação tanto em dispositivos móveis quanto em computadores.
+
+Dessa forma, o **Conexão Solidária** busca atender um público diversificado, priorizando uma interface simples, acessível e intuitiva, capaz de ser utilizada por pessoas com diferentes níveis de experiência digital, promovendo a conexão entre quem precisa de ajuda e quem está disposto a colaborar.
+
+<!--
 Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações hierárquicas, etc.
 
 > **Links Úteis**:
@@ -39,3 +52,4 @@ Descreva quem serão as pessoas que usarão a sua aplicação indicando os difer
 > - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
 > - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
 > - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+-->
