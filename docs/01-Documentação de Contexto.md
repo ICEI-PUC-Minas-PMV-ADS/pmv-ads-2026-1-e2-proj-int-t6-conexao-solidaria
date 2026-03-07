@@ -1,8 +1,10 @@
 # Introdução
 
-O Brasil enfrenta recorrentemente o impacto de desastres naturais severos, como enchentes e deslizamentos de terra, que deixam milhares de pessoas desabrigadas e em situação de extrema vulnerabilidade. Nesses cenários de crise, há uma mobilização natural da sociedade para oferecer ajuda, mas a ausência de canais oficiais e organizados de comunicação frequentemente resulta em esforços fragmentados, dificultando a chegada dos recursos corretos a quem mais precisa. 
+O Brasil enfrenta recorrentemente o impacto de desastres naturais severos, como enchentes e deslizamentos de terra, que deixam milhares de pessoas desabrigadas e em situação de extrema vulnerabilidade. Nesses cenários de crise, há uma mobilização natural da sociedade para oferecer ajuda, mas a ausência de canais oficiais e organizados de comunicação frequentemente resulta em esforços fragmentados, dificultando a chegada dos recursos corretos a quem mais precisa.
+
 Para compreender a complexidade desse cenário, o projeto adota uma abordagem fundamentada no Design Thinking, permitindo um olhar empático e de ponta a ponta. Isso garante que as reais necessidades das vítimas sejam o centro da concepção, mapeando desde o momento do desastre até a fase de reconstrução.
-<img width="1387" height="853" alt="image" src="https://github.com/user-attachments/assets/a862bb43-0077-4727-8195-bb5f975bc02c" />
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/80c9b1cf-3904-4197-84d8-92136ea6ca8b" />
+
 
 ## Problema
 Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
