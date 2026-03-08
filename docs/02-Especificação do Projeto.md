@@ -164,6 +164,12 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |--|-------------------------------------------------------|
 |01| O projeto deverá ser entregue até o final do semestre |
 |02| Não pode ser desenvolvido um módulo de backend        |
+|03| A aplicação deverá permitir apenas doações e solicitações relacionadas a necessidades básicas em situações de desastres naturais |
+|04| O sistema não será responsável pelo transporte ou entrega física das doações entre usuários |
+|05| As informações cadastradas pelos usuários devem ser utilizadas apenas para fins de conexão entre doadores, voluntários e pessoas afetadas |
+|06| O desenvolvimento do projeto deverá ser realizado utilizando as tecnologias definidas: ASP.NET MVC, Entity Framework, MSSQL e Azure |
+|07| O projeto deverá ser desenvolvido e documentado utilizando ferramentas de versionamento de código no GitHub |
+|08| O desenvolvimento será realizado por uma equipe com conhecimento técnico inicial, compatível com alunos em formação na área de tecnologia |
 
 <!--
 Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
@@ -175,7 +181,8 @@ Enumere as restrições à sua solução. Lembre-se de que as restrições geral
 
 ## Diagrama de Casos de Uso
  <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria/blob/main/docs/img/casosDeUso.png?raw=true">
-<!--
+
+<!-- 
 O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
 
 As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
