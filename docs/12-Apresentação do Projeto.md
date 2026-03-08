@@ -20,7 +20,7 @@ O grupo deve elaborar um conjunto de slides que registre, de forma organizada, t
 
 ## Vídeo de apresentação - Etapa 01
 
-Inclua aqui o vídeo de APRESENTAÇÃO INICIAL do projeto produzido na Etapa 01.
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria/issues/16#issue-4042079526)
 
 ## Vídeo de apresentação - Etapa 05
 
