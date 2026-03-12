@@ -119,18 +119,20 @@ N --> O[Publicar Solicitação]
 
 #### Tela Inicial
 
+```
 +----------------------------------+
 |        CONEXÃO SOLIDÁRIA         |
 |                                  |
-|        [ Fazer Login ]           |
+|         [ Fazer Login ]          |
 |                                  |
-|        [ Criar Conta ]           |
+|         [ Criar Conta ]          |
 |                                  |
-|   [ Ver Solicitações ]           |
+|       [ Ver Solicitações ]       |
 +----------------------------------+
-
+```
 #### Dashboard
 
+```
 +----------------------------------+
 | Menu                             |
 |----------------------------------|
@@ -143,22 +145,26 @@ N --> O[Publicar Solicitação]
 |  Perfil                          |
 +----------------------------------+
 
+```
 #### Lista de Solicitações
 
+```
 +----------------------------------+
 | Solicitações de Ajuda            |
 |----------------------------------|
 | Alimentos - URGENTE              |
 |                                  |
 | Cobertores - MÉDIO               |
-|                                  
+|                                  |
 | Água Potável - ALTA              |
 |                                  |
 | [Ver detalhes]                   |
 +----------------------------------+
+```
 
 #### Cadastro de Solicitação
 
+```
 +----------------------------------+
 | Nova Solicitação                 |
 |----------------------------------|
@@ -172,9 +178,10 @@ N --> O[Publicar Solicitação]
 |                                  |
 | [Publicar Solicitação]           |
 +----------------------------------+
-
+```
 #### Perfil do Usuário
 
+```
 +----------------------------------+
 | Perfil                           |
 |----------------------------------|
@@ -186,6 +193,7 @@ N --> O[Publicar Solicitação]
 |                                  |
 | [Editar Perfil]                  |
 +----------------------------------+
+```
 
 <!--
 ![Exemplo de Wireframe](img/wireframe-example.png)
