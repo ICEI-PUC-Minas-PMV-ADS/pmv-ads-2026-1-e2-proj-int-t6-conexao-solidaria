@@ -120,16 +120,18 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| visualização de solicitações | MEDIA | 
-|RF-002| cadastrar itens    | ALTA |
-|RF-003| Permitir que o usuário faça login  | ALTA |
-|RF-004| Permitir que o usuário crie uma conta | ALTA|
-|RF-005| Confirmação de Entrega/Recebimento | ALTA |
-|RF-006| Classificação de Urgência | ALTA |
-|RF-007| Avaliação de Usuários | BAIXA |
-|RF-008| Notificações de Atualização | MEDIA | 
-|RF-009| Sistema de Classificação por Urgência ( BAIXA, MEDIA OU ALTA )  | MEDIA |
-|RF-010| Envio de Feedback sobre a Plataforma | BAIXA |
+|RF-001| Criar conta | ALTA | 
+|RF-002| Gerenciar conta    | ALTA |
+|RF-003| Avaliar usuario  | BAIXA |
+|RF-004| Acessar chat de apoio | MEDIA |
+|RF-005| Visualizar pedido | ALTA |
+|RF-006| Realizar doação | ALTA |
+|RF-007| Gerenciar pedidos | MEDIA |
+|RF-008| Gerenciar doações | ALTA | 
+|RF-009| Gerenciar usuarios | MEDIA |
+|RF-010| Registrar doações | MEDIA |
+|RF-011| ⁠Recuperar a senha do usuário | ALTA |
+|RF-012| Editar perfil | MEDIA |
 
 ### Requisitos não Funcionais
 
