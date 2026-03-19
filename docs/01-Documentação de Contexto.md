@@ -4,9 +4,10 @@ O Brasil enfrenta recorrentemente o impacto de desastres naturais severos, como 
 
 Para compreender a complexidade desse cenário, o projeto adota uma abordagem fundamentada no Design Thinking, permitindo um olhar empático e de ponta a ponta. Isso garante que as reais necessidades das vítimas sejam o centro da concepção, mapeando desde o momento do desastre até a fase de reconstrução.
 
-
-<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/80c9b1cf-3904-4197-84d8-92136ea6ca8b" />
-
+<figure>
+  <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/80c9b1cf-3904-4197-84d8-92136ea6ca8b"/>
+  <figcaption>Figura 1 – Etapas do Design Thinking</figcaption>
+</figure>
 
 ## Problema
 
