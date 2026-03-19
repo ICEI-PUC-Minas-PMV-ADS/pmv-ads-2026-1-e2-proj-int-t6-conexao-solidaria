@@ -94,6 +94,7 @@ O quadro Kanban pode ser acessado em:
   <figcaption>Figura 3 – Tela do quadro Kanban do GitHub criada pelo grupo</figcaption>
 </figure>
 
+
 A tarefas são classificadas em função da natureza ou prioridade da atividade e seguem o um esquema de etiquetagem entre cores e categorias que pode ser visto pela Figura 4:
 
 <figure>
