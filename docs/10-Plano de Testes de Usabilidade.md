@@ -1,6 +1,6 @@
 # Plano de Testes de Usabilidade
 
-O objetivo deste teste de usabilidade é avaliar a qualidade da interface da aplicação Conexão Solidária, verificando se os usuários conseguem utilizar o sistema de forma eficiente, intuitiva e satisfatória,
+O objetivo deste teste de usabilidade é avaliar a qualidade da interface da aplicação Conexão Solidária, verificando se os usuários conseguem utilizar o sistema de forma eficiente, intuitiva e satisfatória
 
 ## Os principais objetivos são:
 
