@@ -1,71 +1,168 @@
 # Plano de Testes de Usabilidade
 
-Os testes de usabilidade permitem avaliar a qualidade da interface com o usuário da aplicação interativa.
+O objetivo deste teste de usabilidade é avaliar a qualidade da interface da aplicação Conexão Solidária, verificando se os usuários conseguem utilizar o sistema de forma eficiente, intuitiva e satisfatória
 
-Um plano de teste de usabilidade deverá conter: 
+## Os principais objetivos são:
 
-## Definição do(s) objetivo(s)
+O objetivo deste teste de usabilidade é avaliar a qualidade da interface da aplicação Conexão Solidária, verificando se os usuários conseguem utilizar o sistema de forma eficiente, intuitiva e satisfatória.
 
-Antes de iniciar os testes, é essencial definir o que se deseja avaliar na usabilidade do sistema. 
-Alguns exemplos de objetivos são:
-- Verificar se os usuários conseguem concluir tarefas essenciais sem dificuldades.
-- Identificar barreiras na navegação e interação com o sistema.
-- Avaliar a eficiência e a satisfação do usuário ao utilizar a interface.
-- Testar a acessibilidade para diferentes perfis de usuários.
+Os principais objetivos são:
 
+Verificar se os usuários conseguem realizar cadastros e acessar o sistema sem dificuldades
+Avaliar a facilidade de navegação entre as funcionalidades da plataforma
+Identificar dificuldades na interação com ações principais (como solicitar ajuda ou oferecer apoio)
+Medir o tempo necessário para execução das tarefas
+Avaliar o nível de satisfação dos usuários ao utilizar a aplicação
 ## Seleção dos participantes
 
-Para garantir que o teste reflita o uso real do sistema, escolha participantes representativos do público-alvo.
+Os participantes foram selecionados com base no público-alvo da aplicação, que envolve pessoas interessadas em ações sociais e colaboração comunitária.
 
-**Critérios para selecionar participantes:**
-- Perfis variados (experientes e iniciantes no sistema).
-- Diferentes níveis de familiaridade com tecnologia.
-- Pessoas com necessidades especiais (se aplicável).
+Perfil dos participantes:
 
-**Quantidade recomendada:**
-Mínimo: 5 participantes.
-Ideal: Entre 8 e 12 para maior diversidade.
+Total: 8 participantes
+4 usuários com pouca experiência em tecnologia
+4 usuários com experiência intermediária
 
-## Definição de cenários de teste
+Critérios de seleção:
 
-Os cenários representam tarefas reais que os usuários executam no sistema. Neste projeto, cada grupo deverá definir, no mínimo, **CINCO cenários para a aplicação** e cada cenário deve incluir:
+Idade entre 18 e 50 anos
+Usuários de internet (celular ou computador)
+Interesse em ações sociais ou uso de plataformas digitais
 
-- Objetivo: O que será avaliado.
-- Contexto: A situação que leva o usuário a interagir com o sistema.
-- Tarefa: A ação que o usuário deve realizar.
-- Critério de sucesso: Como determinar se a tarefa foi concluída corretamente.
+ Nenhum dado sensível dos participantes será coletado, conforme a LGPD.
 
-**Exemplo: Cenário 1**
 
-**Objetivo:** Avaliar a facilidade e eficiência do usuário em pesquisar, adicionar um produto ao carrinho e finalizar a compra sem dificuldades.
+## Cenários de Teste
 
-**Contexto:** O usuário deseja comprar um notebook para uso pessoal. Para isso, ele deverá entrar no site www.compras.com.br para buscar opções disponíveis, comparar preços, adicionar o produto ao carrinho e finalizar a compra com pagamento via cartão de crédito.
 
+**Cenário 1 – Cadastro no sistema**
+
+**Objetivo:** Avaliar a facilidade de criação de conta.
+
+**Contexto:** O usuário acessa a plataforma pela primeira vez e deseja se cadastrar.
 **Tarefa(s):** 
-- Acessar o site e localizar a barra de pesquisa.
-- Pesquisar por "notebook" e utilizar os filtros para refinar a busca (exemplo: marca, preço, processador).
-- Escolher um dos notebooks listados e acessar a página do produto.
-- Adicionar o produto ao carrinho.
-- Finalizar a compra, preenchendo os dados de pagamento e endereço de entrega.
-- Confirmar a transação e verificar a tela de pedido concluído.
+Acessar a página inicial
+Clicar em “Cadastrar”
+Preencher os dados solicitados
+Confirmar cadastro
 
 **Critério(s) de Sucesso(s):**
-- O usuário consegue encontrar e filtrar os produtos sem dificuldades.
-- O produto é adicionado ao carrinho corretamente.
-- O usuário consegue preencher as informações de pagamento e entrega sem erros.
-- A compra é finalizada com sucesso, e o usuário visualiza a confirmação do pedido.
-- Todo o processo ocorre em menos de 5 minutos, sem necessidade de assistência.
+- Cadastro realizado sem erros.
+- Tempo inferior a 3 minutos.
+- Usuário não solicita ajuda.
+
+**Cenário 2 – Login no sistema**
+
+**Objetivo:** Verificar a eficiência do acesso à conta.
+
+**Contexto:** O usuário já possui cadastro e deseja acessar a plataforma.
+
+**Tarefa(s):** 
+Inserir email e senha
+Realizar login
+Critérios de sucesso:
+Login realizado corretamente
+Sem erros ou confusão na interface
+
+**Critério(s) de Sucesso(s):**
+- Login realizado corretamente.
+- Sem erros ou confusão na interface.
+
+**Cenário 3 – Navegação na plataforma**
+
+**Objetivo:** Avaliar a organização e clareza da interface.
+
+**Contexto:** O usuário deseja explorar as funcionalidades disponíveis.
+
+**Tarefa(s):** 
+Acessar o menu principal
+Navegar entre páginas
+Retornar à tela inicial
+
+**Critério(s) de Sucesso(s):**
+- Usuário encontra informações facilmente.
+- Não se perde na navegação.
+
+**Cenário 3 – Solicitar ou oferecer ajuda**
+
+**Objetivo:** Avaliar a principal funcionalidade do sistema.
+
+**Contexto:** O usuário deseja participar da rede solidária, oferecendo ou solicitando ajuda.
+
+**Tarefa(s):** 
+Acessar a área de ações
+Criar uma solicitação ou oferta
+Preencher informações necessárias
+Confirmar envio
+
+**Critério(s) de Sucesso(s):**
+- A ação é concluída corretamente.
+- Usuário entende o processo.
+- Sem necessidade de suporte.
+
+**Cenário 3 – Navegação na plataforma**
+
+**Objetivo:** Avaliar a organização e clareza da interface.
+
+**Contexto:** O usuário deseja explorar as funcionalidades disponíveis.
+
+**Tarefa(s):** 
+Acessar o menu principal
+Navegar entre páginas
+Retornar à tela inicial
+
+**Critério(s) de Sucesso(s):**
+- Usuário encontra informações facilmente.
+- Não se perde na navegação.
+
+**Cenário 4 – Solicitar ou oferecer ajuda**
+
+**Objetivo:** Avaliar a principal funcionalidade do sistema.
+
+**Contexto:** O usuário deseja participar da rede solidária, oferecendo ou solicitando ajuda.
+
+**Tarefa(s):** 
+Acessar a área de ações
+Criar uma solicitação ou oferta
+Preencher informações necessárias
+Confirmar envio
+
+**Critério(s) de Sucesso(s):**
+- A ação é concluída corretamente.
+- Usuário entende o processo.
+- Sem necessidade de suporte.
+
+**Cenário 5 – Correção de erros**
+
+**Objetivo:** O usuário insere dados incorretos em um formulário.
+
+**Contexto:** O usuário deseja participar da rede solidária, oferecendo ou solicitando ajuda.
+
+**Tarefa(s):** 
+Preencher formulário com erro
+Identificar mensagem do sistema
+Corrigir os dados
+
+**Critério(s) de Sucesso(s):**
+- Sistema apresenta mensagens claras.
+- Usuário consegue corrigir sozinho.
+
 
 ## Métodos de coleta de dados
 
-Os dados coletados devem ajudar a entender a experiência dos usuários e os dados podem ser coletados por observação direta incluindo métricas quantitativas (quantidade de cliques, número de erros, tempo gasto para cada tarefa etc.), métricas qualitativas (dificuldades, comentários etc.) e questionários pós-teste (A interface foi fácil de entender? Você encontrou dificuldades em alguma etapa? O que poderia ser melhorado?)
+**Métricas Quantitativas:**
+Tempo para completar tarefas.
+Número de erros cometidos.
+Número de cliques.
+Taxa de sucesso das tarefas.
 
-Para cada voluntário do teste, é fundamental coletar e apresentar todos os dados/métricas previamente definidos, mas não se esqueça: atendendo à LGPD (Lei Geral de Proteção de Dados), nenhum dado sensível, que permita identificar o voluntário, deverá ser apresentado).
+**Métricas Qualitativas:**
+Dificuldades relatadas.
+Comentários dos usuários.
+Comportamento durante o uso.
 
-As referências abaixo irão auxiliá-lo na geração do artefato "Plano de Testes de Usabilidade".
-
-> **Links Úteis**:
-> - [Teste De Usabilidade: O Que É e Como Fazer Passo a Passo (neilpatel.com)](https://neilpatel.com/br/blog/teste-de-usabilidade/)
-> - [Teste de usabilidade: tudo o que você precisa saber! | by Jon Vieira | Aela.io | Medium](https://medium.com/aela/teste-de-usabilidade-o-que-voc%C3%AA-precisa-saber-39a36343d9a6/)
-> - [Planejando testes de usabilidade: o que (e o que não) fazer | iMasters](https://imasters.com.br/design-ux/planejando-testes-de-usabilidade-o-que-e-o-que-nao-fazer/)
-> - [Ferramentas de Testes de Usabilidade](https://www.usability.gov/how-to-and-tools/resources/templates.html)
+**Questionário Pós-Teste:**
+O sistema foi fácil de usar?
+Você encontrou dificuldades?
+O que poderia melhorar?
+Você utilizaria a plataforma novamente?
