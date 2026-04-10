@@ -13,8 +13,7 @@ O fluxograma a seguir apresenta o fluxo principal de interação entre os usuár
 
 Nesse fluxo são considerados diferentes perfis de usuários, como pessoas afetadas por desastres naturais, doadores e voluntários, destacando as principais ações realizadas por cada um dentro da plataforma:
 <figure >
- <img src=
- <img width="1536" height="1024" alt="fluxograma conexao solidaria " src="https://github.com/user-attachments/assets/2f0794d0-faf7-48d2-91d7-8d0a66b31547" />
+ <img src="https://github.com/user-attachments/assets/2f0794d0-faf7-48d2-91d7-8d0a66b31547"/>
 </figure>
 
 
