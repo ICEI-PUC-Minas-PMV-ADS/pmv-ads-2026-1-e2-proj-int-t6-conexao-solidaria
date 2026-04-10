@@ -13,64 +13,8 @@ O fluxograma a seguir apresenta o fluxo principal de interação entre os usuár
 
 Nesse fluxo são considerados diferentes perfis de usuários, como pessoas afetadas por desastres naturais, doadores e voluntários, destacando as principais ações realizadas por cada um dentro da plataforma:
 
-```mermaid
-flowchart TD
+![Uploading ChatGPT Image 10 de abr. de 2026, 19_18_52.png…]()
 
-A[Usuário acessa a plataforma] --> B{Possui conta?}
-
-B -->|Não| C[Criar conta]
-C --> D[Preencher dados de cadastro]
-D --> E[Fazer login]
-
-B -->|Sim| E[Fazer login]
-
-E --> F[Entrar no sistema]
-
-F --> G{Tipo de usuário}
-
-%% VÍTIMA
-G --> H[Vítima]
-H --> I[Registrar solicitação de ajuda]
-I --> J[Descrever necessidade]
-J --> K[Selecionar itens necessários]
-K --> L[Definir nível de urgência]
-L --> M[Publicar solicitação]
-
-%% DOADOR
-G --> N[Doador]
-N --> O[Visualizar solicitações disponíveis]
-O --> P[Filtrar por urgência ou localização]
-P --> Q[Selecionar solicitação]
-Q --> R[Oferecer doação]
-
-%% VOLUNTÁRIO
-G --> S[Voluntário]
-S --> T[Visualizar solicitações]
-T --> U[Oferecer apoio logístico]
-
-%% ENTREGA
-R --> V[Agendar entrega]
-U --> V
-
-V --> W[Confirmar entrega/recebimento]
-
-W --> X[Avaliar usuário]
-X --> Y[Registrar feedback]
-
-Y --> Z[Fim do processo]
-```
-<!--
-O diagrama apresenta o estudo do fluxo de interação do usuário com o sistema interativo e  muitas vezes sem a necessidade do desenho do design das telas da interface. Isso permite que o design das interações seja bem planejado e gere impacto na qualidade no design do wireframe interativo que será desenvolvido logo em seguida.
-
-O diagrama de fluxo pode ser desenvolvido com “boxes” que possuem internamente a indicação dos principais elementos de interface - tais como menus e acessos - e funcionalidades, tais como editar, pesquisar, filtrar, configurar - e a conexão entre esses boxes a partir do processo de interação. Você pode ver mais explicações e exemplos https://www.lucidchart.com/blog/how-to-make-a-user-flow-diagram.
-
-![Exemplo de Diagrama de Fluxo](img/diagramafluxo2.jpg)
-
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas de Fluxo”.
-
-> **Links Úteis**:
-> - [Fluxograma online: seis sites para fazer gráfico sem instalar nada | Produtividade | TechTudo](https://www.techtudo.com.br/listas/2019/03/fluxograma-online-seis-sites-para-fazer-grafico-sem-instalar-nada.ghtml)
--->
 
 ## WireFrames
 
