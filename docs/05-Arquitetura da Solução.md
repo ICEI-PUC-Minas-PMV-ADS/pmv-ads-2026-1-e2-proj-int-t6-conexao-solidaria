@@ -127,11 +127,6 @@ Apresente também uma figura explicando como as tecnologias estão relacionadas 
 
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foi feita.
+A hospedagem e o lançamento da plataforma Conexão Solidária foram planejados para utilizar os serviços em nuvem do Microsoft Azure.
 
-> **Links Úteis**:
->
-> - [Website com GitHub Pages](https://pages.github.com/)
-> - [Programação colaborativa com Repl.it](https://repl.it/)
-> - [Getting Started with Heroku](https://devcenter.heroku.com/start)
-> - [Publicando Seu Site No Heroku](http://pythonclub.com.br/publicando-seu-hello-world-no-heroku.html)
+A escolha do Azure permite uma integração contínua e um ambiente robusto tanto para o banco de dados quanto para a aplicação web. O processo de deploy é realizado conectando o repositório principal do GitHub aos serviços de hospedagem da nuvem. Assim que novas implementações da equipe são mescladas (merged) na branch principal (main), o código é atualizado no servidor, refletindo as alterações em tempo real para os usuários finais (Beneficiários, Doadores e Voluntários).
