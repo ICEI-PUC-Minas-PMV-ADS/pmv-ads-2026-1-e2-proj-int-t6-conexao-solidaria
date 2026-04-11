@@ -24,7 +24,6 @@ Definição de como o software é estruturado em termos dos componentes que faze
 -->
 <!-- - [Como fazer um diagrama entidade relacionamento | Lucidchart](https://www.lucidchart.com/pages/pt/como-fazer-um-diagrama-entidade-relacionamento)
 -->
-## Projeto da Base de Dados
 
 ## Projeto da Base de Dados
 
