@@ -128,22 +128,6 @@ Para a implementação da plataforma Conexão Solidária, adotamos um conjunto d
 * **IDEs e Editores:** Visual Studio Code (VS Code) e/ou Visual Studio como principais ambientes de desenvolvimento integrado.
 * **Ferramentas de Design e Modelagem:** Ferramentas para a criação de fluxogramas, wireframes (Projeto de Interface) e diagramas UML (Diagrama de Classes e Modelo ER).
 
-### Fluxo de Interação e Arquitetura
-
-O diagrama abaixo ilustra a arquitetura básica da solução e como ocorre a interação do usuário desde o navegador até o retorno dos dados processados pelo back-end e armazenados no banco:
-
-```mermaid
-flowchart LR
-    A[Usuário\nNavegador Web] -->|Interação / Eventos| B(Front-end\nHTML / CSS / JS)
-    B <-->|Requisições HTTP / JSON| C{Back-end / API\nC# / .NET}
-    C <-->|Queries SQL| D[(Banco de Dados\nRelacional)]
-    
-    subgraph Infraestrutura em Nuvem Azure
-    C
-    D
-    end
-    
-    style Infraestrutura em Nuvem Azure fill:#f0f6ff,stroke:#005a9e,stroke-width:2px,stroke-dasharray: 5 5
 ## Hospedagem
 
 A hospedagem e o lançamento da plataforma Conexão Solidária foram planejados para utilizar os serviços em nuvem do Microsoft Azure.
