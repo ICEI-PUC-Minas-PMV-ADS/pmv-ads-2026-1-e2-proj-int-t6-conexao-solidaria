@@ -15,10 +15,10 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de
 
 ## Modelo ER (Projeto Conceitual)
  <figure>
-  <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria/blob/main/docs/img/ModeloEntidadeRelacionamento.png?raw=true" alt="Modelo entidade relacionamento – Conexão Solidária"/>
-    <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria/blob/main/docs/img/casosDeUso.png?raw=true" alt="Casos de uso – Conexão Solidária"/>
+     <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria/blob/main/docs/img/ModeloRelacionamentoEntidade.png?raw=true" alt="ModeloRelacionamentoEntidade – Conexão Solidária"/>
   <figcaption>Figura – Tela - Modelo Entidade Relacionamento - Conexão Solidária</figcaption>
 </figure>
+
 <!-- O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.
 -->
 <!--Sugestão de ferramentas para geração deste artefato: LucidChart e Draw.io.
