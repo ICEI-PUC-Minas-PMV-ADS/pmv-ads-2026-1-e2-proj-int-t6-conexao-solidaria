@@ -115,16 +115,35 @@ Mapeia a classe Mensagem, conectando quem "envia" e em qual chat ela está "cont
 * O sistema deve filtrar e exibir os Pedidos de Ajuda nas listas e mapas do Dashboard priorizando a categoria da demanda, o nível de urgência e a proximidade de localização em relação ao doador ou voluntário disposto a ajudar.
 * A estrutura de comunicação (Chats de Apoio e Mensagens) é vital para auditoria e para manter o "espaço seguro" do projeto. Ela agora organiza a comunicação em dois níveis: conversas diretas (para alinhar a logística de uma doação específica) e Grupos Solidários (salas coletivas para organizar ações em rede).
 * A plataforma controla o ciclo de vida do atendimento por meio de status integrados, culminando em uma etapa de Confirmação de Entrega (com checklist e evidências fotográficas) e Avaliação, o que alimenta a pontuação de reputação dos envolvidos.
-## ATENÇÃO!!!
-
-Os três artefatos — **Diagrama de Classes, Modelo ER e Projeto da Base de Dados** — devem ser desenvolvidos de forma sequencial e integrada, garantindo total coerência e compatibilidade entre eles. O diagrama de classes orienta a estrutura e o comportamento do software; o modelo ER traduz essa estrutura para o nível conceitual dos dados; e o projeto da base de dados materializa essas definições no formato físico (tabelas, colunas, chaves e restrições). A construção isolada ou desconexa desses elementos pode gerar inconsistências, dificultar a implementação e comprometer a qualidade do sistema.
 
 ## Tecnologias Utilizadas
 
-Descreva aqui qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
+Para a implementação da plataforma Conexão Solidária, adotamos um conjunto de tecnologias voltadas para o desenvolvimento web ágil, garantindo escalabilidade, responsividade e organização do código. As principais ferramentas e tecnologias incluem:
 
-Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
+* **Linguagens de Front-end:** HTML5, CSS3 e JavaScript, responsáveis pela estruturação, estilização e interatividade de todas as interfaces no navegador (Dashboard, Chats, Formulários de Solicitação e Doação).
+* **Linguagem de Back-end:** C# (utilizando o framework .NET), responsável por processar as regras de negócio, gerenciar a segurança e criar a API de comunicação entre a interface do usuário e os dados.
+* **Linguagem de Consulta:** SQL, utilizado para a modelagem, criação e manipulação do banco de dados relacional (representado no Projeto da Base de Dados).
+* **Ambiente em Nuvem (Cloud):** Microsoft Azure, utilizado para a estruturação de serviços, banco de dados e hospedagem da aplicação.
+* **Ferramentas de Versionamento e Colaboração:** Git e GitHub para controle de versão do código, documentação do projeto (Markdown) e gerenciamento de entregas.
+* **IDEs e Editores:** Visual Studio Code (VS Code) e/ou Visual Studio como principais ambientes de desenvolvimento integrado.
+* **Ferramentas de Design e Modelagem:** Ferramentas para a criação de fluxogramas, wireframes (Projeto de Interface) e diagramas UML (Diagrama de Classes e Modelo ER).
 
+### Fluxo de Interação e Arquitetura
+
+O diagrama abaixo ilustra a arquitetura básica da solução e como ocorre a interação do usuário desde o navegador até o retorno dos dados processados pelo back-end e armazenados no banco:
+
+```mermaid
+flowchart LR
+    A[Usuário\nNavegador Web] -->|Interação / Eventos| B(Front-end\nHTML / CSS / JS)
+    B <-->|Requisições HTTP / JSON| C{Back-end / API\nC# / .NET}
+    C <-->|Queries SQL| D[(Banco de Dados\nRelacional)]
+    
+    subgraph Infraestrutura em Nuvem Azure
+    C
+    D
+    end
+    
+    style Infraestrutura em Nuvem Azure fill:#f0f6ff,stroke:#005a9e,stroke-width:2px,stroke-dasharray: 5 5
 ## Hospedagem
 
 A hospedagem e o lançamento da plataforma Conexão Solidária foram planejados para utilizar os serviços em nuvem do Microsoft Azure.
