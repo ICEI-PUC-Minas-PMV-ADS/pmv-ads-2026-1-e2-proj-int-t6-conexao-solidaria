@@ -51,6 +51,7 @@ Centraliza todos os perfis (Administrador, Doador, Beneficiário, Voluntário) u
 | `localizacao` | VARCHAR | Endereço ou coordenadas (Específico de Beneficiário). |
 | `necessidadeAtual` | TEXT | Resumo da situação (Específico de Beneficiário). |
 
+
 **2. Tabela: Pedidos Ajuda**
 Substituiu a antiga tabela "Necessidades", espelhando exatamente a classe PedidoAjuda e a relação "solicita" do diagrama.
 
@@ -61,6 +62,7 @@ Substituiu a antiga tabela "Necessidades", espelhando exatamente a classe Pedido
 | `descricao` | TEXT | Detalhes sobre o pedido. |
 | `categoria` | VARCHAR | Categoria do pedido. |
 | `status` | VARCHAR | Ex: 'Aberto', 'Atendido', '
+
 
 **3. Tabela: Doacoes**
 Mapeia a classe Doacao. O diagrama mostra que uma doação "atende" a um PedidoAjuda (relação 0..* para 1), o que elimina a necessidade de uma tabela extra de "Match".
@@ -74,6 +76,7 @@ Mapeia a classe Doacao. O diagrama mostra que uma doação "atende" a um PedidoA
 | `status` | VARCHAR | Ex: 'Pendente', 'Entregue'. |
 | `dataDoacao` | DATETIME | Data do registro/efetivação. |
 
+
 **4. Tabela: ChatsApoio**
 Reflete a classe ChatApoio. Atende tanto ao fluxo de chat individual quanto aos "Grupos Solidários" definidos no projeto de interface.
 
@@ -82,6 +85,7 @@ Reflete a classe ChatApoio. Atende tanto ao fluxo de chat individual quanto aos 
 | `id` | PK (INT) | Identificador único. |
 | `nomeGrupo` | VARCHAR | Nome do grupo (pode ser nulo para chats 1-pra-1). |
 | `dataCriacao` | DATETIME | Quando o chat/grupo foi criado. |
+
 
 **5. Tabela: Participantes_Chat (Nova)**
 Tabela associativa necessária para resolver a relação "participa (0..*)" entre Usuario e ChatApoio vista no diagrama.
@@ -92,6 +96,7 @@ Tabela associativa necessária para resolver a relação "participa (0..*)" entr
 | `id_chat` | FK (INT) | Referência ao ChatApoio. |
 
 *(A chave primária aqui seria composta pelos dois IDs `id_usuario` e `id_chat`)*
+
 
 **6. Tabela: Mensagens**
 Mapeia a classe Mensagem, conectando quem "envia" e em qual chat ela está "contida".
