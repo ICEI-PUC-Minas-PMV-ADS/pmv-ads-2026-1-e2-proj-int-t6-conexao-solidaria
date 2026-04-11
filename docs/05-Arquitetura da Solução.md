@@ -15,7 +15,7 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de
 
 ## Modelo ER (Projeto Conceitual)
  <figure>
-     <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria/blob/main/docs/img/ModeloRelacionamentoEntidade .png?raw=true" alt="ModeloRelacionamentoEntidade – Conexão Solidária"/>
+     <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria/blob/main/docs/img/ModeloEntidadeRelacionamento.png?raw=true" alt="Modelo Entidade Relacionamento – Conexão Solidária"/>
   <figcaption>Figura – Tela - Modelo Entidade Relacionamento - Conexão Solidária</figcaption>
 </figure>
 
