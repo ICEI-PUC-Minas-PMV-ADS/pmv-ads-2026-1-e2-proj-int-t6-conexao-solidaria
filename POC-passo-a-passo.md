@@ -2,6 +2,8 @@
 
 Roteiro completo para uma única pessoa executar todas as etapas restantes do projeto Conexão Solidária, do zero até o vídeo da POC publicado e os documentos atualizados no repositório.
 
+**Tempo total estimado:** 22 a 30 horas, distribuíveis em 4 a 5 dias.
+
 **Pré-requisitos antes de começar:**
 - Conta na Microsoft Azure (o crédito gratuito de estudante PUC Minas funciona)
 - Conta no GitHub com acesso ao repositório do projeto
@@ -18,7 +20,7 @@ Roteiro completo para uma única pessoa executar todas as etapas restantes do pr
 ### Passo 1.1 — Preparar o ambiente local
 
 1. Instalar o **.NET SDK 8.0** se ainda não tiver.
-2. Instalar o **Visual Studio 2022 Community** com a workload "ASP.NET and web development" marcada.          
+2. Instalar o **Visual Studio 2022 Community** com a workload "ASP.NET and web development" marcada.
 3. Intalar o Azure CLI no Windows
    Abra o PowerShell como Administrador (clique com botão direito no PowerShell → "Executar como administrador") e rode:
   ```
