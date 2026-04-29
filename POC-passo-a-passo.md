@@ -2,8 +2,6 @@
 
 Roteiro completo para uma única pessoa executar todas as etapas restantes do projeto Conexão Solidária, do zero até o vídeo da POC publicado e os documentos atualizados no repositório.
 
-**Tempo total estimado:** 22 a 30 horas, distribuíveis em 4 a 5 dias.
-
 **Pré-requisitos antes de começar:**
 - Conta na Microsoft Azure (o crédito gratuito de estudante PUC Minas funciona)
 - Conta no GitHub com acesso ao repositório do projeto
@@ -15,17 +13,22 @@ Roteiro completo para uma única pessoa executar todas as etapas restantes do pr
 
 ---
 
-## Dia 1 — Setup local e validação (3 a 4 horas)
+## Setup local e validação
 
-### Passo 1.1 — Preparar o ambiente local (30 min)
+### Passo 1.1 — Preparar o ambiente local
 
 1. Instalar o **.NET SDK 8.0** se ainda não tiver.
-2. Instalar o **Visual Studio 2022 Community** com a workload "ASP.NET and web development" marcada.
-3. Instalar a ferramenta global do EF Core abrindo um terminal:
+2. Instalar o **Visual Studio 2022 Community** com a workload "ASP.NET and web development" marcada.          
+3. Intalar o Azure CLI no Windows
+   Abra o PowerShell como Administrador (clique com botão direito no PowerShell → "Executar como administrador") e rode:
+  ```
+  powershellwinget install -e --id Microsoft.AzureCLI
+  ```
+4. Instalar a ferramenta global do EF Core abrindo um terminal:
    ```bash
    dotnet tool install --global dotnet-ef
    ```
-4. Verificar que tudo está OK:
+5. Verificar que tudo está OK:
    ```bash
    dotnet --version    # deve mostrar 8.x.x
    dotnet ef --version # deve mostrar Entity Framework Core .NET Command-line Tools
@@ -33,7 +36,7 @@ Roteiro completo para uma única pessoa executar todas as etapas restantes do pr
 
 **Validação:** Os dois comandos devem retornar versões sem erro.
 
-### Passo 1.2 — Clonar o repositório e injetar o esqueleto (30 min)
+### Passo 1.2 — Clonar o repositório e injetar o esqueleto
 
 1. Clonar o repositório do projeto localmente:
    ```bash
@@ -54,7 +57,7 @@ Roteiro completo para uma única pessoa executar todas as etapas restantes do pr
 
 **Validação:** Estrutura de pastas idêntica à descrita no `README.md` do esqueleto.
 
-### Passo 1.3 — Rodar localmente pela primeira vez (45 min)
+### Passo 1.3 — Rodar localmente pela primeira vez
 
 1. Entrar na pasta `src`:
    ```bash
@@ -86,7 +89,7 @@ Roteiro completo para uma única pessoa executar todas as etapas restantes do pr
 
 **Validação:** Os 5 fluxos funcionam local sem erro 500. Se algo falhar, revisar o terminal — geralmente é problema de connection string ou migration.
 
-### Passo 1.4 — Commit da base local (15 min)
+### Passo 1.4 — Commit da base local
 
 1. Voltar para a raiz do repositório (`cd ..`).
 2. Criar `.gitignore` na raiz se ainda não existir (o esqueleto já fornece um).
