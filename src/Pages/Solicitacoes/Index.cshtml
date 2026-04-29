@@ -1,0 +1,75 @@
+@page
+@model ConexaoSolidaria.Pages.Solicitacoes.IndexModel
+@{
+    ViewData["Title"] = "Solicitações";
+}
+
+<div class="cs-page-header">
+    <div>
+        <h1 class="cs-page-title">Solicitações de Ajuda</h1>
+        <p class="cs-page-subtitle">@Model.Solicitacoes.Count solicitação(ões) encontrada(s)</p>
+    </div>
+    <div>
+        <a asp-page="/Solicitacoes/Nova" class="btn btn-cs-accent">+ Nova Solicitação</a>
+    </div>
+</div>
+
+<!-- FILTROS -->
+<form method="get" class="row g-2 mb-4">
+    <div class="col-12 col-md-3">
+        <select name="FiltroUrgencia" class="form-select" onchange="this.form.submit()">
+            <option value="">Todas as urgências</option>
+            <option value="alta"  selected="@(Model.FiltroUrgencia == "alta")">Alta</option>
+            <option value="media" selected="@(Model.FiltroUrgencia == "media")">Média</option>
+            <option value="baixa" selected="@(Model.FiltroUrgencia == "baixa")">Baixa</option>
+        </select>
+    </div>
+    <div class="col-12 col-md-3">
+        <select name="FiltroTipo" class="form-select" onchange="this.form.submit()">
+            <option value="">Todos os tipos</option>
+            <option value="alimentos"     selected="@(Model.FiltroTipo == "alimentos")">Alimentos</option>
+            <option value="medicamentos"  selected="@(Model.FiltroTipo == "medicamentos")">Medicamentos</option>
+            <option value="abrigo"        selected="@(Model.FiltroTipo == "abrigo")">Abrigo</option>
+            <option value="vestuario"     selected="@(Model.FiltroTipo == "vestuario")">Vestuário</option>
+            <option value="outros"        selected="@(Model.FiltroTipo == "outros")">Outros</option>
+        </select>
+    </div>
+    <div class="col-12 col-md-4">
+        <input name="FiltroCidade" value="@Model.FiltroCidade" class="form-control"
+               placeholder="Filtrar por cidade..." />
+    </div>
+    <div class="col-12 col-md-2">
+        <button type="submit" class="btn btn-cs-primary w-100">Filtrar</button>
+    </div>
+</form>
+
+<!-- LISTAGEM -->
+@if (!Model.Solicitacoes.Any())
+{
+    <div class="alert alert-info">
+        Nenhuma solicitação encontrada com os filtros aplicados.
+    </div>
+}
+else
+{
+    foreach (var s in Model.Solicitacoes)
+    {
+        <a asp-page="/Solicitacoes/Detalhes" asp-route-id="@s.Id" class="text-decoration-none">
+            <div class="cs-solic-card">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h3 class="cs-solic-title">@s.Titulo</h3>
+                    <span class="cs-badge @s.Urgencia">@s.Urgencia</span>
+                </div>
+                <p class="text-muted mb-2" style="font-size: 14px;">
+                    @(s.Descricao.Length > 140 ? s.Descricao.Substring(0, 140) + "…" : s.Descricao)
+                </p>
+                <div class="cs-solic-meta">
+                    📍 @s.Cidade / @s.Estado ·
+                    🏷 @s.TipoNecessidade ·
+                    👤 @(s.Usuario?.NomeCompleto ?? "Usuário") ·
+                    🕒 @s.CriadoEm.ToLocalTime().ToString("dd/MM/yyyy HH:mm")
+                </div>
+            </div>
+        </a>
+    }
+}

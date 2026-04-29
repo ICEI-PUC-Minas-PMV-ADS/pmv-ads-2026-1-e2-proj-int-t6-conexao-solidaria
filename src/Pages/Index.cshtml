@@ -1,0 +1,30 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Início";
+    Layout = "_LayoutPublic";
+}
+
+<div class="cs-public-card text-center">
+    <div class="cs-public-brand">
+        <div class="cs-public-brand-logo">CS</div>
+        <div class="cs-public-brand-title">CONEXÃO SOLIDÁRIA</div>
+        <div class="cs-public-brand-subtitle">
+            Conectando quem precisa a quem pode ajudar
+        </div>
+    </div>
+
+    <p class="text-muted mb-4">
+        Plataforma humanitária para conectar pessoas afetadas por desastres
+        naturais a doadores e voluntários, facilitando o acesso a apoio e à reconstrução.
+    </p>
+
+    <div class="d-grid gap-2">
+        <a asp-page="/Login" class="btn btn-cs-primary btn-lg">Entrar</a>
+        <a asp-page="/CriarConta" class="btn btn-outline-primary btn-lg">Criar Conta</a>
+    </div>
+
+    <div class="mt-4 text-muted" style="font-size: 12px;">
+        Versão POC · Conexão Solidária 2026
+    </div>
+</div>

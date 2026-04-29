@@ -1,0 +1,65 @@
+@page
+@model DashboardModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="cs-page-header">
+    <div>
+        <h1 class="cs-page-title">Olá, @Model.NomeUsuario 👋</h1>
+        <p class="cs-page-subtitle">Veja como você pode ajudar hoje</p>
+    </div>
+    <div>
+        <a asp-page="/Solicitacoes/Nova" class="btn btn-cs-accent">+ Nova Solicitação</a>
+    </div>
+</div>
+
+<!-- STAT CARDS -->
+<div class="row g-3 mb-4">
+    <div class="col-12 col-md-4">
+        <div class="cs-stat-card">
+            <div class="label">Solicitações cadastradas</div>
+            <div class="value">@Model.TotalSolicitacoes</div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
+        <div class="cs-stat-card">
+            <div class="label">Ativas no momento</div>
+            <div class="value">@Model.TotalAtivas</div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
+        <div class="cs-stat-card">
+            <div class="label">Urgência alta</div>
+            <div class="value" style="color: var(--danger);">@Model.TotalUrgentes</div>
+        </div>
+    </div>
+</div>
+
+<!-- LISTA DE URGENTES -->
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 style="font-size: 18px; font-weight: 700; margin: 0;">Solicitações urgentes próximas</h2>
+    <a asp-page="/Solicitacoes/Index" class="text-decoration-none small">Ver todas →</a>
+</div>
+
+@if (!Model.SolicitacoesUrgentes.Any())
+{
+    <div class="alert alert-info">Nenhuma solicitação ativa no momento.</div>
+}
+else
+{
+    foreach (var s in Model.SolicitacoesUrgentes)
+    {
+        <a asp-page="/Solicitacoes/Detalhes" asp-route-id="@s.Id" class="text-decoration-none">
+            <div class="cs-solic-card">
+                <div class="d-flex justify-content-between align-items-start">
+                    <h3 class="cs-solic-title">@s.Titulo</h3>
+                    <span class="cs-badge @s.Urgencia">@s.Urgencia</span>
+                </div>
+                <div class="cs-solic-meta">
+                    📍 @s.Cidade / @s.Estado · 🏷 @s.TipoNecessidade · 🕒 @s.CriadoEm.ToLocalTime().ToString("dd/MM HH:mm")
+                </div>
+            </div>
+        </a>
+    }
+}

@@ -1,0 +1,55 @@
+@page "{id:int}"
+@model ConexaoSolidaria.Pages.Solicitacoes.DetalhesModel
+@{
+    ViewData["Title"] = "Detalhes da Solicitação";
+    var s = Model.Solicitacao!;
+}
+
+<a asp-page="/Solicitacoes/Index" class="text-decoration-none mb-3 d-inline-block">← Voltar</a>
+
+<div class="row g-4">
+    <div class="col-12 col-lg-8">
+        <div class="cs-solic-card">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+                <h1 class="cs-page-title">@s.Titulo</h1>
+                <span class="cs-badge @s.Urgencia">@s.Urgencia</span>
+            </div>
+
+            <div class="cs-solic-meta mb-3">
+                📍 @s.Cidade / @s.Estado · 🏷 @s.TipoNecessidade · 🕒 @s.CriadoEm.ToLocalTime().ToString("dd/MM/yyyy HH:mm")
+            </div>
+
+            <hr />
+
+            <h2 style="font-size: 16px; font-weight: 700;">Descrição completa</h2>
+            <p style="white-space: pre-line;">@s.Descricao</p>
+
+            @if (!string.IsNullOrEmpty(s.AnexoUrl))
+            {
+                <h2 style="font-size: 16px; font-weight: 700; margin-top: 24px;">Anexo</h2>
+                <img src="@s.AnexoUrl" alt="Anexo da solicitação"
+                     class="img-fluid rounded" style="max-height: 400px;" />
+            }
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-4">
+        <div class="cs-stat-card mb-3">
+            <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 12px;">
+                Solicitante
+            </h3>
+            <div class="d-flex align-items-center gap-3">
+                <div class="cs-user-avatar" style="width: 48px; height: 48px; font-size: 20px;">
+                    @(s.Usuario?.NomeCompleto?.FirstOrDefault().ToString().ToUpper() ?? "?")
+                </div>
+                <div>
+                    <div style="font-weight: 700;">@(s.Usuario?.NomeCompleto ?? "Usuário")</div>
+                    <div class="text-muted small">@s.Usuario?.Cidade / @s.Usuario?.Estado</div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-cs-accent w-100 mb-2">💝 Oferecer Ajuda</button>
+        <button class="btn btn-outline-primary w-100">💬 Enviar Mensagem</button>
+    </div>
+</div>

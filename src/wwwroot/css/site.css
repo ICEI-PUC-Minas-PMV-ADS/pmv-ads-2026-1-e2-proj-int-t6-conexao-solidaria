@@ -1,0 +1,204 @@
+/* =============================================================================
+   Conexão Solidária — site.css
+   Paleta da marca + estrutura do Template Padrão (Header / Sidebar / Conteúdo)
+   ============================================================================= */
+
+:root {
+    --primary:   #1E73BE;
+    --primary-d: #155A99;
+    --secondary: #5CBFC2;
+    --accent:    #F28C28;
+    --txt:       #1A1A2E;
+    --txt-2:     #5A6478;
+    --bdr:       #E2E8F0;
+    --surf:      #F8FAFD;
+    --white:     #FFFFFF;
+    --danger:    #DC3545;
+    --warn:      #F0AD4E;
+    --ok:        #2DBE60;
+    --sb-w:      220px;
+    --hd-h:      64px;
+}
+
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--surf);
+    color: var(--txt);
+}
+
+/* === HEADER === */
+.cs-header {
+    position: fixed; top: 0; left: 0; right: 0; height: var(--hd-h);
+    background: var(--primary); color: white; z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.cs-header-inner {
+    height: 100%; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px;
+}
+.cs-brand { display: flex; align-items: center; gap: 12px; }
+.cs-brand-logo {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: var(--accent); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px;
+}
+.cs-brand-name { font-weight: 700; font-size: 16px; letter-spacing: 0.5px; }
+.cs-accent { color: var(--accent); }
+
+.cs-user-pill {
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 24px;
+}
+.cs-user-avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--accent); color: white; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; font-size: 13px;
+}
+.cs-user-name { font-size: 14px; font-weight: 600; }
+.cs-logout {
+    background: none; border: none; color: white;
+    font-size: 16px; cursor: pointer; padding: 0 4px;
+}
+
+/* === SHELL (sidebar + content) === */
+.cs-shell {
+    display: flex; padding-top: var(--hd-h); min-height: 100vh;
+}
+
+/* === SIDEBAR === */
+.cs-sidebar {
+    width: var(--sb-w); flex-shrink: 0;
+    background: white; border-right: 1px solid var(--bdr);
+    position: fixed; top: var(--hd-h); bottom: 0; left: 0;
+    display: flex; flex-direction: column;
+    padding: 20px 0;
+}
+.cs-nav { list-style: none; padding: 0; margin: 0; flex: 1; }
+.cs-nav li { margin: 4px 12px; }
+.cs-nav li a {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; border-radius: 8px;
+    text-decoration: none; color: var(--txt-2);
+    font-size: 14px; font-weight: 500;
+    transition: background 0.15s;
+}
+.cs-nav li a:hover { background: var(--surf); color: var(--primary); }
+.cs-nav li.active a {
+    background: rgba(30,115,190,0.1); color: var(--primary);
+    font-weight: 700; border-left: 3px solid var(--primary);
+}
+.cs-sidebar-footer { padding: 12px; border-top: 1px solid var(--bdr); }
+.cs-sidebar-footer a {
+    display: flex; align-items: center; gap: 12px;
+    padding: 8px 12px; color: var(--txt-2); text-decoration: none; font-size: 13px;
+}
+
+/* === CONTEÚDO === */
+.cs-content {
+    flex: 1; margin-left: var(--sb-w);
+    padding: 28px 32px; min-height: calc(100vh - var(--hd-h));
+}
+
+/* === BOTTOM NAV (mobile) === */
+.cs-bottom-nav {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0; height: 64px;
+    background: white; border-top: 1px solid var(--bdr);
+    z-index: 100;
+}
+.cs-bottom-nav a {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-decoration: none; color: var(--txt-2);
+    font-size: 18px; gap: 2px;
+}
+.cs-bottom-nav a.active { color: var(--primary); }
+.cs-bottom-nav a small { font-size: 10px; }
+
+/* === RESPONSIVIDADE === */
+@@media (max-width: 768px) {
+    .cs-sidebar { display: none; }
+    .cs-content { margin-left: 0; padding: 16px; padding-bottom: 80px; }
+    .cs-bottom-nav { display: flex; }
+}
+
+/* === COMPONENTES REUTILIZÁVEIS === */
+
+/* Stat cards do Dashboard */
+.cs-stat-card {
+    background: white; border: 1px solid var(--bdr); border-radius: 12px;
+    padding: 20px; height: 100%;
+}
+.cs-stat-card .label { font-size: 12px; color: var(--txt-2); text-transform: uppercase; }
+.cs-stat-card .value { font-size: 32px; font-weight: 800; color: var(--primary); margin-top: 6px; }
+
+/* Card de solicitação (listagem) */
+.cs-solic-card {
+    background: white; border: 1px solid var(--bdr); border-radius: 12px;
+    padding: 20px; margin-bottom: 14px; transition: box-shadow 0.15s;
+}
+.cs-solic-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.cs-solic-title { font-weight: 700; color: var(--txt); margin: 0 0 8px; }
+.cs-solic-meta { font-size: 13px; color: var(--txt-2); }
+
+/* Badges de urgência (RF08) */
+.cs-badge {
+    display: inline-block; padding: 3px 10px; border-radius: 12px;
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+}
+.cs-badge.alta  { background: var(--danger); color: white; }
+.cs-badge.media { background: var(--warn);   color: white; }
+.cs-badge.baixa { background: var(--ok);     color: white; }
+
+/* Botões de marca */
+.btn-cs-primary {
+    background: var(--primary); color: white;
+    border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600;
+}
+.btn-cs-primary:hover { background: var(--primary-d); color: white; }
+.btn-cs-accent {
+    background: var(--accent); color: white;
+    border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600;
+}
+
+/* Form labels */
+.cs-form label { font-weight: 600; color: var(--txt); margin-bottom: 4px; font-size: 14px; }
+.cs-form .form-control, .cs-form .form-select { border-color: var(--bdr); padding: 10px 12px; }
+
+/* === LAYOUT PÚBLICO (telas 01, 02, 03) === */
+.cs-public-body {
+    margin: 0; min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.cs-public-main { width: 100%; max-width: 480px; }
+.cs-public-card {
+    background: white; border-radius: 16px; padding: 36px 32px;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.18);
+}
+.cs-public-brand {
+    text-align: center; margin-bottom: 28px;
+}
+.cs-public-brand-logo {
+    width: 64px; height: 64px; border-radius: 14px;
+    background: var(--accent); color: white;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 24px;
+}
+.cs-public-brand-title {
+    font-size: 22px; font-weight: 800; margin-top: 12px; color: var(--primary);
+}
+.cs-public-brand-subtitle {
+    font-size: 13px; color: var(--txt-2); margin-top: 4px;
+}
+
+/* Page header (área de título dentro do shell) */
+.cs-page-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 24px; flex-wrap: wrap; gap: 12px;
+}
+.cs-page-title { font-size: 24px; font-weight: 800; margin: 0; color: var(--txt); }
+.cs-page-subtitle { font-size: 14px; color: var(--txt-2); margin: 4px 0 0; }

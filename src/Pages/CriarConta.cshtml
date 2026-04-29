@@ -1,0 +1,64 @@
+@page
+@model CriarContaModel
+@{
+    ViewData["Title"] = "Criar Conta";
+    Layout = "_LayoutPublic";
+}
+
+<div class="cs-public-card">
+    <div class="cs-public-brand">
+        <div class="cs-public-brand-logo">CS</div>
+        <div class="cs-public-brand-title">Crie sua conta</div>
+        <div class="cs-public-brand-subtitle">É rápido, gratuito e ajuda quem precisa</div>
+    </div>
+
+    @if (Model.ErrorList.Any())
+    {
+        <div class="alert alert-danger small">
+            <ul class="mb-0">
+                @foreach (var err in Model.ErrorList) { <li>@err</li> }
+            </ul>
+        </div>
+    }
+
+    <form method="post" class="cs-form">
+        <div class="mb-3">
+            <label asp-for="Input.NomeCompleto"></label>
+            <input asp-for="Input.NomeCompleto" class="form-control" placeholder="Seu nome completo" />
+            <span asp-validation-for="Input.NomeCompleto" class="text-danger small"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Input.Email">E-mail</label>
+            <input asp-for="Input.Email" type="email" class="form-control" placeholder="seu@email.com" />
+            <span asp-validation-for="Input.Email" class="text-danger small"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Input.Telefone">Telefone</label>
+            <input asp-for="Input.Telefone" class="form-control" placeholder="(11) 99999-0000" />
+            <span asp-validation-for="Input.Telefone" class="text-danger small"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Input.Senha">Senha</label>
+            <input asp-for="Input.Senha" type="password" class="form-control" placeholder="Mín. 8 caracteres" />
+            <small class="text-muted">Use letras maiúsculas, minúsculas, números e símbolos.</small>
+            <span asp-validation-for="Input.Senha" class="text-danger small d-block"></span>
+        </div>
+
+        <div class="mb-4">
+            <label asp-for="Input.ConfirmarSenha"></label>
+            <input asp-for="Input.ConfirmarSenha" type="password" class="form-control" placeholder="Repita a senha" />
+            <span asp-validation-for="Input.ConfirmarSenha" class="text-danger small"></span>
+        </div>
+
+        <button type="submit" class="btn btn-cs-primary w-100 mb-3">Criar Conta</button>
+    </form>
+
+    <div class="text-center">
+        <small class="text-muted">
+            Já tem conta? <a asp-page="/Login">Entrar</a>
+        </small>
+    </div>
+</div>

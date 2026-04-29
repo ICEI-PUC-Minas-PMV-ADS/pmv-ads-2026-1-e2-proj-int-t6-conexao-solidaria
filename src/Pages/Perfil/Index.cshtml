@@ -1,0 +1,78 @@
+@page
+@model ConexaoSolidaria.Pages.Perfil.IndexModel
+@{
+    ViewData["Title"] = "Meu Perfil";
+}
+
+<div class="cs-page-header">
+    <div>
+        <h1 class="cs-page-title">Meu Perfil</h1>
+        <p class="cs-page-subtitle">Atualize suas informações pessoais</p>
+    </div>
+</div>
+
+@if (!string.IsNullOrEmpty(Model.MensagemSucesso))
+{
+    <div class="alert alert-success">@Model.MensagemSucesso</div>
+}
+
+<form method="post" enctype="multipart/form-data" class="cs-form" style="max-width: 720px;">
+
+    <!-- FOTO -->
+    <div class="cs-stat-card mb-4">
+        <div class="d-flex align-items-center gap-4">
+            @if (!string.IsNullOrEmpty(Model.FotoAtualUrl))
+            {
+                <img src="@Model.FotoAtualUrl" alt="Foto de perfil"
+                     style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover;" />
+            }
+            else
+            {
+                <div class="cs-user-avatar"
+                     style="width: 96px; height: 96px; font-size: 36px;">
+                    @(Model.Input.NomeCompleto?.FirstOrDefault().ToString().ToUpper() ?? "?")
+                </div>
+            }
+            <div class="flex-grow-1">
+                <label for="Foto" style="font-weight: 700;">Foto de perfil</label>
+                <input asp-for="Foto" type="file" accept="image/*" class="form-control" />
+                <small class="text-muted">JPG ou PNG até 5 MB</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- DADOS PESSOAIS -->
+    <div class="row g-3">
+        <div class="col-12">
+            <label>E-mail</label>
+            <input class="form-control" value="@Model.Email" disabled />
+            <small class="text-muted">O e-mail não pode ser alterado</small>
+        </div>
+
+        <div class="col-12">
+            <label asp-for="Input.NomeCompleto"></label>
+            <input asp-for="Input.NomeCompleto" class="form-control" />
+            <span asp-validation-for="Input.NomeCompleto" class="text-danger small"></span>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <label asp-for="Input.Telefone">Telefone</label>
+            <input asp-for="Input.Telefone" class="form-control" placeholder="(11) 99999-0000" />
+        </div>
+
+        <div class="col-12 col-md-4">
+            <label asp-for="Input.Cidade">Cidade</label>
+            <input asp-for="Input.Cidade" class="form-control" />
+        </div>
+
+        <div class="col-6 col-md-2">
+            <label asp-for="Input.Estado">UF</label>
+            <input asp-for="Input.Estado" class="form-control text-uppercase" maxlength="2" />
+        </div>
+    </div>
+
+    <div class="d-flex gap-2 mt-4">
+        <button type="submit" class="btn btn-cs-primary">Salvar Alterações</button>
+        <a asp-page="/Dashboard" class="btn btn-outline-secondary">Cancelar</a>
+    </div>
+</form>
