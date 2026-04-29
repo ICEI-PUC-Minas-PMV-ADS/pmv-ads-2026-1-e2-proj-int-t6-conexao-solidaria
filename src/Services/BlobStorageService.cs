@@ -20,11 +20,13 @@ public class BlobStorageService : IBlobStorageService
         var serviceClient = new BlobServiceClient(connectionString);
         _container = serviceClient.GetBlobContainerClient(containerName);
 
+        // Garante que o container existe e é publicamente legível
         _container.CreateIfNotExists(PublicAccessType.Blob);
     }
 
     public async Task<string> UploadAsync(Stream content, string fileName, string contentType)
     {
+        // Gera nome único para evitar colisões
         var ext = Path.GetExtension(fileName);
         var blobName = $"{Guid.NewGuid():N}{ext}";
 
@@ -34,7 +36,7 @@ public class BlobStorageService : IBlobStorageService
         return blob.Uri.ToString();
   
 
-  }
+    }
 
 }
 
