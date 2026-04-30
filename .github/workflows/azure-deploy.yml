@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: conexao-solidaria
+  AZURE_WEBAPP_NAME: conexao-solidaria-6811
   AZURE_WEBAPP_PACKAGE_PATH: './publish'
   DOTNET_VERSION: '8.0.x'
   PROJECT_PATH: 'src/ConexaoSolidaria.csproj'
