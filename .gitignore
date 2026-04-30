@@ -20,3 +20,7 @@ Thumbs.db
 ## IDEs
 .idea/
 *.iml
+
+# Production config with secrets - NEVER commit
+appsettings.Production.json
+src/appsettings.Production.json

@@ -1,0 +1,6 @@
+﻿{
+    "DefaultConnection":  {
+                              "value":  "Server=tcp:sql-conexaosol-6754.database.windows.net,1433;Database=ConexaoSolidariaDB;User ID=csadmin;Password=NovaSenhaForte!2026;Encrypt=True;TrustServerCertificate=False;",
+                              "type":  "SQLAzure"
+                          }
+}
