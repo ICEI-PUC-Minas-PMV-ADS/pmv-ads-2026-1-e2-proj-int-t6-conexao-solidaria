@@ -24,3 +24,17 @@ Thumbs.db
 # Production config with secrets - NEVER commit
 appsettings.Production.json
 src/appsettings.Production.json
+
+# === Arquivos com credenciais - NUNCA committar ===
+src/appsettings.Production.json
+appsettings.Production.json
+src/appsettings-temp.json
+src/connstring.json
+src/publish.zip
+src/publish/
+src/publish-profile.xml
+publish-profile.xml
+*.PublishSettings
+
+# === Pastas do Visual Studio ===
+.vs/
