@@ -21,23 +21,10 @@ A tabela a seguir é um exemplo de como ela deverá ser preenchida considerando 
 
 |ID    | Descrição do Requisito  | Artefatos produzidos | Aluno(a) responsável |
 |------|-----------------------------------------|----|----|
-|RF-001| A aplicação deve permitir que o usuário avalie uma agência de intercâmbio com base na sua experiência| |  |
+|RF-001| Criar conta | CriarConta.cshtml, UsuariosController.cs | Arthur Eduardo Andrade Lobo  |
 |RF-002| A aplicação deve permitir que o usuário inclua comentários ao fazer uma avaliação de uma agência de intercâmbio     |  |  |
 |RF-003| A aplicação deve permitir que o usuário consulte todas as agências de intercâmbio cadastradas ordenando-as com base em suas notas |  |  |
 
-ID,Descrição do Requisito,Artefatos produzidos (Views e Controllers),Aluno(a) responsável
-RF-001,Criar conta,"CriarConta.cshtml, UsuariosController.cs",Arthur Eduardo Andrade Lobo (Back-end) / [Nome da Dupla] (Front-end)
-RF-002,Gerenciar conta,"Login.cshtml, UsuariosController.cs",Arthur Eduardo Andrade Lobo (Back-end) / [Nome da Dupla] (Front-end)
-RF-003,Avaliar usuário,"Avaliacao.cshtml, AvaliacoesController.cs",Arthur Eduardo Andrade Lobo (Back-end) / [Nome da Dupla] (Front-end)
-RF-004,Acessar chat de apoio,"Chat.cshtml, ChatHub.cs (SignalR)",Arthur Eduardo Andrade Lobo (Back-end) / [Nome da Dupla] (Front-end)
-RF-005,Visualizar pedido,"DetalhesSolicitacao.cshtml, PedidosController.cs",Arthur Eduardo Andrade Lobo (Back-end) / [Nome da Dupla] (Front-end)
-RF-006,Realizar doação,"ComoAjudar.cshtml, DoacoesController.cs",Arthur Eduardo Andrade Lobo (Back-end) / [Nome da Dupla] (Front-end)
-RF-007,Gerenciar pedidos,"ListaSolicitacoes.cshtml, NovaSolicitacao.cshtml, PedidosController.cs",Arthur Eduardo Andrade Lobo (Back-end) / [Nome da Dupla] (Front-end)
-RF-008,Gerenciar doações,"ConfirmacaoEntrega.cshtml, DoacoesController.cs",Arthur Eduardo Andrade Lobo (Back-end) / [Nome da Dupla] (Front-end)
-RF-009,Gerenciar usuários,"DashboardAdmin.cshtml, AdminController.cs",Arthur Eduardo Andrade Lobo (Back-end) / [Nome da Dupla] (Front-end)
-RF-010,Registrar doações,"AjudaConfirmada.cshtml, DoacoesController.cs",Arthur Eduardo Andrade Lobo (Back-end) / [Nome da Dupla] (Front-end)
-RF-011,Recuperar a senha do usuário,"RecuperarSenha.cshtml, AuthController.cs",Arthur Eduardo Andrade Lobo (Back-end) / [Nome da Dupla] (Front-end)
-RF-012,Editar perfil,"MeuPerfil.cshtml, UsuariosController.cs",Arthur Eduardo Andrade Lobo (Back-end) / [Nome da Dupla] (Front-end)
 Fontes
 https://github.com/ICEI-PUC-Minas-PMV-ADS/icei-puc-minas-pmv-ads-2025-1-e2-proj-int-t4-odontofacil
 # Instruções de acesso
