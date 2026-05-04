@@ -38,3 +38,5 @@ publish-profile.xml
 
 # === Pastas do Visual Studio ===
 .vs/
+
+.fake
