@@ -13,6 +13,7 @@
     <!-- ASP.NET Core Identity (autenticação) -->
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="10.0.3" />
 
     <!-- Entity Framework Core + Provider SQL Server -->
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
