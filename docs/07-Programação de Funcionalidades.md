@@ -25,6 +25,12 @@ Nesta seção, detalhamos a implementação das funcionalidades do sistema **Con
 | **RF-010** | Registrar doações concluídas | `Doacoes/Confirmar.cshtml`, `DoacoesController.cs` | Arthur Eduardo A. Lobo |
 | **RF-011** | Recuperar a senha do usuário | `Usuarios/RecuperarSenha.cshtml`, `UsuariosController.cs` | Arthur Eduardo A. Lobo |
 | **RF-012** | Editar perfil | `Usuarios/Perfil.cshtml`, `UsuariosController.cs` | Arthur Eduardo A. Lobo |
+| **RF-013** | Criar e Gerenciar Grupos Solidáriosl | `GruposController.cs` | Arthur Eduardo A. Lobo |
+| **RF-014** | Participar e Sair de Grupos Existentes | `GruposController.cs` | Arthur Eduardo A. Lobo |
+| **RF-015** | Compartilhar Grupos via Link ou QR Code | `GruposController.cs` | Arthur Eduardo A. Lobo |
+| **RF-016** | Visualizar Painel de Estatísticas e Relatórios de Demandas | `AdminController.cs` | Arthur Eduardo A. Lobo |
+| **RF-017** | Filtrar e Pesquisar Solicitações por categoria, urgência e localização | `PedidosController.cs` | Arthur Eduardo A. Lobo |
+| **RF-018** | Reportar incidentes ou problemas em uma doação/atendimento | `AtendimentosController.cs` | Arthur Eduardo A. Lobo |
 
 ---
 
