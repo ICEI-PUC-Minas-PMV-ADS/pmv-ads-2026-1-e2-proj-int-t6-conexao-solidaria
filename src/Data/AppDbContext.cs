@@ -7,6 +7,7 @@ namespace ConexaoSolidaria.Data;
 /// <summary>
 /// Contexto do Entity Framework Core. Estende IdentityDbContext
 /// para que as tabelas de Identity sejam criadas no Azure SQL.
+/// DI - Injestão de Dependência - Classe Startup
 /// </summary>
 public class AppDbContext : IdentityDbContext<Usuario>
 {
