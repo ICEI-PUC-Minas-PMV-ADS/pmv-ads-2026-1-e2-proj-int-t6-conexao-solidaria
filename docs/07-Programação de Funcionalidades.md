@@ -1,66 +1,49 @@
 # Programação de Funcionalidades (INCLUIR A PROGRAMAÇAÕ DE FUNCIONALIDADE EM PROFUNDIDADE)
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="5-Arquitetura da Solução.md"> Arquitetura da Solução</a>
+# Programação de Funcionalidades - Etapa 3
 
-Nesta seção, a implementação do sistema descrita por meio dos requisitos funcionais e/ou não funcionais. Nesta seção, é essencial relacionar os requisitos atendidos com os artefatos criados (código fonte) e com o(s) responsável(is) pelo desenvolvimento de cada artefato a cada etapa. Nesta seção também deverão ser apresentadas, se necessário, as instruções para acesso e verificação da **implementação que deve estar funcional no ambiente de hospedagem, OBRIGATORIAMENTE, a partir da Etapa 03**.
+[cite_start]Nesta secção, detalhamos a implementação das funcionalidades do sistema **Conexão Solidária**, relacionando os requisitos funcionais aos artefatos de código produzidos em **ASP.NET MVC**[cite: 1, 5]. [cite_start]A implementação está focada em garantir que a lógica de negócio suporte o ciclo completo de ajuda humanitária[cite: 1].
 
-**O que DEVE ser utilizado para o desenvolvimento da aplicação:**
-- Microsoft Visual Studio (IDE de Codificação)
-- HTML e CSS (frontend)
-- Javascript (frontend)
-- C# (backend)
-- MySQL ou SQLServer(Base de Dados)
-- Bootstrap (template responsivo para frontend)
-- Github (documentação e controle de versão)
+## 🛠️ Tecnologias Utilizadas
+* [cite_start]**Back-end:** C# com framework .NET[cite: 5].
+* [cite_start]**Front-end:** HTML, CSS, JavaScript e Bootstrap[cite: 1].
+* [cite_start]**Base de Dados:** SQL Server / Azure SQL Database[cite: 5].
+* [cite_start]**Cloud:** Microsoft Azure (Hospedagem e Base de Dados)[cite: 5].
 
-**O que NÃO PODE ser utilizado:**
-- Template React (e qualquer outro template - exceto o Bootstrap)
-- Qualquer outra liguagem de programação diferente de C#
+## 📋 Mapeamento de Funcionalidades
 
-A tabela a seguir é um exemplo de como ela deverá ser preenchida considerando os artefatos desenvolvidos.
+| ID | [cite_start]Descrição do Requisito [cite: 2] | [cite_start]Artefatos Produzidos (Views/Controllers) [cite: 1, 6] | Responsável |
+|:---|:---|:---|:---|
+| **RF-001** | Criar conta | `Usuarios/CriarConta.cshtml`, `UsuariosController.cs` | Arthur Eduardo A. Lobo |
+| **RF-002** | Gerenciar conta (Login/Logout) | `Usuarios/Login.cshtml`, `UsuariosController.cs` | Arthur Eduardo A. Lobo |
+| **RF-003** | Avaliar usuário | `Avaliacoes/Index.cshtml`, `AvaliacoesController.cs` | Arthur Eduardo A. Lobo |
+| **RF-004** | Acessar chat de apoio | `Chat/Conversa.cshtml`, `ChatController.cs` | Arthur Eduardo A. Lobo |
+| **RF-005** | Visualizar pedido de ajuda | `Pedidos/Detalhes.cshtml`, `PedidosController.cs` | Arthur Eduardo A. Lobo |
+| **RF-006** | Realizar doação | `Doacoes/Criar.cshtml`, `DoacoesController.cs` | Arthur Eduardo A. Lobo |
+| **RF-007** | Gerenciar pedidos (Criar/Editar) | `Pedidos/Index.cshtml`, `PedidosController.cs` | Arthur Eduardo A. Lobo |
+| **RF-008** | Gerenciar doações (Confirmação) | `Doacoes/Index.cshtml`, `DoacoesController.cs` | Arthur Eduardo A. Lobo |
+| **RF-009** | Gerenciar usuários (Painel Admin) | `Admin/Usuarios.cshtml`, `AdminController.cs` | Arthur Eduardo A. Lobo |
+| **RF-010** | Registrar doações concluídas | `Doacoes/Confirmar.cshtml`, `DoacoesController.cs` | Arthur Eduardo A. Lobo |
+| **RF-011** | Recuperar a senha do usuário | `Usuarios/RecuperarSenha.cshtml`, `UsuariosController.cs` | Arthur Eduardo A. Lobo |
+| **RF-012** | Editar perfil | `Usuarios/Perfil.cshtml`, `UsuariosController.cs` | Arthur Eduardo A. Lobo |
 
-|ID    | Descrição do Requisito  | Artefatos produzidos | Aluno(a) responsável |
-|------|-----------------------------------------|----|----|
-|RF-001| Criar conta | CriarConta.cshtml, UsuariosController.cs | Arthur Eduardo Andrade Lobo  |
-|RF-002| Gerenciar conta | Login.cshtml, UsuariosController.cs  | Arthur Eduardo Andrade Lobo |
-|RF-003| Avaliar usuário | Avaliacao.cshtml, AvaliacoesController.cs | Arthur Eduardo Andrade Lobo |
-|RF-004| Acessar chat de apoio | Chat.cshtml, ChatHub.cs | Arthur Eduardo Andrade Lobo |
-|RF-005| Visualizar pedido | DetalhesSolicitacao.cshtml, PedidosController.cs | Arthur Eduardo Andrade Lobo |
-|RF-006| Realizar doação | ComoAjudar.cshtml, DoacoesController.cs | Arthur Eduardo Andrade Lobo |
-|RF-007| Gerenciar pedidos | ListaSolicitacoes.cshtml, NovaSolicitacao.cshtml, PedidosController.cs | Arthur Eduardo Andrade Lobo |
-|RF-008| Gerenciar doações | ConfirmacaoEntrega.cshtml, DoacoesController.cs | Arthur Eduardo Andrade Lobo |
-|RF-009| Gerenciar usuários | DashboardAdmin.cshtml, AdminController.cs | Arthur Eduardo Andrade Lobo |
-|RF-010| Registrar doações | AjudaConfirmada.cshtml, DoacoesController.cs | Arthur Eduardo Andrade Lobo |
-|RF-011| Recuperar a senha do usuário | RecuperarSenha.cshtml, AuthController.cs | Arthur Eduardo Andrade Lobo |
-|RF-012| Editar perfil | MeuPerfil.cshtml, UsuariosController.cs | Arthur Eduardo Andrade Lobo |
+---
 
+## 🚀 Instruções de Acesso
 
-# Instruções de acesso
+[cite_start]A aplicação está funcional e hospedada no ambiente Microsoft Azure[cite: 1].
 
-A aplicação estará disponível para acesso no ambiente de produção hospedado na nuvem (Microsoft Azure) a partir da Etapa 03.
+* **Link da Aplicação:** [https://conexaosolidaria.azurewebsites.net](https://conexaosolidaria.azurewebsites.net)
+* **Repositório GitHub:** [Link do Projeto](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria.git)
 
-URL da Aplicação:
-https://conexaosolidaria.azurewebsites.net (Nota: Substitua por sua URL real após o deploy no Azure)
+### [cite_start]Contas de Teste[cite: 1]:
+| Perfil | Usuário | Senha |
+|:---|:---|:---|
+| **Administrador** | `admin@conexaosolidaria.com` | `Admin@2026` |
+| **Doador/Voluntário** | `doador@teste.com` | `Teste@123` |
+| **Beneficiário** | `beneficiario@teste.com` | `Teste@123` |
 
-Para facilitar a verificação da implementação e testes de diferentes perfis de acesso, utilize as credenciais abaixo:
-
-Usuário Administrador (Acesso total às métricas e gestão):
-
-Login: admin@conexaosolidaria.com
-
-Senha: Admin@2026
-
-Usuário Voluntário/Doador (Visualização de pedidos e chat):
-
-Login: voluntario@conexaosolidaria.com
-
-Senha: Teste@123
-
-Usuário Beneficiário (Registro de necessidades):
-
-Login: beneficiario@conexaosolidaria.com
-
-Senha: Teste@123
+---
 
 > **Links Úteis**:
 >
