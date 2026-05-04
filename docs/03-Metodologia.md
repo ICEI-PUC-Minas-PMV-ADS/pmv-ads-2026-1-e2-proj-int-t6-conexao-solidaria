@@ -91,14 +91,14 @@ O quadro Kanban pode ser acessado em:
 
 <figure>
   <img src="img/Kanban-ConexaoSolidaria.png" alt="Kanban – Conexão Solidária"/>
-  <figcaption>Figura 3 – Tela do quadro Kanban do GitHub criada pelo grupo</figcaption>
+  <figcaption>Figura 3 – Tela do quadro Kanban do GitHub criada pelo grupo.</figcaption>
 </figure>
 
 A tarefas são classificadas em função da natureza ou prioridade da atividade e seguem o um esquema de etiquetagem entre cores e categorias que pode ser visto pela Figura 4:
 
 <figure>
   <img src="img/Labels-ConexaoSolidaria.png" alt="Kanban – Conexão Solidária"/>
-  <figcaption>Figura 4 – Tela de etiquetas do quadro Kanban no GitHub</figcaption>
+  <figcaption>Figura 4 – Tela de etiquetas do quadro Kanban no GitHub.</figcaption>
 </figure>
 
 ### Ferramentas

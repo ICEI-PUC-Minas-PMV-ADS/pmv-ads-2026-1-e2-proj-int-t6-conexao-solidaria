@@ -14,6 +14,7 @@ O fluxograma a seguir apresenta o fluxo principal de interação entre os usuár
 Nesse fluxo são considerados diferentes perfis de usuários, como pessoas afetadas por desastres naturais, doadores e voluntários, destacando as principais ações realizadas por cada um dentro da plataforma:
 <figure >
  <img src="https://github.com/user-attachments/assets/2f0794d0-faf7-48d2-91d7-8d0a66b31547"/>
+ <figcaption>Figura 5 – Diagrama de Fluxo.</figcaption>
 </figure>
 
 
@@ -28,7 +29,7 @@ Conforme fluxo de telas do projeto amostrado no item anterior, as telas do siste
 
 <figure>
   <img src="img/wf-padrao-desktop.png" alt="WireFrame Padrão — Conexão Solidária"/>
-  <figcaption>Figura 5 – Estrutura padrão das telas do sistema Conexão Solidária</figcaption>
+  <figcaption>Figura 6 – Estrutura padrão das telas do sistema Conexão Solidária.</figcaption>
 </figure>
 
 ---
@@ -53,7 +54,7 @@ flowchart LR
 
 <figure>
   <img src="img/fluxo-01-autenticacao-desktop.png" alt="Fluxo de Autenticação — Conexão Solidária"/>
-  <figcaption>Figura 6 – Fluxo de Autenticação (visão geral das telas)</figcaption>
+  <figcaption>Figura 7 – Fluxo de Autenticação (visão geral das telas).</figcaption>
 </figure>
 
 #### Tela 01 — Tela Inicial
@@ -62,7 +63,7 @@ Ponto de entrada da aplicação. Apresenta a identidade visual da plataforma, im
 
 <figure>
   <img src="img/wf-01-tela-inicial.png" alt="WireFrame — Tela Inicial"/>
-  <figcaption>Figura 7 – WireFrame da Tela Inicial</figcaption>
+  <figcaption>Figura 8 – WireFrame da Tela Inicial</figcaption>
 </figure>
 
 #### Tela 02 — Login
@@ -71,7 +72,7 @@ Formulário de autenticação com campos de e-mail e senha, opção de acesso vi
 
 <figure>
   <img src="img/wf-02-login.png" alt="WireFrame — Login"/>
-  <figcaption>Figura 8 – WireFrame da tela de Login</figcaption>
+  <figcaption>Figura 9 – WireFrame da tela de Login.</figcaption>
 </figure>
 
 #### Tela 03 — Criar Conta
@@ -80,7 +81,7 @@ Formulário de cadastro com campos de nome completo, e-mail, telefone, senha e c
 
 <figure>
   <img src="img/wf-03-criar-conta.png" alt="WireFrame — Criar Conta"/>
-  <figcaption>Figura 9 – WireFrame da tela de Criar Conta</figcaption>
+  <figcaption>Figura 10 – WireFrame da tela de Criar Conta</figcaption>
 </figure>
 
 #### Tela 04 — Dashboard
@@ -89,7 +90,7 @@ Tela principal do sistema, exibida logo após a autenticação. Apresenta as est
 
 <figure>
   <img src="img/wf-04-dashboard.png" alt="WireFrame — Dashboard"/>
-  <figcaption>Figura 10 – WireFrame do Dashboard</figcaption>
+  <figcaption>Figura 11 – WireFrame do Dashboard.</figcaption>
 </figure>
 
 ---
@@ -120,7 +121,7 @@ flowchart LR
 
 <figure>
   <img src="img/fluxo-02-solicitacao-ajuda-desktop.png" alt="Fluxo de Solicitação e Ajuda — Conexão Solidária"/>
-  <figcaption>Figura 11 – Fluxo de Solicitação e Ajuda (visão geral das telas)</figcaption>
+  <figcaption>Figura 12 – Fluxo de Solicitação e Ajuda (visão geral das telas).</figcaption>
 </figure>
 
 #### Tela 05 — Lista de Solicitações
@@ -129,7 +130,7 @@ Listagem de solicitações ativas com barra de busca e filtros por urgência, pr
 
 <figure>
   <img src="img/wf-05-lista-solicitacoes.png" alt="WireFrame — Lista de Solicitações"/>
-  <figcaption>Figura 12 – WireFrame da tela de Lista de Solicitações</figcaption>
+  <figcaption>Figura 13 – WireFrame da tela de Lista de Solicitações</figcaption>
 </figure>
 
 #### Tela 06 — Detalhes da Solicitação
@@ -138,7 +139,7 @@ Exibe o mapa de localização da solicitação, informações completas (tipo de
 
 <figure>
   <img src="img/wf-06-detalhes-solicitacao.png" alt="WireFrame — Detalhes da Solicitação"/>
-  <figcaption>Figura 13 – WireFrame da tela de Detalhes da Solicitação</figcaption>
+  <figcaption>Figura 14 – WireFrame da tela de Detalhes da Solicitação</figcaption>
 </figure>
 
 #### Tela 10 — Como Ajudar
@@ -147,7 +148,7 @@ Permite ao usuário escolher a modalidade de apoio: doação de itens (alimentos
 
 <figure>
   <img src="img/wf-10-detalhes-ajuda.png" alt="WireFrame — Como Ajudar"/>
-  <figcaption>Figura 14 – WireFrame da tela de Como Ajudar</figcaption>
+  <figcaption>Figura 15 – WireFrame da tela de Como Ajudar.</figcaption>
 </figure>
 
 #### Tela 15 — Ajuda Confirmada
@@ -156,7 +157,7 @@ Tela de feedback exibida após a combinação bem-sucedida entre ofertante e sol
 
 <figure>
   <img src="img/wf-15-ajuda-confirmada.png" alt="WireFrame — Ajuda Confirmada"/>
-  <figcaption>Figura 15 – WireFrame da tela de Ajuda Confirmada</figcaption>
+  <figcaption>Figura 16 – WireFrame da tela de Ajuda Confirmada.</figcaption>
 </figure>
 
 #### Tela 16 — Avaliação
@@ -165,7 +166,7 @@ Permite avaliar a experiência com sistema de estrelas e campo de comentário op
 
 <figure>
   <img src="img/wf-16-avaliacao.png" alt="WireFrame — Avaliação"/>
-  <figcaption>Figura 16 – WireFrame da tela de Avaliação</figcaption>
+  <figcaption>Figura 17 – WireFrame da tela de Avaliação.</figcaption>
 </figure>
 
 #### Tela 17 — Confirmação de Entrega
@@ -174,7 +175,7 @@ Tela de encerramento do ciclo de ajuda. O usuário registra uma foto da entrega,
 
 <figure>
   <img src="img/wf-17-confirmacao-entrega.png" alt="WireFrame — Confirmação de Entrega"/>
-  <figcaption>Figura 17 – WireFrame da tela de Confirmação de Entrega</figcaption>
+  <figcaption>Figura 18 – WireFrame da tela de Confirmação de Entrega.</figcaption>
 </figure>
 
 ---
@@ -198,7 +199,7 @@ flowchart LR
 
 <figure>
   <img src="img/fluxo-03-chat-desktop.png" alt="Fluxo de Chat e Mensagens — Conexão Solidária"/>
-  <figcaption>Figura 18 – Fluxo de Chat e Mensagens (visão geral das telas)</figcaption>
+  <figcaption>Figura 19 – Fluxo de Chat e Mensagens (visão geral das telas).</figcaption>
 </figure>
 
 #### Tela 09a — Chat — Lista de Conversas
@@ -207,7 +208,7 @@ Exibe todas as conversas ativas do usuário com indicação de mensagens não li
 
 <figure>
   <img src="img/wf-09-chat.png" alt="WireFrame — Chat Lista de Conversas"/>
-  <figcaption>Figura 19 – WireFrame da tela de Chat — Lista de Conversas</figcaption>
+  <figcaption>Figura 20 – WireFrame da tela de Chat — Lista de Conversas.</figcaption>
 </figure>
 
 #### Tela 09b — Chat — Conversa Individual
@@ -241,7 +242,7 @@ flowchart LR
 
 <figure>
   <img src="img/fluxo-04-grupos-desktop.png" alt="Fluxo de Grupos Solidários — Conexão Solidária"/>
-  <figcaption>Figura 20 – Fluxo de Grupos Solidários (visão geral das telas)</figcaption>
+  <figcaption>Figura 21 – Fluxo de Grupos Solidários (visão geral das telas).</figcaption>
 </figure>
 
 #### Tela 09c — Grupos
@@ -254,7 +255,7 @@ Formulário para criação de um novo grupo com campos de foto, nome, descriçã
 
 <figure>
   <img src="img/wf-11-criar-grupo.png" alt="WireFrame — Criar Grupo"/>
-  <figcaption>Figura 21 – WireFrame da tela de Criar Grupo</figcaption>
+  <figcaption>Figura 22 – WireFrame da tela de Criar Grupo.</figcaption>
 </figure>
 
 #### Tela 12 — Detalhes do Grupo
@@ -263,7 +264,7 @@ Exibe foto, nome e descrição do grupo, além das estatísticas (número de mem
 
 <figure>
   <img src="img/wf-12-detalhes-grupo.png" alt="WireFrame — Detalhes do Grupo"/>
-  <figcaption>Figura 22 – WireFrame da tela de Detalhes do Grupo</figcaption>
+  <figcaption>Figura 23 – WireFrame da tela de Detalhes do Grupo.</figcaption>
 </figure>
 
 #### Tela 13 — Sala do Grupo
@@ -272,7 +273,7 @@ Chat coletivo do grupo. No desktop, adota layout em duas colunas: lista de membr
 
 <figure>
   <img src="img/wf-13-sala-grupo.png" alt="WireFrame — Sala do Grupo"/>
-  <figcaption>Figura 23 – WireFrame da tela de Sala do Grupo</figcaption>
+  <figcaption>Figura 24 – WireFrame da tela de Sala do Grupo.</figcaption>
 </figure>
 
 #### Tela 14 — Compartilhar Grupo
@@ -281,5 +282,5 @@ Permite convidar novas pessoas para o grupo por meio de QR Code, link copiável 
 
 <figure>
   <img src="img/wf-14-compartilhar-grupo.png" alt="WireFrame — Compartilhar Grupo"/>
-  <figcaption>Figura 24 – WireFrame da tela de Compartilhar Grupo</figcaption>
+  <figcaption>Figura 25 – WireFrame da tela de Compartilhar Grupo.</figcaption>
 </figure>

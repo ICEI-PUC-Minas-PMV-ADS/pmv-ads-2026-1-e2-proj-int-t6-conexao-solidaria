@@ -185,7 +185,7 @@ Enumere as restrições à sua solução. Lembre-se de que as restrições geral
  
  <figure>
   <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria/blob/main/docs/img/casosDeUso.png?raw=true" alt="Casos de uso – Conexão Solidária"/>
-  <figcaption>Figura 2 – Tela - Casos de uso - Conexão Solidária</figcaption>
+  <figcaption>Figura 2 – Tela - Casos de uso - Conexão Solidária.</figcaption>
 </figure>
 
 <!-- 

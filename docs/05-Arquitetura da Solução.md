@@ -7,13 +7,13 @@ Definição de como o software é estruturado em termos dos componentes que faze
 ## Diagrama de Classes
 <figure>
     <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria/blob/main/docs/img/DiagramaDeClasses.jpeg?raw=true" alt="Diagrama de Classes - Conexão Solidária"/>
-    <figcaption>Figura - Diagrama de Classes - Conexão Solidária</figcaption>
+    <figcaption>Figura 26 - Diagrama de Classes - Conexão Solidária</figcaption>
 </figure>
 
 ## Modelo ER (Projeto Conceitual)
  <figure>
      <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria/blob/main/docs/img/ModeloEntidadeRelacionamento.png?raw=true" alt="Modelo Entidade Relacionamento – Conexão Solidária"/>
-  <figcaption>Figura – Tela - Modelo Entidade Relacionamento - Conexão Solidária</figcaption>
+  <figcaption>Figura 27– Tela - Modelo Entidade Relacionamento - Conexão Solidária</figcaption>
 </figure>
 
 <!-- O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.

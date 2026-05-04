@@ -6,7 +6,7 @@ Para compreender a complexidade desse cenário, o projeto adota uma abordagem fu
 
 <figure>
   <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/80c9b1cf-3904-4197-84d8-92136ea6ca8b"/>
-  <figcaption>Figura 1 – Etapas do Design Thinking</figcaption>
+  <figcaption>Figura 1 – Etapas do Design Thinking.</figcaption>
 </figure>
 
 ## Problema
