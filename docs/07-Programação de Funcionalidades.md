@@ -1,16 +1,17 @@
 # Programação de Funcionalidades - Etapa 3
 
-[cite_start]Nesta secção, detalhamos a implementação das funcionalidades do sistema **Conexão Solidária**, relacionando os requisitos funcionais aos artefatos de código produzidos em **ASP.NET MVC**[cite: 1, 5]. [cite_start]A implementação está focada em garantir que a lógica de negócio suporte o ciclo completo de ajuda humanitária[cite: 1].
+Nesta seção, detalhamos a implementação das funcionalidades do sistema **Conexão Solidária**, relacionando os requisitos funcionais aos artefatos de código produzidos em **ASP.NET MVC**. A implementação está focada em garantir que a lógica de negócio suporte o ciclo completo de ajuda humanitária.
 
 ## 🛠️ Tecnologias Utilizadas
-* [cite_start]**Back-end:** C# com framework .NET[cite: 5].
-* [cite_start]**Front-end:** HTML, CSS, JavaScript e Bootstrap[cite: 1].
-* [cite_start]**Base de Dados:** SQL Server / Azure SQL Database[cite: 5].
-* [cite_start]**Cloud:** Microsoft Azure (Hospedagem e Base de Dados)[cite: 5].
+
+* **Back-end:** C# com framework .NET.
+* **Front-end:** HTML, CSS, JavaScript e Bootstrap.
+* **Base de Dados:** SQL Server / Azure SQL Database.
+* **Cloud:** Microsoft Azure (Hospedagem e Base de Dados).
 
 ## 📋 Mapeamento de Funcionalidades
 
-| ID | [cite_start]Descrição do Requisito [cite: 2] | [cite_start]Artefatos Produzidos (Views/Controllers) [cite: 1, 6] | Responsável |
+| ID | Descrição do Requisito | Artefatos Produzidos (Views/Controllers) | Responsável |
 |:---|:---|:---|:---|
 | **RF-001** | Criar conta | `Usuarios/CriarConta.cshtml`, `UsuariosController.cs` | Arthur Eduardo A. Lobo |
 | **RF-002** | Gerenciar conta (Login/Logout) | `Usuarios/Login.cshtml`, `UsuariosController.cs` | Arthur Eduardo A. Lobo |
@@ -29,12 +30,13 @@
 
 ## 🚀 Instruções de Acesso
 
-[cite_start]A aplicação está funcional e hospedada no ambiente Microsoft Azure[cite: 1].
+A aplicação está funcional e hospedada no ambiente Microsoft Azure.
 
 * **Link da Aplicação:** [https://conexaosolidaria.azurewebsites.net](https://conexaosolidaria.azurewebsites.net)
 * **Repositório GitHub:** [Link do Projeto](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria.git)
 
-### [cite_start]Contas de Teste[cite: 1]:
+### Contas de Teste
+
 | Perfil | Usuário | Senha |
 |:---|:---|:---|
 | **Administrador** | `admin@conexaosolidaria.com` | `Admin@2026` |
