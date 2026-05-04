@@ -10,7 +10,7 @@ namespace ConexaoSolidaria.Models;
 /// </summary>
 public class Usuario : IdentityUser
 {
-    [Required]
+    [Required (ErrorMessage = "Informe seu nome completo.")]
     [StringLength(120)]
     public string NomeCompleto { get; set; } = string.Empty;
 
