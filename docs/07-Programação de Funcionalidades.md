@@ -34,15 +34,33 @@ A tabela a seguir é um exemplo de como ela deverá ser preenchida considerando 
 |RF-011| Recuperar a senha do usuário | RecuperarSenha.cshtml, AuthController.cs | Arthur Eduardo Andrade Lobo |
 |RF-012| Editar perfil | MeuPerfil.cshtml, UsuariosController.cs | Arthur Eduardo Andrade Lobo |
 
-Fontes
-https://github.com/ICEI-PUC-Minas-PMV-ADS/icei-puc-minas-pmv-ads-2025-1-e2-proj-int-t4-odontofacil
+
 # Instruções de acesso
 
-Não deixe de informar o link onde a aplicação estiver disponível para acesso (por exemplo: https://adota-pet.herokuapp.com/src/index.html).
+A aplicação estará disponível para acesso no ambiente de produção hospedado na nuvem (Microsoft Azure) a partir da Etapa 03.
 
-Se houver usuário de teste, o login e a senha também deverão ser informados aqui (por exemplo: usuário - admin / senha - admin).
+URL da Aplicação:
+https://conexaosolidaria.azurewebsites.net (Nota: Substitua por sua URL real após o deploy no Azure)
 
-O link e o usuário/senha descritos acima são apenas exemplos de como tais informações deverão ser apresentadas.
+Para facilitar a verificação da implementação e testes de diferentes perfis de acesso, utilize as credenciais abaixo:
+
+Usuário Administrador (Acesso total às métricas e gestão):
+
+Login: admin@conexaosolidaria.com
+
+Senha: Admin@2026
+
+Usuário Voluntário/Doador (Visualização de pedidos e chat):
+
+Login: voluntario@conexaosolidaria.com
+
+Senha: Teste@123
+
+Usuário Beneficiário (Registro de necessidades):
+
+Login: beneficiario@conexaosolidaria.com
+
+Senha: Teste@123
 
 > **Links Úteis**:
 >
