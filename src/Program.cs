@@ -45,7 +45,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddSingleton<IBlobStorageService, BlobStorageService>();
 
 // Razor Pages
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 var app = builder.Build();
 
