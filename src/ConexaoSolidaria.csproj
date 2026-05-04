@@ -28,6 +28,7 @@
 
     <!-- Azure Blob Storage (upload de fotos e anexos) -->
     <PackageReference Include="Azure.Storage.Blobs" Version="12.22.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
 
 </Project>
