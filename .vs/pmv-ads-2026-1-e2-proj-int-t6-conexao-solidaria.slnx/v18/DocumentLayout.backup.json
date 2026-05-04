@@ -18,11 +18,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "POC-passo-a-passo.md",
+              "DocumentMoniker": "C:\\GitHub\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\POC-passo-a-passo.md",
+              "RelativeDocumentMoniker": "POC-passo-a-passo.md",
+              "ToolTip": "C:\\GitHub\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\POC-passo-a-passo.md",
+              "RelativeToolTip": "POC-passo-a-passo.md",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-04-29T19:25:16.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Document",
@@ -34,25 +51,7 @@
               "RelativeToolTip": ".gitignore",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-04-29T18:41:09.085Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "POC-passo-a-passo.md",
-              "DocumentMoniker": "C:\\GitHub\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\POC-passo-a-passo.md",
-              "RelativeDocumentMoniker": "POC-passo-a-passo.md",
-              "ToolTip": "C:\\GitHub\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\POC-passo-a-passo.md",
-              "RelativeToolTip": "POC-passo-a-passo.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-04-29T19:25:16.016Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "WhenOpened": "2026-04-29T18:41:09.085Z"
             }
           ]
         }
