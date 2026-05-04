@@ -132,6 +132,12 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-010| Registrar doações | MEDIA |
 |RF-011| ⁠Recuperar a senha do usuário | ALTA |
 |RF-012| Editar perfil | MEDIA |
+|RF-013| Criar e Gerenciar Grupos Solidários | ALTA |
+|RF-014| Participar e Sair de Grupos Existentes | MEDIA |
+|RF-015| Compartilhar Grupos via Link ou QR Code | BAIXA |
+|RF-016| Visualizar Painel de Estatísticas e Relatórios de Demandas | MEDIA |
+|RF-017| Filtrar e Pesquisar Solicitações por categoria, urgência e localização | ALTA |
+|RF-018| Reportar incidentes ou problemas em uma doação/atendimento | MEDIA |
 
 ### Requisitos não Funcionais
 
