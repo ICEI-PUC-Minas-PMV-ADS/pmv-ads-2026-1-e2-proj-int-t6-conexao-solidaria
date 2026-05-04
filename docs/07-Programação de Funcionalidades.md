@@ -1,4 +1,4 @@
-# Programação de Funcionalidades - Etapa 3
+# Programação de Funcionalidades
 
 Nesta seção, detalhamos a implementação das funcionalidades do sistema **Conexão Solidária**, relacionando os requisitos funcionais aos artefatos de código produzidos em **ASP.NET MVC**. A implementação está focada em garantir que a lógica de negócio suporte o ciclo completo de ajuda humanitária.
 
