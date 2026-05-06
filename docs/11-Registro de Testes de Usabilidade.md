@@ -16,7 +16,7 @@ Para registrar os indicadores de cada cenário, é preciso manter a coerência c
 **Cenário 1**: O usuário deseja criar uma nova solicitação de um par de sapatos por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta na página inicial, e criar a nova solicitação seguindo o passo a passo.
 | **Usuário**   | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
-| Usuário 1    |     182            |           17                    |          Sim    |                        |       Nenhum                 |      
+| Usuário 1    |     182            |           17                    |          Sim    |    Nenhum              |       O usuário achou um pouco difícil, mas conseguiu criar.                |      
 | Usuário 2    |                    |                                 |                 |                        |                              |                     |      
 | Usuário 3    |                    |                                 |                 |                        |                              |                     |  
 | Usuário 4    |                    |                                 |                 |                        |                              |                     | 
