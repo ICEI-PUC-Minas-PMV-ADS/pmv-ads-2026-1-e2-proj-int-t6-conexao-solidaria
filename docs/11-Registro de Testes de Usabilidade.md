@@ -22,7 +22,7 @@ Para registrar os indicadores de cada cenário, é preciso manter a coerência c
 | Usuário 4    |                    |                                 |                 |                        |                              |                     | 
 | Usuário 5    |                    |                                 |                 |                        |                              |                     | 
 
-**Cenário 2**:         
+**Cenário 2**: O usuário deseja criar uma nova solicitação de medicamentos por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta na página inicial, e criar a nova solicitação seguindo o passo a passo.        
 | **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
 | Usuário 1   |                    |                                 |                 |                        |                              |                     |      
