@@ -16,9 +16,9 @@ Para registrar os indicadores de cada cenário, é preciso manter a coerência c
 **Cenário 1**: O usuário deseja criar uma nova solicitação de um par de sapatos por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta na página inicial, e criar a nova solicitação seguindo o passo a passo.
 | **Usuário**   | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
-| Usuário 1    |     182            |           17                    |          Sim    |    Nenhum              |       O usuário achou um pouco difícil, mas conseguiu criar.                |      
-| Usuário 2    |     280            |           30                    |        Sim      |                        |                              |                     |      
-| Usuário 3    |                    |                                 |                 |                        |                              |                     |  
+| Usuário 1    |     182            |           17                    |          Sim    |    Nenhum              |       O usuário achou normal, mas conseguiu criar.                |      
+| Usuário 2    |     48             |           18                    |        Sim      |    Nenhum              |       O usuário conseguiu cadastrar com facilidade.                         |                     |      
+| Usuário 3    |     280            |           30                    |        Sim      |   Adicionou uma imagem errada do produto e esqueceu de colocar a urgência.|O usuário achou muito difícil, mas após um tempo, conseguiu criar.|                   |  
 | Usuário 4    |                    |                                 |                 |                        |                              |                     | 
 | Usuário 5    |                    |                                 |                 |                        |                              |                     | 
 
