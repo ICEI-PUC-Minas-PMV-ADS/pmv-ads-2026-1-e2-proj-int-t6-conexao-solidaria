@@ -1,14 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\GitHub\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\",
+  "WorkspaceRootPath": "D:\\Conex\u00E3oo Solid\u00E1rio\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\GitHub\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\POC-passo-a-passo.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:POC-passo-a-passo.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\GitHub\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Conex\u00E3oo Solid\u00E1rio\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\src\\Models\\Doacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Models\\Doacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,40 +14,40 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "POC-passo-a-passo.md",
-              "DocumentMoniker": "C:\\GitHub\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\POC-passo-a-passo.md",
-              "RelativeDocumentMoniker": "POC-passo-a-passo.md",
-              "ToolTip": "C:\\GitHub\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\POC-passo-a-passo.md",
-              "RelativeToolTip": "POC-passo-a-passo.md",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-04-29T19:25:16.016Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\GitHub\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\.gitignore",
-              "RelativeDocumentMoniker": ".gitignore",
-              "ToolTip": "C:\\GitHub\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\.gitignore",
-              "RelativeToolTip": ".gitignore",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-04-29T18:41:09.085Z"
+              "DocumentIndex": 0,
+              "Title": "Doacao.cs",
+              "DocumentMoniker": "D:\\Conex\u00E3oo Solid\u00E1rio\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\src\\Models\\Doacao.cs",
+              "RelativeDocumentMoniker": "src\\Models\\Doacao.cs",
+              "ToolTip": "D:\\Conex\u00E3oo Solid\u00E1rio\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\src\\Models\\Doacao.cs",
+              "RelativeToolTip": "src\\Models\\Doacao.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T23:18:53.071Z",
+              "EditorCaption": ""
             }
           ]
         }
