@@ -13,7 +13,7 @@ O registro de testes de usabilidade é um documento ou planilha onde são coleta
 
 Para registrar os indicadores de cada cenário, é preciso manter a coerência com os critérios quantitativos e qualitativos que foram definidos no plano de testes de usabilidade.
 
-**Cenário 1**: O usuário deseja criar uma nova solicitação de um par de sapatos por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta na página inicial, e criar a nova solicitação seguindo o passo a passo.
+**Cenário 1**: O usuário deseja criar uma nova solicitação de um par de sapatos por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta na primeria pagina, e criar a nova solicitação seguindo o passo a passo.
 | **Usuário**   | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
 | Usuário 1    |     182            |           17                    |          Sim    |    Nenhum              |       O usuário achou normal, mas conseguiu criar.                |      
@@ -22,7 +22,7 @@ Para registrar os indicadores de cada cenário, é preciso manter a coerência c
 | Usuário 4    |     40             |           15                    |         Sim     |    Nenhum              |O usuário conseguiu criar com facilidade, sem intercorrências e em pouco tempo.                             |                     | 
 | Usuário 5    |     43             |           15                    |         Sim     |    Nenhum              |O usuário conseguiu criar com facilidade, sem intercorrências e em pouco tempo.                              |                     | 
 
-**Cenário 2**: O usuário deseja criar uma nova solicitação de medicamentos por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta na página inicial, e criar a nova solicitação seguindo o passo a passo.        
+**Cenário 2**: O usuário deseja realizar doaçoes por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta, escolher uma solicitação e entrar em contato atraves do chat.        
 | **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
 | Usuário 1   |                    |                                 |                 |                        |                              |                     |      
