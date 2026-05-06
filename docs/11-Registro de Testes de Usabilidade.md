@@ -5,15 +5,15 @@ O registro de testes de usabilidade é um documento ou planilha onde são coleta
 ## Perfil dos usuários que participaram do teste
 - Usuário 1: 45 anos, nível básico incompleto, conhecimento básico tecnologia
 - Usuário 2: 18 anos, nível superior incompleto, conhecimento avançado tecnologia
-- Usuário 1: 70 anos, nível básico incompleto, conhecimento básico tecnologia
-- Usuário 2: 25 anos, nível superior completo, conhecimento avançado tecnologia
-- Usuário 2: 28 anos, nível superior completo, conhecimento avançado tecnologia
+- Usuário 3: 70 anos, nível básico incompleto, conhecimento básico tecnologia
+- Usuário 4: 25 anos, nível superior completo, conhecimento avançado tecnologia
+- Usuário 5: 28 anos, nível superior completo, conhecimento avançado tecnologia
 
 ## Exemplo de tabela de registro dos testes de usabilidade  
 
 Para registrar os indicadores de cada cenário, é preciso manter a coerência com os critérios quantitativos e qualitativos que foram definidos no plano de testes de usabilidade.
 
-**Cenário 1**: O usuário deseja comprar um notebook para uso pessoal. Para isso, ele deverá entrar no site www.compras.com.br para buscar opções disponíveis, comparar preços, adicionar o produto ao carrinho e finalizar a compra com pagamento via cartão de crédito.         
+**Cenário 1**: O usuário deseja criar uma nova solicitação de um par de sapatos por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta na página inicial, e criar a nova solicitação seguindo o passo a passo.
 | **Usuário**   | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
 | Usuário 1    |                    |                                 |                 |                        |                              |                     |      
