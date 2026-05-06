@@ -14,16 +14,31 @@ public class AppDbContext : IdentityDbContext<Usuario>
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
     public DbSet<Solicitacao> Solicitacoes => Set<Solicitacao>();
+    public DbSet<Doacao> Doacoes => Set<Doacao>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
 
-        // Indices uteis para a tela de listagem (RF06)
+        // Configuração da tabela Solicitacao
         builder.Entity<Solicitacao>()
             .HasIndex(s => new { s.Status, s.Urgencia, s.CriadoEm });
 
         builder.Entity<Solicitacao>()
             .HasIndex(s => s.Cidade);
+
+        // Configuração para a tabela de Doacoes
+        builder.Entity<Doacao>()
+            .HasOne(d => d.Doador)
+            .WithMany()
+            .HasForeignKey(d => d.DoadorId)
+            .OnDelete(DeleteBehavior.Restrict); 
+
+        builder.Entity<Doacao>()
+            .HasOne(d => d.PedidoAjuda)
+            .WithMany()
+            .HasForeignKey(d => d.PedidoAjudaId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
+}
 }
