@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Conex\u00E3oo Solid\u00E1rio\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Conex\u00E3oo Solid\u00E1rio\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\src\\Models\\AppDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Models\\AppDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Conex\u00E3oo Solid\u00E1rio\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\src\\Models\\Doacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Models\\Doacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -39,12 +43,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\Conex\u00E3oo Solid\u00E1rio\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\src\\Models\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "src\\Models\\AppDbContext.cs",
+              "ToolTip": "D:\\Conex\u00E3oo Solid\u00E1rio\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\src\\Models\\AppDbContext.cs",
+              "RelativeToolTip": "src\\Models\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T23:29:03.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Doacao.cs",
               "DocumentMoniker": "D:\\Conex\u00E3oo Solid\u00E1rio\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\src\\Models\\Doacao.cs",
               "RelativeDocumentMoniker": "src\\Models\\Doacao.cs",
               "ToolTip": "D:\\Conex\u00E3oo Solid\u00E1rio\\ICEI-PUC-Minas-PMV-ADS\\pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria\\src\\Models\\Doacao.cs",
               "RelativeToolTip": "src\\Models\\Doacao.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-06T23:18:53.071Z",
               "EditorCaption": ""
