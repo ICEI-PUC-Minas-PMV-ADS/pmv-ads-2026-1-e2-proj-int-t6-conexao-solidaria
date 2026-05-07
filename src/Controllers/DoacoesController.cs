@@ -42,8 +42,8 @@ namespace ConexaoSolidaria.Controllers
         }
         public IActionResult Create()
         {
-            ViewData["DoadorId"] = new SelectList(_context.Users, "Id", "UserName");
-            ViewData["SolicitacaoId"] = new SelectList(_context.Solicitacoes, "Id", "Descricao");
+            ViewData["ListaDoadores"] = new SelectList(_context.Users, "Id", "UserName");
+            ViewData["ListaSolicitacoes"] = new SelectList(_context.Solicitacoes, "Id", "Descricao");
             return View();
         }
 

@@ -22,12 +22,16 @@
 
                         <div class="form-group mb-3">
                             <label asp-for="DoadorId" class="control-label fw-bold text-dark">Quem está doando?</label>
-                            <select asp-for="DoadorId" class="form-select" asp-items="ViewBag.DoadorId"></select>
+                            <select asp-for="DoadorId" class="form-select" asp-items="ViewBag.ListaDoadores">
+                                <option value="">-- Selecione o Doador --</option>
+                            </select>
                         </div>
 
                         <div class="form-group mb-3">
                             <label asp-for="SolicitacaoId" class="control-label fw-bold text-dark">Qual solicitação você quer atender?</label>
-                            <select asp-for="SolicitacaoId" class="form-select" asp-items="ViewBag.SolicitacaoId"></select>
+                            <select asp-for="SolicitacaoId" class="form-select" asp-items="ViewBag.ListaSolicitacoes">
+                                <option value="">-- Selecione a Solicitação --</option>
+                            </select>
                         </div>
 
                         <div class="form-group mb-4">
@@ -52,9 +56,3 @@
         </div>
     </div>
 </div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
