@@ -44,7 +44,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 // Servico de upload para Azure Blob Storage (fotos de perfil e anexos)
 builder.Services.AddSingleton<IBlobStorageService, BlobStorageService>();
 
-// Razor Pages
+builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 var app = builder.Build();
@@ -64,6 +64,11 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.MapRazorPages();
 
 // =============================================================================
