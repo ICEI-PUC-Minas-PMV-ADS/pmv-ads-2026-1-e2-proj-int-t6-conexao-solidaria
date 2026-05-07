@@ -32,13 +32,12 @@ public class AppDbContext : IdentityDbContext<Usuario>
             .HasOne(d => d.Doador)
             .WithMany()
             .HasForeignKey(d => d.DoadorId)
-            .OnDelete(DeleteBehavior.Restrict); 
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.Entity<Doacao>()
-            .HasOne(d => d.PedidoAjuda)
+            .HasOne(d => d.Solicitacao)
             .WithMany()
-            .HasForeignKey(d => d.PedidoAjudaId)
+            .HasForeignKey(d => d.SolicitacaoId)
             .OnDelete(DeleteBehavior.Cascade);
     }
-}
 }

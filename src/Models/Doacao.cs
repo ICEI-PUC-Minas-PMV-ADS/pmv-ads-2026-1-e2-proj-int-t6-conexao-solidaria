@@ -8,25 +8,25 @@ namespace ConexaoSolidaria.Models
     public class Doacao
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar o doador")]
         [Display(Name = "Doador")]
-        public int DoadorId { get; set; }
+        public string DoadorId { get; set; }
 
         [ForeignKey("DoadorId")]
-        public Usuario Doador { get; set; }
+        public Usuario? Doador { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar o pedido de ajuda")]
-        [Display(Name = "Pedido de Ajuda")]
-        public int PedidoAjudaId { get; set; }
+        [Required(ErrorMessage = "Obrigatório informar a solicitação")]
+        [Display(Name = "Solicitação de Ajuda")]
+        public int SolicitacaoId { get; set; }
 
-        [ForeignKey("PedidoAjudaId")]
-        public PedidoAjuda PedidoAjuda { get; set; }
+        [ForeignKey("SolicitacaoId")]
+        public Solicitacao? Solicitacao { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar a descrição dos itens")]
         [Display(Name = "Itens Doados")]
-        public string ItensDoados { get; set; }
+        public string? ItensDoados { get; set; }
 
         [Required]
         [Display(Name = "Data da Doação")]
