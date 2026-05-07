@@ -95,7 +95,11 @@ public class IndexModel : PageModel
         user.Cidade       = Input.Cidade;
         user.Estado       = Input.Estado?.ToUpper();
 
-        await _userManager.UpdateAsync(user);
+        var result = await _userManager.UpdateAsync(user);
+        if (!result.Succeeded)
+        {
+            ModelState.AddModelError(string.Empty, "Erro ao atualizar perfil.");
+        }
 
         MensagemSucesso = "Perfil atualizado com sucesso!";
         FotoAtualUrl = user.FotoUrl;
