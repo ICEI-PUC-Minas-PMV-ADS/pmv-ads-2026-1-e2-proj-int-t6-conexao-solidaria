@@ -19,6 +19,8 @@ namespace ConexaoSolidaria.Controllers
         {
             _context = context;
         }
+
+        // GET: Doacoes
         public async Task<IActionResult> Index()
         {
             var doacoes = _context.Doacoes
@@ -27,6 +29,8 @@ namespace ConexaoSolidaria.Controllers
 
             return View(await doacoes.ToListAsync());
         }
+
+        // GET: Doacoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
@@ -40,13 +44,25 @@ namespace ConexaoSolidaria.Controllers
 
             return View(doacao);
         }
+
+        // GET: Doacoes/Create (Oferecer Ajuda)
         public IActionResult Create()
         {
-            ViewData["ListaDoadores"] = new SelectList(_context.Users, "Id", "UserName");
-            ViewData["ListaSolicitacoes"] = new SelectList(_context.Solicitacoes, "Id", "Descricao");
+            var doadoresDisponiveis = _context.Users
+                .Select(u => new { Id = u.Id, Exibicao = u.Email })
+                .ToList();
+
+            var solicitacoesDisponiveis = _context.Solicitacoes
+                .Select(s => new { Id = s.Id, Exibicao = s.Titulo })
+                .ToList();
+
+            ViewData["ListaDoadores"] = new SelectList(doadoresDisponiveis, "Id", "Exibicao");
+            ViewData["ListaSolicitacoes"] = new SelectList(solicitacoesDisponiveis, "Id", "Exibicao");
+
             return View();
         }
 
+        // POST: Doacoes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,DoadorId,SolicitacaoId,ItensDoados,DataDoacao,Status")] Doacao doacao)
@@ -62,11 +78,21 @@ namespace ConexaoSolidaria.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["DoadorId"] = new SelectList(_context.Users, "Id", "UserName", doacao.DoadorId);
-            ViewData["SolicitacaoId"] = new SelectList(_context.Solicitacoes, "Id", "Descricao", doacao.SolicitacaoId);
+            var doadoresDisponiveis = _context.Users
+                .Select(u => new { Id = u.Id, Exibicao = u.Email })
+                .ToList();
+
+            var solicitacoesDisponiveis = _context.Solicitacoes
+                .Select(s => new { Id = s.Id, Exibicao = s.Titulo })
+                .ToList();
+
+            ViewData["ListaDoadores"] = new SelectList(doadoresDisponiveis, "Id", "Exibicao", doacao.DoadorId);
+            ViewData["ListaSolicitacoes"] = new SelectList(solicitacoesDisponiveis, "Id", "Exibicao", doacao.SolicitacaoId);
+
             return View(doacao);
         }
 
+        // POST: Doacoes/ConfirmarEntrega/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ConfirmarEntrega(int id)
