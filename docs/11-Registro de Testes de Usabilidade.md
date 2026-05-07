@@ -13,7 +13,7 @@ O registro de testes de usabilidade é um documento ou planilha onde são coleta
 
 Para registrar os indicadores de cada cenário, é preciso manter a coerência com os critérios quantitativos e qualitativos que foram definidos no plano de testes de usabilidade.
 
-**Cenário 1**: O usuário deseja criar uma nova solicitação de um par de sapatos por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta na primeria pagina, e criar a nova solicitação seguindo o passo a passo.
+**Cenário 1**: O usuário deseja criar uma nova solicitação de um par de sapatos por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta na primeria página, e criar a nova solicitação seguindo o passo a passo.
 | **Usuário**   | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
 | Usuário 1    |     182            |           17                    |          Sim    |    Nenhum              |       O usuário achou normal, mas conseguiu criar.                |      
@@ -25,11 +25,11 @@ Para registrar os indicadores de cada cenário, é preciso manter a coerência c
 **Cenário 2**: O usuário deseja realizar doaçoes por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta, escolher uma solicitação e entrar em contato atraves do chat.        
 | **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
-| Usuário 1   |                    |                                 |                 |                        |                              |                     |      
-| Usuário 2   |                    |                                 |                 |                        |                              |                     |      
-| Usuário 3   |                    |                                 |                 |                        |                              |                     |  
-| Usuário 4   |                    |                                 |                 |                        |                              |                     | 
-| Usuário 5   |                    |                                 |                 |                        |                              |                     | 
+| Usuário 1   |         180        |               20                |       Sim       | Usuário colocou na descrição o item diferente do produto desejado | Achou um pouco dificil a interação, mas se localizou.                               |     
+| Usuário 2   |         70         |               16                |       Sim       |        Nenhum          | O usuário achou bem facil usar o sistema.                     |                              |      
+| Usuário 3   |         300        |               31                |       Sim       | O usuário não colocou a urgência                      | Teve problemas na definição de urgências.           |                     |  
+| Usuário 4   |         80         |               17                |       Sim       |       Nenhum           | O usuário achou bem pratico o sistema.                              |                     | 
+| Usuário 5   |         80         |               17                |       Sim       |       Nenhum           | O usuário cadastrou com facilidade e em pouco tempo.                              |                     | 
 
 **Cenário 3**:O usuário deseja editar seu perfil por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta, ir na aba Perfil e fazer as modificações.          
 | **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
