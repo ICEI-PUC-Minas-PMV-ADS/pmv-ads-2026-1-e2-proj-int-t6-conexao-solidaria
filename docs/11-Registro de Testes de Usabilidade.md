@@ -31,7 +31,7 @@ Para registrar os indicadores de cada cenário, é preciso manter a coerência c
 | Usuário 4   |                    |                                 |                 |                        |                              |                     | 
 | Usuário 5   |                    |                                 |                 |                        |                              |                     | 
 
-**Cenário 3**:         
+**Cenário 3**:O usuário deseja editar seu perfil por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta, ir na aba Perfil e fazer as modificações.          
 | **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
 | Usuário 1   |                    |                                 |                 |                        |                              |                     |      
