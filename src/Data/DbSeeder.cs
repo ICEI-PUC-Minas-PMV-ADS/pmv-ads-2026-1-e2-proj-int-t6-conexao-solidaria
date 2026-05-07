@@ -12,14 +12,12 @@ public static class DbSeeder
 {
     public static async Task SeedAsync(AppDbContext db, UserManager<Usuario> userManager)
     {
-        // Garante que o banco existe e tem as migrations aplicadas
         await db.Database.MigrateAsync();
 
-        // Se já existe usuário cadastrado, assume que o seed já rodou
-        if (await db.Users.AnyAsync()) return;
+        if (await userManager.FindByEmailAsync("teste@conexaosolidaria.app") != null) return;
 
         // -----------------------------------------------------------------
-        // 1) Usuário de teste (usado durante a gravação)
+        // Usuário de teste (usado durante a gravação)
         // -----------------------------------------------------------------
         var teste = new Usuario
         {
@@ -35,7 +33,7 @@ public static class DbSeeder
         await userManager.CreateAsync(teste, "Teste@2026");
 
         // -----------------------------------------------------------------
-        // 2) Usuários adicionais para popular a listagem
+        // Usuários adicionais para popular a listagem
         // -----------------------------------------------------------------
         var maria = new Usuario
         {
@@ -77,7 +75,7 @@ public static class DbSeeder
         await userManager.CreateAsync(ana, "Ana@2026");
 
         // -----------------------------------------------------------------
-        // 3) Solicitações com urgências e tipos variados
+        // Solicitações com urgências e tipos variados
         // -----------------------------------------------------------------
         var solicitacoes = new[]
         {
@@ -86,8 +84,7 @@ public static class DbSeeder
                 UsuarioId = maria.Id,
                 TipoNecessidade = "medicamentos",
                 Titulo = "Medicamentos para hipertensão",
-                Descricao = "Necessito Losartana 50mg para minha mãe idosa. " +
-                            "A receita médica está em anexo. Agradeço imensamente.",
+                Descricao = "Necessito Losartana 50mg para minha mãe idosa. A receita médica está em anexo. Agradeço imensamente.",
                 Urgencia = "alta",
                 Cidade = "Petrópolis",
                 Estado = "RJ",
@@ -99,8 +96,7 @@ public static class DbSeeder
                 UsuarioId = joao.Id,
                 TipoNecessidade = "abrigo",
                 Titulo = "Famílias desabrigadas precisam de cobertores",
-                Descricao = "Cinco famílias estão em abrigo municipal após enchente. " +
-                            "Precisamos de cobertores e colchões para os próximos dias.",
+                Descricao = "Cinco famílias estão em abrigo municipal após enchente. Precisamos de cobertores e colchões para os próximos dias.",
                 Urgencia = "alta",
                 Cidade = "São Sebastião",
                 Estado = "SP",
@@ -112,8 +108,7 @@ public static class DbSeeder
                 UsuarioId = ana.Id,
                 TipoNecessidade = "alimentos",
                 Titulo = "Cesta básica para família de 4 pessoas",
-                Descricao = "Solicito alimentos não perecíveis: arroz, feijão, óleo, " +
-                            "macarrão, leite e enlatados. Família com duas crianças pequenas.",
+                Descricao = "Solicito alimentos não perecíveis: arroz, feijão, óleo, macarrão, leite e enlatados. Família com duas crianças pequenas.",
                 Urgencia = "media",
                 Cidade = "Canoas",
                 Estado = "RS",
@@ -125,8 +120,7 @@ public static class DbSeeder
                 UsuarioId = teste.Id,
                 TipoNecessidade = "vestuario",
                 Titulo = "Fraldas geriátricas tamanho G",
-                Descricao = "Preciso de fraldas geriátricas tamanho G para meu pai " +
-                            "acamado. Qualquer quantidade ajuda muito.",
+                Descricao = "Preciso de fraldas geriátricas tamanho G para meu pai acamado. Qualquer quantidade ajuda muito.",
                 Urgencia = "media",
                 Cidade = "Belo Horizonte",
                 Estado = "MG",
@@ -138,8 +132,7 @@ public static class DbSeeder
                 UsuarioId = maria.Id,
                 TipoNecessidade = "vestuario",
                 Titulo = "Roupas adultas tamanho M",
-                Descricao = "Família perdeu tudo na enchente. Roupas adultas tamanho M " +
-                            "(masculino e feminino) ajudariam muito a recomeçar.",
+                Descricao = "Família perdeu tudo na enchente. Roupas adultas tamanho M (masculino e feminino) ajudariam muito a recomeçar.",
                 Urgencia = "baixa",
                 Cidade = "Petrópolis",
                 Estado = "RJ",
