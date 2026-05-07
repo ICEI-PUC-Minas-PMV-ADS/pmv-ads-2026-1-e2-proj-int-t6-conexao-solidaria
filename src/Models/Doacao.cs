@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace ConexaoSolidaria.Models
 {
@@ -10,11 +11,13 @@ namespace ConexaoSolidaria.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar o doador")]
+
+        [ValidateNever]
         [Display(Name = "Doador")]
         public string DoadorId { get; set; }
 
         [ForeignKey("DoadorId")]
+        [ValidateNever]
         public Usuario? Doador { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar a solicitação")]
@@ -22,6 +25,7 @@ namespace ConexaoSolidaria.Models
         public int SolicitacaoId { get; set; }
 
         [ForeignKey("SolicitacaoId")]
+        [ValidateNever]
         public Solicitacao? Solicitacao { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar a descrição dos itens")]
