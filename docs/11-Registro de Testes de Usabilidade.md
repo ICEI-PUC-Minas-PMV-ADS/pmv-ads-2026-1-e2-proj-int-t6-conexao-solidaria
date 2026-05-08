@@ -40,14 +40,14 @@ Para registrar os indicadores de cada cenário, é preciso manter a coerência c
 | Usuário 4   |         170           |             23                    |     Sim            |  Nenhum                      |         O usuário conseguiu editar com muita facilidade.                    |                     | 
 | Usuário 5   |          172          |              22                   |    Sim             |    Nenhum                    |       O usuário conseguiu editar com muita facilidade.                       |                     | 
 
-**Cenário 4**:         
+**Cenário 4**: O usuário deseja se cadastar no sistema por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta.          
 | **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
-| Usuário 1   |                    |                                 |                 |                        |                              |                     |      
-| Usuário 2   |                    |                                 |                 |                        |                              |                     |      
-| Usuário 3   |                    |                                 |                 |                        |                              |                     |  
-| Usuário 4   |                    |                                 |                 |                        |                              |                     | 
-| Usuário 5   |                    |                                 |                 |                        |                              |                     | 
+| Usuário 1   |       25             |      4                           |     Sim            |         Nenhum.               |            O usuário conseguiu editar com muita facilidade.                  |                     |      
+| Usuário 2   |      10              |       3                          |     Sim            |          Nenhum.              |         O usuário conseguiu editar com muita facilidade.                     |                     |      
+| Usuário 3   |        33            |          5                       |     Sim            |          Nenhum.              |         O usuário conseguiu editar com muita facilidade.                     |                     |  
+| Usuário 4   |       8             |         3                        |        Sim         |           Nenhum.            |       O usuário conseguiu editar com muita facilidade.                       |                     | 
+| Usuário 5   |     8               |          3                       |        Sim         |          Nenhum.              |      O usuário conseguiu editar com muita facilidade.                        |                     | 
 
 **Cenário 5**:         
 | **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
