@@ -31,11 +31,11 @@ Para registrar os indicadores de cada cenário, é preciso manter a coerência c
 | Usuário 4   |         80         |               17                |       Sim       |       Nenhum           | O usuário achou bem pratico o sistema.                              |                     | 
 | Usuário 5   |         80         |               17                |       Sim       |       Nenhum           | O usuário cadastrou com facilidade e em pouco tempo.                              |                     | 
 
-**Cenário 3**:O usuário deseja editar seu perfil por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta, ir na aba Perfil e fazer as modificações.          
+**Cenário 3**: O usuário deseja editar seu perfil por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta, ir na aba Perfil e fazer as modificações.          
 | **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
 | Usuário 1   |                    |                                 |                 |                        |                              |                     |      
-| Usuário 2   |                    |                                 |                 |                        |                              |                     |      
+| Usuário 2   |           25         |             21                    |                 |                        |                              |                     |      
 | Usuário 3   |                    |                                 |                 |                        |                              |                     |  
 | Usuário 4   |                    |                                 |                 |                        |                              |                     | 
 | Usuário 5   |                    |                                 |                 |                        |                              |                     | 
