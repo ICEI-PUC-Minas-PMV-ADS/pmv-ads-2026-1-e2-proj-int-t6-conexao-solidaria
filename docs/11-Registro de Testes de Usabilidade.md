@@ -34,29 +34,29 @@ Para registrar os indicadores de cada cenário, é preciso manter a coerência c
 **Cenário 3**: O usuário deseja editar seu perfil por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta, ir na aba Perfil e fazer as modificações.          
 | **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
-| Usuário 1   |   530                 |                41                 |   Sim              |     Se perdeu momentaneamente e precisou redigitar informações.                  |       O usuário conseguiu editar com facilidade moderada.                       |                    |      
-| Usuário 2   |           325         |             27                    |  Sim               |  Nenhum                      |       O usuário conseguiu editar com facilidade.                       |                    |      
-| Usuário 3   |          708          |               52                  |    Sim             |      Se perdeu momentaneamente e precisou redigitar informações.                  |         O usuário conseguiu editar com facilidade moderada.                     |                     |  
-| Usuário 4   |         170           |             23                    |     Sim            |  Nenhum                      |         O usuário conseguiu editar com muita facilidade.                    |                     | 
-| Usuário 5   |          172          |              22                   |    Sim             |    Nenhum                    |       O usuário conseguiu editar com muita facilidade.                       |                     | 
+| Usuário 1   |   530                 |                45                 |   Sim              |     Se perdeu momentaneamente e precisou redigitar informações.                  |       O usuário conseguiu editar com facilidade moderada.                       |                    |      
+| Usuário 2   |           325         |             30                    |  Sim               |  Nenhum                      |       O usuário conseguiu editar com facilidade.                       |                    |      
+| Usuário 3   |          708          |               57                  |    Sim             |      Se perdeu momentaneamente e precisou redigitar informações.                  |         O usuário conseguiu editar com facilidade moderada.                     |                     |  
+| Usuário 4   |         170           |             26                    |     Sim            |  Nenhum                      |         O usuário conseguiu editar com muita facilidade.                    |                     | 
+| Usuário 5   |          172          |              25                   |    Sim             |    Nenhum                    |       O usuário conseguiu editar com muita facilidade.                       |                     | 
 
-**Cenário 4**: O usuário deseja se cadastar no sistema por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta.          
+**Cenário 4**: O usuário deseja se cadastar no sistema por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta,na primeira página.          
 | **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
-| Usuário 1   |       25             |      4                           |     Sim            |         Nenhum.               |            O usuário conseguiu editar com muita facilidade.                  |                     |      
-| Usuário 2   |      10              |       3                          |     Sim            |          Nenhum.              |         O usuário conseguiu editar com muita facilidade.                     |                     |      
-| Usuário 3   |        33            |          5                       |     Sim            |          Nenhum.              |         O usuário conseguiu editar com muita facilidade.                     |                     |  
-| Usuário 4   |       8             |         3                        |        Sim         |           Nenhum.            |       O usuário conseguiu editar com muita facilidade.                       |                     | 
-| Usuário 5   |     8               |          3                       |        Sim         |          Nenhum.              |      O usuário conseguiu editar com muita facilidade.                        |                     | 
+| Usuário 1   |       25             |      4                           |     Sim            |         Nenhum.               |            O usuário conseguiu se cadastrar com facilidade.                  |                     |      
+| Usuário 2   |      10              |       3                          |     Sim            |          Nenhum.              |         O usuário conseguiu se cadastrar com muita facilidade.                     |                     |      
+| Usuário 3   |        33            |          5                       |     Sim            |          Nenhum.              |         O usuário conseguiu se cadastrar com facilidade.                     |                     |  
+| Usuário 4   |       8             |         3                        |        Sim         |           Nenhum.            |       O usuário conseguiu se cadastrar com muita facilidade.                       |                     | 
+| Usuário 5   |     8               |          3                       |        Sim         |          Nenhum.              |      O usuário conseguiu se cadastrar com muita facilidade.                        |                     | 
 
-**Cenário 5**:         
+**Cenário 5**: O usuário deseja se realizar uma doação por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta,na primeira página, clicar na aba doação,seguindo o passo a passo.         
 | **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
-| Usuário 1   |                    |                                 |                 |                        |                              |                     |      
-| Usuário 2   |                    |                                 |                 |                        |                              |                     |      
-| Usuário 3   |                    |                                 |                 |                        |                              |                     |  
-| Usuário 4   |                    |                                 |                 |                        |                              |                     | 
-| Usuário 5   |                    |                                 |                 |                        |                              |                     | 
+| Usuário 1   |      510              |      39                           |    Sim             |        Nenhum.                |    O usuário conseguiu doar com facilidade.                           |                     |      
+| Usuário 2   |       295             |         27                        |     Sim            |         Nenhum.               |     O usuário conseguiu doar com muita facilidade.                         |                     |      
+| Usuário 3   |         715           |        53                         |      Sim           |         Nenhum.               |     O usuário conseguiu doar com facilidade.                         |                     |  
+| Usuário 4   |          160         |           23                      |       Sim          |         Nenhum.               |        O usuário conseguiu doar com muita facilidade.                      |                     | 
+| Usuário 5   |           166         |             22                    |       Sim          |        Nenhum.                |     O usuário conseguiu doar com muita facilidade.                         |                     | 
 
 ## Relatório dos testes de usabilidade 
 
