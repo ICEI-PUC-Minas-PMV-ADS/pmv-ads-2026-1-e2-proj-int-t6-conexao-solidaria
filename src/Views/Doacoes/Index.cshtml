@@ -21,13 +21,14 @@
                     <th class="px-4 py-3 border-bottom-0">Para quem / Solicitação</th>
                     <th class="px-4 py-3 border-bottom-0">O que foi doado</th>
                     <th class="px-4 py-3 border-bottom-0">Status</th>
+                    <th class="px-4 py-3 border-bottom-0 text-center">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 @if (!Model.Any())
                 {
                     <tr>
-                        <td colspan="4" class="px-4 py-5 text-center text-muted">
+                        <td colspan="5" class="px-4 py-5 text-center text-muted">
                             <span style="font-size: 24px;">🎁</span><br />
                             Nenhuma doação registrada ainda.
                         </td>
@@ -49,6 +50,21 @@
                                 else
                                 {
                                     <span class="badge bg-success px-3 py-2" style="border-radius: 20px;">🟢 Entregue</span>
+                                }
+                            </td>
+                            <td class="px-4 py-3 text-center">
+                                @if (item.Status == ConexaoSolidaria.Models.StatusDoacao.Pendente)
+                                {
+                                    <form asp-action="ConfirmarEntrega" asp-route-id="@item.Id" method="post">
+                                        <button type="submit" class="btn btn-sm text-white" style="background-color: #10B981; border-radius: 6px;"
+                                                onclick="return confirm('Tem certeza que deseja confirmar a entrega desta doação?');">
+                                            ✅ Confirmar Entrega
+                                        </button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <span class="text-muted small">Concluída 💖</span>
                                 }
                             </td>
                         </tr>
