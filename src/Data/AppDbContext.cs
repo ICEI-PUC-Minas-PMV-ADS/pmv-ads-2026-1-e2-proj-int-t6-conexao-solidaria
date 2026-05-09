@@ -39,7 +39,7 @@ public class AppDbContext : IdentityDbContext<Usuario>
 
         builder.Entity<Doacao>()
             .HasOne(d => d.Solicitacao)
-            .WithMany()
+            .WithMany(s => s.Doacoes)
             .HasForeignKey(d => d.SolicitacaoId)
             .OnDelete(DeleteBehavior.Cascade);
 

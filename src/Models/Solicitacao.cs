@@ -57,4 +57,6 @@ public class Solicitacao
     // Valores aceitos: ativa | atendida | cancelada
 
     public DateTime CriadoEm { get; set; } = DateTime.UtcNow;
+
+    public virtual ICollection<Doacao> Doacoes { get; set; } = new List<Doacao>();
 }
