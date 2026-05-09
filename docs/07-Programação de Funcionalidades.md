@@ -40,8 +40,8 @@ A aplicação está preparada para execução local e publicação em ambiente M
 
 ### Contas de Teste
 
-| Perfil | Usuário | Senha | Funcionalidade Teste
-|:---|:---|:---|
+| Perfil | Usuário | Senha | Funcionalidade Teste |
+|:---|:---|:---| :---|
 | **Defesa Civil (Admin)** | `admin@defesacivil.gov.br` | `Admin@2026` | Acesso ao Painel de Focos de Crise e Estatísticas. |
 | **Usuário de Teste** | `teste@conexaosolidaria.app` | `Teste@2026` | Realizar doações, usar o Chat e avaliar usuários. |
 | **Usuário Beneficiário** | `maria.silva@example.com` | `Maria@2026` | Criar solicitações de ajuda e receber doações. |
