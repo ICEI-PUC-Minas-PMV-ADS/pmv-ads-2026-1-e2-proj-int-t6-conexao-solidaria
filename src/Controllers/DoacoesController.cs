@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -46,18 +47,14 @@ namespace ConexaoSolidaria.Controllers
         }
 
         // GET: Doacoes/Create (Oferecer Ajuda)
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
-            var doadoresDisponiveis = _context.Users
-                .Select(u => new { Id = u.Id, Exibicao = u.Email })
-                .ToList();
-
             var solicitacoesDisponiveis = _context.Solicitacoes
+                .Where(s => s.Status == "ativa")
                 .Select(s => new { Id = s.Id, Exibicao = s.Titulo })
                 .ToList();
 
-            ViewData["ListaDoadores"] = new SelectList(doadoresDisponiveis, "Id", "Exibicao");
-            ViewData["ListaSolicitacoes"] = new SelectList(solicitacoesDisponiveis, "Id", "Exibicao");
+            ViewData["ListaSolicitacoes"] = new SelectList(solicitacoesDisponiveis, "Id", "Exibicao", id);
 
             return View();
         }
@@ -65,28 +62,37 @@ namespace ConexaoSolidaria.Controllers
         // POST: Doacoes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DoadorId,SolicitacaoId,ItensDoados,DataDoacao,Status")] Doacao doacao)
+        public async Task<IActionResult> Create([Bind("Id,SolicitacaoId,ItensDoados,DataDoacao,Status")] Doacao doacao)
         {
+            ModelState.Remove("DoadorId");
+
             if (ModelState.IsValid)
             {
+                // Captura o ID de quem está logado no site e joga na doação
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                doacao.DoadorId = userId;
+
                 doacao.DataDoacao = DateTime.Now;
                 doacao.Status = StatusDoacao.Pendente;
 
                 _context.Add(doacao);
-                await _context.SaveChangesAsync();
 
+                var solicitacao = await _context.Solicitacoes.FindAsync(doacao.SolicitacaoId);
+                if (solicitacao != null)
+                {
+                    solicitacao.Status = "em andamento";
+                    _context.Update(solicitacao);
+                }
+
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
-            var doadoresDisponiveis = _context.Users
-                .Select(u => new { Id = u.Id, Exibicao = u.Email })
-                .ToList();
-
             var solicitacoesDisponiveis = _context.Solicitacoes
+                .Where(s => s.Status == "ativa")
                 .Select(s => new { Id = s.Id, Exibicao = s.Titulo })
                 .ToList();
 
-            ViewData["ListaDoadores"] = new SelectList(doadoresDisponiveis, "Id", "Exibicao", doacao.DoadorId);
             ViewData["ListaSolicitacoes"] = new SelectList(solicitacoesDisponiveis, "Id", "Exibicao", doacao.SolicitacaoId);
 
             return View(doacao);
