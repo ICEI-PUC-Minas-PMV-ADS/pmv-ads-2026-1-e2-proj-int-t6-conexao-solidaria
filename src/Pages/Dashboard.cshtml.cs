@@ -40,7 +40,7 @@ public class DashboardModel : PageModel
 
         SolicitacoesUrgentes = await _db.Solicitacoes
             .Include(s => s.Usuario)
-            .Where(s => s.Status == "ativa")
+            .Where(s => s.Status == "ativa" || s.Status == "atendida")
             .OrderByDescending(s => s.Urgencia == "alta")
             .ThenByDescending(s => s.CriadoEm)
             .Take(5)
