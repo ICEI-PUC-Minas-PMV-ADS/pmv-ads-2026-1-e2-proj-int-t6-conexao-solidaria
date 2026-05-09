@@ -50,6 +50,14 @@
                 <li class="@(currentPath.StartsWith("/perfil") ? "active" : "")">
                     <a asp-page="/Perfil/Index">👤 <span>Perfil</span></a>
                 </li>
+                @if (User.IsInRole("Admin"))
+                {
+                <li class="mt-4">
+                    <a href="/Admin/Dashboard" class="text-danger fw-bold">
+                        🛡️ <span>Painel Defesa Civil</span>
+                    </a>
+                </li>
+                }
             </ul>
             <div class="cs-sidebar-footer">
                 <a href="#">⚙ <span>Configurações</span></a>
