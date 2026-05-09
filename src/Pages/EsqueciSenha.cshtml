@@ -1,0 +1,45 @@
+﻿@page
+@model ConexaoSolidaria.Pages.EsqueciSenhaModel
+@{
+    ViewData["Title"] = "Esqueci minha senha";
+    Layout = "~/Pages/Shared/_Layout.cshtml"; // Ou null se for uma página isolada de login
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-sm border-0" style="border-radius: 15px;">
+                <div class="card-body p-5">
+                    <div class="text-center mb-4">
+                        <span style="font-size: 3rem;">🔐</span>
+                        <h3 class="fw-bold mt-2">Recuperar Senha</h3>
+                        <p class="text-muted">Digite seu e-mail para receber um link de redefinição.</p>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.MensagemSucesso))
+                    {
+                        <div class="alert alert-success text-center">
+                            @Model.MensagemSucesso
+                        </div>
+                    }
+                    else
+                    {
+                        <form method="post">
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">E-mail Cadastrado</label>
+                                <input asp-for="Email" class="form-control form-control-lg bg-light border-0" placeholder="exemplo@email.com" />
+                                <span asp-validation-for="Email" class="text-danger small"></span>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg" style="border-radius: 10px;">Enviar Link</button>
+                            </div>
+                        </form>
+                    }
+                    <div class="text-center mt-4">
+                        <a href="/Login" class="text-decoration-none">← Voltar para o Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
