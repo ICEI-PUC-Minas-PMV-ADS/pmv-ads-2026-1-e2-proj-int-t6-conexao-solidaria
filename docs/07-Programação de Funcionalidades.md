@@ -42,9 +42,9 @@ A aplicação está preparada para execução local e publicação em ambiente M
 
 | Perfil | Usuário | Senha |
 |:---|:---|:---|
-| **Administrador** | `admin@conexaosolidaria.com` | `Admin@2026` |
-| **Doador/Voluntário** | `doador@teste.com` | `Teste@123` |
-| **Beneficiário** | `beneficiario@teste.com` | `Teste@123` |
+| **Defesa Civil (Admin)** | `admin@defesacivil.gov.br` | `Admin@2026` | Acesso ao Painel de Focos de Crise e Estatísticas. |
+| **Usuário de Teste** | `teste@conexaosolidaria.app` | `Teste@2026` | Realizar doações, usar o Chat e avaliar usuários. |
+| **Usuário Beneficiário** | `maria.silva@example.com` | `Maria@2026` | Criar solicitações de ajuda e receber doações. |
 
 ---
 
