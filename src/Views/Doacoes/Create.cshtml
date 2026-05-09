@@ -4,7 +4,6 @@
     ViewData["Title"] = "Oferecer Ajuda";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
-
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -19,13 +18,6 @@
                     
                     <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                        <div class="form-group mb-3">
-                            <label asp-for="DoadorId" class="control-label fw-bold text-dark">Quem está doando?</label>
-                            <select asp-for="DoadorId" class="form-select" asp-items="ViewBag.ListaDoadores">
-                                <option value="">-- Selecione o Doador --</option>
-                            </select>
-                        </div>
 
                         <div class="form-group mb-3">
                             <label asp-for="SolicitacaoId" class="control-label fw-bold text-dark">Qual solicitação você quer atender?</label>
