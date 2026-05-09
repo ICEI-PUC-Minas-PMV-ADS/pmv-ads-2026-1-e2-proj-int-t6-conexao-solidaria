@@ -100,7 +100,7 @@ namespace ConexaoSolidaria.Controllers
             return View(doacao);
         }
 
-        // POST: Doacoes/ConfirmarEntrega/5
+        // POST: ConfirmarEntrega
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ConfirmarEntrega(int id)
@@ -108,10 +108,21 @@ namespace ConexaoSolidaria.Controllers
             var doacao = await _context.Doacoes.FindAsync(id);
             if (doacao != null)
             {
+                // Muda a doação para Entregue
                 doacao.Status = StatusDoacao.Entregue;
                 _context.Update(doacao);
+
+                // Busca a Solicitação original e muda para Atendida
+                var solicitacao = await _context.Solicitacoes.FindAsync(doacao.SolicitacaoId);
+                if (solicitacao != null)
+                {
+                    solicitacao.Status = "atendida";
+                    _context.Update(solicitacao);
+                }
+
                 await _context.SaveChangesAsync();
             }
+
             return RedirectToAction(nameof(Index));
         }
     }
