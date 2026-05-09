@@ -33,10 +33,10 @@ Nesta seção, detalhamos a implementação técnica do sistema, relacionando os
 
 ## 🚀 Instruções de Acesso
 
-A aplicação está funcional e hospedada no ambiente Microsoft Azure.
+A aplicação está preparada para execução local e publicação em ambiente Microsoft Azure.
 
-* **Link da Aplicação:** [https://conexaosolidaria.azurewebsites.net](https://conexaosolidaria.azurewebsites.net)
 * **Repositório GitHub:** [Link do Projeto](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria.git)
+* **Link da Aplicação (Azure):** [https://conexaosolidaria.azurewebsites.net](https://conexaosolidaria.azurewebsites.net)
 
 ### Contas de Teste
 
