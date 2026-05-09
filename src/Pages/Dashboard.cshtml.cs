@@ -20,9 +20,10 @@ public class DashboardModel : PageModel
     }
 
     public string NomeUsuario { get; set; } = string.Empty;
-    public int TotalSolicitacoes { get; set; }
     public int TotalAtivas { get; set; }
     public int TotalUrgentes { get; set; }
+    public int DoacoesPendentes { get; set; }
+    public int DoacoesEntregues { get; set; }
     public List<Solicitacao> SolicitacoesUrgentes { get; set; } = new();
 
     public async Task OnGetAsync()
@@ -30,9 +31,12 @@ public class DashboardModel : PageModel
         var user = await _userManager.GetUserAsync(User);
         NomeUsuario = user?.NomeCompleto ?? "Usuário";
 
-        TotalSolicitacoes = await _db.Solicitacoes.CountAsync();
-        TotalAtivas       = await _db.Solicitacoes.CountAsync(s => s.Status == "ativa");
-        TotalUrgentes     = await _db.Solicitacoes.CountAsync(s => s.Urgencia == "alta" && s.Status == "ativa");
+        TotalAtivas = await _db.Solicitacoes.CountAsync(s => s.Status == "ativa");
+        TotalUrgentes = await _db.Solicitacoes.CountAsync(s => s.Urgencia == "alta" && s.Status == "ativa");
+
+        // Busca os dados do novo módulo de Doações
+        DoacoesPendentes = await _db.Doacoes.CountAsync(d => d.Status == StatusDoacao.Pendente);
+        DoacoesEntregues = await _db.Doacoes.CountAsync(d => d.Status == StatusDoacao.Entregue);
 
         SolicitacoesUrgentes = await _db.Solicitacoes
             .Include(s => s.Usuario)
