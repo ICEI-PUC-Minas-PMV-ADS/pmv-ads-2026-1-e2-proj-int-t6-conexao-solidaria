@@ -42,5 +42,18 @@ public class AppDbContext : IdentityDbContext<Usuario>
             .WithMany()
             .HasForeignKey(d => d.SolicitacaoId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        // Configuração para a tabela de Avaliacoes
+        builder.Entity<Avaliacao>()
+            .HasOne(a => a.Avaliado)
+            .WithMany()
+            .HasForeignKey(a => a.AvaliadoId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder.Entity<Avaliacao>()
+            .HasOne(a => a.Avaliador)
+            .WithMany()
+            .HasForeignKey(a => a.AvaliadorId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }
