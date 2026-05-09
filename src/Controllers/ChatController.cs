@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 
 namespace ConexaoSolidaria.Controllers
 {
@@ -20,27 +19,24 @@ namespace ConexaoSolidaria.Controllers
             _userManager = userManager;
         }
 
-        // Histórico
+        // Histórico de Conversas
         public async Task<IActionResult> Lista()
         {
             var userId = _userManager.GetUserId(User);
-
             if (string.IsNullOrEmpty(userId)) return Challenge();
 
-            // Busca chats onde o usuário é o Doador OU o autor da Solicitação
+            // Busca todos os chats
             var chats = await _context.Chats
-                .Include(c => c.Doacao).ThenInclude(d => d!.Solicitacao)
-                .Include(c => c.Doacao).ThenInclude(d => d!.Doador)
                 .Include(c => c.Doacao).ThenInclude(d => d!.Solicitacao).ThenInclude(s => s!.Usuario)
+                .Include(c => c.Doacao).ThenInclude(d => d!.Doador)
                 .Include(c => c.Mensagens)
                 .Where(c => c.Doacao!.DoadorId == userId || c.Doacao.Solicitacao!.UsuarioId == userId)
-                .OrderByDescending(c => c.Mensagens.Max(m => m.EnviadaEm))
                 .ToListAsync();
 
             return View(chats);
         }
 
-        // Abre uma conversa específica
+        // Abrir um Chat específico
         public async Task<IActionResult> Index(int doacaoId)
         {
             var chat = await _context.Chats
@@ -56,7 +52,6 @@ namespace ConexaoSolidaria.Controllers
             }
 
             var usuarioAtual = await _userManager.GetUserAsync(User);
-
             ViewBag.UsuarioAtualId = usuarioAtual?.Id ?? "";
             ViewBag.NomeUsuario = usuarioAtual?.NomeCompleto ?? "Usuário";
 
