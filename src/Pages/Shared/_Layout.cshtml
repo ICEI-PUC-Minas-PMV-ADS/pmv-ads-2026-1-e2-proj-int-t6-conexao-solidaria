@@ -45,7 +45,10 @@
                     <a href="/Doacoes">🎁 <span>Doações</span></a>
                 </li>
                 <li>
-                    <a href="#">💬 <span>Chat</span></a>
+                    <a href="/Chat/Lista" class="cs-nav-link">
+                        <i class="bi bi-chat-dots"></i>
+                        <span>Chat</span>
+                    </a>
                 </li>
                 <li class="@(currentPath.StartsWith("/perfil") ? "active" : "")">
                     <a asp-page="/Perfil/Index">👤 <span>Perfil</span></a>
