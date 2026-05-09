@@ -125,5 +125,47 @@ namespace ConexaoSolidaria.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        // GET: Doacoes/Avaliar/5
+        public async Task<IActionResult> Avaliar(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var doacao = await _context.Doacoes
+                .Include(d => d.Solicitacao)
+                .Include(d => d.Doador)
+                .FirstOrDefaultAsync(d => d.Id == id);
+
+            if (doacao == null) return NotFound();
+
+            ViewBag.DoacaoId = id;
+            ViewBag.DoadorNome = doacao.Doador?.NomeCompleto;
+            ViewBag.DoadorId = doacao.DoadorId;
+
+            return View();
+        }
+
+        // POST: Doacoes/Avaliar
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Avaliar(int doacaoId, int nota, string comentario, string avaliadoId)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var avaliacao = new Avaliacao
+            {
+                DoacaoId = doacaoId,
+                Nota = nota,
+                Comentario = comentario,
+                AvaliadoId = avaliadoId,
+                AvaliadorId = userId!,
+                DataAvaliacao = DateTime.Now
+            };
+
+            _context.Avaliacoes.Add(avaliacao);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("/Dashboard");
+        }
     }
 }
