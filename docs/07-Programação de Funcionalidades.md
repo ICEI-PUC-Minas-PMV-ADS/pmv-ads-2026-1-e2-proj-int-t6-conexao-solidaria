@@ -1,13 +1,15 @@
 # Programação de Funcionalidades
 
-Nesta seção, detalhamos a implementação das funcionalidades do sistema **Conexão Solidária**, relacionando os requisitos funcionais aos artefatos de código produzidos em **ASP.NET MVC**. A implementação está focada em garantir que a lógica de negócio suporte o ciclo completo de ajuda humanitária.
+Nesta seção, detalhamos a implementação técnica do sistema, relacionando os requisitos funcionais aos artefatos de código produzidos em ASP.NET Core. A arquitetura utiliza uma abordagem híbrida com Razor Pages para fluxos de dados e MVC (Controllers/Views) para funcionalidades dinâmicas como o Chat e Doações, garantindo uma aplicação robusta e escalável.
 
 ## 🛠️ Tecnologias Utilizadas
 
-* **Back-end:** C# com framework .NET.
-* **Front-end:** HTML, CSS, JavaScript e Bootstrap.
-* **Base de Dados:** SQL Server / Azure SQL Database.
-* **Cloud:** Microsoft Azure (Hospedagem e Base de Dados).
+* **Framework Principal:** .NET 8.0/9.0 (ASP.NET Core).
+* **Comunicação em Tempo Real:** SignalR (WebSockets) para o chat instantâneo.
+* **Segurança e Autenticação:** ASP.NET Core Identity com suporte a **Roles** (Perfis de Acesso).
+* **Persistência de Dados:** Entity Framework Core com SQL Server.
+* **Front-end:** Razor Pages, Bootstrap 5 e JavaScript (Client-side SignalR).
+* **Serviços Complementares:** Mock Email Service para recuperação de senha e Azure Blob Storage para futura expansão de mídia.
 
 ## 📋 Mapeamento de Funcionalidades
 
