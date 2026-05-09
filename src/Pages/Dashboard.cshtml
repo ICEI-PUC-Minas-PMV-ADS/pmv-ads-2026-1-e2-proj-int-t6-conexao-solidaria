@@ -14,29 +14,33 @@
     </div>
 </div>
 
-<!-- STAT CARDS -->
 <div class="row g-3 mb-4">
-    <div class="col-12 col-md-4">
+    <div class="col-12 col-md-6 col-lg-3">
         <div class="cs-stat-card">
-            <div class="label">Solicitações cadastradas</div>
-            <div class="value">@Model.TotalSolicitacoes</div>
-        </div>
-    </div>
-    <div class="col-12 col-md-4">
-        <div class="cs-stat-card">
-            <div class="label">Ativas no momento</div>
+            <div class="label">Pedidos ativos</div>
             <div class="value">@Model.TotalAtivas</div>
         </div>
     </div>
-    <div class="col-12 col-md-4">
+    <div class="col-12 col-md-6 col-lg-3">
         <div class="cs-stat-card">
             <div class="label">Urgência alta</div>
             <div class="value" style="color: var(--danger);">@Model.TotalUrgentes</div>
         </div>
     </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="cs-stat-card">
+            <div class="label">Doações a caminho</div>
+            <div class="value" style="color: #F28C28;">@Model.DoacoesPendentes</div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="cs-stat-card">
+            <div class="label">Vidas impactadas</div>
+            <div class="value" style="color: #10B981;">@Model.DoacoesEntregues</div>
+        </div>
+    </div>
 </div>
 
-<!-- LISTA DE URGENTES -->
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h2 style="font-size: 18px; font-weight: 700; margin: 0;">Solicitações urgentes próximas</h2>
     <a asp-page="/Solicitacoes/Index" class="text-decoration-none small">Ver todas →</a>
