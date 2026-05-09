@@ -19,6 +19,10 @@ public class AppDbContext : IdentityDbContext<Usuario>
 
     public DbSet<Avaliacao> Avaliacoes { get; set; }
 
+    public DbSet<ChatApoio> Chats { get; set; }
+
+    public DbSet<MensagemChat> MensagensChat { get; set; }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
