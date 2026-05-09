@@ -4,6 +4,7 @@
     ViewData["Title"] = "Oferecer Ajuda";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -19,11 +20,13 @@
                     <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
+                        <input type="hidden" asp-for="SolicitacaoId" value="@ViewBag.SolicitacaoId" />
+
                         <div class="form-group mb-3">
-                            <label asp-for="SolicitacaoId" class="control-label fw-bold text-dark">Qual solicitação você quer atender?</label>
-                            <select asp-for="SolicitacaoId" class="form-select" asp-items="ViewBag.ListaSolicitacoes">
-                                <option value="">-- Selecione a Solicitação --</option>
-                            </select>
+                            <label class="control-label fw-bold text-dark">Você está oferecendo ajuda para:</label>
+                            <div class="p-3 mb-2" style="background-color: #E2E8F0; border-radius: 8px; color: #333; border: 1px solid #CBD5E1;">
+                                <strong style="font-size: 1.1rem;">🎯 @ViewBag.TituloSolicitacao</strong>
+                            </div>
                         </div>
 
                         <div class="form-group mb-4">

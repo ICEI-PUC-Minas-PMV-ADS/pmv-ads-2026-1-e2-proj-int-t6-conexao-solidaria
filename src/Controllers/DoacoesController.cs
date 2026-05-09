@@ -47,14 +47,20 @@ namespace ConexaoSolidaria.Controllers
         }
 
         // GET: Doacoes/Create (Oferecer Ajuda)
-        public IActionResult Create(int? id)
+        public async Task<IActionResult> Create(int? id)
         {
-            var solicitacoesDisponiveis = _context.Solicitacoes
-                .Where(s => s.Status == "ativa")
-                .Select(s => new { Id = s.Id, Exibicao = s.Titulo })
-                .ToList();
+            // Acessar a página sem ID, manda de volta para a lista
+            if (id == null) return RedirectToPage("/Solicitacoes/Index");
 
-            ViewData["ListaSolicitacoes"] = new SelectList(solicitacoesDisponiveis, "Id", "Exibicao", id);
+            // Busca exatamente a solicitação que o usuário clicou
+            var solicitacao = await _context.Solicitacoes.FindAsync(id);
+
+            if (solicitacao == null || solicitacao.Status != "ativa")
+                return RedirectToPage("/Solicitacoes/Index");
+
+            // Manda o ID e o Título para a tela!
+            ViewBag.SolicitacaoId = solicitacao.Id;
+            ViewBag.TituloSolicitacao = solicitacao.Titulo;
 
             return View();
         }
@@ -68,9 +74,8 @@ namespace ConexaoSolidaria.Controllers
 
             if (ModelState.IsValid)
             {
-                // Captura o ID de quem está logado no site e joga na doação
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                doacao.DoadorId = userId;
+                doacao.DoadorId = userId!;
 
                 doacao.DataDoacao = DateTime.Now;
                 doacao.Status = StatusDoacao.Pendente;
@@ -88,12 +93,9 @@ namespace ConexaoSolidaria.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            var solicitacoesDisponiveis = _context.Solicitacoes
-                .Where(s => s.Status == "ativa")
-                .Select(s => new { Id = s.Id, Exibicao = s.Titulo })
-                .ToList();
-
-            ViewData["ListaSolicitacoes"] = new SelectList(solicitacoesDisponiveis, "Id", "Exibicao", doacao.SolicitacaoId);
+            var sol = await _context.Solicitacoes.FindAsync(doacao.SolicitacaoId);
+            ViewBag.SolicitacaoId = sol?.Id;
+            ViewBag.TituloSolicitacao = sol?.Titulo;
 
             return View(doacao);
         }

@@ -14,7 +14,7 @@ namespace ConexaoSolidaria.Models
 
         [ValidateNever]
         [Display(Name = "Doador")]
-        public string DoadorId { get; set; }
+        public required string DoadorId { get; set; }
 
         [ForeignKey("DoadorId")]
         [ValidateNever]
