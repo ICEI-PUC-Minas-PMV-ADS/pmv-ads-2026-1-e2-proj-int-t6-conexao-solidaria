@@ -28,6 +28,7 @@ Nesta seção, detalhamos a implementação técnica do sistema, relacionando os
 | **RF-011** | Recuperação de Senha | `Pages/EsqueciSenha.cshtml`, `Pages/RedefinirSenha.cshtml`, `SmtpEmailService.cs` | Arthur Eduardo A. Lobo |
 | **RF-012** | Gerenciar Perfil do Usuário | `Pages/Perfil/Index.cshtml`, `Models/Usuario.cs` | Arthur Eduardo A. Lobo |
 | **RF-013** | Relatórios e Focos de Crise | `Pages/Admin/Dashboard.cshtml` | Arthur Eduardo A. Lobo |
+| **RF-014** | Realizar pedido de ajuda | `Pages/Solicitacoes/Criar.cshtml`, `Models/Solicitacao.cs` | Arthur Eduardo A. Lobo |
 
 ---
 
