@@ -10,18 +10,16 @@ var builder = WebApplication.CreateBuilder(args);
 // =============================================================================
 // SERVIÇOS (Dependency Injection)
 // =============================================================================
-
 // Conexão com o Azure SQL Database
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException(
         "Connection string 'DefaultConnection' nao foi encontrada. " +
         "Configure-a no appsettings.json (desenvolvimento) ou nas Application Settings " +
         "do Azure App Service (produção).");
-
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-// ASP.NET Core Identity (atende RF01, RF02 e RF13)
+// ASP.NET Core Identity (atende RF01, RF02 e RF13) - AGORA COM ROLES!
 builder.Services
     .AddDefaultIdentity<Usuario>(options =>
     {
@@ -32,6 +30,7 @@ builder.Services
         options.Password.RequireNonAlphanumeric = true;
         options.Password.RequiredLength = 8;
     })
+    .AddRoles<IdentityRole>() 
     .AddEntityFrameworkStores<AppDbContext>();
 
 // Cookie de autenticacao - rota das paginas customizadas
@@ -54,23 +53,21 @@ var app = builder.Build();
 // =============================================================================
 // PIPELINE HTTP
 // =============================================================================
-
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
     app.UseHsts();
 }
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
 app.MapRazorPages();
 
 // =============================================================================
@@ -80,7 +77,9 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<Usuario>>();
-    await DbSeeder.SeedAsync(db, userManager);
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>(); 
+
+    await DbSeeder.SeedAsync(db, userManager, roleManager); 
 }
 
 app.MapHub<ChatHub>("/chatHub");
