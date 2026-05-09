@@ -1,4 +1,5 @@
 using ConexaoSolidaria.Data;
+using ConexaoSolidaria.Hubs;
 using ConexaoSolidaria.Models;
 using ConexaoSolidaria.Services;
 using Microsoft.AspNetCore.Identity;
@@ -46,6 +47,7 @@ builder.Services.AddSingleton<IBlobStorageService, BlobStorageService>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -81,4 +83,5 @@ using (var scope = app.Services.CreateScope())
     await DbSeeder.SeedAsync(db, userManager);
 }
 
+app.MapHub<ChatHub>("/chatHub");
 app.Run();
