@@ -59,5 +59,25 @@ public class AppDbContext : IdentityDbContext<Usuario>
             .WithMany()
             .HasForeignKey(a => a.AvaliadorId)
             .OnDelete(DeleteBehavior.Restrict);
+
+        // Configuração para ChatApoio
+        builder.Entity<ChatApoio>()
+            .HasOne(c => c.Doacao)
+            .WithMany()
+            .HasForeignKey(c => c.DoacaoId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Configuração para MensagemChat
+        builder.Entity<MensagemChat>()
+            .HasOne(m => m.ChatApoio)
+            .WithMany(c => c.Mensagens)
+            .HasForeignKey(m => m.ChatApoioId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<MensagemChat>()
+            .HasOne(m => m.Remetente)
+            .WithMany()
+            .HasForeignKey(m => m.RemetenteId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }
