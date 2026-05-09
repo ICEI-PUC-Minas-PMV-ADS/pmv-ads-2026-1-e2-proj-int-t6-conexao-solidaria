@@ -1,4 +1,74 @@
-﻿@page
+﻿@page "/Admin/Dashboard"
 @model ConexaoSolidaria.Pages.Admin.DashboardModel
 @{
+    ViewData["Title"] = "Painel Defesa Civil";
 }
+
+<div class="container-fluid mt-4">
+    <div class="alert alert-dark shadow-sm border-0 d-flex align-items-center" style="background-color: #1E293B; color: white;">
+        <span style="font-size: 1.5rem; margin-right: 15px;">🛡️</span>
+        <div>
+            <h4 class="mb-0 fw-bold">Modo de Comando: Defesa Civil</h4>
+            <small class="opacity-75">Acesso restrito a autoridades para monitoramento e gestão de crises.</small>
+        </div>
+    </div>
+    
+    <div class="row mt-4 g-3">
+        <div class="col-12 col-md-4">
+            <div class="card shadow-sm border-0 p-3 h-100" style="border-left: 5px solid #3B82F6;">
+                <h6 class="text-muted text-uppercase fw-bold">Total de Solicitações</h6>
+                <h2 class="fw-bold mb-0">@Model.TotalSolicitacoes</h2>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card shadow-sm border-0 p-3 h-100" style="border-left: 5px solid #10B981;">
+                <h6 class="text-muted text-uppercase fw-bold">Casos Resolvidos</h6>
+                <h2 class="fw-bold mb-0">@Model.TotalAtendidas</h2>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="card shadow-sm border-0 p-3 h-100" style="border-left: 5px solid #F59E0B;">
+                <h6 class="text-muted text-uppercase fw-bold">Doações Finalizadas</h6>
+                <h2 class="fw-bold mb-0">@Model.DoacoesEntregues</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12 col-lg-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white border-bottom-0 pt-4 pb-0">
+                    <h5 class="fw-bold"><span class="text-danger">📍 Focos de Crise</span> (Cidades com mais pedidos ativos)</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.TopCidades.Any())
+                    {
+                        <table class="table table-borderless table-hover">
+                            <thead class="text-muted small text-uppercase">
+                                <tr>
+                                    <th>Cidade</th>
+                                    <th class="text-end">Nº de Pedidos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var cidade in Model.TopCidades)
+                                {
+                                    <tr>
+                                        <td class="fw-bold">@cidade.Key</td>
+                                        <td class="text-end">
+                                            <span class="badge bg-danger rounded-pill px-3 py-2">@cidade.Value</span>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p class="text-muted">Nenhum foco de crise registado no momento.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
