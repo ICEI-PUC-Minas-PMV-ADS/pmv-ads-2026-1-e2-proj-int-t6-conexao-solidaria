@@ -57,7 +57,7 @@ namespace ConexaoSolidaria.Pages
                     <a href='{linkRecuperacao}' style='display:inline-block; padding:10px 20px; background-color:#3B82F6; color:#fff; text-decoration:none; border-radius:5px;'>Redefinir Senha</a>
                     <p><br>Se você não solicitou isso, pode ignorar este e-mail.</p>";
 
-                await _emailService.EnviarEmailAsync(user.Email, assunto, corpoHtml);
+                await _emailService.EnviarEmailAsync(user.Email!, assunto, corpoHtml);
             }
 
             MensagemSucesso = "Se o seu e-mail estiver cadastrado, você receberá um link para redefinir sua senha em instantes.";
