@@ -20,11 +20,31 @@ namespace ConexaoSolidaria.Controllers
             _userManager = userManager;
         }
 
+        // Histórico
+        public async Task<IActionResult> Lista()
+        {
+            var userId = _userManager.GetUserId(User);
+
+            if (string.IsNullOrEmpty(userId)) return Challenge();
+
+            // Busca chats onde o usuário é o Doador OU o autor da Solicitação
+            var chats = await _context.Chats
+                .Include(c => c.Doacao).ThenInclude(d => d!.Solicitacao)
+                .Include(c => c.Doacao).ThenInclude(d => d!.Doador)
+                .Include(c => c.Doacao).ThenInclude(d => d!.Solicitacao).ThenInclude(s => s!.Usuario)
+                .Include(c => c.Mensagens)
+                .Where(c => c.Doacao!.DoadorId == userId || c.Doacao.Solicitacao!.UsuarioId == userId)
+                .OrderByDescending(c => c.Mensagens.Max(m => m.EnviadaEm))
+                .ToListAsync();
+
+            return View(chats);
+        }
+
+        // Abre uma conversa específica
         public async Task<IActionResult> Index(int doacaoId)
         {
-            // Busca o chat desta doação ou cria um se não existir
             var chat = await _context.Chats
-                .Include(c => c.Doacao).ThenInclude(d => d.Solicitacao)
+                .Include(c => c.Doacao).ThenInclude(d => d!.Solicitacao)
                 .Include(c => c.Mensagens).ThenInclude(m => m.Remetente)
                 .FirstOrDefaultAsync(c => c.DoacaoId == doacaoId);
 
@@ -36,8 +56,9 @@ namespace ConexaoSolidaria.Controllers
             }
 
             var usuarioAtual = await _userManager.GetUserAsync(User);
-            ViewBag.UsuarioAtualId = usuarioAtual?.Id;
-            ViewBag.NomeUsuario = usuarioAtual?.NomeCompleto;
+
+            ViewBag.UsuarioAtualId = usuarioAtual?.Id ?? "";
+            ViewBag.NomeUsuario = usuarioAtual?.NomeCompleto ?? "Usuário";
 
             return View(chat);
         }
@@ -45,7 +66,8 @@ namespace ConexaoSolidaria.Controllers
         [HttpPost]
         public async Task<IActionResult> SalvarMensagem([FromBody] MensagemChat novaMensagem)
         {
-            // Salva no banco para que o histórico não suma ao dar F5
+            if (novaMensagem == null) return BadRequest();
+
             novaMensagem.EnviadaEm = DateTime.Now;
             _context.MensagensChat.Add(novaMensagem);
             await _context.SaveChangesAsync();
