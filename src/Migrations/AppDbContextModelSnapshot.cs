@@ -398,13 +398,13 @@ namespace ConexaoSolidaria.Migrations
                     b.HasOne("ConexaoSolidaria.Models.Usuario", "Avaliado")
                         .WithMany()
                         .HasForeignKey("AvaliadoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ConexaoSolidaria.Models.Usuario", "Avaliador")
                         .WithMany()
                         .HasForeignKey("AvaliadorId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ConexaoSolidaria.Models.Doacao", "Doacao")

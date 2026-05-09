@@ -32,13 +32,13 @@ namespace ConexaoSolidaria.Migrations
                         column: x => x.AvaliadoId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Avaliacoes_AspNetUsers_AvaliadorId",
                         column: x => x.AvaliadorId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Avaliacoes_Doacoes_DoacaoId",
                         column: x => x.DoacaoId,
