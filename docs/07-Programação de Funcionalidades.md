@@ -27,7 +27,7 @@ Nesta seção, detalhamos a implementação técnica do sistema, relacionando os
 | **RF-010** | Ciclo de Vida da Doação (Entrega) | `DoacoesController.cs (ConfirmarEntrega)`, `Views/Doacoes/Index.cshtml` | Arthur Eduardo A. Lobo |
 | **RF-011** | Recuperação de Senha | `Pages/EsqueciSenha.cshtml`, `Pages/RedefinirSenha.cshtml`, `SmtpEmailService.cs` | Arthur Eduardo A. Lobo |
 | **RF-012** | Gerenciar Perfil do Usuário | `Pages/Perfil/Index.cshtml`, `Models/Usuario.cs` | Arthur Eduardo A. Lobo |
-| **RF-013** | Relatórios e Focos de Crise | `Pages/Admin/Dashboard.cshtml` (Agrupamento por Cidades) | Arthur Eduardo A. Lobo |
+| **RF-013** | Relatórios e Focos de Crise | `Pages/Admin/Dashboard.cshtml` | Arthur Eduardo A. Lobo |
 
 ---
 
