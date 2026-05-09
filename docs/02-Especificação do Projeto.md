@@ -120,8 +120,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Criar conta | ALTA | 
-|RF-002| Gerenciar conta    | ALTA |
+|RF-001| Criar conta de usuário | ALTA | 
+|RF-002| Gestão de Acesso (Login/Logout) | ALTA |
 |RF-003| Avaliar usuario  | BAIXA |
 |RF-004| Acessar chat de apoio | MEDIA |
 |RF-005| Visualizar pedido | ALTA |
