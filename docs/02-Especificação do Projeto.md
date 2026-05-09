@@ -122,22 +122,18 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |------|-----------------------------------------|----|
 |RF-001| Criar conta de usuário | ALTA | 
 |RF-002| Gestão de Acesso (Login/Logout) | ALTA |
-|RF-003| Avaliar usuario  | BAIXA |
+|RF-003| Avaliar usuario | BAIXA |
 |RF-004| Acessar chat de apoio | MEDIA |
 |RF-005| Visualizar pedido | ALTA |
 |RF-006| Realizar doação | ALTA |
 |RF-007| Gerenciar pedidos | MEDIA |
-|RF-008| Gerenciar doações | ALTA | 
-|RF-009| Gerenciar usuarios | MEDIA |
-|RF-010| Registrar doações | MEDIA |
+|RF-008| Histórico de Mensagens | ALTA | 
+|RF-009| Painel da Defesa Civil (Admin) | MEDIA |
+|RF-010| Ciclo de Vida da Doação (Entrega) | MEDIA |
 |RF-011| ⁠Recuperar a senha do usuário | ALTA |
-|RF-012| Editar perfil | MEDIA |
-|RF-013| Criar e Gerenciar Grupos Solidários | ALTA |
-|RF-014| Participar e Sair de Grupos Existentes | MEDIA |
-|RF-015| Compartilhar Grupos via Link ou QR Code | BAIXA |
-|RF-016| Visualizar Painel de Estatísticas e Relatórios de Demandas | MEDIA |
-|RF-017| Filtrar e Pesquisar Solicitações por categoria, urgência e localização | ALTA |
-|RF-018| Reportar incidentes ou problemas em uma doação/atendimento | MEDIA |
+|RF-012| Gerenciar Perfil do Usuário | MEDIA |
+|RF-013| Relatórios e Focos de Crise | ALTA |
+|RF-014| Realizar Pedido | ALTA |
 
 ### Requisitos não Funcionais
 
