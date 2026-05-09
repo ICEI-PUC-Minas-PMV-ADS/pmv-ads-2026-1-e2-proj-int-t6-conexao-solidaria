@@ -1,1 +1,60 @@
-﻿
+﻿@model IEnumerable<ConexaoSolidaria.Models.Doacao>
+
+@{
+    ViewData["Title"] = "Minhas Doações";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="cs-page-header mb-4">
+    <div>
+        <h1 class="cs-page-title">Minhas Doações</h1>
+        <p class="cs-page-subtitle">Acompanhe o histórico e o status das suas ofertas de ajuda</p>
+    </div>
+</div>
+
+<div class="card shadow-sm" style="border-radius: 12px; border: 1px solid #E2E8F0; overflow: hidden;">
+    <div class="table-responsive">
+        <table class="table table-hover mb-0" style="vertical-align: middle;">
+            <thead style="background-color: #F8FAFD; color: #475569; font-size: 14px;">
+                <tr>
+                    <th class="px-4 py-3 border-bottom-0">Data</th>
+                    <th class="px-4 py-3 border-bottom-0">Para quem / Solicitação</th>
+                    <th class="px-4 py-3 border-bottom-0">O que foi doado</th>
+                    <th class="px-4 py-3 border-bottom-0">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!Model.Any())
+                {
+                    <tr>
+                        <td colspan="4" class="px-4 py-5 text-center text-muted">
+                            <span style="font-size: 24px;">🎁</span><br />
+                            Nenhuma doação registrada ainda.
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="px-4 py-3 text-muted">@item.DataDoacao.ToShortDateString()</td>
+                            <td class="px-4 py-3 fw-bold" style="color: #1E73BE;">@item.Solicitacao?.Titulo</td>
+                            <td class="px-4 py-3">@item.ItensDoados</td>
+                            <td class="px-4 py-3">
+                                @if (item.Status == ConexaoSolidaria.Models.StatusDoacao.Pendente)
+                                {
+                                    <span class="badge bg-warning text-dark px-3 py-2" style="border-radius: 20px;">🟡 Pendente</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-success px-3 py-2" style="border-radius: 20px;">🟢 Entregue</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
