@@ -52,20 +52,26 @@
                                     <span class="badge bg-success px-3 py-2" style="border-radius: 20px;">🟢 Entregue</span>
                                 }
                             </td>
-                            <td class="px-4 py-3 text-center">
-                                @if (item.Status == ConexaoSolidaria.Models.StatusDoacao.Pendente)
-                                {
-                                    <form asp-action="ConfirmarEntrega" asp-route-id="@item.Id" method="post">
-                                        <button type="submit" class="btn btn-sm text-white" style="background-color: #10B981; border-radius: 6px;"
-                                                onclick="return confirm('Tem certeza que deseja confirmar a entrega desta doação?');">
-                                            ✅ Confirmar Entrega
-                                        </button>
-                                    </form>
-                                }
-                                else
-                                {
-                                    <span class="text-muted small">Concluída 💖</span>
-                                }
+                            <td class="px-4 py-3">
+                                <div class="d-flex justify-content-center gap-2">
+                                    <a href="/Chat?doacaoId=@item.Id" class="btn btn-sm btn-outline-primary" style="border-radius: 6px; display: flex; align-items: center; gap: 5px;">
+                                        💬 Chat
+                                    </a>
+
+                                    @if (item.Status == ConexaoSolidaria.Models.StatusDoacao.Pendente)
+                                    {
+                                        <form asp-action="ConfirmarEntrega" asp-route-id="@item.Id" method="post" style="display: inline;">
+                                            <button type="submit" class="btn btn-sm text-white" style="background-color: #10B981; border-radius: 6px;"
+                                                    onclick="return confirm('Tem certeza que deseja confirmar a entrega desta doação?');">
+                                                ✅ Confirmar Entrega
+                                            </button>
+                                        </form>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted small d-flex align-items-center">Concluída 💖</span>
+                                    }
+                                </div>
                             </td>
                         </tr>
                     }
