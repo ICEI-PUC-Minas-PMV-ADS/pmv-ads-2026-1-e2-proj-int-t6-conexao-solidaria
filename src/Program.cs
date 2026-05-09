@@ -30,7 +30,8 @@ builder.Services
         options.Password.RequireNonAlphanumeric = true;
         options.Password.RequiredLength = 8;
     })
-    .AddRoles<IdentityRole>() 
+    .AddRoles<IdentityRole>()
+    .AddDefaultTokenProviders()
     .AddEntityFrameworkStores<AppDbContext>();
 
 // Cookie de autenticacao - rota das paginas customizadas
