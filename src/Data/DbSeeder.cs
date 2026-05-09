@@ -16,7 +16,7 @@ public static class DbSeeder
         await db.Database.MigrateAsync();
 
         // -----------------------------------------------------------------
-        // 1. Criar Perfis de Acesso (Roles)
+        // Criar Perfis de Acesso (Roles)
         // -----------------------------------------------------------------
         string[] roleNames = { "Admin", "Beneficiario", "Doador" };
         foreach (var roleName in roleNames)
@@ -27,11 +27,10 @@ public static class DbSeeder
             }
         }
 
-        // Se o usuário de teste já existe, o banco já foi populado. Evita duplicação.
         if (await userManager.FindByEmailAsync("teste@conexaosolidaria.app") != null) return;
 
         // -----------------------------------------------------------------
-        // 2. Conta "Modo Deus" da Defesa Civil (Administrador)
+        // Conta "Modo Deus" da Defesa Civil (Administrador)
         // -----------------------------------------------------------------
         var adminUser = new Usuario
         {
