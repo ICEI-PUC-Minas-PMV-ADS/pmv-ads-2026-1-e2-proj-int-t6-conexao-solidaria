@@ -14,7 +14,10 @@ public class AppDbContext : IdentityDbContext<Usuario>
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
     public DbSet<Solicitacao> Solicitacoes => Set<Solicitacao>();
+
     public DbSet<Doacao> Doacoes => Set<Doacao>();
+
+    public DbSet<Avaliacao> Avaliacoes { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
