@@ -15,24 +15,19 @@ Nesta seção, detalhamos a implementação técnica do sistema, relacionando os
 
 | ID | Descrição do Requisito | Artefatos Produzidos (Views/Controllers) | Responsável |
 |:---|:---|:---|:---|
-| **RF-001** | Criar conta | `Usuarios/CriarConta.cshtml`, `UsuariosController.cs` | Arthur Eduardo A. Lobo |
-| **RF-002** | Gerenciar conta (Login/Logout) | `Usuarios/Login.cshtml`, `UsuariosController.cs` | Arthur Eduardo A. Lobo |
-| **RF-003** | Avaliar usuário | `Avaliacoes/Index.cshtml`, `AvaliacoesController.cs` | Arthur Eduardo A. Lobo |
-| **RF-004** | Acessar chat de apoio | `Chat/Conversa.cshtml`, `ChatController.cs` | Arthur Eduardo A. Lobo |
-| **RF-005** | Visualizar pedido de ajuda | `Pedidos/Detalhes.cshtml`, `PedidosController.cs` | Arthur Eduardo A. Lobo |
-| **RF-006** | Realizar doação | `Doacoes/Criar.cshtml`, `DoacoesController.cs` | Arthur Eduardo A. Lobo |
-| **RF-007** | Gerenciar pedidos (Criar/Editar) | `Pedidos/Index.cshtml`, `PedidosController.cs` | Arthur Eduardo A. Lobo |
-| **RF-008** | Gerenciar doações (Confirmação) | `Doacoes/Index.cshtml`, `DoacoesController.cs` | Arthur Eduardo A. Lobo |
-| **RF-009** | Gerenciar usuários (Painel Admin) | `Admin/Usuarios.cshtml`, `AdminController.cs` | Arthur Eduardo A. Lobo |
-| **RF-010** | Registrar doações concluídas | `Doacoes/Confirmar.cshtml`, `DoacoesController.cs` | Arthur Eduardo A. Lobo |
-| **RF-011** | Recuperar a senha do usuário | `Usuarios/RecuperarSenha.cshtml`, `UsuariosController.cs` | Arthur Eduardo A. Lobo |
-| **RF-012** | Editar perfil | `Usuarios/Perfil.cshtml`, `UsuariosController.cs` | Arthur Eduardo A. Lobo |
-| **RF-013** | Criar e Gerenciar Grupos Solidáriosl | `GruposController.cs` | Arthur Eduardo A. Lobo |
-| **RF-014** | Participar e Sair de Grupos Existentes | `GruposController.cs` | Arthur Eduardo A. Lobo |
-| **RF-015** | Compartilhar Grupos via Link ou QR Code | `GruposController.cs` | Arthur Eduardo A. Lobo |
-| **RF-016** | Visualizar Painel de Estatísticas e Relatórios de Demandas | `AdminController.cs` | Arthur Eduardo A. Lobo |
-| **RF-017** | Filtrar e Pesquisar Solicitações por categoria, urgência e localização | `PedidosController.cs` | Arthur Eduardo A. Lobo |
-| **RF-018** | Reportar incidentes ou problemas em uma doação/atendimento | `AtendimentosController.cs` | Arthur Eduardo A. Lobo |
+| **RF-001** | Criar conta de usuário | `Pages/CriarConta.cshtml`, `Models/Usuario.cs` | Arthur Eduardo A. Lobo |
+| **RF-002** | Gestão de Acesso (Login/Logout) | `Pages/Login.cshtml`, `Pages/Logout.cshtml` | Arthur Eduardo A. Lobo |
+| **RF-003** | Sistema de Avaliação (Reputação) | `Pages/Avaliacao/Index.cshtml`, `Models/Avaliacao.cs` | Arthur Eduardo A. Lobo |
+| **RF-004** | Chat de Apoio em Tempo Real | `ChatController.cs`, `ChatHub.cs`, `Views/Chat/Index.cshtml` | Arthur Eduardo A. Lobo |
+| **RF-005** | Visualizar Pedidos de Ajuda | `Pages/Solicitacoes/Index.cshtml`, `Pages/Dashboard.cshtml` | Arthur Eduardo A. Lobo |
+| **RF-006** | Realizar Oferta de Doação | `DoacoesController.cs`, `Models/Doacao.cs` | Arthur Eduardo A. Lobo |
+| **RF-007** | Gestão de Solicitações | `Pages/Solicitacoes/Criar.cshtml`, `Pages/Solicitacoes/Minhas.cshtml` | Arthur Eduardo A. Lobo |
+| **RF-008** | Histórico de Mensagens | `ChatController.cs (Ação Lista)`, `Views/Chat/Lista.cshtml` | Arthur Eduardo A. Lobo |
+| **RF-009** | Painel da Defesa Civil (Admin) | `Pages/Admin/Dashboard.cshtml`, `Pages/Admin/Dashboard.cshtml.cs` | Arthur Eduardo A. Lobo |
+| **RF-010** | Ciclo de Vida da Doação (Entrega) | `DoacoesController.cs (ConfirmarEntrega)`, `Views/Doacoes/Index.cshtml` | Arthur Eduardo A. Lobo |
+| **RF-011** | Recuperação de Senha | `Pages/EsqueciSenha.cshtml`, `Pages/RedefinirSenha.cshtml`, `SmtpEmailService.cs` | Arthur Eduardo A. Lobo |
+| **RF-012** | Gerenciar Perfil do Usuário | `Pages/Perfil/Index.cshtml`, `Models/Usuario.cs` | Arthur Eduardo A. Lobo |
+| **RF-013** | Relatórios e Focos de Crise | `Pages/Admin/Dashboard.cshtml` (Agrupamento por Cidades) | Arthur Eduardo A. Lobo |
 
 ---
 
