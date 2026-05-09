@@ -74,7 +74,10 @@
         <a href="/Doacoes" class="@(currentPath.StartsWith("/doacoes") ? "active" : "")">
             <span>🎁</span><small>Doações</small>
         </a>
-        <a href="#"><span>💬</span><small>Chat</small></a>
+        <a href="/Chat/Lista" class="cs-nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Chat" ? "active" : "")">
+            <i class="bi bi-chat-dots"></i>
+            <span>Chat</span>
+        </a>
         <a asp-page="/Perfil/Index" class="@(currentPath.StartsWith("/perfil") ? "active" : "")">
             <span>👤</span><small>Perfil</small>
         </a>
