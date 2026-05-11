@@ -26,7 +26,7 @@ Para registrar os indicadores de cada cenário, é preciso manter a coerência c
 | **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
 | Usuário 1   |         180        |               20                |       Sim       | Usuário colocou na descrição o item diferente do produto desejado | Achou um pouco dificil a interação, mas se localizou.                               |     
-| Usuário 2   |         70         |               16                |       Sim       |        Nenhum          | O usuário achou bem facil usar o sistema.                     |                              |      
+| Usuário 2   |         70         |               16                |       Sim       |        Nenhum          | Navegação considerada fácil.                     |                              |      
 | Usuário 3   |         300        |               31                |       Sim       | O usuário não colocou a urgência                      | Teve problemas na definição de urgências.           |                     |  
 | Usuário 4   |         80         |               17                |       Sim       |       Nenhum           | O usuário achou bem pratico o sistema.                              |                     | 
 | Usuário 5   |         80         |               17                |       Sim       |       Nenhum           | O usuário cadastrou com facilidade e em pouco tempo.                              |                     | 
