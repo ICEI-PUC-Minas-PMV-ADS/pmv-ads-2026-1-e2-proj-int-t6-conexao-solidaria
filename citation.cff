@@ -1,29 +1,41 @@
 message: Please cite this software using these metadata.
 title:
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
+  - family-names: Pereira do Nascimento
+    given-names: Tiago
+  - family-names: Rodrigues de Souza
+    given-names: Richard
+  - family-names: Clara de Sousa Lopes
+    given-names: Luisa
+  - family-names: Natan de Oliveira Lopes
+    given-names: Italo
+  - family-names: Henrique Simão Bruno
+    given-names: Gustavo
+  - family-names: Eduardo Andrade Lobo
+    given-names: Arthur
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Jeunon de Alencar
+    given-names: Bernardo
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
 keywords:
-  - 
-  - 
-repository-code: 
+  - Doação
+  - Pedido
+  - Caridade
+  - Ajuda
+  - Desastre
+  - Acidente
+  - Necessidade
+  - Apoio
+  - Assistência
+  - arrecadação
+  - contribuição
+  - Colaboração
+  - solidariedade
+  - auxílio
+  - Doe
+  - ajude
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria
 version: 1.0.0
-date-released: 2023-10-31
+date-released: 2026-05-26
