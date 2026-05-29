@@ -4,10 +4,10 @@
     ViewData["Title"] = "Ajuda Confirmada";
     var o = Model.Oferta;
     var s = Model.Solicitacao;
-    var pct = s != null ? (int)(s.PercentualAtendido * 100) : 0;
+    var pct = 0;
 
     // Formatar lista de itens para exibição
-    string itensLabel = o?.Itens ?? "—";
+    string itensLabel = o?.Mensagem ?? "—";
 
     // Mapeamento de modalidade para rótulo legível
     string modalidadeLabel = o?.Modalidade switch
@@ -99,14 +99,14 @@ else
                             </tr>
                             <tr>
                                 <th class="text-muted ps-3">Solicitacao</th>
-                                <td class="fw-bold">@s.Titulo — @s.Localizacao</td>
+                                <td class="fw-bold">@s.Titulo — @s.Cidade / @s.Estado</td>
                             </tr>
                             <tr>
-                                <th class="text-muted ps-3">Data prevista</th>
+                                <th class="text-muted ps-3">Observacoes</th>
                                 <td class="fw-bold">
-                                    @(string.IsNullOrWhiteSpace(o.Observacoes)
+                                    @(string.IsNullOrWhiteSpace(o.Mensagem)
                                         ? "A combinar via chat"
-                                        : o.Observacoes)
+                                        : o.Mensagem)
                                 </td>
                             </tr>
                             <tr>
@@ -168,8 +168,8 @@ else
                     <p class="small text-muted fw-semibold mb-3 text-uppercase">Solicitante</p>
                     <div class="position-relative d-inline-block mb-2">
                         <div class="cs-avatar cs-avatar-lg mx-auto">
-                            @(s.Usuario?.Nome?.Length >= 2
-                                ? s.Usuario.Nome.Substring(0, 2).ToUpper()
+                            @(s.Usuario?.NomeCompleto?.Length >= 2
+                                ? s.Usuario.NomeCompleto.Substring(0, 2).ToUpper()
                                 : "?")
                         </div>
                         <span class="position-absolute top-0 start-100 translate-middle
@@ -177,8 +177,8 @@ else
                             Verificada
                         </span>
                     </div>
-                    <div class="fw-bold fs-6">@(s.Usuario?.Nome ?? "—")</div>
-                    <small class="text-muted">@s.Localizacao</small>
+                    <div class="fw-bold fs-6">@(s.Usuario?.NomeCompleto ?? "—")</div>
+                    <small class="text-muted">@s.Cidade / @s.Estado</small>
                     <div class="cs-stars mt-2">
                         @for (int k = 0; k < 5; k++)
                         {
@@ -195,12 +195,12 @@ else
                     <p class="small text-muted fw-semibold mb-2 text-uppercase">
                         Solicitacao vinculada
                     </p>
-                    @if (s.NivelUrgencia == "urgente")
+                    @if (s.Urgencia == "alta")
                     {
                         <span class="badge cs-badge-urgente mb-2">Urgente</span>
                     }
                     <h6 class="fw-bold mb-1">@s.Titulo</h6>
-                    <small class="text-muted">@s.Localizacao &nbsp;•&nbsp; @s.NumeroPessoas pessoa(s)</small>
+                    <small class="text-muted">@s.Cidade / @s.Estado</small>
                     <div class="d-flex align-items-center gap-2 mt-2">
                         <div class="progress flex-grow-1" style="height:8px">
                             <div class="progress-bar bg-success" style="width:@pct%"></div>

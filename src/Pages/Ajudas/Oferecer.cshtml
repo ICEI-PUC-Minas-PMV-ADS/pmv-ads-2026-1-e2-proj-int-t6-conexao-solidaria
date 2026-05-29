@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Como Ajudar";
     var s = Model.Solicitacao;
-    var pct = s != null ? (int)(s.PercentualAtendido * 100) : 0;
+    var pct = 0; // progresso calculável via OfertasAjuda se necessário
 }
 
 <!-- Breadcrumb -->
@@ -65,7 +65,7 @@ else
             <div class="card cs-card mb-4">
                 <div class="card-body">
                     <div class="d-flex align-items-start gap-3 mb-2">
-                        @if (s.NivelUrgencia == "urgente")
+                        @if (s.Urgencia == "alta")
                         {
                             <span class="badge cs-badge-urgente align-self-center">Urgente</span>
                         }
@@ -82,7 +82,7 @@ else
                         <small class="fw-bold text-success">@pct%</small>
                     </div>
                     <small class="text-muted d-block mt-1">
-                        @s.Localizacao &nbsp;|&nbsp; @s.NumeroPessoas pessoa(s)
+                        @s.Cidade / @s.Estado
                     </small>
                 </div>
             </div>
@@ -116,11 +116,21 @@ else
                         <div class="col-md-4">
                             <label class="cs-modality-card h-100 @(isFirst ? "selected" : "")"
                                    data-value="@val">
-                                <input type="radio"
-                                       asp-for="Input.Modalidade"
-                                       value="@val"
-                                       class="visually-hidden cs-modality-radio"
-                                       @(isFirst ? "checked" : "") />
+                                @if (isFirst)
+                                {
+                                    <input type="radio"
+                                           asp-for="Input.Modalidade"
+                                           value="@val"
+                                           class="visually-hidden cs-modality-radio"
+                                           checked />
+                                }
+                                else
+                                {
+                                    <input type="radio"
+                                           asp-for="Input.Modalidade"
+                                           value="@val"
+                                           class="visually-hidden cs-modality-radio" />
+                                }
                                 <div class="cs-modality-icon mb-2">
                                     <i class="bi @ico fs-4"></i>
                                 </div>
@@ -176,14 +186,14 @@ else
 
                 <!-- Observações -->
                 <div class="mb-4">
-                    <label asp-for="Input.Observacoes" class="form-label fw-semibold">
-                        Observacoes <span class="text-muted fw-normal">(opcional)</span>
+                    <label asp-for="Input.Mensagem" class="form-label fw-semibold">
+                        Mensagem para o solicitante <span class="text-muted fw-normal">(opcional)</span>
                     </label>
-                    <textarea asp-for="Input.Observacoes"
+                    <textarea asp-for="Input.Mensagem"
                               class="form-control"
                               rows="3"
                               placeholder="Ex: Posso entregar na quarta-feira a partir das 18h..."></textarea>
-                    <span asp-validation-for="Input.Observacoes" class="text-danger small"></span>
+                    <span asp-validation-for="Input.Mensagem" class="text-danger small"></span>
                 </div>
 
                 <!-- Ações -->
@@ -206,7 +216,7 @@ else
             <!-- Mapa placeholder -->
             <div class="cs-map-placeholder mb-4">
                 <div class="cs-map-pin">!</div>
-                <span class="cs-map-label">@s.Localizacao</span>
+                <span class="cs-map-label">@s.Cidade / @s.Estado</span>
                 <div class="cs-map-distance">Localizacao da solicitacao</div>
             </div>
 
@@ -216,13 +226,13 @@ else
                     <p class="small text-muted fw-semibold mb-2 text-uppercase">Solicitante</p>
                     <div class="d-flex align-items-center gap-3">
                         <div class="cs-avatar cs-avatar-md">
-                            @(s.Usuario?.Nome?.Length >= 2
-                                ? s.Usuario.Nome.Substring(0, 2).ToUpper()
+                            @(s.Usuario?.NomeCompleto?.Length >= 2
+                                ? s.Usuario.NomeCompleto.Substring(0, 2).ToUpper()
                                 : "?")
                         </div>
                         <div>
-                            <div class="fw-bold">@(s.Usuario?.Nome ?? "—")</div>
-                            <small class="text-muted">@s.Localizacao</small>
+                            <div class="fw-bold">@(s.Usuario?.NomeCompleto ?? "—")</div>
+                            <small class="text-muted">@s.Cidade / @s.Estado</small>
                             <div class="cs-stars small mt-1">
                                 @for (int k = 0; k < 5; k++)
                                 {

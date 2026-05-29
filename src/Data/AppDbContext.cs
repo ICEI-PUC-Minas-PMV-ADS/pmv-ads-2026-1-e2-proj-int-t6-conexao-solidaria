@@ -17,6 +17,8 @@ public class AppDbContext : IdentityDbContext<Usuario>
 
     public DbSet<Doacao> Doacoes => Set<Doacao>();
 
+    public DbSet<OfertaAjuda> OfertasAjuda => Set<OfertaAjuda>();
+
     public DbSet<Avaliacao> Avaliacoes { get; set; }
 
     public DbSet<ChatApoio> Chats { get; set; }
