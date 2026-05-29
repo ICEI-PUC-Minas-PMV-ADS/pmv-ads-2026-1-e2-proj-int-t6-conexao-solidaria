@@ -1,0 +1,231 @@
+@page "/Ajudas/Confirmada"
+@model ConexaoSolidaria.Pages.Ajudas.ConfirmadaModel
+@{
+    ViewData["Title"] = "Ajuda Confirmada";
+    var o = Model.Oferta;
+    var s = Model.Solicitacao;
+    var pct = s != null ? (int)(s.PercentualAtendido * 100) : 0;
+
+    // Formatar lista de itens para exibição
+    string itensLabel = o?.Itens ?? "—";
+
+    // Mapeamento de modalidade para rótulo legível
+    string modalidadeLabel = o?.Modalidade switch
+    {
+        "doacao"       => "Doacao de Itens",
+        "voluntariado" => "Voluntariado Presencial",
+        "transporte"   => "Transporte",
+        _              => o?.Modalidade ?? "—"
+    };
+}
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="mb-3">
+    <ol class="breadcrumb small">
+        <li class="breadcrumb-item"><a asp-page="/Dashboard">Dashboard</a></li>
+        <li class="breadcrumb-item"><a asp-page="/Solicitacoes/Index">Solicitacoes</a></li>
+        @if (s != null)
+        {
+            <li class="breadcrumb-item">
+                <a asp-page="/Solicitacoes/Detalhes" asp-route-id="@s.Id">Detalhes</a>
+            </li>
+        }
+        <li class="breadcrumb-item active" aria-current="page">Ajuda Confirmada</li>
+    </ol>
+</nav>
+
+@if (o == null || s == null)
+{
+    <div class="alert alert-danger">Oferta nao encontrada.</div>
+}
+else
+{
+    <!-- Banner de sucesso -->
+    <div class="cs-alert-success mb-4">
+        <div class="cs-alert-icon">&#10003;</div>
+        <div>
+            <div class="fw-bold fs-5 text-success">Ajuda confirmada com sucesso!</div>
+            <div class="text-success-muted">
+                Sua oferta foi registrada. O solicitante sera notificado pelo chat.
+            </div>
+            <small class="text-muted">Codigo da oferta: #OF-@o.Id.ToString("D4")</small>
+        </div>
+    </div>
+
+    <!-- Stepper completo -->
+    <div class="cs-stepper mb-4">
+        @{
+            string[] stepLabels = { "Viu", "Quer ajudar", "Como ajudar", "Confirmado!", "Avaliacao" };
+            int activeStep = 3;
+        }
+        @for (int i = 0; i < stepLabels.Length; i++)
+        {
+            bool done   = i <= activeStep;
+            bool active = i == activeStep;
+            <div class="cs-step @(active ? "active done" : done ? "done" : "")">
+                <div class="cs-step-circle @(done ? "bg-success border-success" : "")">
+                    @if (done) { <span>&#10003;</span> }
+                    else       { <span>@(i + 1)</span> }
+                </div>
+                <span class="cs-step-label @(done ? "text-success" : "")">@stepLabels[i]</span>
+            </div>
+            @if (i < stepLabels.Length - 1)
+            {
+                <div class="cs-step-line @(i < activeStep ? "done bg-success" : "")"></div>
+            }
+        }
+    </div>
+
+    <div class="row g-4">
+        <!-- ═══ COLUNA ESQUERDA ═══════════════════════════════════════════ -->
+        <div class="col-lg-7">
+
+            <!-- Card resumo da oferta -->
+            <div class="card cs-card mb-4">
+                <div class="card-header cs-card-header-primary text-white fw-semibold">
+                    Resumo da sua oferta de ajuda
+                    <span class="badge cs-badge-ok float-end">Confirmada</span>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-borderless mb-0 cs-table-resumo">
+                        <tbody>
+                            <tr>
+                                <th class="text-muted ps-3" style="width:38%">Modalidade</th>
+                                <td class="fw-bold">@modalidadeLabel</td>
+                            </tr>
+                            <tr>
+                                <th class="text-muted ps-3">Itens</th>
+                                <td class="fw-bold">@itensLabel</td>
+                            </tr>
+                            <tr>
+                                <th class="text-muted ps-3">Solicitacao</th>
+                                <td class="fw-bold">@s.Titulo — @s.Localizacao</td>
+                            </tr>
+                            <tr>
+                                <th class="text-muted ps-3">Data prevista</th>
+                                <td class="fw-bold">
+                                    @(string.IsNullOrWhiteSpace(o.Observacoes)
+                                        ? "A combinar via chat"
+                                        : o.Observacoes)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-muted ps-3">Status</th>
+                                <td class="fw-bold text-success">Confirmada — aguardando entrega</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Card próximos passos -->
+            <div class="card cs-card bg-light border-0 mb-4">
+                <div class="card-body">
+                    <h5 class="fw-bold mb-3">Proximos passos</h5>
+                    <ol class="cs-next-steps ps-0 mb-0">
+                        <li>
+                            <div class="cs-step-num">1</div>
+                            Acesse o chat para combinar os detalhes da entrega.
+                        </li>
+                        <li>
+                            <div class="cs-step-num">2</div>
+                            Registre a entrega na plataforma ao concluir.
+                        </li>
+                        <li>
+                            <div class="cs-step-num">3</div>
+                            Avalie a experiencia apos a confirmacao pelo solicitante.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Botões de ação -->
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+                <a asp-page="/Chat/Conversa"
+                   asp-route-solicitacaoId="@s.Id"
+                   class="btn cs-btn-primary px-4">
+                    Ir para o Chat
+                </a>
+                <a asp-page="/Solicitacoes/Detalhes"
+                   asp-route-id="@s.Id"
+                   class="btn btn-outline-secondary px-4">
+                    Ver Solicitacao
+                </a>
+                <a asp-page="/Avaliacoes/Avaliar"
+                   asp-route-ofertaId="@o.Id"
+                   class="text-muted text-decoration-underline small">
+                    Avaliar mais tarde
+                </a>
+            </div>
+        </div>
+
+        <!-- ═══ COLUNA DIREITA ════════════════════════════════════════════ -->
+        <div class="col-lg-5">
+
+            <!-- Card solicitante -->
+            <div class="card cs-card mb-3">
+                <div class="card-body text-center py-4">
+                    <p class="small text-muted fw-semibold mb-3 text-uppercase">Solicitante</p>
+                    <div class="position-relative d-inline-block mb-2">
+                        <div class="cs-avatar cs-avatar-lg mx-auto">
+                            @(s.Usuario?.Nome?.Length >= 2
+                                ? s.Usuario.Nome.Substring(0, 2).ToUpper()
+                                : "?")
+                        </div>
+                        <span class="position-absolute top-0 start-100 translate-middle
+                                     badge rounded-pill bg-success" style="font-size:.65rem">
+                            Verificada
+                        </span>
+                    </div>
+                    <div class="fw-bold fs-6">@(s.Usuario?.Nome ?? "—")</div>
+                    <small class="text-muted">@s.Localizacao</small>
+                    <div class="cs-stars mt-2">
+                        @for (int k = 0; k < 5; k++)
+                        {
+                            <span class="text-warning">&#9733;</span>
+                        }
+                        <span class="text-muted ms-1 small">4.8</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card solicitação vinculada -->
+            <div class="card cs-card mb-3">
+                <div class="card-body">
+                    <p class="small text-muted fw-semibold mb-2 text-uppercase">
+                        Solicitacao vinculada
+                    </p>
+                    @if (s.NivelUrgencia == "urgente")
+                    {
+                        <span class="badge cs-badge-urgente mb-2">Urgente</span>
+                    }
+                    <h6 class="fw-bold mb-1">@s.Titulo</h6>
+                    <small class="text-muted">@s.Localizacao &nbsp;•&nbsp; @s.NumeroPessoas pessoa(s)</small>
+                    <div class="d-flex align-items-center gap-2 mt-2">
+                        <div class="progress flex-grow-1" style="height:8px">
+                            <div class="progress-bar bg-success" style="width:@pct%"></div>
+                        </div>
+                        <small class="fw-bold text-success">@pct%</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ações rápidas -->
+            <div class="card cs-card border-primary">
+                <div class="card-body">
+                    <p class="small fw-semibold text-primary mb-3 text-uppercase">Acoes rapidas</p>
+                    <a asp-page="/Chat/Conversa"
+                       asp-route-solicitacaoId="@s.Id"
+                       class="btn cs-btn-primary w-100 mb-2">
+                        Abrir Chat
+                    </a>
+                    <a asp-page="/Ajudas/ConfirmarEntrega"
+                       asp-route-ofertaId="@o.Id"
+                       class="btn btn-outline-primary w-100">
+                        Registrar entrega
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

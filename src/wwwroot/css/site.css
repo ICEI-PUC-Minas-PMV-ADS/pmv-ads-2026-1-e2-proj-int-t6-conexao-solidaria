@@ -202,3 +202,244 @@ body {
 }
 .cs-page-title { font-size: 24px; font-weight: 800; margin: 0; color: var(--txt); }
 .cs-page-subtitle { font-size: 14px; color: var(--txt-2); margin: 4px 0 0; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Telas 10 (Como Ajudar) e 15 (Ajuda Confirmada)
+   Adicionar ao final de src/wwwroot/css/site.css
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Stepper ──────────────────────────────────────────────────────────────── */
+.cs-stepper {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.cs-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 80px;
+}
+
+.cs-step-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid var(--cs-border, #dee2e6);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .8rem;
+    font-weight: 700;
+    color: #6c757d;
+    transition: background .2s, border-color .2s;
+}
+
+.cs-step.done .cs-step-circle,
+.cs-step.active .cs-step-circle {
+    background: var(--cs-primary, #176dd0);
+    border-color: var(--cs-primary, #176dd0);
+    color: #fff;
+}
+
+.cs-step-label {
+    font-size: .7rem;
+    color: #6c757d;
+    white-space: nowrap;
+}
+
+.cs-step.active .cs-step-label {
+    font-weight: 700;
+    color: var(--cs-primary, #176dd0);
+}
+
+.cs-step-line {
+    flex: 1;
+    height: 2px;
+    background: #dee2e6;
+    margin-bottom: 18px; /* empurra para o meio do círculo */
+    transition: background .2s;
+}
+
+    .cs-step-line.done {
+        background: var(--cs-primary, #176dd0);
+    }
+
+/* ── Cards de modalidade (Tela 10) ───────────────────────────────────────── */
+.cs-modality-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.1rem;
+    border: 2px solid var(--cs-border, #dee2e6);
+    border-radius: 12px;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color .15s, background .15s, box-shadow .15s;
+}
+
+    .cs-modality-card:hover {
+        border-color: var(--cs-primary, #176dd0);
+        box-shadow: 0 0 0 3px rgba(23,109,208,.10);
+    }
+
+    .cs-modality-card.selected {
+        border-color: var(--cs-primary, #176dd0);
+        background: #eef4fd;
+    }
+
+.cs-modality-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #dce9f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cs-primary, #176dd0);
+}
+
+.cs-modality-card.selected .cs-modality-icon {
+    background: var(--cs-primary, #176dd0);
+    color: #fff;
+}
+
+/* ── Alert de sucesso (Tela 15) ──────────────────────────────────────────── */
+.cs-alert-success {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: #f0fdf4;
+    border-left: 5px solid #16a34a;
+    border-radius: 10px;
+}
+
+.cs-alert-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #16a34a;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.text-success-muted {
+    color: #15803d;
+    font-size: .95rem;
+}
+
+/* ── Tabela resumo (Tela 15) ─────────────────────────────────────────────── */
+.cs-table-resumo tr:not(:last-child) td,
+.cs-table-resumo tr:not(:last-child) th {
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.cs-table-resumo th,
+.cs-table-resumo td {
+    padding: .65rem .75rem;
+    vertical-align: middle;
+}
+
+/* ── Lista próximos passos (Tela 15) ─────────────────────────────────────── */
+.cs-next-steps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+    .cs-next-steps li {
+        display: flex;
+        align-items: flex-start;
+        gap: .75rem;
+        font-size: .95rem;
+    }
+
+.cs-step-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--cs-primary, #176dd0);
+    color: #fff;
+    font-size: .8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* ── Badges (complemento) ────────────────────────────────────────────────── */
+.cs-badge-ok {
+    background: #16a34a;
+    color: #fff;
+    padding: .25em .65em;
+    border-radius: 10px;
+    font-size: .75rem;
+    font-weight: 700;
+}
+
+/* ── Mapa placeholder ────────────────────────────────────────────────────── */
+.cs-map-placeholder {
+    height: 240px;
+    background: #d4e8d4 repeating-linear-gradient(0deg, transparent, transparent 48px, #b8d4b8 48px, #b8d4b8 50px) repeating-linear-gradient(90deg, transparent, transparent 80px, #b8d4b8 80px, #b8d4b8 82px);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cs-map-pin {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #dc3545;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(220,53,69,.4);
+}
+
+.cs-map-label {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: .2rem .6rem;
+    border-radius: 6px;
+    font-size: .8rem;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 1px 4px rgba(0,0,0,.15);
+}
+
+.cs-map-distance {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(255,255,255,.9);
+    padding: .2rem .55rem;
+    border-radius: 6px;
+    font-size: .75rem;
+    font-weight: 600;
+}
+
+/* ── Cabeçalho azul para card (Tela 15) ──────────────────────────────────── */
+.cs-card-header-primary {
+    background: var(--cs-primary, #176dd0);
+    border-radius: 10px 10px 0 0 !important;
+}
