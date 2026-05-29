@@ -3,14 +3,12 @@
 @{
     ViewData["Title"] = "Minhas Ajudas";
 }
-
 <div class="cs-page-header mb-4">
     <div>
         <h1 class="cs-page-title">Minhas Ajudas</h1>
         <p class="text-muted mb-0">Historico das suas ofertas de ajuda a solicitacoes.</p>
     </div>
 </div>
-
 @if (!Model.Ofertas.Any())
 {
     <div class="card cs-card text-center py-5">
@@ -51,7 +49,6 @@ else
                 "transporte"   => "Transporte",
                 _              => o.Modalidade
             };
-
             <div class="col-12 col-md-6 col-xl-4">
                 <div class="card cs-card h-100">
                     <div class="card-body">
@@ -63,9 +60,7 @@ else
                         <small class="text-muted d-block mb-2">
                             @(s != null ? $"{s.Cidade} / {s.Estado}" : "—")
                         </small>
-                        <div class="d-flex align-items-center gap-2 mb-3">
-                            <span class="badge bg-light text-dark border">@modalidadeLabel</span>
-                        </div>
+                        <span class="badge bg-light text-dark border mb-3">@modalidadeLabel</span>
                         @if (!string.IsNullOrWhiteSpace(o.Mensagem))
                         {
                             <p class="small text-muted mb-3">"@o.Mensagem"</p>
@@ -75,25 +70,13 @@ else
                             {
                                 <a asp-page="/Solicitacoes/Detalhes"
                                    asp-route-id="@s.Id"
-                                   class="btn btn-outline-primary btn-sm">
-                                    Ver Solicitacao
-                                </a>
+                                   class="btn btn-outline-primary btn-sm">Ver Solicitacao</a>
                             }
                             @if (o.Status == "confirmada")
                             {
                                 <a asp-page="/Ajudas/ConfirmarEntrega"
                                    asp-route-ofertaId="@o.Id"
-                                   class="btn btn-outline-success btn-sm">
-                                    Registrar Entrega
-                                </a>
-                            }
-                            @if (o.Status == "concluida")
-                            {
-                                <a asp-page="/Avaliacoes/Avaliar"
-                                   asp-route-ofertaId="@o.Id"
-                                   class="btn btn-outline-warning btn-sm">
-                                    Avaliar
-                                </a>
+                                   class="btn btn-outline-success btn-sm">Registrar Entrega</a>
                             }
                         </div>
                     </div>

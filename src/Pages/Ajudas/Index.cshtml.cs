@@ -7,10 +7,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ConexaoSolidaria.Pages.Ajudas;
 
-/// <summary>
-/// Tela "Minhas Ajudas" — lista todas as ofertas de ajuda do voluntário logado.
-/// Atende RF07, RF09.
-/// </summary>
 [Authorize]
 public class IndexModel : PageModel
 {
@@ -22,7 +18,6 @@ public class IndexModel : PageModel
     public async Task OnGetAsync()
     {
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
         Ofertas = await _db.OfertasAjuda
             .Include(o => o.Solicitacao)
             .Where(o => o.VoluntarioId == userId)
