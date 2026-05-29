@@ -57,7 +57,4 @@ public class OfertaAjuda
     public string? ObservacoesEntrega { get; set; }
 
     public DateTime? ConcluidaEm { get; set; }
-
-    // Avaliação vinculada (1:1) --------------------------------------------------
-    public Avaliacao? Avaliacao { get; set; }
 }
