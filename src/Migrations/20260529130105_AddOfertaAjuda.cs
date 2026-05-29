@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -25,7 +25,8 @@ namespace ConexaoSolidaria.Migrations
                     CriadaEm = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FotoEntregaUrl = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     ObservacoesEntrega = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    ConcluidaEm = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    ConcluidaEm = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    AvaliacaoId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -35,14 +36,24 @@ namespace ConexaoSolidaria.Migrations
                         column: x => x.VoluntarioId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_OfertasAjuda_Avaliacoes_AvaliacaoId",
+                        column: x => x.AvaliacaoId,
+                        principalTable: "Avaliacoes",
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_OfertasAjuda_Solicitacoes_SolicitacaoId",
                         column: x => x.SolicitacaoId,
                         principalTable: "Solicitacoes",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OfertasAjuda_AvaliacaoId",
+                table: "OfertasAjuda",
+                column: "AvaliacaoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OfertasAjuda_SolicitacaoId",
