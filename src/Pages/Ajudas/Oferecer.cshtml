@@ -198,7 +198,7 @@ else
 
                 <!-- Ações -->
                 <div class="d-flex gap-3">
-                    <button type="submit" class="btn cs-btn-primary px-4">
+                    <button type="submit" class="btn btn-cs-accent px-4">
                         Confirmar Oferta de Ajuda
                     </button>
                     <a asp-page="/Solicitacoes/Detalhes"
@@ -214,7 +214,7 @@ else
         <div class="col-lg-5">
 
             <!-- Mapa placeholder -->
-            <div class="cs-map-placeholder mb-4">
+            <div class="cs-map-placeholder mb-4" style="background: repeating-linear-gradient(0deg, transparent, transparent 48px, #b8d4b8 48px, #b8d4b8 50px), repeating-linear-gradient(90deg, transparent, transparent 80px, #b8d4b8 80px, #b8d4b8 82px), #d4e8d4;">
                 <div class="cs-map-pin">!</div>
                 <span class="cs-map-label">@s.Cidade / @s.Estado</span>
                 <div class="cs-map-distance">Localizacao da solicitacao</div>
@@ -225,7 +225,7 @@ else
                 <div class="card-body">
                     <p class="small text-muted fw-semibold mb-2 text-uppercase">Solicitante</p>
                     <div class="d-flex align-items-center gap-3">
-                        <div class="cs-avatar cs-avatar-md">
+                        <div class="cs-user-avatar" style="width:48px;height:48px;font-size:18px">
                             @(s.Usuario?.NomeCompleto?.Length >= 2
                                 ? s.Usuario.NomeCompleto.Substring(0, 2).ToUpper()
                                 : "?")
@@ -253,9 +253,9 @@ else
                     </p>
                     <div class="d-flex align-items-center gap-2">
                         <div class="d-flex">
-                            <div class="cs-avatar cs-avatar-sm">JL</div>
-                            <div class="cs-avatar cs-avatar-sm" style="margin-left:-8px">AF</div>
-                            <div class="cs-avatar cs-avatar-sm" style="margin-left:-8px">CS</div>
+                            <div class="cs-user-avatar" style="width:32px;height:32px;font-size:12px">JL</div>
+                            <div class="cs-user-avatar" style="width:32px;height:32px;font-size:12px;margin-left:-8px">AF</div>
+                            <div class="cs-user-avatar" style="width:32px;height:32px;font-size:12px;margin-left:-8px">CS</div>
                         </div>
                         <small class="text-muted">+2 voluntarios confirmados</small>
                     </div>
