@@ -50,6 +50,9 @@
                 <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Chat" ? "active" : "")">
                     <a href="/Chat/Lista">💬 <span>Chat</span></a>
                 </li>
+                <li class="@(currentPath.StartsWith("/grupo") ? "active" : "")">
+                    <a href="/Grupo/Index">👤💬 <span>Criar Grupo</span></a>
+                </li>
                 <li class="@(currentPath.StartsWith("/perfil") ? "active" : "")">
                     <a asp-page="/Perfil/Index">👤 <span>Perfil</span></a>
                 </li>
