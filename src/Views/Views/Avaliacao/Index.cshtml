@@ -1,0 +1,131 @@
+@{
+    ViewData["Title"] = "Avaliação";
+}
+
+@section Styles{
+    <link rel="stylesheet"
+          href="~/css/avaliacao.css" />
+}
+
+<div class="avaliacao-container">
+
+    <a href="javascript:history.back()"
+       class="voltar">
+
+        <-- Voltar
+
+    </a>
+
+    <div class="avaliacao-card">
+
+        <h1>Como foi sua experiência?</h1>
+
+        <p class="subtitulo">
+            Sua avaliação ajuda outros usuários a escolherem voluntários.
+        </p>
+
+        <div class="usuario-card">
+
+            <div class="avatar">
+                TN
+            </div>
+
+            <div>
+
+                <h3>Tiago Nascimento</h3>
+
+                <span>
+                    Voluntário - Belo Horizonte, MG
+                </span>
+
+                <p>
+                    Doação de medicamentos - 14/03/2026
+                </p>
+
+            </div>
+
+        </div>
+
+        <form asp-action="Salvar"
+              method="post">
+
+            <div class="area-estrelas">
+
+                <h4>
+                    AVALIE A AJUDA RECEBIDA
+                </h4>
+
+                <div class="estrelas">
+
+                    <span onclick="setNota(1)">★</span>
+                    <span onclick="setNota(2)">★</span>
+                    <span onclick="setNota(3)">★</span>
+                    <span onclick="setNota(4)">★</span>
+                    <span onclick="setNota(5)">★</span>
+
+                </div>
+
+                <input type="hidden"
+                       id="nota"
+                       name="nota"
+                       value="4" />
+
+                <p id="textoNota"
+                   class="nota">
+
+                    4 de 5 estrelas - Ótimo!
+
+                </p>
+
+            </div>
+
+            <div class="comentario">
+
+                <label>
+                    COMENTÁRIO (OPCIONAL)
+                </label>
+
+                <textarea
+                    name="comentario"
+                    rows="5"
+                    placeholder="Conte como foi a experiência, o atendimento, a pontualidade...">
+                </textarea>
+
+            </div>
+
+            <div class="acoes">
+
+                <a href="#">
+                    Pular
+                </a>
+
+                <button type="submit">
+
+                    ENVIAR AVALIAÇÃO
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+
+    function setNota(valor){
+
+        document
+            .getElementById("nota")
+            .value = valor;
+
+        document
+            .getElementById("textoNota")
+            .innerHTML =
+            valor + " de 5 estrelas";
+
+    }
+
+</script>
