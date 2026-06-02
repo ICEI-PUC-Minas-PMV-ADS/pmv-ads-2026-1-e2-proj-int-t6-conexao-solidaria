@@ -56,9 +56,6 @@
                 <li class="@(currentPath.StartsWith("/perfil") ? "active" : "")">
                     <a asp-page="/Perfil/Index">👤 <span>Perfil</span></a>
                 </li>
-                <li class="@(currentPath.StartsWith("/avaliacao") ? "active" : "")">
-                    <a href="/avaliacao/Index">⭐ <span>Avaliação</span></a>
-                </li>
                 @if (User.IsInRole("Admin"))
                 {
                 <li class="mt-4">
