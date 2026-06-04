@@ -18,7 +18,8 @@
     <div class="card shadow-sm border-0 mt-4">
         <div class="card-body">
 
-            <form>
+            <form method="post"
+      enctype="multipart/form-data">
 
                 <div class="row">
 
@@ -27,10 +28,17 @@
                             FOTO DO GRUPO
                         </label>
 
-                        <div class="border border-primary text-center p-4">
-                            <h2>[ + ]</h2>
-                            <small>Adicionar foto</small>
-                        </div>
+                      <div class="border border-primary text-center p-4">
+
+    <input type="file"
+           id="FotoGrupo"
+           name="FotoGrupo"
+           accept="image/*"
+           class="form-control" />
+
+    <small>Adicionar foto</small>
+
+</div>
                     </div>
 
                     <div class="col-md-10">
