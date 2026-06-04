@@ -25,6 +25,8 @@ public class AppDbContext : IdentityDbContext<Usuario>
 
     public DbSet<MensagemChat> MensagensChat { get; set; }
 
+    public DbSet<Grupo> Grupos { get; set; }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
