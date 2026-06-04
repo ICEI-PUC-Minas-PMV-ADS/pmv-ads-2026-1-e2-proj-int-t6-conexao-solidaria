@@ -437,7 +437,32 @@ body {
     font-size: .75rem;
     font-weight: 600;
 }
+/* ── CSS para teçla Grupos (Tela 11) ──────────────────────────────────── */
+.cs-group-card {
+    border-radius: 12px;
+}
 
+.cs-group-type {
+    cursor: pointer;
+    transition: .2s;
+}
+
+.cs-group-type:hover {
+    transform: translateY(-2px);
+}
+
+.cs-upload-box {
+    border: 2px dashed #0d6efd;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cs-btn-orange {
+    background: #f7941d;
+    color: white;
+}
 /* ── Cabeçalho azul para card (Tela 15) ──────────────────────────────────── */
 .cs-card-header-primary {
     background: var(--cs-primary, #176dd0);
