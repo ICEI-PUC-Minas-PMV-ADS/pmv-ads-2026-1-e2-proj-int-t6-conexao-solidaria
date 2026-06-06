@@ -12,6 +12,7 @@
         <!-- SIDEBAR (220px, oculta no mobile) -->
         <nav class="cs-sidebar">
             <ul class="cs-nav">
+                @{ var currentPath = Context.Request.Path.ToString(); }
   <li class="@(currentPath.StartsWith("/grupo") ? "active" : "")">
                     <a href="/Grupos/Criar">🤝 <span>Criar Grupo</span></a>
                 </li>

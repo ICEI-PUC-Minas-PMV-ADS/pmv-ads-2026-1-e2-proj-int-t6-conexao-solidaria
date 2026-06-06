@@ -1,19 +1,13 @@
-
-using ConexaoSolidaria.Services;
-using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ConexaoSolidaria.Models;
 
 namespace ConexaoSolidaria.Controllers
 {
     public class GruposController : Controller
     {
-        private readonly IBlobStorageService _blob;
-
-        public GruposController(IBlobStorageService blob)
-        {
-            _blob = blob;
-        }
-
         public IActionResult Index()
         {
             return View();
@@ -25,33 +19,34 @@ namespace ConexaoSolidaria.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Criar(IFormFile? FotoGrupo)
+        // GET: /Grupos/Compartilhar/5
+        public ActionResult Compartilhar(int id)
         {
-            string? fotoUrl = null;
-
-            if (FotoGrupo != null && FotoGrupo.Length > 0)
+            var model = new CompartilharGrupoViewModel
             {
-                if (FotoGrupo.Length > 5 * 1024 * 1024)
+                GrupoId = id,
+                NomeGrupo = "Vítimas de Enchentes",
+                Descricao = "Grupo de apoio para vítimas de enchentes",
+                Tipo = "Público",
+                TotalMembros = 48,
+                LinkGrupo = "conexaosolidaria.app/grupos/enchentes-mg",
+                QrCodeUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://conexaosolidaria.app/grupos/enchentes-mg",
+                UsuariosSugeridos = new List<UsuarioConviteViewModel>
                 {
-                    ModelState.AddModelError(
-                        "FotoGrupo",
-                        "Imagem muito grande (máx. 5 MB).");
-
-                    return View();
+                    new UsuarioConviteViewModel { UsuarioId = 1, Nome = "Luisa Ferreira", Papel = "Voluntária", Cidade = "BH",        Estado = "MG", Iniciais = "LF" },
+                    new UsuarioConviteViewModel { UsuarioId = 2, Nome = "Rodrigo Silva",  Papel = "Doador",     Cidade = "Petrópolis", Estado = "RJ", Iniciais = "RS" },
+                    new UsuarioConviteViewModel { UsuarioId = 3, Nome = "Beatriz Melo",   Papel = "Vítima",     Cidade = "RJ",         Estado = "RJ", Iniciais = "BM" },
+                    new UsuarioConviteViewModel { UsuarioId = 4, Nome = "Carlos Pinto",   Papel = "Voluntário", Cidade = "NJ",         Estado = "RJ", Iniciais = "CP" },
+                    new UsuarioConviteViewModel { UsuarioId = 5, Nome = "Maria Ribeiro",  Papel = "Vítima",     Cidade = "Petrópolis", Estado = "RJ", Iniciais = "MR" },
                 }
+            };
+            return View(model);
+        }
 
-                using var stream = FotoGrupo.OpenReadStream();
-
-                fotoUrl = await _blob.UploadAsync(
-                    stream,
-                    FotoGrupo.FileName,
-                    FotoGrupo.ContentType);
-            }
-
-            TempData["FotoUrl"] = fotoUrl;
-
-            return RedirectToAction(nameof(Index));
+        [HttpPost]
+        public JsonResult ConvidarUsuario(ConvidarUsuarioRequest request)
+        {
+            return Json(new { sucesso = true, mensagem = "Convite enviado com sucesso!" });
         }
     }
 }

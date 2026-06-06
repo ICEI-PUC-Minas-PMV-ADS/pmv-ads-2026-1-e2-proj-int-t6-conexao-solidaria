@@ -1,0 +1,514 @@
+@model ConexaoSolidaria.Models.CompartilharGrupoViewModel
+@{
+    ViewBag.Title = "Compartilhar Grupo · Conexão Solidária";
+    Layout = null;
+}
+
+<!-- ===== PAGE-SPECIFIC CSS ===== -->
+<style>
+    /* ---------- variáveis do sistema ---------- */
+    :root {
+        --cs-blue:        #1565C0;
+        --cs-blue-dark:   #0D47A1;
+        --cs-orange:      #FF6F00;
+        --cs-orange-light:#FFA726;
+        --cs-red:         #E53935;
+        --cs-green:       #43A047;
+        --cs-gray-bg:     #F4F6F9;
+        --cs-border:      #E0E4EB;
+        --cs-text:        #1A2340;
+        --cs-text-soft:   #6B7A99;
+        --cs-white:       #FFFFFF;
+        --radius-card:    12px;
+        --radius-btn:     8px;
+        --shadow-card:    0 2px 12px rgba(21,101,192,.10);
+    }
+
+    /* ---------- breadcrumb ---------- */
+    .cs-breadcrumb {
+        font-size: .82rem;
+        color: var(--cs-text-soft);
+        margin-bottom: 1.5rem;
+    }
+    .cs-breadcrumb a {
+        color: var(--cs-blue);
+        text-decoration: none;
+    }
+    .cs-breadcrumb a:hover { text-decoration: underline; }
+    .cs-breadcrumb span { margin: 0 .4rem; }
+
+    /* ---------- card principal ---------- */
+    .share-card {
+        background: var(--cs-white);
+        border-radius: var(--radius-card);
+        box-shadow: var(--shadow-card);
+        border: 1px solid var(--cs-border);
+        max-width: 700px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    /* ---------- cabeçalho do grupo ---------- */
+    .share-header {
+        background: linear-gradient(135deg, var(--cs-blue) 0%, var(--cs-blue-dark) 100%);
+        padding: 2rem 2rem 1.6rem;
+        text-align: center;
+        color: var(--cs-white);
+    }
+    .share-header .group-avatar {
+        width: 72px;
+        height: 72px;
+        background: rgba(255,255,255,.18);
+        border: 3px solid rgba(255,255,255,.4);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        margin: 0 auto .8rem;
+    }
+    .share-header h2 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0 0 .25rem;
+    }
+    .share-header .meta {
+        font-size: .82rem;
+        opacity: .85;
+    }
+
+    /* ---------- corpo ---------- */
+    .share-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+    }
+
+    /* ---------- coluna esquerda ---------- */
+    .col-left {
+        padding: 1.6rem;
+        border-right: 1px solid var(--cs-border);
+    }
+    .section-label {
+        font-size: .72rem;
+        font-weight: 700;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: var(--cs-text-soft);
+        margin-bottom: .6rem;
+    }
+
+    /* link */
+    .link-row {
+        display: flex;
+        gap: .5rem;
+        margin-bottom: 1.4rem;
+    }
+    .link-row input {
+        flex: 1;
+        border: 1px solid var(--cs-border);
+        border-radius: var(--radius-btn);
+        padding: .5rem .75rem;
+        font-size: .85rem;
+        color: var(--cs-text);
+        background: var(--cs-gray-bg);
+        outline: none;
+    }
+    .btn-copy {
+        background: var(--cs-blue);
+        color: var(--cs-white);
+        border: none;
+        border-radius: var(--radius-btn);
+        padding: .5rem 1rem;
+        font-size: .85rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background .2s;
+        white-space: nowrap;
+    }
+    .btn-copy:hover { background: var(--cs-blue-dark); }
+
+    /* qr code */
+    .qr-box {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        margin-bottom: 1.4rem;
+    }
+    .qr-image {
+        width: 90px;
+        height: 90px;
+        border: 1px solid var(--cs-border);
+        border-radius: 8px;
+        object-fit: contain;
+        background: var(--cs-gray-bg);
+    }
+    .qr-info p {
+        font-size: .82rem;
+        color: var(--cs-text-soft);
+        margin: 0 0 .6rem;
+        line-height: 1.4;
+    }
+    .btn-qr {
+        background: transparent;
+        border: 1px solid var(--cs-border);
+        border-radius: var(--radius-btn);
+        padding: .35rem .9rem;
+        font-size: .80rem;
+        color: var(--cs-text);
+        cursor: pointer;
+        transition: border-color .2s, color .2s;
+    }
+    .btn-qr:hover { border-color: var(--cs-blue); color: var(--cs-blue); }
+
+    /* compartilhar via */
+    .via-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: .5rem;
+    }
+    .via-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .3rem;
+        padding: .6rem .2rem;
+        border: 1px solid var(--cs-border);
+        border-radius: var(--radius-btn);
+        background: var(--cs-white);
+        font-size: .72rem;
+        color: var(--cs-text-soft);
+        cursor: pointer;
+        transition: border-color .2s, color .2s, background .2s;
+        text-decoration: none;
+    }
+    .via-btn:hover {
+        border-color: var(--cs-blue);
+        color: var(--cs-blue);
+        background: #EEF3FB;
+    }
+    .via-btn svg { width: 22px; height: 22px; }
+
+    /* ---------- coluna direita ---------- */
+    .col-right { padding: 1.6rem; }
+
+    .search-input {
+        width: 100%;
+        border: 1px solid var(--cs-border);
+        border-radius: var(--radius-btn);
+        padding: .5rem .75rem;
+        font-size: .85rem;
+        color: var(--cs-text);
+        background: var(--cs-gray-bg);
+        outline: none;
+        box-sizing: border-box;
+        margin-bottom: 1rem;
+    }
+    .search-input:focus { border-color: var(--cs-blue); }
+
+    /* lista de usuários */
+    .user-list { display: flex; flex-direction: column; gap: .55rem; }
+
+    .user-item {
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+        padding: .55rem .6rem;
+        border-radius: 8px;
+        transition: background .15s;
+    }
+    .user-item:hover { background: var(--cs-gray-bg); }
+
+    .avatar-circle {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: var(--cs-blue);
+        color: var(--cs-white);
+        font-size: .78rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .user-info { flex: 1; min-width: 0; }
+    .user-info .name {
+        font-size: .88rem;
+        font-weight: 600;
+        color: var(--cs-text);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .user-info .sub {
+        font-size: .76rem;
+        color: var(--cs-text-soft);
+    }
+
+    .btn-convidar {
+        background: var(--cs-orange);
+        color: var(--cs-white);
+        border: none;
+        border-radius: var(--radius-btn);
+        padding: .35rem .9rem;
+        font-size: .78rem;
+        font-weight: 600;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background .2s;
+    }
+    .btn-convidar:hover   { background: var(--cs-orange-light); }
+    .btn-convidar:disabled {
+        background: var(--cs-border);
+        color: var(--cs-text-soft);
+        cursor: default;
+    }
+    .btn-convidar.enviado {
+        background: var(--cs-green);
+        cursor: default;
+    }
+
+    /* ---------- rodapé do card ---------- */
+    .share-footer {
+        padding: 1rem 1.6rem;
+        border-top: 1px solid var(--cs-border);
+        text-align: center;
+    }
+    .btn-fechar {
+        display: inline-block;
+        width: 100%;
+        max-width: 300px;
+        padding: .65rem 1.5rem;
+        background: transparent;
+        border: 1.5px solid var(--cs-border);
+        border-radius: var(--radius-btn);
+        font-size: .9rem;
+        font-weight: 600;
+        color: var(--cs-text);
+        cursor: pointer;
+        transition: border-color .2s, color .2s;
+        text-decoration: none;
+    }
+    .btn-fechar:hover { border-color: var(--cs-blue); color: var(--cs-blue); }
+
+    /* ---------- responsividade ---------- */
+    @@media (max-width: 600px) {
+        .share-body { grid-template-columns: 1fr; }
+        .col-left   { border-right: none; border-bottom: 1px solid var(--cs-border); }
+    }
+</style>
+
+<!-- ===== BREADCRUMB ===== -->
+<nav class="cs-breadcrumb">
+    @Html.ActionLink("Chat", "Index", "Chat")
+    <span>›</span>
+    @Html.ActionLink(Model.NomeGrupo, "Detalhes", "Grupos", new { id = Model.GrupoId }, null)
+    <span>›</span>
+    Compartilhar
+</nav>
+
+<!-- ===== CARD ===== -->
+<div class="share-card">
+
+    <!-- cabeçalho -->
+    <div class="share-header">
+        <div class="group-avatar">🤝</div>
+        <h2>@Model.NomeGrupo</h2>
+        <p class="meta">@Model.Tipo &nbsp;·&nbsp; @Model.TotalMembros membros</p>
+    </div>
+
+    <!-- corpo em duas colunas -->
+    <div class="share-body">
+
+        <!-- ── coluna esquerda ── -->
+        <div class="col-left">
+
+            <!-- Link do grupo -->
+            <p class="section-label">Link do Grupo</p>
+            <div class="link-row">
+                <input type="text" id="linkGrupo" value="@Model.LinkGrupo" readonly />
+                <button class="btn-copy" onclick="copiarLink()">Copiar</button>
+            </div>
+
+            <!-- QR Code -->
+            <p class="section-label">QR Code</p>
+            <div class="qr-box">
+                <img id="qrImage" class="qr-image"
+                     src="@Model.QrCodeUrl"
+                     alt="QR Code do grupo @Model.NomeGrupo" />
+                <div class="qr-info">
+                    <p>Escaneie para entrar<br />no grupo diretamente</p>
+                    <button class="btn-qr" onclick="baixarQr()">⬇ Baixar QR</button>
+                </div>
+            </div>
+
+            <!-- Compartilhar via -->
+            <p class="section-label">Compartilhar Via</p>
+            <div class="via-grid">
+                <a class="via-btn" href="https://wa.me/?text=@Uri.EscapeDataString("Participe do grupo " + Model.NomeGrupo + ": https://" + Model.LinkGrupo)"
+                   target="_blank" rel="noopener">
+                    <!-- WhatsApp icon -->
+                    <svg viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    WhatsApp
+                </a>
+                <a class="via-btn" href="mailto:?subject=@Uri.EscapeDataString("Convite: " + Model.NomeGrupo)&body=@Uri.EscapeDataString("Acesse: https://" + Model.LinkGrupo)">
+                    <!-- Email icon -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#1565C0" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                    E-mail
+                </a>
+                <a class="via-btn" href="sms:?body=@Uri.EscapeDataString("Participe do grupo: https://" + Model.LinkGrupo)">
+                    <!-- SMS icon -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#43A047" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    SMS
+                </a>
+                <button class="via-btn" onclick="copiarLink()">
+                    <!-- Others icon -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#6B7A99" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                    </svg>
+                    Outros
+                </button>
+            </div>
+
+        </div>
+
+        <!-- ── coluna direita ── -->
+        <div class="col-right">
+            <p class="section-label">Convidar Usuários</p>
+            <input class="search-input"
+                   type="text"
+                   id="buscaUsuario"
+                   placeholder="Buscar por nome ou e-mail"
+                   oninput="filtrarUsuarios()" />
+
+            <div class="user-list" id="listaUsuarios">
+                @foreach (var u in Model.UsuariosSugeridos)
+                {
+                    <div class="user-item" data-nome="@u.Nome.ToLower()">
+                        <div class="avatar-circle">@u.Iniciais</div>
+                        <div class="user-info">
+                            <div class="name">@u.Nome</div>
+                            <div class="sub">@u.Papel &nbsp;·&nbsp; @u.Cidade, @u.Estado</div>
+                        </div>
+                        <button class="btn-convidar @(u.JaConvidado ? "enviado" : "")"
+                                data-id="@u.UsuarioId"
+                                data-grupo="@Model.GrupoId"
+                                onclick="convidar(this)"
+                                @(u.JaConvidado ? "disabled" : "")>
+                            @(u.JaConvidado ? "✓ Convidado" : "Convidar")
+                        </button>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div><!-- /share-body -->
+
+    <!-- rodapé -->
+    <div class="share-footer">
+        @Html.ActionLink("Fechar", "Detalhes", "Grupos",
+            new { id = Model.GrupoId },
+            new { @class = "btn-fechar" })
+    </div>
+
+</div><!-- /share-card -->
+
+<!-- ===== SCRIPTS ===== -->
+@section Scripts {
+<script>
+    /* ── copiar link ── */
+    function copiarLink() {
+        const input = document.getElementById('linkGrupo');
+        input.select();
+        document.execCommand('copy');
+        mostrarToast('Link copiado!');
+    }
+
+    /* ── baixar QR ── */
+    function baixarQr() {
+        const url = document.getElementById('qrImage').src;
+        const a   = document.createElement('a');
+        a.href     = url;
+        a.download = 'qrcode-grupo.png';
+        a.click();
+    }
+
+    /* ── filtrar lista ── */
+    function filtrarUsuarios() {
+        const termo = document.getElementById('buscaUsuario').value.toLowerCase();
+        document.querySelectorAll('#listaUsuarios .user-item').forEach(item => {
+            item.style.display = item.dataset.nome.includes(termo) ? '' : 'none';
+        });
+    }
+
+    /* ── convidar via AJAX ── */
+    function convidar(btn) {
+        const usuarioId = btn.dataset.id;
+        const grupoId   = btn.dataset.grupo;
+
+        btn.disabled    = true;
+        btn.textContent = '…';
+
+        const token = $('input[name="__RequestVerificationToken"]').val();
+
+        $.ajax({
+            url:  '@Url.Action("ConvidarUsuario", "Grupos")',
+            type: 'POST',
+            data: {
+                __RequestVerificationToken: token,
+                GrupoId:   grupoId,
+                UsuarioId: usuarioId
+            },
+            success: function (res) {
+                if (res.sucesso) {
+                    btn.textContent = '✓ Convidado';
+                    btn.classList.add('enviado');
+                    mostrarToast(res.mensagem);
+                } else {
+                    btn.disabled    = false;
+                    btn.textContent = 'Convidar';
+                    mostrarToast(res.mensagem, true);
+                }
+            },
+            error: function () {
+                btn.disabled    = false;
+                btn.textContent = 'Convidar';
+                mostrarToast('Erro ao enviar convite.', true);
+            }
+        });
+    }
+
+    /* ── toast simples ── */
+    function mostrarToast(msg, erro) {
+        const t = document.createElement('div');
+        t.textContent = msg;
+        Object.assign(t.style, {
+            position:     'fixed',
+            bottom:       '1.5rem',
+            right:        '1.5rem',
+            background:   erro ? '#E53935' : '#1565C0',
+            color:        '#fff',
+            padding:      '.65rem 1.2rem',
+            borderRadius: '8px',
+            fontSize:     '.85rem',
+            fontWeight:   '600',
+            boxShadow:    '0 4px 16px rgba(0,0,0,.18)',
+            zIndex:       '9999',
+            transition:   'opacity .3s'
+        });
+        document.body.appendChild(t);
+        setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 300); }, 2500);
+    }
+</script>
+}
