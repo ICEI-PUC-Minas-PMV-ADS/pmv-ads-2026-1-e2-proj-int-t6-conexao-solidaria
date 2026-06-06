@@ -1,0 +1,181 @@
+﻿@model Tela_12_projeto.Models.DetalhesGrupoViewModel
+@{
+    ViewData["Title"] = Model.Grupo.Nome;
+    var busca = ViewBag.BuscaMembro as string ?? "";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@Model.Grupo.Nome</title>
+    <link rel="stylesheet" href="~/css/detalhes-grupo.css" />
+</head>
+<body>
+    <div class="app-layout">
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">CS</div>
+            <div class="brand-text">CONEXÃO <span>SOLIDÁRIA</span></div>
+        </div>
+        <nav class="menu">
+            <a href="/" class="menu-item"><span>🏠</span> Início</a>
+            <a href="/solicitacoes" class="menu-item"><span>📋</span> Solicitações</a>
+            <a href="/minhas-ajudas" class="menu-item"><span>🤝</span> Minhas Ajudas</a>
+            <a href="/doacoes" class="menu-item"><span>🎁</span> Doações</a>
+            <a href="/chat" class="menu-item"><span>💬</span> Chat</a>
+            <a href="/criar-grupo" class="menu-item active"><span>🤝</span> Grupos</a>
+            <a href="/perfil" class="menu-item"><span>👤</span> Perfil</a>
+        </nav>
+        <div class="settings">
+            <a href="/configuracoes" class="menu-item"><span>⚙️</span> Configurações</a>
+        </div>
+    </aside>
+
+    <main class="content">
+
+        <header class="topbar">
+            <div></div>
+            <div class="user-area">
+                <div class="user-avatar">N</div>
+                <button class="logout-button">↪️</button>
+            </div>
+        </header>
+
+        <section class="page-wrapper">
+
+            <p class="breadcrumb">Chat &gt; Grupos &gt; @Model.Grupo.Nome</p>
+
+            <div class="group-hero">
+                <div class="group-image"><span>🤲</span></div>
+                <div class="group-title-area">
+                    <h1>@Model.Grupo.Nome</h1>
+                    <p>@Model.Grupo.Tema · @Model.Grupo.Regiao · @Model.Grupo.TipoAcesso</p>
+                </div>
+            </div>
+
+            <div class="main-actions">
+                <form method="post" asp-action="Acao" asp-controller="Grupos" style="display:inline">
+                    <input type="hidden" name="acao" value="entrar" />
+                    <button type="submit" class="primary-button">Entrar no grupo</button>
+                </form>
+                <form method="post" asp-action="Acao" asp-controller="Grupos" style="display:inline">
+                    <input type="hidden" name="acao" value="compartilhar" />
+                    <button type="submit" class="outline-button">Compartilhar</button>
+                </form>
+                <form method="post" asp-action="Acao" asp-controller="Grupos" style="display:inline">
+                    <input type="hidden" name="acao" value="notificacoes" />
+                    <button type="submit" class="outline-button">Notificações</button>
+                </form>
+            </div>
+
+            <div class="details-grid">
+
+                <section class="card about-card">
+                    <h2>Sobre o grupo</h2>
+                    <p class="description">@Model.Grupo.Descricao</p>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <strong>@Model.Grupo.TotalMembros</strong>
+                            <span>Membros</span>
+                        </div>
+                        <div class="stat-card">
+                            <strong>@Model.Grupo.TotalMissoes</strong>
+                            <span>Missões</span>
+                        </div>
+                        <div class="stat-card">
+                            <strong>@Model.Grupo.TotalAjudas</strong>
+                            <span>Ajudas</span>
+                        </div>
+                    </div>
+                    <h3>Moderadores</h3>
+                    <div class="moderator-list">
+                        @foreach (var moderador in Model.Moderadores)
+                        {
+                            <div class="member-row">
+                                <div class="avatar">@moderador.Iniciais</div>
+                                <div>
+                                    <strong>@moderador.Nome</strong>
+                                    <span>@moderador.Funcao</span>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </section>
+
+                <section class="card members-card">
+                    <div class="card-header">
+                        <h2>Membros recentes</h2>
+                        <span>@Model.Membros.Count membros</span>
+                    </div>
+                    <form method="post" asp-action="Buscar" asp-controller="Grupos">
+                        <input class="search-input"
+                               type="text"
+                               name="busca"
+                               placeholder="Buscar membros..."
+                               value="@busca"
+                               oninput="this.form.submit()" />
+                    </form>
+                    <div class="member-list">
+                        @foreach (var membro in Model.Membros)
+                        {
+                            <div class="member-row clickable">
+                                <div class="avatar">@membro.Iniciais</div>
+                                <div>
+                                    <strong>@membro.Nome</strong>
+                                    <span>@membro.Funcao · @membro.Cidade</span>
+                                </div>
+                                <button class="small-button" type="button">→</button>
+                            </div>
+                        }
+                    </div>
+                    <p class="more-members">+35 outros membros</p>
+                </section>
+
+                <section class="card messages-card">
+                    <div class="card-header">
+                        <h2>Mensagens recentes</h2>
+                        <span>@Model.Mensagens.Count mensagens</span>
+                    </div>
+                    <div class="message-list">
+                        @foreach (var mensagem in Model.Mensagens)
+                        {
+                            <div class="message-row">
+                                <div class="avatar">@mensagem.Iniciais</div>
+                                <div class="message-content">
+                                    <div class="message-top">
+                                        <strong>@mensagem.Nome</strong>
+                                        <span>@mensagem.Horario</span>
+                                    </div>
+                                    <p>@mensagem.Texto</p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="side-actions">
+                        <form method="post" asp-action="Acao" asp-controller="Grupos" style="display:inline">
+                            <input type="hidden" name="acao" value="participar" />
+                            <button type="submit" class="primary-button">Entrar e participar</button>
+                        </form>
+                        <form method="post" asp-action="Acao" asp-controller="Grupos" style="display:inline">
+                            <input type="hidden" name="acao" value="compartilhar" />
+                            <button type="submit" class="outline-button">Compartilhar grupo</button>
+                        </form>
+                    </div>
+                </section>
+
+            </div>
+
+            @if (!string.IsNullOrWhiteSpace(Model.FeedbackMensagem))
+            {
+                <div class="feedback-message">
+                    @Model.FeedbackMensagem
+                </div>
+            }
+
+            </section>
+        </main>
+    </div>
+</body>
+</html>
