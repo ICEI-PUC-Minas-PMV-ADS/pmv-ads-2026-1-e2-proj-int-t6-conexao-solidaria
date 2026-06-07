@@ -55,7 +55,7 @@
                     <a href="/Chat/Lista">💬 <span>Chat</span></a>
                 </li>
                 <li class="@(currentPath.StartsWith("/grupos") ? "active" : "")">
-                    <a asp-page="/Grupos/Index">🤝 <span>GruposX</span></a>
+                    <a asp-controller="Grupos" asp-action="Lista">🤝 <span>Grupos</span></a>
                 </li>
                 <li class="@(currentPath.StartsWith("/perfil") ? "active" : "")">
                     <a asp-page="/Perfil/Index">👤 <span>Perfil</span></a>
