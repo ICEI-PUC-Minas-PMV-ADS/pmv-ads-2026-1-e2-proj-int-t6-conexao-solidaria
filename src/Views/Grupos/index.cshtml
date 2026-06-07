@@ -1,98 +1,44 @@
-﻿@model ConexaoSolidaria.Models.gruposApoio
-@{
-    ViewData["Title"] = "grupos de Apoio";
-    Layout = "~/Pages/Shared/_Layout.cshtml";
+using ConexaoSolidaria.Data;
+using ConexaoSolidaria.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+
+namespace ConexaoSolidaria.Pages.Solicitacoes;
+
+[Authorize]
+public class IndexModel : PageModel
+{
+    private readonly AppDbContext _db;
+    public IndexModel(AppDbContext db) { _db = db; }
+
+    public List<Solicitacao> Solicitacoes { get; set; } = new();
+
+    [BindProperty(SupportsGet = true)] public string? FiltroUrgencia { get; set; }
+    [BindProperty(SupportsGet = true)] public string? FiltroTipo { get; set; }
+    [BindProperty(SupportsGet = true)] public string? FiltroCidade { get; set; }
+
+    public async Task OnGetAsync()
+    {
+        var query = _db.Solicitacoes
+            .Include(s => s.Usuario)
+            .Where(s => s.Status == "ativa")
+            .AsQueryable();
+
+        if (!string.IsNullOrEmpty(FiltroUrgencia))
+            query = query.Where(s => s.Urgencia == FiltroUrgencia);
+
+        if (!string.IsNullOrEmpty(FiltroTipo))
+            query = query.Where(s => s.TipoNecessidade == FiltroTipo);
+
+        if (!string.IsNullOrEmpty(FiltroCidade))
+            query = query.Where(s => s.Cidade.Contains(FiltroCidade));
+
+        Solicitacoes = await query
+            .OrderByDescending(s => s.Urgencia == "alta")
+            .ThenByDescending(s => s.Urgencia == "media")
+            .ThenByDescending(s => s.CriadoEm)
+            .ToListAsync();
+    }
 }
-
-<div class="container mt-4">
-    <div class="card shadow-sm" style="border-radius: 15px; height: 80vh; display: flex; flex-direction: column;">
-        <div class="card-header bg-white p-3 border-bottom-0">
-            <div class="d-flex align-items-center">
-                <div class="ms-2">
-                    <h5 class="mb-0 fw-bold">@Model.Doacao?.Solicitacao?.Titulo</h5>
-                    <small class="text-muted">Conversando sobre esta doação</small>
-                </div>
-            </div>
-        </div>
-
-        <div id="messagesList" class="card-body overflow-auto p-4" style="background-color: #F8FAFD; flex-grow: 1;">
-            @foreach (var msg in Model.Mensagens.OrderBy(m => m.EnviadaEm))
-            {
-                var isMe = msg.RemetenteId == ViewBag.UsuarioAtualId;
-                <div class="d-flex @(isMe ? "justify-content-end" : "justify-content-start") mb-3">
-                    <div class="p-3 shadow-sm @(isMe ? "bg-primary text-white" : "bg-white text-dark")"
-                         style="max-width: 70%; border-radius: @(isMe ? "18px 18px 0 18px" : "18px 18px 18px 0");">
-                        <small class="d-block fw-bold mb-1" style="font-size: 0.7rem;">@msg.Remetente?.NomeCompleto</small>
-                        <span>@msg.Conteudo</span>
-                        <small class="d-block text-end mt-1" style="font-size: 0.6rem; opacity: 0.7;">@msg.EnviadaEm.ToString("HH:mm")</small>
-                    </div>
-                </div>
-            }
-        </div>
-
-        <div class="card-footer bg-white border-top-0 p-3">
-            <div class="input-group">
-                <input type="text" id="messageInput" class="form-control border-0 bg-light" placeholder="Digite sua mensagem..." style="border-radius: 25px 0 0 25px; padding: 12px 20px;">
-                <button class="btn btn-primary px-4" id="sendButton" style="border-radius: 0 25px 25px 0;">Enviar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.min.js"></script>
-
-<script>
-    const gruposId = "@Model.Id";
-    const usuarioId = "@ViewBag.UsuarioAtualId";
-    const nomeUsuario = "@ViewBag.NomeUsuario";
-
-    // Conecta ao Hub do SignalR que criamos no C#
-    const connection = new signalR.HubConnectionBuilder().withUrl("/gruposHub").build();
-
-    // Quando receber uma mensagem do servidor, adiciona na tela sem recarregar
-    connection.on("ReceberMensagem", (usuario, mensagem) => {
-    const isMe = usuario === nomeUsuario;
-    const msgHtml = `
-    <div class="d-flex ${isMe ? 'justify-content-end' : 'justify-content-start'} mb-3">
-    <div class="p-3 shadow-sm ${isMe ? 'bg-primary text-white' : 'bg-white text-dark'}"
-    style="max-width: 70%; border-radius: ${isMe ? '18px 18px 0 18px' : '18px 18px 18px 0'};">
-    <small class="d-block fw-bold mb-1" style="font-size: 0.7rem;">${usuario}</small>
-    <span>${mensagem}</span>
-    </div>
-    </div>`;
-    document.getElementById("messagesList").innerHTML += msgHtml;
-    scrollToBottom();
-    });
-
-    connection.start().then(() => {
-    connection.invoke("EntrarNogrupos", gruposId);
-    });
-
-    document.getElementById("sendButton").addEventListener("click", enviar);
-    document.getElementById("messageInput").addEventListener("keypress", (e) => { if(e.key === 'Enter') enviar(); });
-
-    async function enviar() {
-    const input = document.getElementById("messageInput");
-    const msg = input.value;
-    if (!msg) return;
-
-    // 1. Avisa o SignalR (Tempo real)
-    await connection.invoke("EnviarMensagem", gruposId, nomeUsuario, msg);
-
-    // 2. Salva no Banco (Histórico)
-    await fetch('/Grupos/SalvarMensagem', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ gruposApoioId: gruposId, remetenteId: usuarioId, conteudo: msg })
-    });
-
-    input.value = "";
-    scrollToBottom();
-    }
-
-    function scrollToBottom() {
-    const list = document.getElementById("messagesList");
-    list.scrollTop = list.scrollHeight;
-    }
-    scrollToBottom();
-</script>
