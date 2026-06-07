@@ -10,16 +10,13 @@ var builder = WebApplication.CreateBuilder(args);
 // =============================================================================
 // SERVIÇOS (Dependency Injection)
 // =============================================================================
-// Conexão com o Azure SQL Database
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
-    ?? throw new InvalidOperationException(
-        "Connection string 'DefaultConnection' nao foi encontrada. " +
-        "Configure-a no appsettings.json (desenvolvimento) ou nas Application Settings " +
-        "do Azure App Service (produção).");
+    ?? throw new InvalidOperationException("Connection string 'DefaultConnection' não foi encontrada.");
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-// ASP.NET Core Identity (atende RF01, RF02 e RF13) - AGORA COM ROLES!
 builder.Services
     .AddDefaultIdentity<Usuario>(options =>
     {
@@ -34,7 +31,6 @@ builder.Services
     .AddDefaultTokenProviders()
     .AddEntityFrameworkStores<AppDbContext>();
 
-// Cookie de autenticacao - rota das paginas customizadas
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Login";
@@ -42,9 +38,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LogoutPath = "/Logout";
 });
 
-// Servico de upload para Azure Blob Storage (fotos de perfil e anexos)
 builder.Services.AddSingleton<IBlobStorageService, BlobStorageService>();
-
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddSignalR();
@@ -60,10 +54,10 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Error");
     app.UseHsts();
 }
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -73,17 +67,18 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 // =============================================================================
-// SEED DO BANCO (apenas em desenvolvimento ou na primeira execucao)
+// SEED DO BANCO E HUBS
 // =============================================================================
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<Usuario>>();
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>(); 
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
-    await DbSeeder.SeedAsync(db, userManager, roleManager); 
+    await DbSeeder.SeedAsync(db, userManager, roleManager);
 }
 
+// Mapeamento do Hub de Chat
 app.MapHub<ChatHub>("/chatHub");
-app.MapHub<GrupoHub>("/grupoHub");
+
 app.Run();

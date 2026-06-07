@@ -1,0 +1,15 @@
+@model ConexaoSolidaria.Models.GrupoApoio
+
+<div class="container mt-4">
+    <div class="card shadow-sm border-0 p-4" style="border-radius: 15px;">
+        <h1 class="cs-page-title">@Model.Nome</h1>
+        <hr />
+        <p><strong>Descrição:</strong> @Model.Descricao</p>
+        
+        <div class="mt-4">
+            <a asp-action="Editar" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+            <a asp-action="Compartilhar" asp-route-id="@Model.Id" class="btn btn-outline-primary">Compartilhar</a>
+            <a asp-action="Lista" class="btn btn-secondary">Voltar</a>
+        </div>
+    </div>
+</div>

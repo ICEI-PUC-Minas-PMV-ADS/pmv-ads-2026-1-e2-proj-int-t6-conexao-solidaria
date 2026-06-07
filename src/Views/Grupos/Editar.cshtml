@@ -1,0 +1,17 @@
+@model ConexaoSolidaria.Models.GrupoApoio
+
+<div class="container mt-4">
+    <h2 class="cs-page-title">Editar Grupo</h2>
+    <form asp-action="Editar" class="card p-4 shadow-sm border-0" style="border-radius: 15px;">
+        <input type="hidden" asp-for="Id" />
+        <div class="mb-3">
+            <label asp-for="Nome" class="form-label"></label>
+            <input asp-for="Nome" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Descricao" class="form-label"></label>
+            <textarea asp-for="Descricao" class="form-control" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+</div>
