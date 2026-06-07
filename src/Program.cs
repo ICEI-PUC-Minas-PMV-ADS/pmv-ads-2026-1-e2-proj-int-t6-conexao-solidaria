@@ -85,4 +85,5 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.MapHub<ChatHub>("/chatHub");
+app.MapHub<GrupoHub>("/grupoHub");
 app.Run();
