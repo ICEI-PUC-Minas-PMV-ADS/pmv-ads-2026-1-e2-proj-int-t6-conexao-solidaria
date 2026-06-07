@@ -99,7 +99,7 @@
         <a href="/Chat/Lista" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Chat" ? "active" : "")">
             <span>💬</span><small>Chat</small>
         </a>
-       <a asp-controller="Grupos" asp-action="Lista" class="@(currentPath.StartsWith("/grupos") ? "active" : "")">
+       <a asp-controller="Grupos" class="@(currentPath.StartsWith("/grupos") ? "active" : "")">
     <span>🤝</span><small>Grupos</small>
 </a>
         <a asp-page="/Perfil/Index" class="@(currentPath.StartsWith("/perfil") ? "active" : "")">
