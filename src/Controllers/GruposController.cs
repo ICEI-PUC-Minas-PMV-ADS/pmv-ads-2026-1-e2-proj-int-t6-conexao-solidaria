@@ -6,7 +6,7 @@ using ConexaoSolidaria.Models;
 
 namespace ConexaoSolidaria.Controllers
 {
-    public class GruposController : grupos
+    public class GruposController : Controller
     {
         public IActionResult Index()
         {
