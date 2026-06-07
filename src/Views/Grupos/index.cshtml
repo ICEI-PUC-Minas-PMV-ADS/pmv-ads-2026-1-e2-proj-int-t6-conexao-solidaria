@@ -1,44 +1,75 @@
-using ConexaoSolidaria.Data;
-using ConexaoSolidaria.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
+@page
+@model ConexaoSolidaria.Pages.Solicitacoes.IndexModel
+@{
+    ViewData["Title"] = "Grupos";
+}
 
-namespace ConexaoSolidaria.Pages.grupos;
+<div class="cs-page-header">
+    <div>
+        <h1 class="cs-page-title">entre ou crie grupos</h1>
+        <p class="cs-page-subtitle">@Model.Grupos.Count Grupo(s) encontrada(s)</p>
+    </div>
+    <div>
+        <a asp-page="/Grupos/Nova" class="btn btn-cs-accent">+ Novos Grupos</a>
+    </div>
+</div>
 
-[Authorize]
-public class IndexModel : PageModel
+<!-- FILTROS -->
+<form method="get" class="row g-2 mb-4">
+    <div class="col-12 col-md-3">
+        <select name="FiltroUrgencia" class="form-select" onchange="this.form.submit()">
+            <option value="">Todas as urgências</option>
+            <option value="alta"  selected="@(Model.FiltroUrgencia == "alta")">Alta</option>
+            <option value="media" selected="@(Model.FiltroUrgencia == "media")">Média</option>
+            <option value="baixa" selected="@(Model.FiltroUrgencia == "baixa")">Baixa</option>
+        </select>
+    </div>
+    <div class="col-12 col-md-3">
+        <select name="FiltroTipo" class="form-select" onchange="this.form.submit()">
+            <option value="">Todos os tipos</option>
+            <option value="alimentos"     selected="@(Model.FiltroTipo == "alimentos")">Alimentos</option>
+            <option value="medicamentos"  selected="@(Model.FiltroTipo == "medicamentos")">Medicamentos</option>
+            <option value="abrigo"        selected="@(Model.FiltroTipo == "abrigo")">Abrigo</option>
+            <option value="vestuario"     selected="@(Model.FiltroTipo == "vestuario")">Vestuário</option>
+            <option value="outros"        selected="@(Model.FiltroTipo == "outros")">Outros</option>
+        </select>
+    </div>
+    <div class="col-12 col-md-4">
+        <input name="FiltroCidade" value="@Model.FiltroCidade" class="form-control"
+               placeholder="Filtrar por cidade..." />
+    </div>
+    <div class="col-12 col-md-2">
+        <button type="submit" class="btn btn-cs-primary w-100">Filtrar</button>
+    </div>
+</form>
+
+<!-- LISTAGEM -->
+@if (!Model.Solicitacoes.Any())
 {
-    private readonly AppDbContext _db;
-    public IndexModel(AppDbContext db) { _db = db; }
-
-    public List<Solicitacao> grupos { get; set; } = new();
-
-    [BindProperty(SupportsGet = true)] public string? FiltroUrgencia { get; set; }
-    [BindProperty(SupportsGet = true)] public string? FiltroTipo { get; set; }
-    [BindProperty(SupportsGet = true)] public string? FiltroCidade { get; set; }
-
-    public async Task OnGetAsync()
+    <div class="alert alert-info">
+        Nenhum grupo encontrado com os filtros aplicados.
+    </div>
+}
+else
+{
+    foreach (var s in Model.Grupos)
     {
-        var query = _db.grupos
-            .Include(s => s.Usuario)
-            .Where(s => s.Status == "ativa")
-            .AsQueryable();
-
-        if (!string.IsNullOrEmpty(FiltroUrgencia))
-            query = query.Where(s => s.Urgencia == FiltroUrgencia);
-
-        if (!string.IsNullOrEmpty(FiltroTipo))
-            query = query.Where(s => s.TipoNecessidade == FiltroTipo);
-
-        if (!string.IsNullOrEmpty(FiltroCidade))
-            query = query.Where(s => s.Cidade.Contains(FiltroCidade));
-
-        grupos = await query
-            .OrderByDescending(s => s.Urgencia == "alta")
-            .ThenByDescending(s => s.Urgencia == "media")
-            .ThenByDescending(s => s.CriadoEm)
-            .ToListAsync();
+        <a asp-page="/Grupos/Detalhes" asp-route-id="@s.Id" class="text-decoration-none">
+            <div class="cs-solic-card">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h3 class="cs-solic-title">@s.Titulo</h3>
+                    <span class="cs-badge @s.Urgencia">@s.Urgencia</span>
+                </div>
+                <p class="text-muted mb-2" style="font-size: 14px;">
+                    @(s.Descricao.Length > 140 ? s.Descricao.Substring(0, 140) + "…" : s.Descricao)
+                </p>
+                <div class="cs-solic-meta">
+                    📍 @s.Cidade / @s.Estado ·
+                    🏷 @s.TipoNecessidade ·
+                    👤 @(s.Usuario?.NomeCompleto ?? "Usuário") ·
+                    🕒 @s.CriadoEm.ToLocalTime().ToString("dd/MM/yyyy HH:mm")
+                </div>
+            </div>
+        </a>
     }
 }
