@@ -1,5 +1,5 @@
 @page
-@model ConexaoSolidaria.Pages.Solicitacoes.IndexModel
+@model ConexaoSolidaria.Pages.Grupos.IndexModel
 @{
     ViewData["Title"] = "Grupos";
 }
@@ -44,7 +44,7 @@
 </form>
 
 <!-- LISTAGEM -->
-@if (!Model.Solicitacoes.Any())
+@if (!Model.Grupos.Any())
 {
     <div class="alert alert-info">
         Nenhum grupo encontrado com os filtros aplicados.
