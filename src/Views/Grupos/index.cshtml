@@ -1,6 +1,6 @@
-﻿@model ConexaoSolidaria.Models.ChatApoio
+﻿@model ConexaoSolidaria.Models.gruposApoio
 @{
-    ViewData["Title"] = "Chat de Apoio";
+    ViewData["Title"] = "grupos de Apoio";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
@@ -42,12 +42,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.min.js"></script>
 
 <script>
-    const chatId = "@Model.Id";
+    const gruposId = "@Model.Id";
     const usuarioId = "@ViewBag.UsuarioAtualId";
     const nomeUsuario = "@ViewBag.NomeUsuario";
 
     // Conecta ao Hub do SignalR que criamos no C#
-    const connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+    const connection = new signalR.HubConnectionBuilder().withUrl("/gruposHub").build();
 
     // Quando receber uma mensagem do servidor, adiciona na tela sem recarregar
     connection.on("ReceberMensagem", (usuario, mensagem) => {
@@ -65,7 +65,7 @@
     });
 
     connection.start().then(() => {
-    connection.invoke("EntrarNoChat", chatId);
+    connection.invoke("EntrarNogrupos", gruposId);
     });
 
     document.getElementById("sendButton").addEventListener("click", enviar);
@@ -77,13 +77,13 @@
     if (!msg) return;
 
     // 1. Avisa o SignalR (Tempo real)
-    await connection.invoke("EnviarMensagem", chatId, nomeUsuario, msg);
+    await connection.invoke("EnviarMensagem", gruposId, nomeUsuario, msg);
 
     // 2. Salva no Banco (Histórico)
     await fetch('/Grupos/SalvarMensagem', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chatApoioId: chatId, remetenteId: usuarioId, conteudo: msg })
+    body: JSON.stringify({ gruposApoioId: gruposId, remetenteId: usuarioId, conteudo: msg })
     });
 
     input.value = "";
