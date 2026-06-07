@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace ConexaoSolidaria.Pages.Solicitacoes;
+namespace ConexaoSolidaria.Pages.grupos;
 
 [Authorize]
 public class IndexModel : PageModel
@@ -13,7 +13,7 @@ public class IndexModel : PageModel
     private readonly AppDbContext _db;
     public IndexModel(AppDbContext db) { _db = db; }
 
-    public List<Solicitacao> Solicitacoes { get; set; } = new();
+    public List<Solicitacao> grupos { get; set; } = new();
 
     [BindProperty(SupportsGet = true)] public string? FiltroUrgencia { get; set; }
     [BindProperty(SupportsGet = true)] public string? FiltroTipo { get; set; }
@@ -21,7 +21,7 @@ public class IndexModel : PageModel
 
     public async Task OnGetAsync()
     {
-        var query = _db.Solicitacoes
+        var query = _db.grupos
             .Include(s => s.Usuario)
             .Where(s => s.Status == "ativa")
             .AsQueryable();
@@ -35,7 +35,7 @@ public class IndexModel : PageModel
         if (!string.IsNullOrEmpty(FiltroCidade))
             query = query.Where(s => s.Cidade.Contains(FiltroCidade));
 
-        Solicitacoes = await query
+        grupos = await query
             .OrderByDescending(s => s.Urgencia == "alta")
             .ThenByDescending(s => s.Urgencia == "media")
             .ThenByDescending(s => s.CriadoEm)
