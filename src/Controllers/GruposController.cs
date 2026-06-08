@@ -33,7 +33,7 @@ namespace ConexaoSolidaria.Controllers
         // TELA 09b: Editar (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Editar(GrupoApoio grupo)
+        public IActionResult Editar(Grupos grupo)
         {
             if (ModelState.IsValid)
             {
