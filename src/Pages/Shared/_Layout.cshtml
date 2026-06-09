@@ -51,7 +51,7 @@
                 <li class="@(currentPath.StartsWith("/doacoes") ? "active" : "")">
                     <a href="/Doacoes">🎁 <span>Doações</span></a>
                 </li>
-                <li class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Chat" ? "active" : "")">
+                <li class="@(currentPath.StartsWith("/chat") ? "active" : "")">
                     <a href="/Chat/Lista">💬 <span>Chat</span></a>
                 </li>
                 <li class="@(currentPath.StartsWith("/grupos") ? "active" : "")">
@@ -96,7 +96,7 @@
             <span>🎁</span><small>Doações</small>
         </a>
         @* Corrigido aqui também *@
-        <a href="/Chat/Lista" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Chat" ? "active" : "")">
+        <a href="/Chat/Lista" class="@(currentPath.StartsWith("/chat") ? "active" : "")">
             <span>💬</span><small>Chat</small>
         </a>
        <a href="/Grupos/Lista" class="@(currentPath.StartsWith("/grupos") ? "active" : "")">
