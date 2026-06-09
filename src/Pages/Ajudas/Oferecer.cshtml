@@ -65,10 +65,7 @@ else
             <div class="card cs-card mb-4">
                 <div class="card-body">
                     <div class="d-flex align-items-start gap-3 mb-2">
-                        @if (s.Urgencia == "alta")
-                        {
-                            <span class="badge cs-badge-urgente align-self-center">Urgente</span>
-                        }
+                        <span class="cs-badge @s.Urgencia align-self-center">@s.Urgencia</span>
                         <div>
                             <h5 class="fw-bold mb-0">@s.Titulo</h5>
                             <small class="text-muted">@s.Descricao</small>

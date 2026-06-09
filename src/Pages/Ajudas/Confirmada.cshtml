@@ -141,9 +141,8 @@ else
 
             <!-- Botões de ação -->
             <div class="d-flex align-items-center gap-3 flex-wrap">
-                <a asp-page="/Chat/Conversa"
-                   asp-route-solicitacaoId="@s.Id"
-                   class="btn btn-cs-accent px-4">
+                <a asp-controller="Chat" asp-action="Lista"
+                    class="btn btn-cs-accent px-4">
                     Ir para o Chat
                 </a>
                 <a asp-page="/Solicitacoes/Detalhes"
@@ -151,9 +150,8 @@ else
                    class="btn btn-outline-secondary px-4">
                     Ver Solicitacao
                 </a>
-                <a asp-page="/Avaliacoes/Avaliar"
-                   asp-route-ofertaId="@o.Id"
-                   class="text-muted text-decoration-underline small">
+                <a asp-page="/Ajudas/Index"
+                    class="text-muted text-decoration-underline small">
                     Avaliar mais tarde
                 </a>
             </div>
@@ -211,9 +209,8 @@ else
             <div class="card cs-card border-primary">
                 <div class="card-body">
                     <p class="small fw-semibold text-primary mb-3 text-uppercase">Acoes rapidas</p>
-                    <a asp-page="/Chat/Conversa"
-                       asp-route-solicitacaoId="@s.Id"
-                       class="btn btn-cs-accent w-100 mb-2">
+                    <a asp-controller="Chat" asp-action="Lista"
+                        class="btn btn-cs-accent w-100 mb-2">
                         Abrir Chat
                     </a>
                     <a asp-page="/Ajudas/ConfirmarEntrega"
