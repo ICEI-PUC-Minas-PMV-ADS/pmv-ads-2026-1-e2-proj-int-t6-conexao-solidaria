@@ -33,7 +33,7 @@ namespace ConexaoSolidaria.Controllers
         // TELA 09b: Editar (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Editar(Grupos grupo)
+        public IActionResult Editar(GrupoApoio grupo)
         {
             if (ModelState.IsValid)
             {
@@ -72,13 +72,14 @@ namespace ConexaoSolidaria.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var grupos = _context.Grupos.ToList();
+            return View(grupos);
         }
 
         [HttpGet]
         public IActionResult Criar()
         {
-            return View();
+            return View("Nova");
         }
     }
 }

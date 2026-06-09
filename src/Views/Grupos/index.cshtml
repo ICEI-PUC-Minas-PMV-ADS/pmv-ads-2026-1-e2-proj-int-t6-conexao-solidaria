@@ -1,74 +1,32 @@
-@page
-@model ConexaoSolidaria.Pages.Grupos.IndexModel
+@model IEnumerable<ConexaoSolidaria.Models.GrupoApoio>
 @{
     ViewData["Title"] = "Grupos";
 }
 
 <div class="cs-page-header">
     <div>
-        <h1 class="cs-page-title">entre ou crie grupos</h1>
-        <p class="cs-page-subtitle">@Model.Grupos.Count Grupo(s) encontrada(s)</p>
+        <h1 class="cs-page-title">Grupos de Apoio</h1>
+        <p class="cs-page-subtitle">@Model.Count() grupo(s) encontrado(s)</p>
     </div>
     <div>
-        <a asp-page="/Grupos/Nova" class="btn btn-cs-accent">+ Novos Grupos</a>
+        <a asp-action="Criar" class="btn btn-cs-accent">+ Novo Grupo</a>
     </div>
 </div>
 
-<!-- FILTROS -->
-<form method="get" class="row g-2 mb-4">
-    <div class="col-12 col-md-3">
-        <select name="FiltroUrgencia" class="form-select" onchange="this.form.submit()">
-            <option value="">Todas as urgências</option>
-            <option value="alta"  selected="@(Model.FiltroUrgencia == "alta")">Alta</option>
-            <option value="media" selected="@(Model.FiltroUrgencia == "media")">Média</option>
-            <option value="baixa" selected="@(Model.FiltroUrgencia == "baixa")">Baixa</option>
-        </select>
-    </div>
-    <div class="col-12 col-md-3">
-        <select name="FiltroTipo" class="form-select" onchange="this.form.submit()">
-            <option value="">Todos os tipos</option>
-            <option value="alimentos"     selected="@(Model.FiltroTipo == "alimentos")">Alimentos</option>
-            <option value="medicamentos"  selected="@(Model.FiltroTipo == "medicamentos")">Medicamentos</option>
-            <option value="abrigo"        selected="@(Model.FiltroTipo == "abrigo")">Abrigo</option>
-            <option value="vestuario"     selected="@(Model.FiltroTipo == "vestuario")">Vestuário</option>
-            <option value="outros"        selected="@(Model.FiltroTipo == "outros")">Outros</option>
-        </select>
-    </div>
-    <div class="col-12 col-md-4">
-        <input name="FiltroCidade" value="@Model.FiltroCidade" class="form-control"
-               placeholder="Filtrar por cidade..." />
-    </div>
-    <div class="col-12 col-md-2">
-        <button type="submit" class="btn btn-cs-primary w-100">Filtrar</button>
-    </div>
-</form>
-
-<!-- LISTAGEM -->
-@if (!Model.Grupos.Any())
+@if (!Model.Any())
 {
-    <div class="alert alert-info">
-        Nenhum grupo encontrado com os filtros aplicados.
-    </div>
+    <div class="alert alert-info mt-3">Nenhum grupo cadastrado ainda.</div>
 }
 else
 {
-    foreach (var s in Model.Grupos)
+    foreach (var g in Model)
     {
-        <a asp-page="/Grupos/Detalhes" asp-route-id="@s.Id" class="text-decoration-none">
+        <a asp-action="Detalhes" asp-route-id="@g.Id" class="text-decoration-none">
             <div class="cs-solic-card">
-                <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h3 class="cs-solic-title">@s.Titulo</h3>
-                    <span class="cs-badge @s.Urgencia">@s.Urgencia</span>
-                </div>
-                <p class="text-muted mb-2" style="font-size: 14px;">
-                    @(s.Descricao.Length > 140 ? s.Descricao.Substring(0, 140) + "…" : s.Descricao)
+                <h3 class="cs-solic-title">@g.Nome</h3>
+                <p class="text-muted mb-0" style="font-size:14px;">
+                    @(g.Descricao.Length > 140 ? g.Descricao.Substring(0, 140) + "…" : g.Descricao)
                 </p>
-                <div class="cs-solic-meta">
-                    📍 @s.Cidade / @s.Estado ·
-                    🏷 @s.TipoNecessidade ·
-                    👤 @(s.Usuario?.NomeCompleto ?? "Usuário") ·
-                    🕒 @s.CriadoEm.ToLocalTime().ToString("dd/MM/yyyy HH:mm")
-                </div>
             </div>
         </a>
     }
