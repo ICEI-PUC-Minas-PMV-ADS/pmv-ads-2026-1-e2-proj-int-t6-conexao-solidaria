@@ -7,6 +7,14 @@
 
 <a asp-page="/Solicitacoes/Index" class="text-decoration-none mb-3 d-inline-block">← Voltar</a>
 
+@if (TempData["Erro"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["Erro"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
 <div class="row g-4">
     <div class="col-12 col-lg-8">
         <div class="cs-solic-card">
@@ -49,7 +57,10 @@
             </div>
         </div>
 
-        <a asp-page="/Ajudas/Oferecer" asp-route-solicitacaoId="@s.Id" class="btn btn-cs-accent w-100 mb-2">👋 Oferecer Ajuda</a>
-        <button class="btn btn-outline-primary w-100">💬 Enviar Mensagem</button>
+        @if (!Model.JaOfereceuAjuda)
+        {
+            <a asp-page="/Ajudas/Oferecer" asp-route-solicitacaoId="@s.Id" class="btn btn-cs-accent w-100 mb-2">👋 Oferecer Ajuda</a>
+        }
+        <a asp-controller="Chat" asp-action="ValidarAcessoChat" asp-route-solicitacaoId="@s.Id" class="btn btn-outline-primary w-100" title="É necessário oferecer ajuda antes de enviar mensagem">💬 Enviar Mensagem</a>
     </div>
 </div>

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace ConexaoSolidaria.Pages.Solicitacoes;
 
@@ -14,6 +15,7 @@ public class DetalhesModel : PageModel
     public DetalhesModel(AppDbContext db) { _db = db; }
 
     public Solicitacao? Solicitacao { get; set; }
+    public bool JaOfereceuAjuda { get; set; }
 
     public async Task<IActionResult> OnGetAsync(int id)
     {
@@ -22,6 +24,13 @@ public class DetalhesModel : PageModel
             .FirstOrDefaultAsync(s => s.Id == id);
 
         if (Solicitacao is null) return NotFound();
+
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (userId != null)
+        {
+            JaOfereceuAjuda = await _db.Doacoes.AnyAsync(d => d.SolicitacaoId == id && d.DoadorId == userId);
+        }
+
         return Page();
     }
 }

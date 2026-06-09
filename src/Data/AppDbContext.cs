@@ -31,6 +31,13 @@ public class AppDbContext : IdentityDbContext<Usuario>
     {
         base.OnModelCreating(builder);
 
+        // Regra para evitar o erro de múltiplos caminhos em cascata
+        builder.Entity<OfertaAjuda>()
+            .HasOne(o => o.Solicitacao)
+            .WithMany()
+            .HasForeignKey(o => o.SolicitacaoId)
+            .OnDelete(DeleteBehavior.Restrict);
+
         // Configuração da tabela Solicitacao
         builder.Entity<Solicitacao>()
             .HasIndex(s => new { s.Status, s.Urgencia, s.CriadoEm });

@@ -55,7 +55,7 @@
                     <a href="/Chat/Lista">💬 <span>Chat</span></a>
                 </li>
                 <li class="@(currentPath.StartsWith("/grupos") ? "active" : "")">
-                    <a asp-controller="Grupos" asp-action="Lista">🤝 <span>Grupos</span></a>
+                    <a href="/Grupos/Lista">🤝 <span>Grupos</span></a>
                 </li>
                 <li class="@(currentPath.StartsWith("/perfil") ? "active" : "")">
                     <a asp-page="/Perfil/Index">👤 <span>Perfil</span></a>
@@ -99,7 +99,7 @@
         <a href="/Chat/Lista" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Chat" ? "active" : "")">
             <span>💬</span><small>Chat</small>
         </a>
-       <a asp-controller="Grupos" asp-action="Lista" class="@(currentPath.StartsWith("/grupos") ? "active" : "")">
+       <a href="/Grupos/Lista" class="@(currentPath.StartsWith("/grupos") ? "active" : "")">
     <span>🤝</span><small>Grupos</small>
 </a>
         <a asp-page="/Perfil/Index" class="@(currentPath.StartsWith("/perfil") ? "active" : "")">

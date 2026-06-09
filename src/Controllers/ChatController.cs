@@ -36,6 +36,24 @@ namespace ConexaoSolidaria.Controllers
             return View(chats);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> ValidarAcessoChat(int solicitacaoId)
+        {
+            var userId = _userManager.GetUserId(User);
+            if (string.IsNullOrEmpty(userId)) return Challenge();
+
+            var doacao = await _context.Doacoes
+                .FirstOrDefaultAsync(d => d.SolicitacaoId == solicitacaoId && d.DoadorId == userId);
+
+            if (doacao == null)
+            {
+                TempData["Erro"] = "Para enviar uma mensagem, você precisa primeiro oferecer ajuda nesta solicitação.";
+                return RedirectToPage("/Solicitacoes/Detalhes", new { id = solicitacaoId });
+            }
+
+            return RedirectToAction("Index", new { doacaoId = doacao.Id });
+        }
+
         // Abrir um Chat específico
         public async Task<IActionResult> Index(int doacaoId)
         {
@@ -46,6 +64,12 @@ namespace ConexaoSolidaria.Controllers
 
             if (chat == null)
             {
+                var doacaoExiste = await _context.Doacoes.AnyAsync(d => d.Id == doacaoId);
+                if (!doacaoExiste)
+                {
+                    return NotFound("Doação não encontrada. É necessário oferecer ajuda antes de iniciar o chat.");
+                }
+
                 chat = new ChatApoio { DoacaoId = doacaoId };
                 _context.Chats.Add(chat);
                 await _context.SaveChangesAsync();

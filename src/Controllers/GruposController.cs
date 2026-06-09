@@ -70,6 +70,12 @@ namespace ConexaoSolidaria.Controllers
             return View(model);
         }
 
+        public IActionResult Lista()
+        {
+            var grupos = _context.Grupos.ToList();
+            return View(grupos);
+        }
+
         public IActionResult Index()
         {
             return View();

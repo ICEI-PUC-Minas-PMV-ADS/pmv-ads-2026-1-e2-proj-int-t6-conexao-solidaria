@@ -1,0 +1,75 @@
+@model IEnumerable<ConexaoSolidaria.Models.ChatApoio>
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ConexaoSolidaria.Models.Usuario> UserManager
+
+@{
+    ViewData["Title"] = "Histórico de Chats";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+    var currentUserId = UserManager.GetUserId(User);
+}
+
+<div class="cs-page-header mb-4">
+    <div>
+        <h1 class="cs-page-title">Histórico de Chats</h1>
+        <p class="cs-page-subtitle">Acompanhe suas conversas sobre doações e solicitações</p>
+    </div>
+</div>
+
+<div class="card shadow-sm" style="border-radius: 12px; border: 1px solid #E2E8F0; overflow: hidden;">
+    <div class="table-responsive">
+        <table class="table table-hover mb-0" style="vertical-align: middle;">
+            <thead style="background-color: #F8FAFD; color: #475569; font-size: 14px;">
+                <tr>
+                    <th class="px-4 py-3 border-bottom-0">Solicitação</th>
+                    <th class="px-4 py-3 border-bottom-0">Com quem</th>
+                    <th class="px-4 py-3 border-bottom-0">Última Mensagem</th>
+                    <th class="px-4 py-3 border-bottom-0 text-center">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model == null || !Model.Any())
+                {
+                    <tr>
+                        <td colspan="4" class="px-4 py-5 text-center text-muted">
+                            <span style="font-size: 24px;">💬</span><br />
+                            Nenhuma conversa registrada ainda.
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var chat in Model.OrderByDescending(c => c.Mensagens.OrderByDescending(m => m.EnviadaEm).FirstOrDefault()?.EnviadaEm ?? c.CriadoEm))
+                    {
+                        var isDoador = chat.Doacao?.DoadorId == currentUserId;
+                        var outroUsuario = isDoador ? chat.Doacao?.Solicitacao?.Usuario : chat.Doacao?.Doador;
+                        var outroUsuarioNome = outroUsuario?.NomeCompleto ?? "Usuário";
+                        var titulo = chat.Doacao?.Solicitacao?.Titulo ?? "Doação";
+                        var ultimaMensagem = chat.Mensagens.OrderByDescending(m => m.EnviadaEm).FirstOrDefault();
+
+                        <tr>
+                            <td class="px-4 py-3 fw-bold" style="color: #1E73BE;">@titulo</td>
+                            <td class="px-4 py-3">@outroUsuarioNome</td>
+                            <td class="px-4 py-3 text-muted">
+                                @if (ultimaMensagem != null)
+                                {
+                                    <small>@ultimaMensagem.EnviadaEm.ToString("dd/MM/yyyy HH:mm")</small>
+                                    <br />
+                                    <span class="text-truncate d-inline-block" style="max-width: 250px;">@ultimaMensagem.Conteudo</span>
+                                }
+                                else
+                                {
+                                    <em>Nenhuma mensagem</em>
+                                }
+                            </td>
+                            <td class="px-4 py-3 text-center">
+                                <a href="/Chat?doacaoId=@chat.DoacaoId" class="btn btn-sm btn-outline-primary" style="border-radius: 6px; display: inline-flex; align-items: center; gap: 5px;">
+                                    💬 Abrir Chat
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
