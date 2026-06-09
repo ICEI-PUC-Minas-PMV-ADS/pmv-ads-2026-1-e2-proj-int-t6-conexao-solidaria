@@ -1,0 +1,33 @@
+@model IEnumerable<ConexaoSolidaria.Models.GrupoApoio>
+@{
+    ViewData["Title"] = "Grupos";
+}
+
+<div class="cs-page-header">
+    <div>
+        <h1 class="cs-page-title">Grupos de Apoio</h1>
+        <p class="cs-page-subtitle">@Model.Count() grupo(s) encontrado(s)</p>
+    </div>
+    <div>
+        <a asp-action="Criar" class="btn btn-cs-accent">+ Novo Grupo</a>
+    </div>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info mt-3">Nenhum grupo cadastrado ainda.</div>
+}
+else
+{
+    foreach (var g in Model)
+    {
+        <a asp-action="Detalhes" asp-route-id="@g.Id" class="text-decoration-none">
+            <div class="cs-solic-card">
+                <h3 class="cs-solic-title">@g.Nome</h3>
+                <p class="text-muted mb-0" style="font-size:14px;">
+                    @(g.Descricao.Length > 140 ? g.Descricao.Substring(0, 140) + "…" : g.Descricao)
+                </p>
+            </div>
+        </a>
+    }
+}
