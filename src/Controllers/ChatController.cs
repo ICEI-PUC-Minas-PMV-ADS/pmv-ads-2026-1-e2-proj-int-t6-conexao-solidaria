@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace ConexaoSolidaria.Controllers
 {
@@ -42,16 +43,22 @@ namespace ConexaoSolidaria.Controllers
             var userId = _userManager.GetUserId(User);
             if (string.IsNullOrEmpty(userId)) return Challenge();
 
+            // Busca a doação relacionada a essa solicitação. 
+            // Acesso liberado se o usuário for o DOADOR ou o dono da SOLICITAÇÃO.
             var doacao = await _context.Doacoes
-                .FirstOrDefaultAsync(d => d.SolicitacaoId == solicitacaoId && d.DoadorId == userId);
+                .Include(d => d.Solicitacao)
+                .FirstOrDefaultAsync(d => d.SolicitacaoId == solicitacaoId && 
+                                          (d.DoadorId == userId || d.Solicitacao!.UsuarioId == userId));
 
             if (doacao == null)
             {
+                // Se não achou doação, recusa o acesso e avisa
                 TempData["Erro"] = "Para enviar uma mensagem, você precisa primeiro oferecer ajuda nesta solicitação.";
                 return RedirectToPage("/Solicitacoes/Detalhes", new { id = solicitacaoId });
             }
 
-            return RedirectToAction("Index", new { doacaoId = doacao.Id });
+            // SUCESSO! A doação existe. Vai direto para o Chat passando o ID correto.
+            return RedirectToAction("Index", "Chat", new { doacaoId = doacao.Id });
         }
 
         // Abrir um Chat específico

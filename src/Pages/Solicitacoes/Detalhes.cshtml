@@ -57,10 +57,23 @@
             </div>
         </div>
 
-        @if (!Model.JaOfereceuAjuda)
-        {
-            <a asp-page="/Ajudas/Oferecer" asp-route-solicitacaoId="@s.Id" class="btn btn-cs-accent w-100 mb-2">👋 Oferecer Ajuda</a>
-        }
-        <a asp-controller="Chat" asp-action="ValidarAcessoChat" asp-route-solicitacaoId="@s.Id" class="btn btn-outline-primary w-100" title="É necessário oferecer ajuda antes de enviar mensagem">💬 Enviar Mensagem</a>
+        <div class="d-flex flex-column gap-2 mt-3">
+            @if (!Model.JaOfereceuAjuda)
+            {
+                <a asp-page="/Ajudas/Oferecer" asp-route-solicitacaoId="@s.Id" class="btn btn-cs-accent w-100">
+                    👋 Oferecer Ajuda
+                </a>
+                
+                <a asp-controller="Chat" asp-action="ValidarAcessoChat" asp-route-solicitacaoId="@s.Id" class="btn btn-outline-secondary w-100" title="É necessário oferecer ajuda antes de enviar mensagem">
+                    💬 Enviar Mensagem (Requer Ajuda)
+                </a>
+            }
+            else
+            {
+                <a asp-controller="Chat" asp-action="ValidarAcessoChat" asp-route-solicitacaoId="@s.Id" class="btn btn-primary w-100 fw-bold">
+                    💬 Abrir Chat
+                </a>
+            }
+        </div>
     </div>
 </div>
