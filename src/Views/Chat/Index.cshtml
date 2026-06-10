@@ -9,8 +9,8 @@
         <div class="card-header bg-white p-3 border-bottom-0">
             <div class="d-flex align-items-center">
                 <div class="ms-2">
-                    <h5 class="mb-0 fw-bold">@Model.Doacao?.Solicitacao?.Titulo</h5>
-                    <small class="text-muted">Conversando sobre esta doação</small>
+                    <h5 class="mb-0 fw-bold">@Model.OfertaAjuda?.Solicitacao?.Titulo</h5>
+                    <small class="text-muted">Conversando sobre esta ajuda</small>
                 </div>
             </div>
         </div>
@@ -48,10 +48,10 @@
     const usuarioId = "@ViewBag.UsuarioAtualId";
     const nomeUsuario = "@ViewBag.NomeUsuario";
 
-    // Conecta ao Hub do SignalR que criamos no C#
+    // Conecta ao Hub do SignalR
     const connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
-    // Quando receber uma mensagem do servidor, adiciona na tela sem recarregar
+    // Quando receber uma mensagem do servidor
     connection.on("ReceberMensagem", (usuario, mensagem) => {
         const isMe = usuario === nomeUsuario;
         const msgHtml = `

@@ -11,7 +11,7 @@
 <div class="cs-page-header mb-4">
     <div>
         <h1 class="cs-page-title">Histórico de Chats</h1>
-        <p class="cs-page-subtitle">Acompanhe suas conversas sobre doações e solicitações</p>
+        <p class="cs-page-subtitle">Acompanhe suas conversas sobre ofertas de ajuda e solicitações</p>
     </div>
 </div>
 
@@ -40,10 +40,10 @@
                 {
                     foreach (var chat in Model.OrderByDescending(c => c.Mensagens.OrderByDescending(m => m.EnviadaEm).FirstOrDefault()?.EnviadaEm ?? c.CriadoEm))
                     {
-                        var isDoador = chat.Doacao?.DoadorId == currentUserId;
-                        var outroUsuario = isDoador ? chat.Doacao?.Solicitacao?.Usuario : chat.Doacao?.Doador;
+                        var isVoluntario = chat.OfertaAjuda?.VoluntarioId == currentUserId;
+                        var outroUsuario = isVoluntario ? chat.OfertaAjuda?.Solicitacao?.Usuario : chat.OfertaAjuda?.Voluntario;
                         var outroUsuarioNome = outroUsuario?.NomeCompleto ?? "Usuário";
-                        var titulo = chat.Doacao?.Solicitacao?.Titulo ?? "Doação";
+                        var titulo = chat.OfertaAjuda?.Solicitacao?.Titulo ?? "Ajuda";
                         var ultimaMensagem = chat.Mensagens.OrderByDescending(m => m.EnviadaEm).FirstOrDefault();
 
                         <tr>
@@ -62,7 +62,7 @@
                                 }
                             </td>
                             <td class="px-4 py-3 text-center">
-                                <a href="/Chat?doacaoId=@chat.DoacaoId" class="btn btn-sm btn-outline-primary" style="border-radius: 6px; display: inline-flex; align-items: center; gap: 5px;">
+                                <a href="/Chat?ofertaId=@chat.OfertaAjudaId" class="btn btn-sm btn-outline-primary" style="border-radius: 6px; display: inline-flex; align-items: center; gap: 5px;">
                                     💬 Abrir Chat
                                 </a>
                             </td>
