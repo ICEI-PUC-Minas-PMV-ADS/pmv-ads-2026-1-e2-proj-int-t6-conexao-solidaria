@@ -15,8 +15,6 @@ public class AppDbContext : IdentityDbContext<Usuario>
 
     public DbSet<Solicitacao> Solicitacoes => Set<Solicitacao>();
 
-    public DbSet<Doacao> Doacoes => Set<Doacao>();
-
     public DbSet<OfertaAjuda> OfertasAjuda => Set<OfertaAjuda>();
 
     public DbSet<Avaliacao> Avaliacoes { get; set; }
@@ -44,19 +42,6 @@ public class AppDbContext : IdentityDbContext<Usuario>
 
         builder.Entity<Solicitacao>()
             .HasIndex(s => s.Cidade);
-
-        // Configuração para a tabela de Doacoes
-        builder.Entity<Doacao>()
-            .HasOne(d => d.Doador)
-            .WithMany()
-            .HasForeignKey(d => d.DoadorId)
-            .OnDelete(DeleteBehavior.Restrict);
-
-        builder.Entity<Doacao>()
-            .HasOne(d => d.Solicitacao)
-            .WithMany(s => s.Doacoes)
-            .HasForeignKey(d => d.SolicitacaoId)
-            .OnDelete(DeleteBehavior.Cascade);
 
         // Configuração para a tabela de Avaliacoes
         builder.Entity<Avaliacao>()

@@ -47,13 +47,13 @@ public class DashboardModel : PageModel
         TotalAtivas = await _db.Solicitacoes.CountAsync(s => s.Status == "ativa");
         TotalUrgentes = await _db.Solicitacoes.CountAsync(s => s.Urgencia == "alta" && s.Status == "ativa");
 
-        // Busca os dados do módulo de Doações
-        DoacoesPendentes = await _db.Doacoes.CountAsync(d => d.Status == StatusDoacao.Pendente);
-        DoacoesEntregues = await _db.Doacoes.CountAsync(d => d.Status == StatusDoacao.Entregue);
+        // Busca os dados do módulo de OfertasAjuda usando string
+        DoacoesPendentes = await _db.OfertasAjuda.CountAsync(o => o.Status == "confirmada");
+        DoacoesEntregues = await _db.OfertasAjuda.CountAsync(o => o.Status == "concluida");
 
         SolicitacoesUrgentes = await _db.Solicitacoes
             .Include(s => s.Usuario)
-            .Include(s => s.Doacoes) 
+            .Include(s => s.OfertasAjuda) // Alterado de Doacoes para OfertasAjuda
             .Where(s => s.Status == "ativa" || s.Status == "atendida")
             .OrderByDescending(s => s.Urgencia == "alta")
             .ThenByDescending(s => s.CriadoEm)

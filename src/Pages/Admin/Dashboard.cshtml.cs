@@ -25,7 +25,10 @@ namespace ConexaoSolidaria.Pages.Admin
         {
             TotalSolicitacoes = await _db.Solicitacoes.CountAsync();
             TotalAtendidas = await _db.Solicitacoes.CountAsync(s => s.Status == "atendida");
-            DoacoesEntregues = await _db.Doacoes.CountAsync(d => d.Status == Models.StatusDoacao.Entregue);
+            
+            // Alterado para ler OfertasAjuda e o texto "concluida"
+            DoacoesEntregues = await _db.OfertasAjuda.CountAsync(o => o.Status == "concluida");
+            
             TopCidades = await _db.Solicitacoes
                 .Where(s => s.Status == "ativa")
                 .GroupBy(s => s.Cidade)

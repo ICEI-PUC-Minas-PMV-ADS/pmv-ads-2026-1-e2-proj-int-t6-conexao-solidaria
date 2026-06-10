@@ -58,5 +58,5 @@ public class Solicitacao
 
     public DateTime CriadoEm { get; set; } = DateTime.UtcNow;
 
-    public virtual ICollection<Doacao> Doacoes { get; set; } = new List<Doacao>();
+    public virtual ICollection<OfertaAjuda> OfertasAjuda { get; set; } = new List<OfertaAjuda>();
 }

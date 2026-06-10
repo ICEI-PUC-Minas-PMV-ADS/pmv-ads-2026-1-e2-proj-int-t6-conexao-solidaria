@@ -7,8 +7,8 @@ namespace ConexaoSolidaria.Models
         public int Id { get; set; }
 
         [Required]
-        public int DoacaoId { get; set; }
-        public virtual Doacao? Doacao { get; set; }
+        public int OfertaAjudaId { get; set; }
+        public virtual OfertaAjuda? OfertaAjuda { get; set; }
 
         [Required]
         [Range(1, 5, ErrorMessage = "A nota deve ser entre 1 e 5.")]
