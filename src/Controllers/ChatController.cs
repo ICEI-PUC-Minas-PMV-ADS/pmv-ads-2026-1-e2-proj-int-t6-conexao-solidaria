@@ -26,12 +26,12 @@ namespace ConexaoSolidaria.Controllers
             var userId = _userManager.GetUserId(User);
             if (string.IsNullOrEmpty(userId)) return Challenge();
 
-            // Busca todos os chats
+            // Busca todos os chats vinculados às Ofertas de Ajuda
             var chats = await _context.Chats
-                .Include(c => c.Doacao).ThenInclude(d => d!.Solicitacao).ThenInclude(s => s!.Usuario)
-                .Include(c => c.Doacao).ThenInclude(d => d!.Doador)
+                .Include(c => c.OfertaAjuda).ThenInclude(o => o!.Solicitacao).ThenInclude(s => s!.Usuario)
+                .Include(c => c.OfertaAjuda).ThenInclude(o => o!.Voluntario)
                 .Include(c => c.Mensagens)
-                .Where(c => c.Doacao!.DoadorId == userId || c.Doacao.Solicitacao!.UsuarioId == userId)
+                .Where(c => c.OfertaAjuda!.VoluntarioId == userId || c.OfertaAjuda.Solicitacao!.UsuarioId == userId)
                 .ToListAsync();
 
             return View(chats);
@@ -43,11 +43,11 @@ namespace ConexaoSolidaria.Controllers
             var userId = _userManager.GetUserId(User);
             if (string.IsNullOrEmpty(userId)) return Challenge();
 
-            // Busca na tabela OfertasAjuda em vez de Doacoes
+            // Busca na tabela OfertasAjuda usando as propriedades corretas
             var oferta = await _context.OfertasAjuda
                 .Include(o => o.Solicitacao)
                 .FirstOrDefaultAsync(o => o.SolicitacaoId == solicitacaoId && 
-                                        (o.VoluntarioId == userId || o.Solicitacao!.UsuarioId == userId));
+                                          (o.VoluntarioId == userId || o.Solicitacao!.UsuarioId == userId));
 
             if (oferta == null)
             {
@@ -55,27 +55,28 @@ namespace ConexaoSolidaria.Controllers
                 return RedirectToPage("/Solicitacoes/Detalhes", new { id = solicitacaoId });
             }
 
-            // Passamos o ID da Oferta para a tela de Chat
-            return RedirectToAction("Index", "Chat", new { ofertaId = oferta.Id });
+            // Redireciona passando o parâmetro correto para a Action Index
+            return RedirectToAction("Index", new { ofertaId = oferta.Id });
         }
 
-        // Abrir um Chat específico
-        public async Task<IActionResult> Index(int doacaoId)
+        // Abrir um Chat específico baseado na Oferta de Ajuda
+        public async Task<IActionResult> Index(int ofertaId)
         {
             var chat = await _context.Chats
-                .Include(c => c.Doacao).ThenInclude(d => d!.Solicitacao)
+                .Include(c => c.OfertaAjuda).ThenInclude(o => o!.Solicitacao)
                 .Include(c => c.Mensagens).ThenInclude(m => m.Remetente)
-                .FirstOrDefaultAsync(c => c.DoacaoId == doacaoId);
+                .FirstOrDefaultAsync(c => c.OfertaAjudaId == ofertaId);
 
             if (chat == null)
             {
-                var doacaoExiste = await _context.Doacoes.AnyAsync(d => d.Id == doacaoId);
-                if (!doacaoExiste)
+                var ofertaExiste = await _context.OfertasAjuda.AnyAsync(o => o.Id == ofertaId);
+                if (!ofertaExiste)
                 {
-                    return NotFound("Doação não encontrada. É necessário oferecer ajuda antes de iniciar o chat.");
+                    return NotFound("Oferta de ajuda não encontrada. É necessário oferecer ajuda antes de iniciar o chat.");
                 }
 
-                chat = new ChatApoio { DoacaoId = doacaoId };
+                // Cria o chat amarrado à Oferta correspondente
+                chat = new ChatApoio { OfertaAjudaId = ofertaId };
                 _context.Chats.Add(chat);
                 await _context.SaveChangesAsync();
             }

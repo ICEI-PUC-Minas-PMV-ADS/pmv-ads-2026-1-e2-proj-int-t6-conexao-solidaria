@@ -4,9 +4,9 @@
     {
         public int Id { get; set; }
 
-        // Liga o chat a uma doação específica
-        public int DoacaoId { get; set; }
-        public virtual Doacao? Doacao { get; set; }
+        // Liga o chat a uma oferta de ajuda específica (Substituído DoacaoId)
+        public int OfertaAjudaId { get; set; }
+        public virtual OfertaAjuda? OfertaAjuda { get; set; }
 
         public DateTime CriadoEm { get; set; } = DateTime.Now;
 

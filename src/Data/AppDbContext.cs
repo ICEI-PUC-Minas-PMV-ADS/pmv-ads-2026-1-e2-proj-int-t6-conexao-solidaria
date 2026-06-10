@@ -73,9 +73,9 @@ public class AppDbContext : IdentityDbContext<Usuario>
 
         // Configuração para ChatApoio
         builder.Entity<ChatApoio>()
-            .HasOne(c => c.Doacao)
+            .HasOne(c => c.OfertaAjuda)
             .WithMany()
-            .HasForeignKey(c => c.DoacaoId)
+            .HasForeignKey(c => c.OfertaAjudaId)
             .OnDelete(DeleteBehavior.Restrict);
 
         // Configuração para MensagemChat
