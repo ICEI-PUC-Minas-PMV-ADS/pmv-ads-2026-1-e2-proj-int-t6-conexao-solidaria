@@ -1,0 +1,67 @@
+@model ConexaoSolidaria.Models.Doacao
+
+@{
+    ViewData["Title"] = "Detalhes da Doação";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="cs-page-header mb-4">
+    <div>
+        <h1 class="cs-page-title">Detalhes da Doação</h1>
+        <p class="cs-page-subtitle">Informações completas sobre esta oferta de ajuda</p>
+    </div>
+</div>
+
+<div class="card shadow-sm mb-4" style="border-radius: 12px; border: 1px solid #E2E8F0;">
+    <div class="card-header" style="background-color: #F8FAFD; border-bottom: 1px solid #E2E8F0;">
+        <h5 class="mb-0 text-primary">Doação #@Model.Id</h5>
+    </div>
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3 text-muted">Data da Doação</dt>
+            <dd class="col-sm-9 fw-bold">@Model.DataDoacao.ToString("dd/MM/yyyy HH:mm")</dd>
+
+            <dt class="col-sm-3 text-muted">Status</dt>
+            <dd class="col-sm-9">
+                @if (Model.Status == ConexaoSolidaria.Models.StatusDoacao.Pendente)
+                {
+                    <span class="badge bg-warning text-dark px-3 py-2" style="border-radius: 20px;">🟡 Pendente</span>
+                }
+                else
+                {
+                    <span class="badge bg-success px-3 py-2" style="border-radius: 20px;">🟢 Entregue</span>
+                }
+            </dd>
+
+            <dt class="col-sm-3 text-muted">Solicitação</dt>
+            <dd class="col-sm-9">@(Model.Solicitacao?.Titulo ?? "Não informada")</dd>
+
+            <dt class="col-sm-3 text-muted">Doador</dt>
+            <dd class="col-sm-9">@(Model.Doador?.NomeCompleto ?? "Não informado")</dd>
+
+            <dt class="col-sm-3 text-muted">Itens Doados</dt>
+            <dd class="col-sm-9">@Model.ItensDoados</dd>
+        </dl>
+    </div>
+    <div class="card-footer bg-white border-top-0 pb-4 pt-0 px-4">
+        <div class="d-flex gap-2 mt-3">
+            <a asp-action="Index" class="btn btn-outline-secondary" style="border-radius: 6px;">
+                ⬅️ Voltar para a Lista
+            </a>
+            
+            <a href="/Chat?doacaoId=@Model.Id" class="btn btn-primary" style="background-color: #1E73BE; border: none; border-radius: 6px;">
+                💬 Abrir Chat
+            </a>
+
+            @if (Model.Status == ConexaoSolidaria.Models.StatusDoacao.Pendente)
+            {
+                <form asp-action="ConfirmarEntrega" asp-route-id="@Model.Id" method="post" style="display: inline;">
+                    <button type="submit" class="btn text-white" style="background-color: #10B981; border-radius: 6px;"
+                            onclick="return confirm('Tem certeza que deseja confirmar a entrega desta doação?');">
+                        ✅ Confirmar Entrega
+                    </button>
+                </form>
+            }
+        </div>
+    </div>
+</div>
