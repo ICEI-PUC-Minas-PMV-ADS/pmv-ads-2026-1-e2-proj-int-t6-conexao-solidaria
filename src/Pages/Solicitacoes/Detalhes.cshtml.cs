@@ -28,7 +28,7 @@ public class DetalhesModel : PageModel
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
         if (userId != null)
         {
-            JaOfereceuAjuda = await _db.Doacoes.AnyAsync(d => d.SolicitacaoId == id && d.DoadorId == userId);
+            JaOfereceuAjuda = await _db.OfertasAjuda.AnyAsync(o => o.SolicitacaoId == id && o.VoluntarioId == userId);
         }
 
         return Page();
