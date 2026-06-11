@@ -65,7 +65,10 @@ else
             <div class="card cs-card mb-4">
                 <div class="card-body">
                     <div class="d-flex align-items-start gap-3 mb-2">
-                        <span class="cs-badge @s.Urgencia align-self-center">@s.Urgencia</span>
+                        @if (s.Urgencia == "alta")
+                        {
+                            <span class="badge bg-danger align-self-center">Urgente</span>
+                        }
                         <div>
                             <h5 class="fw-bold mb-0">@s.Titulo</h5>
                             <small class="text-muted">@s.Descricao</small>
@@ -96,15 +99,15 @@ else
                     @{
                         var modalities = new[]
                         {
-                            ("doacao",        "Doação de Itens",
+                            ("doacao",        "Doacao de Itens",
                              "Alimentos, roupas, higiene pessoal e outros itens materiais.",
-                             "📦"),
-                             ("voluntariado",  "Voluntariado Presencial",
+                             "bi-box-seam"),
+                            ("voluntariado",  "Voluntariado Presencial",
                              "Ajude pessoalmente: limpeza, apoio emocional, logistica.",
-                             "🤝"),
-                             ("transporte",    "Transporte",
+                             "bi-people"),
+                            ("transporte",    "Transporte",
                              "Transporte de pessoas ou itens entre locais de coleta e entrega.",
-                             "🚛"),
+                             "bi-truck"),
                         };
                     }
                     @foreach (var (val, lbl, desc, ico) in modalities)
@@ -128,8 +131,8 @@ else
                                            value="@val"
                                            class="visually-hidden cs-modality-radio" />
                                 }
-                                <div class="cs-modality-icon mb-2" style="font-size:1.5rem">
-                                     @ico
+                                <div class="cs-modality-icon mb-2">
+                                    <i class="bi @ico fs-4"></i>
                                 </div>
                                 <div class="fw-semibold mb-1">@lbl</div>
                                 <small class="text-muted">@desc</small>
@@ -195,7 +198,7 @@ else
 
                 <!-- Ações -->
                 <div class="d-flex gap-3">
-                    <button type="submit" class="btn btn-cs-accent px-4">
+                    <button type="submit" class="btn cs-btn-primary px-4">
                         Confirmar Oferta de Ajuda
                     </button>
                     <a asp-page="/Solicitacoes/Detalhes"
@@ -211,7 +214,7 @@ else
         <div class="col-lg-5">
 
             <!-- Mapa placeholder -->
-            <div class="cs-map-placeholder mb-4" style="background: repeating-linear-gradient(0deg, transparent, transparent 48px, #b8d4b8 48px, #b8d4b8 50px), repeating-linear-gradient(90deg, transparent, transparent 80px, #b8d4b8 80px, #b8d4b8 82px), #d4e8d4;">
+            <div class="cs-map-placeholder mb-4">
                 <div class="cs-map-pin">!</div>
                 <span class="cs-map-label">@s.Cidade / @s.Estado</span>
                 <div class="cs-map-distance">Localizacao da solicitacao</div>
@@ -222,7 +225,7 @@ else
                 <div class="card-body">
                     <p class="small text-muted fw-semibold mb-2 text-uppercase">Solicitante</p>
                     <div class="d-flex align-items-center gap-3">
-                        <div class="cs-user-avatar" style="width:48px;height:48px;font-size:18px">
+                        <div class="cs-avatar cs-avatar-md">
                             @(s.Usuario?.NomeCompleto?.Length >= 2
                                 ? s.Usuario.NomeCompleto.Substring(0, 2).ToUpper()
                                 : "?")
@@ -250,9 +253,9 @@ else
                     </p>
                     <div class="d-flex align-items-center gap-2">
                         <div class="d-flex">
-                            <div class="cs-user-avatar" style="width:32px;height:32px;font-size:12px">JL</div>
-                            <div class="cs-user-avatar" style="width:32px;height:32px;font-size:12px;margin-left:-8px">AF</div>
-                            <div class="cs-user-avatar" style="width:32px;height:32px;font-size:12px;margin-left:-8px">CS</div>
+                            <div class="cs-avatar cs-avatar-sm">JL</div>
+                            <div class="cs-avatar cs-avatar-sm" style="margin-left:-8px">AF</div>
+                            <div class="cs-avatar cs-avatar-sm" style="margin-left:-8px">CS</div>
                         </div>
                         <small class="text-muted">+2 voluntarios confirmados</small>
                     </div>
@@ -264,6 +267,7 @@ else
 }
 
 @section Scripts {
+    <partial name="_ValidationScriptsPartial" />
     <script>
         // Interatividade dos cards de modalidade
         document.querySelectorAll('.cs-modality-card').forEach(card => {

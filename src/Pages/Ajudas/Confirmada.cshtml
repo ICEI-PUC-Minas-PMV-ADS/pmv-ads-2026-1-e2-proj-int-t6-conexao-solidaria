@@ -142,7 +142,7 @@ else
             <!-- Botões de ação -->
             <div class="d-flex align-items-center gap-3 flex-wrap">
                 <a asp-controller="Chat" asp-action="Lista"
-                    class="btn btn-cs-accent px-4">
+                   class="btn cs-btn-primary px-4">
                     Ir para o Chat
                 </a>
                 <a asp-page="/Solicitacoes/Detalhes"
@@ -151,8 +151,8 @@ else
                     Ver Solicitacao
                 </a>
                 <a asp-page="/Ajudas/Index"
-                    class="text-muted text-decoration-underline small">
-                    Avaliar mais tarde
+                   class="text-muted text-decoration-underline small">
+                    Minhas Ajudas
                 </a>
             </div>
         </div>
@@ -165,7 +165,7 @@ else
                 <div class="card-body text-center py-4">
                     <p class="small text-muted fw-semibold mb-3 text-uppercase">Solicitante</p>
                     <div class="position-relative d-inline-block mb-2">
-                        <div class="cs-user-avatar mx-auto" style="width:64px;height:64px;font-size:24px">
+                        <div class="cs-avatar cs-avatar-lg mx-auto">
                             @(s.Usuario?.NomeCompleto?.Length >= 2
                                 ? s.Usuario.NomeCompleto.Substring(0, 2).ToUpper()
                                 : "?")
@@ -193,7 +193,10 @@ else
                     <p class="small text-muted fw-semibold mb-2 text-uppercase">
                         Solicitacao vinculada
                     </p>
-                    <span class="cs-badge @s.Urgencia mb-2">@s.Urgencia</span>
+                    @if (s.Urgencia == "alta")
+                    {
+                        <span class="badge cs-badge-urgente mb-2">Urgente</span>
+                    }
                     <h6 class="fw-bold mb-1">@s.Titulo</h6>
                     <small class="text-muted">@s.Cidade / @s.Estado</small>
                     <div class="d-flex align-items-center gap-2 mt-2">
@@ -210,13 +213,12 @@ else
                 <div class="card-body">
                     <p class="small fw-semibold text-primary mb-3 text-uppercase">Acoes rapidas</p>
                     <a asp-controller="Chat" asp-action="Lista"
-                        class="btn btn-cs-accent w-100 mb-2">
+                       class="btn cs-btn-primary w-100 mb-2">
                         Abrir Chat
                     </a>
-                    <a asp-page="/Ajudas/ConfirmarEntrega"
-                       asp-route-ofertaId="@o.Id"
+                    <a asp-page="/Ajudas/Index"
                        class="btn btn-outline-primary w-100">
-                        Registrar entrega
+                        Minhas Ajudas
                     </a>
                 </div>
             </div>

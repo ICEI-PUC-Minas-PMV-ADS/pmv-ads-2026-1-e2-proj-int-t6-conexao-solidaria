@@ -19,9 +19,9 @@ namespace ConexaoSolidaria.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SolicitacaoId = table.Column<int>(type: "int", nullable: false),
                     VoluntarioId = table.Column<string>(type: "nvarchar(450)", maxLength: 450, nullable: false),
-                    Modalidade = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Modalidade = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false, defaultValue: "doacao"),
                     Mensagem = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    Status = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false, defaultValue: "confirmada"),
                     CriadaEm = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FotoEntregaUrl = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     ObservacoesEntrega = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
@@ -41,7 +41,7 @@ namespace ConexaoSolidaria.Migrations
                         column: x => x.SolicitacaoId,
                         principalTable: "Solicitacoes",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

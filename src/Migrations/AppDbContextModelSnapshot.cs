@@ -45,10 +45,10 @@ namespace ConexaoSolidaria.Migrations
                     b.Property<DateTime>("DataAvaliacao")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Nota")
+                    b.Property<int>("DoacaoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("OfertaAjudaId")
+                    b.Property<int>("Nota")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -57,9 +57,9 @@ namespace ConexaoSolidaria.Migrations
 
                     b.HasIndex("AvaliadorId");
 
-                    b.HasIndex("OfertaAjudaId");
+                    b.HasIndex("DoacaoId");
 
-                    b.ToTable("Avaliacoes");
+                    b.ToTable("Avaliacoes", (string)null);
                 });
 
             modelBuilder.Entity("ConexaoSolidaria.Models.ChatApoio", b =>
@@ -73,17 +73,17 @@ namespace ConexaoSolidaria.Migrations
                     b.Property<DateTime>("CriadoEm")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("OfertaAjudaId")
+                    b.Property<int>("DoacaoId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OfertaAjudaId");
+                    b.HasIndex("DoacaoId");
 
-                    b.ToTable("Chats");
+                    b.ToTable("Chats", (string)null);
                 });
 
-            modelBuilder.Entity("ConexaoSolidaria.Models.GrupoApoio", b =>
+            modelBuilder.Entity("ConexaoSolidaria.Models.Doacao", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -91,50 +91,30 @@ namespace ConexaoSolidaria.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Grupos");
-                });
-
-            modelBuilder.Entity("ConexaoSolidaria.Models.MensagemChat", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ChatApoioId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Conteudo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("EnviadaEm")
+                    b.Property<DateTime>("DataDoacao")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("RemetenteId")
+                    b.Property<string>("DoadorId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ItensDoados")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SolicitacaoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ChatApoioId");
+                    b.HasIndex("DoadorId");
 
-                    b.HasIndex("RemetenteId");
+                    b.HasIndex("SolicitacaoId");
 
-                    b.ToTable("MensagensChat");
+                    b.ToTable("Doacoes", (string)null);
                 });
 
             modelBuilder.Entity("ConexaoSolidaria.Models.OfertaAjuda", b =>
@@ -171,9 +151,6 @@ namespace ConexaoSolidaria.Migrations
                     b.Property<int>("SolicitacaoId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SolicitacaoId1")
-                        .HasColumnType("int");
-
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasMaxLength(15)
@@ -188,11 +165,40 @@ namespace ConexaoSolidaria.Migrations
 
                     b.HasIndex("SolicitacaoId");
 
-                    b.HasIndex("SolicitacaoId1");
-
                     b.HasIndex("VoluntarioId");
 
-                    b.ToTable("OfertasAjuda");
+                    b.ToTable("OfertasAjuda", (string)null);
+                });
+
+            modelBuilder.Entity("ConexaoSolidaria.Models.MensagemChat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ChatApoioId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Conteudo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EnviadaEm")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RemetenteId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChatApoioId");
+
+                    b.HasIndex("RemetenteId");
+
+                    b.ToTable("MensagensChat", (string)null);
                 });
 
             modelBuilder.Entity("ConexaoSolidaria.Models.Solicitacao", b =>
@@ -258,7 +264,7 @@ namespace ConexaoSolidaria.Migrations
 
                     b.HasIndex("Status", "Urgencia", "CriadoEm");
 
-                    b.ToTable("Solicitacoes");
+                    b.ToTable("Solicitacoes", (string)null);
                 });
 
             modelBuilder.Entity("ConexaoSolidaria.Models.Usuario", b =>
@@ -506,9 +512,9 @@ namespace ConexaoSolidaria.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("ConexaoSolidaria.Models.OfertaAjuda", "OfertaAjuda")
+                    b.HasOne("ConexaoSolidaria.Models.Doacao", "Doacao")
                         .WithMany()
-                        .HasForeignKey("OfertaAjudaId")
+                        .HasForeignKey("DoacaoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -516,18 +522,56 @@ namespace ConexaoSolidaria.Migrations
 
                     b.Navigation("Avaliador");
 
-                    b.Navigation("OfertaAjuda");
+                    b.Navigation("Doacao");
                 });
 
             modelBuilder.Entity("ConexaoSolidaria.Models.ChatApoio", b =>
                 {
-                    b.HasOne("ConexaoSolidaria.Models.OfertaAjuda", "OfertaAjuda")
+                    b.HasOne("ConexaoSolidaria.Models.Doacao", "Doacao")
                         .WithMany()
-                        .HasForeignKey("OfertaAjudaId")
+                        .HasForeignKey("DoacaoId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("OfertaAjuda");
+                    b.Navigation("Doacao");
+                });
+
+            modelBuilder.Entity("ConexaoSolidaria.Models.Doacao", b =>
+                {
+                    b.HasOne("ConexaoSolidaria.Models.Usuario", "Doador")
+                        .WithMany()
+                        .HasForeignKey("DoadorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ConexaoSolidaria.Models.Solicitacao", "Solicitacao")
+                        .WithMany("Doacoes")
+                        .HasForeignKey("SolicitacaoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Doador");
+
+                    b.Navigation("Solicitacao");
+                });
+
+            modelBuilder.Entity("ConexaoSolidaria.Models.OfertaAjuda", b =>
+                {
+                    b.HasOne("ConexaoSolidaria.Models.Solicitacao", "Solicitacao")
+                        .WithMany()
+                        .HasForeignKey("SolicitacaoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ConexaoSolidaria.Models.Usuario", "Voluntario")
+                        .WithMany()
+                        .HasForeignKey("VoluntarioId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Solicitacao");
+
+                    b.Navigation("Voluntario");
                 });
 
             modelBuilder.Entity("ConexaoSolidaria.Models.MensagemChat", b =>
@@ -547,29 +591,6 @@ namespace ConexaoSolidaria.Migrations
                     b.Navigation("ChatApoio");
 
                     b.Navigation("Remetente");
-                });
-
-            modelBuilder.Entity("ConexaoSolidaria.Models.OfertaAjuda", b =>
-                {
-                    b.HasOne("ConexaoSolidaria.Models.Solicitacao", "Solicitacao")
-                        .WithMany()
-                        .HasForeignKey("SolicitacaoId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("ConexaoSolidaria.Models.Solicitacao", null)
-                        .WithMany("OfertasAjuda")
-                        .HasForeignKey("SolicitacaoId1");
-
-                    b.HasOne("ConexaoSolidaria.Models.Usuario", "Voluntario")
-                        .WithMany()
-                        .HasForeignKey("VoluntarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Solicitacao");
-
-                    b.Navigation("Voluntario");
                 });
 
             modelBuilder.Entity("ConexaoSolidaria.Models.Solicitacao", b =>
@@ -641,7 +662,7 @@ namespace ConexaoSolidaria.Migrations
 
             modelBuilder.Entity("ConexaoSolidaria.Models.Solicitacao", b =>
                 {
-                    b.Navigation("OfertasAjuda");
+                    b.Navigation("Doacoes");
                 });
 
             modelBuilder.Entity("ConexaoSolidaria.Models.Usuario", b =>
