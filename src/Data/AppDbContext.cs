@@ -32,7 +32,7 @@ public class AppDbContext : IdentityDbContext<Usuario>
         // Regra para evitar o erro de múltiplos caminhos em cascata
         builder.Entity<OfertaAjuda>()
             .HasOne(o => o.Solicitacao)
-            .WithMany()
+            .WithMany(s => s.OfertasAjuda)
             .HasForeignKey(o => o.SolicitacaoId)
             .OnDelete(DeleteBehavior.Restrict);
 

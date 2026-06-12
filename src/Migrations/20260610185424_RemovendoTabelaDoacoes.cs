@@ -28,17 +28,6 @@ namespace ConexaoSolidaria.Migrations
                 table: "Avaliacoes",
                 newName: "IX_Avaliacoes_OfertaAjudaId");
 
-            migrationBuilder.AddColumn<int>(
-                name: "SolicitacaoId1",
-                table: "OfertasAjuda",
-                type: "int",
-                nullable: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OfertasAjuda_SolicitacaoId1",
-                table: "OfertasAjuda",
-                column: "SolicitacaoId1");
-
             migrationBuilder.AddForeignKey(
                 name: "FK_Avaliacoes_OfertasAjuda_OfertaAjudaId",
                 table: "Avaliacoes",
@@ -46,13 +35,6 @@ namespace ConexaoSolidaria.Migrations
                 principalTable: "OfertasAjuda",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_OfertasAjuda_Solicitacoes_SolicitacaoId1",
-                table: "OfertasAjuda",
-                column: "SolicitacaoId1",
-                principalTable: "Solicitacoes",
-                principalColumn: "Id");
         }
 
         /// <inheritdoc />
@@ -61,18 +43,6 @@ namespace ConexaoSolidaria.Migrations
             migrationBuilder.DropForeignKey(
                 name: "FK_Avaliacoes_OfertasAjuda_OfertaAjudaId",
                 table: "Avaliacoes");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_OfertasAjuda_Solicitacoes_SolicitacaoId1",
-                table: "OfertasAjuda");
-
-            migrationBuilder.DropIndex(
-                name: "IX_OfertasAjuda_SolicitacaoId1",
-                table: "OfertasAjuda");
-
-            migrationBuilder.DropColumn(
-                name: "SolicitacaoId1",
-                table: "OfertasAjuda");
 
             migrationBuilder.RenameColumn(
                 name: "OfertaAjudaId",
