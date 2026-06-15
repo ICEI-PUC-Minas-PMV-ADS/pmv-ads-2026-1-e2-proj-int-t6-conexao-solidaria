@@ -4,16 +4,20 @@ using ConexaoSolidaria.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 
+
 namespace ConexaoSolidaria.Controllers
 {
     public class GruposController : Controller
     {
         private readonly AppDbContext _context;
 
-        public GruposController(AppDbContext context)
-        {
-            _context = context;
-        }
+private readonly UserManager<Usuario> _userManager;
+
+public GruposController(AppDbContext context, UserManager<Usuario> userManager)
+{
+    _context = context;
+    _userManager = userManager;
+}
 
         // TELA 09a: Detalhes
         public IActionResult Detalhes(int id)
