@@ -4,16 +4,20 @@ using ConexaoSolidaria.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 
+
 namespace ConexaoSolidaria.Controllers
 {
     public class GruposController : Controller
     {
         private readonly AppDbContext _context;
 
-        public GruposController(AppDbContext context)
-        {
-            _context = context;
-        }
+private readonly UserManager<Usuario> _userManager;
+
+public GruposController(AppDbContext context, UserManager<Usuario> userManager)
+{
+    _context = context;
+    _userManager = userManager;
+}
 
         // TELA 09a: Detalhes
         public IActionResult Detalhes(int id)
@@ -85,27 +89,6 @@ namespace ConexaoSolidaria.Controllers
 
         [HttpGet]
         public IActionResult Criar()
-        // ADICIONAR ESTE MÉTODO — POST do formulário de criação
-[HttpPost]
-[ValidateAntiForgeryToken]
-public async Task<IActionResult> Criar(Grupo grupo)
-{
-    if (!ModelState.IsValid)
-        return View("Nova", grupo);
-
-    // Pega o ID do usuário logado
-    var usuarioId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-    if (usuarioId == null)
-        return Challenge();
-
-    grupo.CriadorId = usuarioId;
-    grupo.CriadoEm = DateTime.UtcNow;
-
-    _context.Grupos.Add(grupo);
-    await _context.SaveChangesAsync();
-
-    return RedirectToAction("Lista");
-}
         {
             return View("Nova");
         }
