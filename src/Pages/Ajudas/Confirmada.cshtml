@@ -12,7 +12,7 @@
     // Mapeamento de modalidade para rótulo legível
     string modalidadeLabel = o?.Modalidade switch
     {
-        "doacao"       => "Doacao de Itens",
+        "doacao"       => "Doação de Itens",
         "voluntariado" => "Voluntariado Presencial",
         "transporte"   => "Transporte",
         _              => o?.Modalidade ?? "—"
@@ -23,7 +23,7 @@
 <nav aria-label="breadcrumb" class="mb-3">
     <ol class="breadcrumb small">
         <li class="breadcrumb-item"><a asp-page="/Dashboard">Dashboard</a></li>
-        <li class="breadcrumb-item"><a asp-page="/Solicitacoes/Index">Solicitacoes</a></li>
+        <li class="breadcrumb-item"><a asp-page="/Solicitacoes/Index">Solicitações</a></li>
         @if (s != null)
         {
             <li class="breadcrumb-item">
@@ -36,7 +36,7 @@
 
 @if (o == null || s == null)
 {
-    <div class="alert alert-danger">Oferta nao encontrada.</div>
+    <div class="alert alert-danger">Oferta não encontrada.</div>
 }
 else
 {
@@ -46,16 +46,16 @@ else
         <div>
             <div class="fw-bold fs-5 text-success">Ajuda confirmada com sucesso!</div>
             <div class="text-success-muted">
-                Sua oferta foi registrada. O solicitante sera notificado pelo chat.
+                Sua oferta foi registrada. O solicitante será notificado pelo chat.
             </div>
-            <small class="text-muted">Codigo da oferta: #OF-@o.Id.ToString("D4")</small>
+            <small class="text-muted">Código da oferta: #OF-@o.Id.ToString("D4")</small>
         </div>
     </div>
 
     <!-- Stepper completo -->
     <div class="cs-stepper mb-4">
         @{
-            string[] stepLabels = { "Viu", "Quer ajudar", "Como ajudar", "Confirmado!", "Avaliacao" };
+            string[] stepLabels = { "Viu", "Quer ajudar", "Como ajudar", "Confirmado!", "Avaliação" };
             int activeStep = 3;
         }
         @for (int i = 0; i < stepLabels.Length; i++)
@@ -98,11 +98,11 @@ else
                                 <td class="fw-bold">@itensLabel</td>
                             </tr>
                             <tr>
-                                <th class="text-muted ps-3">Solicitacao</th>
+                                <th class="text-muted ps-3">Solicitação</th>
                                 <td class="fw-bold">@s.Titulo — @s.Cidade / @s.Estado</td>
                             </tr>
                             <tr>
-                                <th class="text-muted ps-3">Observacoes</th>
+                                <th class="text-muted ps-3">Observações</th>
                                 <td class="fw-bold">
                                     @(string.IsNullOrWhiteSpace(o.Mensagem)
                                         ? "A combinar via chat"
@@ -121,7 +121,7 @@ else
             <!-- Card próximos passos -->
             <div class="card cs-card bg-light border-0 mb-4">
                 <div class="card-body">
-                    <h5 class="fw-bold mb-3">Proximos passos</h5>
+                    <h5 class="fw-bold mb-3">Próximos passos</h5>
                     <ol class="cs-next-steps ps-0 mb-0">
                         <li>
                             <div class="cs-step-num">1</div>
@@ -133,7 +133,7 @@ else
                         </li>
                         <li>
                             <div class="cs-step-num">3</div>
-                            Avalie a experiencia apos a confirmacao pelo solicitante.
+                            Avalie a experiência após a confirmação pelo solicitante.
                         </li>
                     </ol>
                 </div>
@@ -142,13 +142,13 @@ else
             <!-- Botões de ação -->
             <div class="d-flex align-items-center gap-3 flex-wrap">
                 <a asp-controller="Chat" asp-action="Lista"
-                   class="btn cs-btn-primary px-4">
+                   class="btn btn-cs-primary px-4">
                     Ir para o Chat
                 </a>
                 <a asp-page="/Solicitacoes/Detalhes"
                    asp-route-id="@s.Id"
                    class="btn btn-outline-secondary px-4">
-                    Ver Solicitacao
+                    Ver Solicitação
                 </a>
                 <a asp-page="/Ajudas/Index"
                    class="text-muted text-decoration-underline small">
@@ -165,10 +165,14 @@ else
                 <div class="card-body text-center py-4">
                     <p class="small text-muted fw-semibold mb-3 text-uppercase">Solicitante</p>
                     <div class="position-relative d-inline-block mb-2">
-                        <div class="cs-avatar cs-avatar-lg mx-auto">
-                            @(s.Usuario?.NomeCompleto?.Length >= 2
-                                ? s.Usuario.NomeCompleto.Substring(0, 2).ToUpper()
-                                : "?")
+                       @{
+                            var nomeCompletoC = s.Usuario?.NomeCompleto ?? "";
+                            var iniciaisC = nomeCompletoC.Length >= 2 ? nomeCompletoC.Substring(0, 2).ToUpper() : "?";
+                        }
+                        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center fw-bold mx-auto"
+                             style="width:56px;height:56px;font-size:1.1rem">
+                            @iniciaisC
+                        </div>
                         </div>
                         <span class="position-absolute top-0 start-100 translate-middle
                                      badge rounded-pill bg-success" style="font-size:.65rem">
@@ -191,7 +195,7 @@ else
             <div class="card cs-card mb-3">
                 <div class="card-body">
                     <p class="small text-muted fw-semibold mb-2 text-uppercase">
-                        Solicitacao vinculada
+                        Solicitação vinculada
                     </p>
                     @if (s.Urgencia == "alta")
                     {
@@ -213,7 +217,7 @@ else
                 <div class="card-body">
                     <p class="small fw-semibold text-primary mb-3 text-uppercase">Acoes rapidas</p>
                     <a asp-controller="Chat" asp-action="Lista"
-                       class="btn cs-btn-primary w-100 mb-2">
+                       class="btn btn-cs-primary w-100 mb-2">
                         Abrir Chat
                     </a>
                     <a asp-page="/Ajudas/Index"

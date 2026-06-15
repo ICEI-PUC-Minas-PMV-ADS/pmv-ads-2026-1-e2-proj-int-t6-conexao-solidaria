@@ -119,7 +119,7 @@ body {
 .cs-bottom-nav a small { font-size: 10px; }
 
 /* === RESPONSIVIDADE === */
-@@media (max-width: 768px) {
+@media (max-width: 768px) {
     .cs-sidebar { display: none; }
     .cs-content { margin-left: 0; padding: 16px; padding-bottom: 80px; }
     .cs-bottom-nav { display: flex; }
