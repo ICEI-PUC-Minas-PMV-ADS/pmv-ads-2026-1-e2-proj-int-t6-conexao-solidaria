@@ -28,7 +28,7 @@
  
 <div class="row">
     <div class="col-12 col-lg-8 mx-auto">
-        @if (!Model.Any())
+        @if  (Model == null || !Model.Any())
         {
             <div class="text-center py-5 bg-white shadow-sm" style="border-radius: 15px;">
                 <span style="font-size: 3rem;">👥</span>
