@@ -74,18 +74,6 @@ else
                         📍 @s.Cidade / @s.Estado · 🏷 @s.TipoNecessidade · 🕒 @s.CriadoEm.ToLocalTime().ToString("dd/MM HH:mm")
                     </div>
                 </a>
-
-                @if (s.Status == "atendida")
-                {
-                    // Busca o ID da Oferta de Ajuda concluída em vez da Doação Entregue
-                    var ofertaId = s.OfertasAjuda.FirstOrDefault(o => o.Status == "concluida")?.Id;
-                    
-                    <div class="mt-3 pt-3 border-top">
-                        <a href="/Ajudas/Avaliar/@ofertaId" class="btn btn-sm w-100" style="background-color: #F59E0B; color: white; font-weight: 600; border-radius: 8px;">
-                            ⭐ Avaliar Doador
-                        </a>
-                    </div>
-                }
             </div>
         </div>
     }
