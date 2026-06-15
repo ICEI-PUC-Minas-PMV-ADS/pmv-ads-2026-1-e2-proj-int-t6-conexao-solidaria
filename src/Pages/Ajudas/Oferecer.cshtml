@@ -101,13 +101,13 @@ else
                         {
                             ("doacao",        "Doação de Itens",
                              "Alimentos, roupas, higiene pessoal e outros itens materiais.",
-                             "bi-box-seam"),
+                             "📦"),
                             ("voluntariado",  "Voluntariado Presencial",
                              "Ajude pessoalmente: limpeza, apoio emocional, logística.",
-                             "bi-people"),
+                             "🤝"),
                             ("transporte",    "Transporte",
                              "Transporte de pessoas ou itens entre locais de coleta e entrega.",
-                             "bi-truck"),
+                             "🚚"),
                         };
                     }
                     @foreach (var (val, lbl, desc, ico) in modalities)
@@ -131,8 +131,8 @@ else
                                            value="@val"
                                            class="visually-hidden cs-modality-radio" />
                                 }
-                                <div class="cs-modality-icon mb-2">
-                                    <i class="bi @ico fs-4"></i>
+                                <div class="cs-modality-icon mb-2" style="font-size:2rem">
+                                    @ico
                                 </div>
                                 <div class="fw-semibold mb-1">@lbl</div>
                                 <small class="text-muted">@desc</small>
@@ -214,8 +214,9 @@ else
         <div class="col-lg-5">
 
             <!-- Mapa placeholder -->
-            <div class="cs-map-placeholder mb-4">
-                <div class="cs-map-pin">!</div>
+                <div class="cs-map-placeholder mb-4"
+                 style="background-color:#d4e8d4;background-image:repeating-linear-gradient(0deg,transparent,transparent 48px,#b8d4b8 48px,#b8d4b8 50px),repeating-linear-gradient(90deg,transparent,transparent 80px,#b8d4b8 80px,#b8d4b8 82px)">
+                <div class="cs-map-pin">📍</div>
                 <span class="cs-map-label">@s.Cidade / @s.Estado</span>
                 <div class="cs-map-distance">Localização da solicitação</div>
             </div>
