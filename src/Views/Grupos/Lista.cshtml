@@ -25,6 +25,50 @@
                     <th class="px-4 py-3 border-bottom-0 text-center">opções</th>
                 </tr>
             </thead>
+  <tbody>
+                @if (Model == null || !Model.Any())
+                {
+                    <tr>
+                        <td colspan="4" class="px-4 py-5 text-center text-muted">
+                            <span style="font-size: 24px;">💬</span><br />
+                            Nenhuma conversa registrada ainda.
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var Grupo in Model.OrderByDescending(c => c.Mensagens.OrderByDescending(m => m.EnviadaEm).FirstOrDefault()?.EnviadaEm ?? c.CriadoEm))
+                    {
+                        var isVoluntario = Grupo.OfertaAjuda?.VoluntarioId == currentUserId;
+                        var outroUsuario = isVoluntario ? Grupo.OfertaAjuda?.Solicitacao?.Usuario : Grupo.OfertaAjuda?.Voluntario;
+                        var outroUsuarioNome = outroUsuario?.NomeCompleto ?? "Usuário";
+                        var titulo = Grupo.OfertaAjuda?.Solicitacao?.Titulo ?? "Ajuda";
+                        var ultimaMensagem = Grupo.Mensagens.OrderByDescending(m => m.EnviadaEm).FirstOrDefault();
+
+                        <tr>
+                            <td class="px-4 py-3 fw-bold" style="color: #1E73BE;">@titulo</td>
+                            <td class="px-4 py-3">@outroUsuarioNome</td>
+                            <td class="px-4 py-3 text-muted">
+                                @if (ultimaMensagem != null)
+                                {
+                                    <small>@ultimaMensagem.EnviadaEm.ToString("dd/MM/yyyy HH:mm")</small>
+                                    <br />
+                                    <span class="text-truncate d-inline-block" style="max-width: 250px;">@ultimaMensagem.Conteudo</span>
+                                }
+                                else
+                                {
+                                    <em>Nenhuma mensagem</em>
+                                }
+                            </td>
+                            <td class="px-4 py-3 text-center">
+                                <a href="/Grupo?ofertaId=@Grupo.OfertaAjudaId" class="btn btn-sm btn-outline-primary" style="border-radius: 6px; display: inline-flex; align-items: center; gap: 5px;">
+                                    👥 Abrir Grupo
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
 <div class="row">
     <div class="col-12 col-lg-8 mx-auto">
         @if (!Model.Any())
