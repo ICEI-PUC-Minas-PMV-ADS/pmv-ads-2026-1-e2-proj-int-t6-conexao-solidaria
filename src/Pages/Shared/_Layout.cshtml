@@ -50,9 +50,6 @@
                 <li class="@(currentPath.StartsWith("/ajudas") ? "active" : "")">
                     <a asp-page="/Ajudas/Index">🤝 <span>Minhas Ajudas</span></a>
                 </li>
-                <li class="@(currentPath.StartsWith("/doacoes") ? "active" : "")">
-                    <a href="/Doacoes">🎁 <span>Doações</span></a>
-                </li>
                 <li class="@(currentPath.StartsWith("/chat") ? "active" : "")">
                     <a href="/Chat/Lista">💬 <span>Chat</span></a>
                 </li>
@@ -93,9 +90,6 @@
         </a>
         <a asp-page="/Ajudas/Index" class="@(currentPath.StartsWith("/ajudas") ? "active" : "")">
             <span>🤝</span><small>Ajudas</small>
-        </a>
-        <a href="/Doacoes" class="@(currentPath.StartsWith("/doacoes") ? "active" : "")">
-            <span>🎁</span><small>Doações</small>
         </a>
         @* Corrigido aqui também *@
         <a href="/Chat/Lista" class="@(currentPath.StartsWith("/chat") ? "active" : "")">
