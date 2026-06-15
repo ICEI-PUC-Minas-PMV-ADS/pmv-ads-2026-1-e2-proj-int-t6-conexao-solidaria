@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using ConexaoSolidaria.Data; 
 using ConexaoSolidaria.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace ConexaoSolidaria.Controllers
 {
