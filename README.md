@@ -26,13 +26,13 @@ A aplicação permite que usuários registrem necessidades urgentes, encontrem d
 ## Instruções de Instalação, Execução e Acesso
 
 **Acesso rápido (produção)**
-* URL da aplicação: https://seu-dominio.com/caminho
-* Status: online / instável / em manutenção (atualize conforme o caso)
-* Ambiente: produção / homologação
+* URL da aplicação: https://conexao-solidaria-6811.azurewebsites.net/
+* Status: online
+* Ambiente: produção
 
-**Usuário(s) de teste (se houver):**
-* Login: usuario_teste
-* Senha: senha_teste
+**Usuário de teste:**
+* Login: teste@conexaosolidaria.app
+* Senha: Teste@2026
 
 # Documentação
 
