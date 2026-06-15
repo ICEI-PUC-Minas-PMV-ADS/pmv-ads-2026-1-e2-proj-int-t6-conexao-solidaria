@@ -225,9 +225,13 @@ else
                 <div class="card-body">
                     <p class="small text-muted fw-semibold mb-2 text-uppercase">Solicitante</p>
                     <div class="d-flex align-items-center gap-3">
+                                                @{
+                            var nomeCompleto = s.Usuario?.NomeCompleto ?? "";
+                            var iniciais = nomeCompleto.Length >= 2 ? nomeCompleto.Substring(0, 2).ToUpper() : "?";
+                        }
                         <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center fw-bold flex-shrink-0"
-                               style="width:44px;height:44px;font-size:.95rem">
-                             @(s.Usuario?.NomeCompleto?....)
+                             style="width:44px;height:44px;font-size:.95rem">
+                            @iniciais
                         </div>
                         <div>
                             <div class="fw-bold">@(s.Usuario?.NomeCompleto ?? "—")</div>
