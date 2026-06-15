@@ -10,7 +10,7 @@
 <nav aria-label="breadcrumb" class="mb-3">
     <ol class="breadcrumb small">
         <li class="breadcrumb-item"><a asp-page="/Dashboard">Dashboard</a></li>
-        <li class="breadcrumb-item"><a asp-page="/Solicitacoes/Index">Solicitacoes</a></li>
+        <li class="breadcrumb-item"><a asp-page="/Solicitações/Index">Solicitacoes</a></li>
         @if (s != null)
         {
             <li class="breadcrumb-item">
@@ -23,14 +23,14 @@
 
 <!-- Título -->
 <div class="mb-3">
-    <h2 class="fw-bold mb-1">Como voce quer ajudar?</h2>
-    <p class="text-muted mb-0">Escolha a modalidade de apoio para esta solicitacao.</p>
+    <h2 class="fw-bold mb-1">Como você quer ajudar?</h2>
+    <p class="text-muted mb-0">Escolha a modalidade de apoio para esta solicitação.</p>
 </div>
 
 <!-- Stepper -->
 <div class="cs-stepper mb-4">
     @{
-        string[] stepLabels = { "Viu", "Quer ajudar", "Como ajudar", "Confirmar", "Avaliacao" };
+        string[] stepLabels = { "Viu", "Quer ajudar", "Como ajudar", "Confirmar", "Avaliação" };
         int activeStep = 2;
     }
     @for (int i = 0; i < stepLabels.Length; i++)
@@ -53,7 +53,7 @@
 
 @if (s == null)
 {
-    <div class="alert alert-danger">Solicitacao nao encontrada.</div>
+    <div class="alert alert-danger">Solicitação nao encontrada.</div>
 }
 else
 {
@@ -99,11 +99,11 @@ else
                     @{
                         var modalities = new[]
                         {
-                            ("doacao",        "Doacao de Itens",
+                            ("doacao",        "Doação de Itens",
                              "Alimentos, roupas, higiene pessoal e outros itens materiais.",
                              "bi-box-seam"),
                             ("voluntariado",  "Voluntariado Presencial",
-                             "Ajude pessoalmente: limpeza, apoio emocional, logistica.",
+                             "Ajude pessoalmente: limpeza, apoio emocional, logística.",
                              "bi-people"),
                             ("transporte",    "Transporte",
                              "Transporte de pessoas ou itens entre locais de coleta e entrega.",
@@ -143,14 +143,14 @@ else
 
                 <!-- Itens (visível somente para doação) -->
                 <div id="itensSection" class="mb-4">
-                    <h5 class="fw-semibold mb-3">Itens que voce pode entregar:</h5>
+                    <h5 class="fw-semibold mb-3">Itens que você pode entregar:</h5>
                     <div class="row g-2">
                         <div class="col-sm-6">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox"
                                        asp-for="Input.ItemAlimentos" id="chkAlimentos" />
                                 <label class="form-check-label" for="chkAlimentos">
-                                    Alimentos nao-pereciveis
+                                    Alimentos não-perecíveis
                                 </label>
                             </div>
                         </div>
@@ -177,7 +177,7 @@ else
                                 <input class="form-check-input" type="checkbox"
                                        asp-for="Input.ItemColchoes" id="chkColchoes" />
                                 <label class="form-check-label" for="chkColchoes">
-                                    Colchoes / Cobertores
+                                    Colchões / Cobertores
                                 </label>
                             </div>
                         </div>
@@ -198,7 +198,7 @@ else
 
                 <!-- Ações -->
                 <div class="d-flex gap-3">
-                    <button type="submit" class="btn cs-btn-primary px-4">
+                    <button type="submit" class="btn btn-cs-primary px-4">
                         Confirmar Oferta de Ajuda
                     </button>
                     <a asp-page="/Solicitacoes/Detalhes"
@@ -217,7 +217,7 @@ else
             <div class="cs-map-placeholder mb-4">
                 <div class="cs-map-pin">!</div>
                 <span class="cs-map-label">@s.Cidade / @s.Estado</span>
-                <div class="cs-map-distance">Localizacao da solicitacao</div>
+                <div class="cs-map-distance">Localização da solicitação</div>
             </div>
 
             <!-- Card solicitante -->
@@ -225,10 +225,9 @@ else
                 <div class="card-body">
                     <p class="small text-muted fw-semibold mb-2 text-uppercase">Solicitante</p>
                     <div class="d-flex align-items-center gap-3">
-                        <div class="cs-avatar cs-avatar-md">
-                            @(s.Usuario?.NomeCompleto?.Length >= 2
-                                ? s.Usuario.NomeCompleto.Substring(0, 2).ToUpper()
-                                : "?")
+                        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center fw-bold flex-shrink-0"
+                               style="width:44px;height:44px;font-size:.95rem">
+                             @(s.Usuario?.NomeCompleto?....)
                         </div>
                         <div>
                             <div class="fw-bold">@(s.Usuario?.NomeCompleto ?? "—")</div>
@@ -249,13 +248,14 @@ else
             <div class="card cs-card bg-light border-0">
                 <div class="card-body">
                     <p class="small text-muted fw-semibold mb-2 text-uppercase">
-                        Outros voluntarios confirmados
+                        Outros voluntários confirmados
                     </p>
                     <div class="d-flex align-items-center gap-2">
                         <div class="d-flex">
-                            <div class="cs-avatar cs-avatar-sm">JL</div>
-                            <div class="cs-avatar cs-avatar-sm" style="margin-left:-8px">AF</div>
-                            <div class="cs-avatar cs-avatar-sm" style="margin-left:-8px">CS</div>
+                            <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center fw-bold flex-shrink-0"
+                                    style="width:32px;height:32px;font-size:.75rem;border:2px solid #fff">JL</div>
+                            <div class="..." style="...;margin-left:-8px">AF</div>
+                            <div class="..." style="...;margin-left:-8px">CS</div>
                         </div>
                         <small class="text-muted">+2 voluntarios confirmados</small>
                     </div>
