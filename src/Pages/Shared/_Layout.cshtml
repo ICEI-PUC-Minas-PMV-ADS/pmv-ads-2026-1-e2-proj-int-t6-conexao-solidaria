@@ -22,7 +22,9 @@
     <header class="cs-header">
         <div class="cs-header-inner">
             <div class="cs-brand">
-                <span class="cs-brand-logo">CS</span>
+                <span class="cs-brand-logo">
+                     <img src="~/imgs/logo.png" alt="logo" style="width:24px;height:24px;object-fit:contain;" />
+                </span>
                 <span class="cs-brand-name">CONEXÃO <span class="cs-accent">SOLIDÁRIA</span></span>
             </div>
             <div class="cs-user-pill">
@@ -55,7 +57,7 @@
                     <a href="/Chat/Lista">💬 <span>Chat</span></a>
                 </li>
                 <li class="@(currentPath.StartsWith("/grupos") ? "active" : "")">
-                    <a href="/Grupos/Lista">🤝 <span>Grupos</span></a>
+                    <a href="/Grupos/Lista">👥 <span>Grupos</span></a>
                 </li>
                 <li class="@(currentPath.StartsWith("/perfil") ? "active" : "")">
                     <a asp-page="/Perfil/Index">👤 <span>Perfil</span></a>
