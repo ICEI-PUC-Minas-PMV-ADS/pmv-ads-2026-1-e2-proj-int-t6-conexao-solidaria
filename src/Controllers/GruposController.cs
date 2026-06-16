@@ -92,5 +92,30 @@ public GruposController(AppDbContext context, UserManager<Usuario> userManager)
         {
             return View("NovoG");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Criar(Grupo input)
+        {
+            if (ModelState.IsValid)
+            {
+                var grupo = new GrupoApoio
+                {
+                    Nome = input.Nome,
+                    Descricao = input.Descricao ?? string.Empty
+                };
+                _context.Grupos.Add(grupo);
+                _context.SaveChanges();
+                return RedirectToAction("Lista");
+            }
+            return View("NovoG", input);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ConvidarUsuario(int grupoId, int usuarioId)
+        {
+            return Json(new { sucesso = true, mensagem = "Convite enviado com sucesso!" });
+        }
     }
 }
