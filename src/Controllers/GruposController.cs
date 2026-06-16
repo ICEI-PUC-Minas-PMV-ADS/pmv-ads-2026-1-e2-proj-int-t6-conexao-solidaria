@@ -97,6 +97,8 @@ public GruposController(AppDbContext context, UserManager<Usuario> userManager)
         [ValidateAntiForgeryToken]
         public IActionResult Criar(Grupo input)
         {
+            ModelState.Remove("CriadorId");
+
             if (ModelState.IsValid)
             {
                 var grupo = new GrupoApoio
