@@ -90,7 +90,7 @@ public GruposController(AppDbContext context, UserManager<Usuario> userManager)
         [HttpGet]
         public IActionResult Criar()
         {
-            return View("Nova");
+            return View("NovoG");
         }
     }
 }
