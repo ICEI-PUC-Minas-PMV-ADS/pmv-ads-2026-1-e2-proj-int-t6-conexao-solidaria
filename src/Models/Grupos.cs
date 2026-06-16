@@ -13,6 +13,11 @@ public class Grupo
     [Required(ErrorMessage = "Informe a descrição")]
     [StringLength(200)]
     public string? Descricao { get; set; }
+
+    [Required(ErrorMessage = "Selecione o tipo de atividade.")]
+    [StringLength(10)]
+    [Display(Name = "Tipo de Atividade")]
+    public string TipoAtiv { get; set; } = "voluntariado";
     
     [StringLength(2000)]
     public string? DescricaoDetalhada { get; set; }
