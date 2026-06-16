@@ -26,6 +26,23 @@
                       placeholder="Descreva o objetivo do grupo..."></textarea>
             <span asp-validation-for="Descricao" class="text-danger small"></span>
         </div>
+   <div class="col-12 col-md-6">
+            <label asp-for="Input.Urgencia">TIPO DE ATIVIDADE *</label>
+            <div class="d-flex gap-3 pt-2">
+                <div class="form-check">
+                    <input asp-for="Input.Urgencia" type="radio" value="alta" class="form-check-input" id="ua" />
+                    <label for="ua" class="form-check-label">🔴 DOAÇÃO</label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="Input.Urgencia" type="radio" value="media" class="form-check-input" id="um" checked />
+                    <label for="um" class="form-check-label">🟡 VOLUNTÁRIADO</label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="Input.Urgencia" type="radio" value="baixa" class="form-check-input" id="ub" />
+                    <label for="ub" class="form-check-label">🟢 MISTO</label>
+                </div>
+            </div>
+        </div>
  <div class="col-12">
             <label asp-for="DescricaoDetalhada" class="form-label fw-semibold">DESCRIÇÃO DETALHADA</label>
             <textarea asp-for="DescricaoDetalhada" class="form-control" rows="5"
