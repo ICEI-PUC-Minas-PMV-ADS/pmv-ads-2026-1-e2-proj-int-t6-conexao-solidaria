@@ -90,27 +90,27 @@ public GruposController(AppDbContext context, UserManager<Usuario> userManager)
         [HttpGet]
         public IActionResult Criar()
         {
-            return View("NovoG");
+            return View("NovoG", new Grupo());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Criar(Grupo input)
         {
-            ModelState.Remove("CriadorId");
-
-            if (ModelState.IsValid)
+            if (string.IsNullOrWhiteSpace(input.Nome))
             {
-                var grupo = new GrupoApoio
-                {
-                    Nome = input.Nome,
-                    Descricao = input.Descricao ?? string.Empty
-                };
-                _context.Grupos.Add(grupo);
-                _context.SaveChanges();
-                return RedirectToAction("Lista");
+                ModelState.AddModelError("Nome", "Informe o nome do grupo.");
+                return View("NovoG", input);
             }
-            return View("NovoG", input);
+
+            var grupo = new GrupoApoio
+            {
+                Nome = input.Nome.Trim(),
+                Descricao = (input.Descricao ?? string.Empty).Trim()
+            };
+            _context.Grupos.Add(grupo);
+            _context.SaveChanges();
+            return RedirectToAction("Lista");
         }
 
         [HttpPost]
