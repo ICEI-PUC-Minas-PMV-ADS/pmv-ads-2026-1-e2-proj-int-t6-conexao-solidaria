@@ -16,7 +16,7 @@
     @Html.AntiForgeryToken()
     <div class="row g-3">
         <div class="col-12">
-            <label asp-for="Nome" class="form-label fw-semibold"></label>
+            <label asp-for="Nome" class="form-label fw-semibold">NOME DO GRUPO *</label>
             <input asp-for="Nome" class="form-control" placeholder="Nome do grupo" />
             <span asp-validation-for="Nome" class="text-danger small"></span>
         </div>
