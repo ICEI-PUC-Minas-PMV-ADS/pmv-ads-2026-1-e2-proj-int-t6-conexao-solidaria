@@ -138,6 +138,23 @@
 
  />
  |
+
+ |
+
+ 
+
+| **Caso de Teste** 	| **CT17 –  Grupos de Apoio** 	|
+|:---:	|:---:	|
+|	Requisito Associado 	| RF-020 – Compartilhar grupo. |
+|Registro de evidência | <img width="1922" height="911" alt="image" src="https://github.com/user-attachments/assets/0bb47351-c2e2-47a0-b861-75210a3085c5" />
+
+
+
+
+
+
+ />
+ |
 ## Relatório de testes de software
 
 Os testes realizados demonstraram que o sistema apresentou funcionamento satisfatório na maioria das funcionalidades implementadas. As falhas identificadas foram serao corrigidas durante o processo de desenvolvimento, contribuindo para maior estabilidade e usabilidade da aplicação.
