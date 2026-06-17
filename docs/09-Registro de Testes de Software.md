@@ -64,6 +64,80 @@
  />
  |
 
+| **Caso de Teste** 	| **CT10 –  Solicitações** 	|
+|:---:	|:---:	|
+|	Requisito Associado 	| RF-013 – Solicitações de Ajuda. |
+|Registro de evidência | "<img width="1600" height="758" alt="WhatsApp Image 2026-06-17 at 19 25 41" src="https://github.com/user-attachments/assets/e34ac9d7-bd10-414d-9dc4-eaf06183c967" />
+ />
+ |
+
+ | **Caso de Teste** 	| **CT11 –  Solicitações** 	|
+|:---:	|:---:	|
+|	Requisito Associado 	| RF-014 – Nova solicitação. |
+|Registro de evidência | <img width="1914" height="905" alt="image" src="https://github.com/user-attachments/assets/c4a03970-ed22-449c-a8c1-dac62e439d48" />
+
+
+ />
+ |
+
+ | **Caso de Teste** 	| **CT12 –  Minhas Ajudas** 	|
+|:---:	|:---:	|
+|	Requisito Associado 	| RF-015 – Minhas Ajudas. |
+|Registro de evidência | <img width="1923" height="909" alt="image" src="https://github.com/user-attachments/assets/18bb0b71-0ee4-477b-8aea-93f0a1224928" />
+
+
+
+ />
+ |
+
+  | **Caso de Teste** 	| **CT13 –  Chats** 	|
+|:---:	|:---:	|
+|	Requisito Associado 	| RF-016 – Histórico de Chats. |
+|Registro de evidência | <img width="1923" height="909" alt="image" src="https://github.com/user-attachments/assets/1f387d3d-54e4-4f81-9aed-54c280bfded2" />
+
+
+
+
+ />
+ |
+
+ | **Caso de Teste** 	| **CT14 –  Chats** 	|
+|:---:	|:---:	|
+|	Requisito Associado 	| RF-017 – Abrir chat. |
+|Registro de evidência | <img width="1924" height="911" alt="image" src="https://github.com/user-attachments/assets/e3ce3687-9163-4ef6-b717-63e88d350eb8" />
+
+
+
+
+ />
+ |
+
+| **Caso de Teste** 	| **CT15 –  Grupos de Apoio** 	|
+|:---:	|:---:	|
+|	Requisito Associado 	| RF-018 – Grupos de apoio. |
+|Registro de evidência | <img width="1922" height="910" alt="image" src="https://github.com/user-attachments/assets/cd0a2b33-d227-4a72-a302-27e7cff4904d" />
+
+
+
+
+
+ />
+ |
+
+ 
+
+| **Caso de Teste** 	| **CT16 –  Grupos de Apoio** 	|
+|:---:	|:---:	|
+|	Requisito Associado 	| RF-019 – Criar grupo. |
+|Registro de evidência | <img width="1924" height="911" alt="image" src="https://github.com/user-attachments/assets/4d9c2a76-b6b3-4f0d-b799-3ff55b6334cc" />
+
+
+
+
+
+
+ />
+ |
 ## Relatório de testes de software
 
 Os testes realizados demonstraram que o sistema apresentou funcionamento satisfatório na maioria das funcionalidades implementadas. As falhas identificadas foram serao corrigidas durante o processo de desenvolvimento, contribuindo para maior estabilidade e usabilidade da aplicação.
