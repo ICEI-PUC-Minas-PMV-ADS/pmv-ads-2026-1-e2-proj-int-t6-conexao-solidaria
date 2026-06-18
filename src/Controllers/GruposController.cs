@@ -92,6 +92,43 @@ public GruposController(AppDbContext context, UserManager<Usuario> userManager)
         {
             return View("NovoG", new Grupo());
         }
+        [HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> Criar(Grupo input, IFormFile? Foto)
+{
+    if (string.IsNullOrWhiteSpace(input.Nome))
+    {
+        ModelState.AddModelError("Nome", "Informe o nome do grupo.");
+        return View("NovoG", input);
+    }
+
+    string? fotoUrl = null;
+
+    if (Foto != null && Foto.Length > 0)
+    {
+        var pasta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "grupos");
+        Directory.CreateDirectory(pasta);
+
+        var nomeArquivo = $"{Guid.NewGuid()}{Path.GetExtension(Foto.FileName)}";
+        var caminho = Path.Combine(pasta, nomeArquivo);
+
+        using var stream = new FileStream(caminho, FileMode.Create);
+        await Foto.CopyToAsync(stream);
+
+        fotoUrl = $"/uploads/grupos/{nomeArquivo}";
+    }
+
+    var grupo = new GrupoApoio
+    {
+        Nome     = input.Nome.Trim(),
+        Descricao = (input.Descricao ?? string.Empty).Trim(),
+        FotoUrl  = fotoUrl   // salva o caminho no banco
+    };
+
+    _context.Grupos.Add(grupo);
+    _context.SaveChanges();
+    return RedirectToAction("Lista");
+}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
