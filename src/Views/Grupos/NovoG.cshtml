@@ -13,6 +13,20 @@
 </div>
 
 <form asp-controller="Grupos" asp-action="Criar" method="post" style="max-width:720px;">
+<div class="d-flex gap-4 align-items-start">
+
+    <div class="flex-shrink-0">
+        <label class="form-label fw-bold text-uppercase small">Foto do Grupo</label>
+        <div class="cs-upload-box d-flex flex-column align-items-center justify-content-center"
+             style="width:120px; height:140px; border-radius:10px; cursor:pointer;"
+             onclick="document.getElementById('fotoInput').click()">
+            <div class="text-center" style="color: var(--primary);">
+                <div style="font-size:1.8rem; font-weight:700;">[ + ]</div>
+                <small>Adicionar foto</small>
+            </div>
+        </div>
+        <input type="file" id="fotoInput" name="Foto" accept="image/*" class="d-none" />
+    </div>
     <div class="row g-3">
         <div class="col-12">
             <label asp-for="Nome" class="form-label fw-semibold">NOME DO GRUPO *</label>
