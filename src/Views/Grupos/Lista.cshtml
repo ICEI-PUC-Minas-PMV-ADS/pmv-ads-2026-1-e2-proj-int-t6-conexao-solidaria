@@ -14,6 +14,8 @@
 <a asp-controller="Grupos" asp-action="Criar" class="btn btn-cs-accent">Criar Grupo</a>
     </div>
 </div>
+
+<div class="row">
 <div class="card shadow-sm" style="border-radius: 12px; border: 1px solid #E2E8F0; overflow: hidden;">
     <div class="table-responsive">
         <table class="table table-hover mb-0" style="vertical-align: middle;">
@@ -25,7 +27,6 @@
                     <th class="px-4 py-3 border-bottom-0 text-center">opções</th>
                 </tr>
             </thead>
-<div class="row">
     <div class="col-12 col-lg-8 mx-auto">
         @if  (Model == null || !Model.Any())
         {
