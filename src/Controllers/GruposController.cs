@@ -92,7 +92,7 @@ public GruposController(AppDbContext context, UserManager<Usuario> userManager)
         {
             return View("NovoG", new Grupo());
         }
-        [HttpPost]
+   /*     [HttpPost]
 [ValidateAntiForgeryToken]
 public async Task<IActionResult> Criar(Grupo input, IFormFile? Foto)
 {
@@ -129,7 +129,7 @@ public async Task<IActionResult> Criar(Grupo input, IFormFile? Foto)
     _context.SaveChanges();
     return RedirectToAction("Lista");
 }
-
+*/
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Criar(Grupo input)
