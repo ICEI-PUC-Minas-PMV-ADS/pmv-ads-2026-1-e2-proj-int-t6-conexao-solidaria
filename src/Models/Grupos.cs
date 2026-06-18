@@ -28,7 +28,9 @@ public class Grupo
     [Required(ErrorMessage = "Informe a cidade.")]
     [StringLength(100)]
     public string? Cidade { get; set; }
-
+    
+    public string? FotoUrl { get; set; }
+    
     [StringLength(2)]
     public string? Estado { get; set; }
 
