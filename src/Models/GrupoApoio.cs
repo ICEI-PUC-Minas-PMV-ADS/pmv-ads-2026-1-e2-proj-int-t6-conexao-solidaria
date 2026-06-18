@@ -15,4 +15,7 @@ public class GrupoApoio
     [Required(ErrorMessage = "Forneça uma descrição.")]
     [StringLength(500)]
     public string Descricao { get; set; } = string.Empty;
+    
+    [StringLength(500)]
+    public string? FotoUrl { get; set; }
 }
