@@ -67,7 +67,7 @@ Para registrar os indicadores de cada cenário, é preciso manter a coerência c
 | Usuário 4   |          195          |          17                       |     Sim              |         Nenhum.               |        Achou a funcionalidade útil para encontrar pessoas com interesses semelhantes.                      |                     | 
 | Usuário 5   |           280         |         26                    |     Sim              |        Tentou acessar um grupo já lotado.                |       Sugeriu adicionar filtros para encontrar grupos mais rapidamente.                      |                     | 
 
-**Cenário 6**: O usuário deseja navegar na aba de chat por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta,na primeira página, clicar na aba de chat,seguindo o passo a passo.         
+**Cenário 7**: O usuário deseja navegar na aba de chat por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta,na primeira página, clicar na aba de chat,seguindo o passo a passo.         
 | **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
 | Usuário 1   |      145              |         16                           |     Sim              |        Nenhum.                |       Conseguiu enviar mensagens rapidamente e sem dificuldades.                      |                     |      
@@ -76,7 +76,7 @@ Para registrar os indicadores de cada cenário, é preciso manter a coerência c
 | Usuário 4   |          170          |          18                       |     Sim              |         Nenhum.               |        A conversa foi iniciada facilmente e a interface é intuitiva.                     |                     | 
 | Usuário 5   |           235         |         24                    |     Sim              |      Escreveu uma mensagem vazia por engano.             |       Sugeriu adicionar notificações para novas mensagens.                      |                     | 
 
-**Cenário 6**: O usuário deseja navegar e visualizar a aba de " minhas ajudas " por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta,na primeira página, clicar na aba de minhas ajudas,seguindo o passo a passo.         
+**Cenário 8**: O usuário deseja navegar e visualizar a aba de " minhas ajudas " por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta,na primeira página, clicar na aba de minhas ajudas,seguindo o passo a passo.         
 | **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
 |-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
 | Usuário 1   |      120              |         12                           |     Sim              |        Nenhum.                |      Conseguiu visualizar suas ajudas facilmente.                      |                     |      
@@ -84,6 +84,16 @@ Para registrar os indicadores de cada cenário, é preciso manter a coerência c
 | Usuário 3   |         245           |         22                         |     Sim              |       Demorou para encontrar a aba "Minhas Ajudas".        |     Gostou da organização das informações apresentadas.                    |                     |  
 | Usuário 4   |          160          |          15                       |     Sim              |         Nenhum.               |        Conseguiu verificar rapidamente as ajudas concluídas.                  |                     | 
 | Usuário 5   |           210         |         19                    |     Sim              |      Clicou inicialmente em outra opção do menu.            |       Sugeriu incluir filtros para facilitar a busca de registros antigos.                      |                     | 
+
+**Cenário 9**: O usuário deseja navegar na aba de solicitaçoes por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta,na primeira página, clicar na aba de solicitaçoes,seguindo o passo a passo.         
+| **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
+|-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
+| Usuário 1   |      175              |         18                           |     Sim              |        Nenhum.                |      Encontrou rapidamente a solicitação desejada.                    |                     |      
+| Usuário 2   |      230             |         22                        |     Sim              |        Clicou em uma solicitação diferente da pretendida.             |      A página é organizada e fácil de navegar.               |                     |      
+| Usuário 3   |         290           |         27                         |     Sim              |       Demorou para localizar o botão de ajuda.       |     Gostou das informações detalhadas das solicitações.                   |                     |  
+| Usuário 4   |          160          |          16                       |     Sim              |         Nenhum.               |        Conseguiu visualizar e atender uma solicitação sem dificuldades.                 |                     | 
+| Usuário 5   |           250         |         24                    |     Sim              |      Precisou reler a descrição da solicitação para entender o pedido.            |       Sugeriu destacar as solicitações mais urgentes.                     |                     | 
+
 
 
 
