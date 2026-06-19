@@ -58,6 +58,35 @@ Para registrar os indicadores de cada cenário, é preciso manter a coerência c
 | Usuário 4   |          160         |           23                      |       Sim          |         Nenhum.               |        O usuário conseguiu doar com muita facilidade.                      |                     | 
 | Usuário 5   |           166         |             22                    |       Sim          |        Nenhum.                |     O usuário conseguiu doar com muita facilidade.                         |                     | 
 
+**Cenário 6**: O usuário deseja navegar na aba de grupos por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta,na primeira página, clicar na aba de grupos,seguindo o passo a passo.         
+| **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
+|-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
+| Usuário 1   |      185              |         18                           |     Sim              |        Nenhum.                |       Encontrou os grupos facilmente e conseguiu participar sem dificuldades.                       |                     |      
+| Usuário 2   |       240             |         24                        |     Sim              |        Clicou em um grupo errado antes de entrar no desejado.               |       A navegação foi simples e intuitiva.                      |                     |      
+| Usuário 3   |         310           |         29                         |     Sim              |        Demorou para localizar o botão "Participar".               |       Gostou da organização dos grupos disponíveis.                      |                     |  
+| Usuário 4   |          195          |          17                       |     Sim              |         Nenhum.               |        Achou a funcionalidade útil para encontrar pessoas com interesses semelhantes.                      |                     | 
+| Usuário 5   |           280         |         26                    |     Sim              |        Tentou acessar um grupo já lotado.                |       Sugeriu adicionar filtros para encontrar grupos mais rapidamente.                      |                     | 
+
+**Cenário 6**: O usuário deseja navegar na aba de chat por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta,na primeira página, clicar na aba de chat,seguindo o passo a passo.         
+| **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
+|-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
+| Usuário 1   |      145              |         16                           |     Sim              |        Nenhum.                |       Conseguiu enviar mensagens rapidamente e sem dificuldades.                      |                     |      
+| Usuário 2   |       210             |         21                        |     Sim              |        Tentou enviar mensagem sem selecionar uma conversa.           |      Achou o chat fácil de utilizar.                     |                     |      
+| Usuário 3   |         280           |         28                         |     Sim              |       Demorou para localizar o botão de envio.          |      Gostou da comunicação direta com outros usuários.                      |                     |  
+| Usuário 4   |          170          |          18                       |     Sim              |         Nenhum.               |        A conversa foi iniciada facilmente e a interface é intuitiva.                     |                     | 
+| Usuário 5   |           235         |         24                    |     Sim              |      Escreveu uma mensagem vazia por engano.             |       Sugeriu adicionar notificações para novas mensagens.                      |                     | 
+
+**Cenário 6**: O usuário deseja navegar e visualizar a aba de " minhas ajudas " por meio do link: https://conexao-solidaria-6811.azurewebsites.net/. O usuário deve criar sua conta,na primeira página, clicar na aba de minhas ajudas,seguindo o passo a passo.         
+| **Usuário**  | **Tempo Total (seg)** | **Quantidade de cliques** | **Tarefa foi concluída?** (Sim/Não) | **Erros Cometidos** | **Feedback do Usuário** |
+|-------------|--------------------|---------------------------------|-----------------|------------------------|------------------------------|
+| Usuário 1   |      120              |         12                           |     Sim              |        Nenhum.                |      Conseguiu visualizar suas ajudas facilmente.                      |                     |      
+| Usuário 2   |       180             |         17                        |     Sim              |         Nenhum.             |      Achou simples acompanhar o histórico de doações realizadas.                  |                     |      
+| Usuário 3   |         245           |         22                         |     Sim              |       Demorou para encontrar a aba "Minhas Ajudas".        |     Gostou da organização das informações apresentadas.                    |                     |  
+| Usuário 4   |          160          |          15                       |     Sim              |         Nenhum.               |        Conseguiu verificar rapidamente as ajudas concluídas.                  |                     | 
+| Usuário 5   |           210         |         19                    |     Sim              |      Clicou inicialmente em outra opção do menu.            |       Sugeriu incluir filtros para facilitar a busca de registros antigos.                      |                     | 
+
+
+
 ## Relatório dos testes de usabilidade 
 
 O relatório de testes de usabilidade deve ser um documento claro e estruturado, contendo análises dos testes realizados, identificação de problemas, propostas de correção, melhorias e sugestões para a evolução do sistema. 
