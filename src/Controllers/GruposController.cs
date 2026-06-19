@@ -118,7 +118,7 @@ public async Task<IActionResult> Criar(Grupo input, IFormFile? Foto)
         fotoUrl = $"/uploads/grupos/{nomeArquivo}";
     }
 
-    var grupo = new Grupos
+    var grupo = new GrupoApoio
     {
         Nome     = input.Nome.Trim(),
         Descricao = (input.Descricao ?? string.Empty).Trim(),
@@ -140,7 +140,7 @@ public async Task<IActionResult> Criar(Grupo input, IFormFile? Foto)
                 return View("NovoG", input);
             }
 
-            var grupo = new Grupos
+            var grupo = new GrupoApoio
             {
                 Nome = input.Nome.Trim(),
                 Descricao = (input.Descricao ?? string.Empty).Trim()
