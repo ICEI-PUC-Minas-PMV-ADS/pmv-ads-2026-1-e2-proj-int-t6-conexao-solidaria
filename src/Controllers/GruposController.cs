@@ -38,7 +38,7 @@ public GruposController(AppDbContext context, UserManager<Usuario> userManager)
         // TELA 09b: Editar (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Editar(Grupo grupo)
+        public IActionResult Editar(Grupos grupo)
         {
             if (ModelState.IsValid)
             {
@@ -118,7 +118,7 @@ public async Task<IActionResult> Criar(Grupo input, IFormFile? Foto)
         fotoUrl = $"/uploads/grupos/{nomeArquivo}";
     }
 
-    var grupo = new Grupo
+    var grupo = new Grupos
     {
         Nome     = input.Nome.Trim(),
         Descricao = (input.Descricao ?? string.Empty).Trim(),
@@ -140,7 +140,7 @@ public async Task<IActionResult> Criar(Grupo input, IFormFile? Foto)
                 return View("NovoG", input);
             }
 
-            var grupo = new Grupo
+            var grupo = new Grupos
             {
                 Nome = input.Nome.Trim(),
                 Descricao = (input.Descricao ?? string.Empty).Trim()
