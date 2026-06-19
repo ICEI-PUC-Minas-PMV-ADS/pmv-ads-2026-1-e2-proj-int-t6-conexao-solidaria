@@ -4,14 +4,15 @@ namespace ConexaoSolidaria.Models;
 
 public class Grupo
 {
+    [Key]
     public int Id { get; set; }
-
-    [Required]
-    [StringLength(100)]
+    
+    [Required(ErrorMessage = "Informe o nome do grupo.")]
+    [StringLength(50)]
     public string Nome { get; set; } = string.Empty;
 
     [Required(ErrorMessage = "Informe a descrição")]
-    [StringLength(200)]
+    [StringLength(60)]
     public string? Descricao { get; set; }
 
     [Required(ErrorMessage = "Selecione o tipo de atividade.")]
