@@ -2,9 +2,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ConexaoSolidaria.Models;
 
-public class Grupo
+public class GrupoApoio
 {
-    /* [Key] */
+    [Key]
     public int Id { get; set; }
     
     [Required(ErrorMessage = "Informe o nome do grupo.")]
