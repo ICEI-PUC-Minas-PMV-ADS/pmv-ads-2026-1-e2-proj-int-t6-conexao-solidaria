@@ -90,7 +90,7 @@ public GruposController(AppDbContext context, UserManager<Usuario> userManager)
         [HttpGet]
         public IActionResult Criar()
         {
-            return View("NovoG", new Grupo());
+            return View("NovoG", new GrupoApoio());
         }
    /*     [HttpPost]
 [ValidateAntiForgeryToken]
