@@ -75,10 +75,12 @@ public GruposController(AppDbContext context, UserManager<Usuario> userManager)
             return View(model);
         }
 
-        public IActionResult Lista()
-        {
-            var grupos = _context.Grupos.ToList();
-            return View(grupos);
+        public IActionResult Lista(string? filtro)
+{
+    var query = _context.Grupos.AsQueryable();
+    if (!string.IsNullOrEmpty(filtro) && filtro != "todos")
+        query = query.Where(g => g.TipoAtividade == filtro);
+    return View(query.ToList());
         }
 
         public IActionResult Index()
