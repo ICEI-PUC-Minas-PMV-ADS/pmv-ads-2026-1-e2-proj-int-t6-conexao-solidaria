@@ -8,11 +8,11 @@ public class Grupo
     public int Id { get; set; }
     
     [Required(ErrorMessage = "Informe o nome do grupo.")]
-    [StringLength(50)]
+    [StringLength(100)]
     public string Nome { get; set; } = string.Empty;
 
     [Required(ErrorMessage = "Informe a descrição")]
-    [StringLength(60)]
+    [StringLength(200)]
     public string? Descricao { get; set; }
 
     [Required(ErrorMessage = "Selecione o tipo de atividade.")]
