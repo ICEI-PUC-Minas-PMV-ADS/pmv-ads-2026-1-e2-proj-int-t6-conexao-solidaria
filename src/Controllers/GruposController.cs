@@ -144,6 +144,12 @@ public async Task<IActionResult> Criar(Grupo input, IFormFile? Foto)
             {
                 Nome = input.Nome.Trim(),
                 Descricao = (input.Descricao ?? string.Empty).Trim()
+                 TipoAtividade = input.TipoAtividade ?? "Misto",
+                Cidade = input.Cidade?.Trim(),
+                Estado = input.Estado,
+                Publico = input.Publico,
+                CriadoEm = DateTime.UtcNow,
+                CriadorId = _userManager.GetUserId(User) ?? string.Empty
             };
             _context.Grupos.Add(grupo);
             _context.SaveChanges();
