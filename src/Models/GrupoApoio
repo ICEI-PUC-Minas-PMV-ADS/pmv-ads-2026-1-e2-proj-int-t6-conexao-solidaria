@@ -17,15 +17,13 @@ public class GrupoApoio
     public string? Descricao { get; set; }
 
     [Required(ErrorMessage = "Selecione o tipo de atividade.")]
-    [StringLength(10)]
+    [StringLength(20)]
     [Display(Name = "Tipo de Atividade")]
-    public string TipoAtiv { get; set; } = "voluntariado";
+    public string TipoAtividade { get; set; } = "voluntariado";
 
     [StringLength(2000)]
     public string? DescricaoDetalhada { get; set; }
 
-    [StringLength(20)]
-    public string TipoAtividade { get; set; } = "Misto";
 
     [Required(ErrorMessage = "Informe a cidade.")]
     [StringLength(100)]
