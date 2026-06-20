@@ -19,7 +19,7 @@ public class GrupoApoio
     [Required(ErrorMessage = "Selecione o tipo de atividade.")]
     [StringLength(20)]
     [Display(Name = "Tipo de Atividade")]
-    public string TipoAtividade { get; set; } = "voluntariado";
+    public string TipoAtividade { get; set; } = "Misto";
 
     [StringLength(2000)]
     public string? DescricaoDetalhada { get; set; }
@@ -33,6 +33,8 @@ public class GrupoApoio
 
     [StringLength(2)]
     public string? Estado { get; set; }
+
+   public string? FotoUrl { get; set; }
 
     public bool Publico { get; set; } = true;
 
