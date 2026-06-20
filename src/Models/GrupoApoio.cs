@@ -14,7 +14,7 @@ public class GrupoApoio
 
     [Required(ErrorMessage = "Informe a descrição.")]
     [StringLength(200)]
-    public string? Descricao { get; set; }
+    public string Descricao { get; set; }
 
     [Required(ErrorMessage = "Selecione o tipo de atividade.")]
     [StringLength(20)]
@@ -27,7 +27,7 @@ public class GrupoApoio
 
     [Required(ErrorMessage = "Informe a cidade.")]
     [StringLength(100)]
-    public string? Cidade { get; set; }
+    public string Cidade { get; set; }
 
     [StringLength(2)]
     public string? Estado { get; set; }
