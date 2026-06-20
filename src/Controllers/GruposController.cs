@@ -38,7 +38,7 @@ public GruposController(AppDbContext context, UserManager<Usuario> userManager)
         // TELA 09b: Editar (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Editar(Grupos grupo)
+        public IActionResult Editar(GrupoApoio grupo)
         {
             if (ModelState.IsValid)
             {
