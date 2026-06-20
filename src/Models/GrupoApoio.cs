@@ -29,8 +29,6 @@ public class GrupoApoio
     [StringLength(100)]
     public string? Cidade { get; set; }
 
-    public string? FotoUrl { get; set; }
-
     [StringLength(2)]
     public string? Estado { get; set; }
 
