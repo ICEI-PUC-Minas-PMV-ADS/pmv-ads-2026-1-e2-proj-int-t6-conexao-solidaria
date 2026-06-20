@@ -4,7 +4,7 @@ namespace ConexaoSolidaria.Models;
 
 public class Grupo
 {
-    [Key]
+    /* [Key] */
     public int Id { get; set; }
     
     [Required(ErrorMessage = "Informe o nome do grupo.")]
