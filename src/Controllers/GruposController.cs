@@ -132,7 +132,7 @@ public async Task<IActionResult> Criar(Grupo input, IFormFile? Foto)
 */
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Criar(Grupo input)
+        public IActionResult Criar(GrupoApoio input)
         {
             if (string.IsNullOrWhiteSpace(input.Nome))
             {
