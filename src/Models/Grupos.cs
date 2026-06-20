@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ConexaoSolidaria.Models;
 
-public class GrupoApoio
+public class Grupo
 {
     [Key]
     public int Id { get; set; }
