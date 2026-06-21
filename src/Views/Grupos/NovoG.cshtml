@@ -151,25 +151,7 @@ function selecionarTipo(card, valor) {
         reader.readAsDataURL(file);
     }
 </script>
-</script>
 
-<style>
-.cs-group-type {
-    cursor: pointer;
-    border: 2px solid #dee2e6 !important;
-    transition: border-color .15s, box-shadow .15s, transform .15s;
-}
-.cs-group-type:hover {
-    border-color: var(--primary) !important;
-    box-shadow: 0 0 0 3px rgba(30,115,190,0.12);
-    transform: translateY(-2px);
-}
-.cs-group-type--selected {
-    border-color: var(--primary) !important;
-    background: rgba(30,115,190,0.06) !important;
-    box-shadow: 0 0 0 3px rgba(30,115,190,0.15);
-}
-</style>
     <div class="d-flex justify-content-end gap-2 mt-4">
        <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
         <button type="submit" class="btn btn-cs-accent">Criar Grupo</button>
