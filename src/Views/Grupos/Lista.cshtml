@@ -14,18 +14,17 @@
     </div>
 </div>
   <div class="col-12 col-md-6">
-            <label asp-for="FiltroG">FiltroGrupos *</label>
-            <div class="d-flex gap-3 pt-2">
+             <div class="d-flex gap-3 pt-2">
                 <div class="form-check">
-                    <input asp-for="FiltroG" type="radio" value="doacao" class="form-check-input" id="ua" />
+                    <input type="radio" class="form-check-input" id="ua" checked/>
                     <label for="ua" class="form-label fw-bold">🔵 DOAÇÃO</label>
                 </div>
                 <div class="form-check">
-                    <input asp-for="Filtro" type="radio" value="voluntariado" class="form-check-input" id="um" checked />
+                    <input type="radio" value="voluntariado" class="form-check-input" id="um" />
                     <label for="um" class="form-label fw-bold">🟡 VOLUNTÁRIADO</label>
                 </div>
                 <div class="form-check">
-                    <input asp-for="FiltroG" type="radio" value="ambos" class="form-check-input" id="ub" />
+                    <input type="radio" value="ambos" class="form-check-input" id="ub" />
                     <label for="ub" class="form-check-label fw-bold">🟢 AMBOS</label>
                 </div>
             </div>
