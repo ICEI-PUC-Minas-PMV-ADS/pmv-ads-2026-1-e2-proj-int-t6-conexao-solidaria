@@ -12,11 +12,11 @@ public class GrupoApoio
     [StringLength(100)]
     public string Nome { get; set; } = string.Empty;
 
-    [Required(ErrorMessage = "Informe a descrição.")]
+    /*[Required(ErrorMessage = "Informe a descrição.")]*/
     [StringLength(200)]
     public string Descricao { get; set; }
 
-    [Required(ErrorMessage = "Selecione o tipo de atividade.")]
+    /*[Required(ErrorMessage = "Selecione o tipo de atividade.")]*/
     [StringLength(20)]
     [Display(Name = "Tipo de Atividade")]
     public string TipoAtividade { get; set; } = "Misto";
@@ -25,14 +25,14 @@ public class GrupoApoio
     public string? DescricaoDetalhada { get; set; }
 
 
-    [Required(ErrorMessage = "Informe a cidade.")]
+    /*[Required(ErrorMessage = "Informe a cidade.")]*/
     [StringLength(100)]
     public string Cidade { get; set; }
 
     [StringLength(2)]
     public string? Estado { get; set; }
 
-   public string? FotoUrl { get; set; }
+    public string? FotoUrl { get; set; }
 
     public bool Publico { get; set; } = true;
 
