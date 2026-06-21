@@ -387,6 +387,23 @@ body {
     font-weight: 700;
 }
 
+/* ── css da pagina criação de grupo ──────────────────────────────────────────── */
+.cs-group-type {
+    cursor: pointer;
+    border: 2px solid #dee2e6 !important;
+    transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+.cs-group-type:hover {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(30,115,190,0.12);
+    transform: translateY(-2px);
+}
+.cs-group-type--selected {
+    border-color: var(--primary) !important;
+    background: rgba(30,115,190,0.06) !important;
+    box-shadow: 0 0 0 3px rgba(30,115,190,0.15);
+}
+
 /* ── Mapa placeholder ────────────────────────────────────────────────────── */
 .cs-map-placeholder {
     height: 240px;
