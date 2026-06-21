@@ -16,10 +16,6 @@ public class GrupoApoio
     [StringLength(500)]
     public string Descricao { get; set; } = string.Empty;
     
-    [Required(ErrorMessage = "Selecione o tipo de atividade.")]
-    [StringLength(10)]
-    [Display(Name = "Tipo de Atividade")]
-    public string TipoAtiv { get; set; } = "voluntariado";
     
     /*[StringLength(10)]
     [Display(Name = "Menu")]
