@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+/*using Microsoft.AspNetCore.Mvc;
 using ConexaoSolidaria.Data; 
 using ConexaoSolidaria.Models;
 using Microsoft.EntityFrameworkCore;
@@ -94,7 +94,7 @@ public GruposController(AppDbContext context, UserManager<Usuario> userManager)
         {
             return View("NovoG", new GrupoApoio());
         }
-   /*     [HttpPost]
+   ---comentado---     [HttpPost]
 [ValidateAntiForgeryToken]
 public async Task<IActionResult> Criar(Grupo input, IFormFile? Foto)
 {
@@ -131,7 +131,7 @@ public async Task<IActionResult> Criar(Grupo input, IFormFile? Foto)
     _context.SaveChanges();
     return RedirectToAction("Lista");
 }
-*/
+---comentado---
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Criar(GrupoApoio input)
@@ -166,3 +166,4 @@ public async Task<IActionResult> Criar(Grupo input, IFormFile? Foto)
         }
     }
 }
+*/
