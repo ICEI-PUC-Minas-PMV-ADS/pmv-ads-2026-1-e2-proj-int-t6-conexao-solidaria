@@ -12,11 +12,29 @@ public class GrupoApoio
     [StringLength(100)]
     public string Nome { get; set; } = string.Empty;
 
-    /*[Required(ErrorMessage = "Informe a descrição.")]*/
+    [Required(ErrorMessage = "Forneça uma descrição.")]
+    [StringLength(500)]
+    public string Descricao { get; set; } = string.Empty;
+    
+}/* using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ConexaoSolidaria.Models;
+
+public class GrupoApoio
+{
+    [Key]
+    public int Id { get; set; }
+
+    [Required(ErrorMessage = "Informe o nome do grupo.")]
+    [StringLength(100)]
+    public string Nome { get; set; } = string.Empty;
+
+     comentado [Required(ErrorMessage = "Informe a descrição.")]
     [StringLength(200)]
     public string Descricao { get; set; }
 
-    /*[Required(ErrorMessage = "Selecione o tipo de atividade.")]*/
+    comentado [Required(ErrorMessage = "Selecione o tipo de atividade.")]
     [StringLength(20)]
     [Display(Name = "Tipo de Atividade")]
     public string TipoAtividade { get; set; } = "Misto";
@@ -25,7 +43,7 @@ public class GrupoApoio
     public string? DescricaoDetalhada { get; set; }
 
 
-    /*[Required(ErrorMessage = "Informe a cidade.")]*/
+    comentado [Required(ErrorMessage = "Informe a cidade.")]
     [StringLength(100)]
     public string Cidade { get; set; }
 
@@ -43,4 +61,4 @@ public class GrupoApoio
 
     [ForeignKey("CriadorId")]
     public virtual Usuario? Criador { get; set; }
-}
+}*/
