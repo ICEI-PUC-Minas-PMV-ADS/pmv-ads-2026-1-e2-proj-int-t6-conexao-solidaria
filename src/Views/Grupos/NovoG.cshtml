@@ -67,23 +67,45 @@
                       placeholder="Descreva o objetivo do grupo..."></textarea>
             <span asp-validation-for="Descricao" class="text-danger small"></span>
         </div>
-   <div class="col-12 col-md-6">
-            <label asp-for="TipoAtiv" class="form-label fw-semibold">TIPO DE ATIVIDADE *</label>
-            <div class="d-flex gap-3 pt-2">
-                <div class="form-check">
-                    <input asp-for="TipoAtiv" type="radio" value="doacao" class="form-check-input" id="ua" />
-                    <label for="ua" class="form-label fw-bold">🔵 DOAÇÃO</label>
+  <div class="col-12">
+    <label class="form-label fw-bold text-uppercase small">TIPO DE ATIVIDADE *</label>
+    <div class="row g-3 mt-1">
+
+        <div class="col-12 col-md-4">
+            <div class="cs-group-type card p-3" onclick="selecionarTipo(this,'Doacao')">
+                <div class="d-flex align-items-center gap-2">
+                    <input type="radio" name="TipoAtividade" value="Doacao" class="form-check-input mt-0" />
+                    <span style="width:12px;height:12px;border-radius:50%;background:#5CBFC2;display:inline-block;"></span>
+                    <strong>Doacao</strong>
                 </div>
-                <div class="form-check">
-                    <input asp-for="TipoAtiv" type="radio" value="voluntariado" class="form-check-input" id="um"/>
-                    <label for="um" class="form-label fw-bold">🟡 VOLUNTÁRIADO</label>
-                </div>
-                <div class="form-check">
-                    <input asp-for="TipoAtiv" type="radio" value="ambos" class="form-check-input" id="ub" checked/>
-                    <label for="ub" class="form-label fw-bold">🟢 AMBOS</label>
-                </div>
+                <small class="text-muted mt-1 ms-4">Apenas itens</small>
             </div>
         </div>
+
+        <div class="col-12 col-md-4">
+            <div class="cs-group-type card p-3" onclick="selecionarTipo(this,'Voluntariado')">
+                <div class="d-flex align-items-center gap-2">
+                    <input type="radio" name="TipoAtividade" value="Voluntariado" class="form-check-input mt-0" />
+                    <span style="width:12px;height:12px;border-radius:50%;background:orange;display:inline-block;"></span>
+                    <strong>Voluntariado</strong>
+                </div>
+                <small class="text-muted mt-1 ms-4">Apenas trabalho</small>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="cs-group-type card p-3 cs-group-type--selected" onclick="selecionarTipo(this,'Misto')">
+                <div class="d-flex align-items-center gap-2">
+                    <input type="radio" name="TipoAtividade" value="Misto" class="form-check-input mt-0" checked />
+                    <span style="width:12px;height:12px;border-radius:50%;background:var(--primary);display:inline-block;"></span>
+                    <strong>Misto</strong>
+                </div>
+                <small class="text-muted mt-1 ms-4">Itens + trabalho</small>
+            </div>
+        </div>
+
+    </div>
+</div>
  <div class="col-12">
             <label asp-for="DescricaoDetalhada" class="form-label fw-semibold">DESCRIÇÃO DETALHADA</label>
             <textarea asp-for="DescricaoDetalhada" class="form-control" rows="5"
