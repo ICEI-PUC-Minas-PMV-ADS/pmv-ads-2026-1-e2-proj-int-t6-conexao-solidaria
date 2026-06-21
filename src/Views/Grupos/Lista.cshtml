@@ -29,6 +29,23 @@
                 </tr>
             </thead>
 </table>
+  <div class="col-12 col-md-6">
+            <label asp-for="TipoAtiv">TIPO DE ATIVIDADE *</label>
+            <div class="d-flex gap-3 pt-2">
+                <div class="form-check">
+                    <input asp-for="TipoAtiv" type="radio" value="doacao" class="form-check-input" id="ua" />
+                    <label for="ua" class="form-label fw-bold">🔵 DOAÇÃO</label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="TipoAtiv" type="radio" value="voluntariado" class="form-check-input" id="um" checked />
+                    <label for="um" class="form-label fw-bold">🟡 VOLUNTÁRIADO</label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="TipoAtiv" type="radio" value="ambos" class="form-check-input" id="ub" />
+                    <label for="ub" "class="form-check-label fw-bold">🟢 AMBOS</label>
+                </div>
+            </div>
+        </div>
 <div class="row">
     <div class="col-12 col-lg-8 mx-auto">
         @if  (Model == null || !Model.Any())
