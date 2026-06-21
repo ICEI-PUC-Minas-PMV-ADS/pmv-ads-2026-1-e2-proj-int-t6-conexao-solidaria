@@ -16,9 +16,9 @@ public class GrupoApoio
     [StringLength(500)]
     public string Descricao { get; set; } = string.Empty;
     
-    [StringLength(10)]
+    /*[StringLength(10)]
     [Display(Name = "Menu")]
-    public string FiltroG { get; set; } = "Todos";
+    public string FiltroG { get; set; } = "Todos";*/
     
 }
 /* using System.ComponentModel.DataAnnotations;
