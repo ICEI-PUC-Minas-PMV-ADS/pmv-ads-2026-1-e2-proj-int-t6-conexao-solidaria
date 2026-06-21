@@ -1,101 +1,76 @@
 @model IEnumerable<ConexaoSolidaria.Models.GrupoApoio>
 @using Microsoft.AspNetCore.Identity
 @{
-    ViewData["Title"] = "Grupos Solidarios";
+    ViewData["Title"] = "Grupos de Apoio";
     Layout = "~/Pages/Shared/_Layout.cshtml";
-    var filtro = Context.Request.Query["filtro"].ToString() ?? "todos";
-    var coresTipo = new Dictionary<string, (string bg, string avatar)>
-    {
-        ["Voluntariado"] = ("#D6E8F7", "#1E73BE"),
-        ["Doacao"]       = ("#D6EFEF", "#5CBFC2"),
-        ["Misto"]        = ("#FDEBD0", "#F28C28"),
-    };
 }
-
-<!-- CABEÇALHO -->
 <div class="cs-page-header mb-4">
     <div>
-        <h1 class="cs-page-title">Grupos Solidarios</h1>
-        <p class="cs-page-subtitle">Junte-se a um grupo ou crie o seu para mobilizar acoes.</p>
+        <h1 class="cs-page-title">Grupos de Apoio</h1>
+        <p class="cs-page-subtitle">Encontre e participe de redes de solidariedade e apoio mútuo</p>
     </div>
-    <div>
-        <a asp-controller="Grupos" asp-action="Criar" class="btn btn-cs-accent">+ Novo Grupo</a>
+  <div>
+<a asp-controller="Grupos" asp-action="Criar" class="btn btn-cs-accent">Criar Grupo</a>
     </div>
 </div>
-
-<!-- CHIPS DE FILTRO -->
-<div class="d-flex gap-2 flex-wrap mb-4">
-    @foreach (var f in new[] { ("todos","Todos"), ("Doacao","Doacao"), ("Voluntariado","Voluntariado"), ("Misto","Misto"), ("meus","Meus grupos") })
-    {
-        <a href="?filtro=@f.Item1"
-           class="btn btn-sm @(filtro == f.Item1 ? "btn-cs-primary" : "btn-outline-secondary")"
-           style="border-radius:20px; font-weight:600;">@f.Item2</a>
-    }
-</div>
-
-<!-- GRADE DE CARDS -->
-@if (Model == null || !Model.Any())
-{
-    <div class="text-center py-5 bg-white shadow-sm" style="border-radius:15px;">
-        <span style="font-size:3rem;">👥</span>
-        <h4 class="mt-3 text-muted">Nenhum grupo encontrado</h4>
-        <p class="text-muted">Ainda não existem grupos cadastrados.</p>
-    </div>
-}
-else
-{
-    <div class="row g-4">
-    @foreach (var grupo in Model)
-    {
-        var tipo = grupo.TipoAtividade ?? "Misto";
-        var cores = coresTipo.ContainsKey(tipo) ? coresTipo[tipo] : ("#E8EAF6", "#5C6BC0");
-        var inicial = string.Concat(grupo.Nome.Split(' ').Take(2).Select(w => w[0].ToString().ToUpper()));
-
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card border-0 shadow-sm h-100" style="border-radius:12px; overflow:hidden;">
-
-                <!-- Cover colorido -->
-                <div class="position-relative d-flex align-items-center justify-content-center"
-                     style="height:110px; background:@cores.bg;">
-
-                    <!-- Tipo — canto superior esquerdo -->
-                    <span class="position-absolute top-0 start-0 m-2 px-2 py-1"
-                          style="background:rgba(255,255,255,0.85); border-radius:20px;
-                                 font-size:12px; font-weight:700; color:#333;">
-                        @tipo
-                    </span>
-
-                    <!-- Ponto verde — canto superior direito -->
-                    <span class="position-absolute top-0 end-0 m-2"
-                          style="width:12px;height:12px;border-radius:50%;
-                                 background:#2DBE60;display:inline-block;"></span>
-
-                    <!-- Avatar centralizado -->
-                    <div class="rounded-circle d-flex align-items-center justify-content-center fw-bold"
-                         style="width:64px;height:64px;font-size:22px;
-                                background:@cores.avatar; color:white;">
-                        @inicial
-                    </div>
-                </div>
-
-                <!-- Corpo -->
-                <div class="card-body pb-2">
-                    <h6 class="fw-bold mb-1">@grupo.Nome</h6>
-                    <p class="text-muted small mb-0">@(grupo.Descricao ?? "")</p>
-                </div>
-
-                <!-- Rodapé -->
-                <div class="card-footer bg-white border-0 d-flex justify-content-between pb-3 px-3">
-                    <span style="color:var(--primary); font-weight:600; font-size:13px;">
-                        [+] membros
-                    </span>
-                    <a href="/Grupos/Detalhes/@grupo.Id"
-                       style="color:var(--accent); font-weight:700; font-size:13px; text-decoration:none;">
-                        Acessar -->
-                    </a>
-                </div>
+<div class="card shadow-sm" style="border-radius: 12px; border: 1px solid 
+#E2E8F0; overflow: hidden;">
+    <div class="table-responsive">
+        <table class="table table-hover mb-0" style="vertical-align: middle;">
+<thead style="background-color: 
+#F8FAFD; color: 
+#475569; font-size: 14px;">
+                <tr>
+                    <th class="px-4 py-3 border-bottom-0">grupos</th>
+                    <th class="px-4 py-3 border-bottom-0">ultimo</th>
+                    <th class="px-4 py-3 border-bottom-0">sugestão</th>
+                    <th class="px-4 py-3 border-bottom-0 text-center">opções</th>
+                </tr>
+            </thead>
+</table>
+<div class="row">
+    <div class="col-12 col-lg-8 mx-auto">
+        @if  (Model == null || !Model.Any())
+        {
+            <div class="text-center py-5 bg-white shadow-sm" style="border-radius: 15px;">
+                <span style="font-size: 3rem;">👥</span>
+                <h4 class="mt-3 text-muted">Nenhum grupo encontrado</h4>
+                <p class="text-muted">Ainda não existem grupos de apoio cadastrados no sistema.</p>
             </div>
+        }
+        else
+        {
+            foreach (var grupo in Model)
+            {
+                <a href="/Grupos/Detalhes/@grupo.Id" class="text-decoration-none text-dark">
+                <div class="card mb-3 shadow-sm border-0 cs-solic-card"
+     style="transition: transform 0.2s; border-radius: 12px; overflow: hidden;">
+     <!-- parte superior --> 
+    <div class="d-flex align-items-center gap-3"
+         style="background-color: 
+#1A6FBF; padding: 16px 20px;">
+        <div class="rounded-circle bg-white d-flex align-items-center justify-content-center fw-bold"
+             style="width: 48px; height: 48px; font-size: 20px; color: 
+#1A6FBF; flex-shrink: 0;">
+            @(!string.IsNullOrEmpty(grupo.Nome) ? grupo.Nome.Substring(0, 1).ToUpper() : "G")
         </div>
-    }
+        <div>
+            <h6 class="mb-0 fw-bold text-white">@grupo.Nome</h6>
+        </div>
     </div>
-}
+       <!-- parte inferior -->
+    <div class="d-flex justify-content-between align-items-center bg-white"
+         style="padding: 14px 20px;">
+        <p class="mb-0 text-muted small text-truncate" style="max-width: 420px;">
+            @grupo.Descricao
+        </p>
+        <span class="text-primary fw-bold ms-3">→</span>
+    </div>
+</div>
+                </a>
+            }
+        }
+    </div>
+</div>
+
+o que alterar no codigo para ficar parecido com correto, bolinha branca centralizada e tipo de atividade no canto superior esquerdo
