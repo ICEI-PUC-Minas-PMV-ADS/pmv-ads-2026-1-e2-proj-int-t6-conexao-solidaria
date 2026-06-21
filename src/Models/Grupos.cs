@@ -23,7 +23,7 @@ public class Grupo
     public string? DescricaoDetalhada { get; set; }
 
     [StringLength(20)]
-    public string TipoAtividade { get; set; } = "Misto";
+    public string TipoAtividade { get; set; } = "Ambos";
 
     [Required(ErrorMessage = "Informe a cidade.")]
     [StringLength(100)]
