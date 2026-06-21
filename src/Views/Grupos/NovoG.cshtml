@@ -79,8 +79,8 @@
                     <label for="um" class="form-check-label">🟡 VOLUNTÁRIADO</label>
                 </div>
                 <div class="form-check">
-                    <input asp-for="TipoAtiv" type="radio" value="misto" class="form-check-input" id="ub" />
-                    <label for="ub" class="form-check-label">🟢 MISTO</label>
+                    <input asp-for="TipoAtiv" type="radio" value="ambos" class="form-check-input" id="ub" />
+                    <label for="ub" class="form-check-label">🟢 Ambos</label>
                 </div>
             </div>
         </div>
@@ -90,6 +90,7 @@
                       placeholder="Descreva mais o grupo..."></textarea>
             <span asp-validation-for="DescricaoDetalhada" class="text-danger small"></span>
         </div>
+ <div class="row g-3">
  <div class="col-12 col-md-8">
             <label asp-for="Cidade" class="form-label fw-semibold">CIDADE *</label>
             <input asp-for="Cidade" class="form-control" placeholder="Informe sua cidade" />
@@ -111,6 +112,7 @@
                 </select>
  <span asp-validation-for="Estado" class="text-danger small"></span>
             </div>
+ </div>
     </div>
   <div class="mt-4">
             <label class="form-label fw-bold text-uppercase small">Privacidade</label>
