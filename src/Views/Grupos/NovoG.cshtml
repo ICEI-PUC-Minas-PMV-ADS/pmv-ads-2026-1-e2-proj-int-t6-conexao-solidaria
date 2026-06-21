@@ -39,22 +39,6 @@
     <input type="file" id="fotoInput" name="Foto" accept="image/*" class="d-none"
            onchange="mostrarPrevia(event)" />
 </div>
-
-<script>
-    function mostrarPrevia(event) {
-        const file = event.target.files[0];
-        if (!file) return;
-
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            document.getElementById('fotoPlaceholder').style.display = 'none';
-            const preview = document.getElementById('fotoPreview');
-            preview.src = e.target.result;
-            preview.style.display = 'block';
-        };
-        reader.readAsDataURL(file);
-    }
-</script>
     <div class="flex-grow-1">
         <div class="col-12">
             <label asp-for="Nome" class="form-label fw-semibold">NOME DO GRUPO *</label>
@@ -144,6 +128,48 @@
                 <label class="form-check-label">Grupo publico - qualquer usuario pode entrar</label>
             </div>
         </div>
+<script>
+function selecionarTipo(card, valor) {
+    document.querySelectorAll('.cs-group-type').forEach(c => {
+        c.classList.remove('cs-group-type--selected');
+    });
+    card.classList.add('cs-group-type--selected');
+    card.querySelector('input[type=radio]').checked = true;
+}
+
+    function mostrarPrevia(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById('fotoPlaceholder').style.display = 'none';
+            const preview = document.getElementById('fotoPreview');
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    }
+</script>
+</script>
+
+<style>
+.cs-group-type {
+    cursor: pointer;
+    border: 2px solid #dee2e6 !important;
+    transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+.cs-group-type:hover {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(30,115,190,0.12);
+    transform: translateY(-2px);
+}
+.cs-group-type--selected {
+    border-color: var(--primary) !important;
+    background: rgba(30,115,190,0.06) !important;
+    box-shadow: 0 0 0 3px rgba(30,115,190,0.15);
+}
+</style>
     <div class="d-flex justify-content-end gap-2 mt-4">
         <button type="submit" class="btn btn-cs-accent">Criar Grupo</button>
         <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
