@@ -13,22 +13,39 @@
 <a asp-controller="Grupos" asp-action="Criar" class="btn btn-cs-accent">Criar Grupo</a>
     </div>
 </div>
-  <div class="col-12 col-md-6">
+<div class="card shadow-sm" style="border-radius: 12px; border: 1px solid 
+#E2E8F0; overflow: hidden;">
+    <div class="table-responsive">
+        <table class="table table-hover mb-0" style="vertical-align: middle;">
+<thead style="background-color: 
+#F8FAFD; color: 
+#475569; font-size: 14px;">
+                <tr>
+                    <th class="px-4 py-3 border-bottom-0">Todos</th>
+                    <th class="px-4 py-3 border-bottom-0">Doação</th>
+                    <th class="px-4 py-3 border-bottom-0">Voluntariado</th>
+                    <th class="px-4 py-3 border-bottom-0">Ambos</th>
+                    <th class="px-4 py-3 border-bottom-0">Meus grupos</th>
+                </tr>
+            </thead>
+</table>
+ /* <div class="col-12 col-md-6">
              <div class="d-flex gap-3 pt-2">
                 <div class="form-check">
                     <input type="radio" class="form-check-input" id="ua" checked/>
-                    <label for="ua" class="form-label fw-bold">🔵 DOAÇÃO</label>
+                    <label for="ua" class="form-label fw-bold">Todos</label>
                 </div>
                 <div class="form-check">
                     <input type="radio" value="voluntariado" class="form-check-input" id="um" />
-                    <label for="um" class="form-label fw-bold">🟡 VOLUNTÁRIADO</label>
+                    <label for="um" class="form-label fw-bold">Doação</label>
                 </div>
                 <div class="form-check">
                     <input type="radio" value="ambos" class="form-check-input" id="ub" />
-                    <label for="ub" class="form-check-label fw-bold">🟢 AMBOS</label>
+                    <label for="ub" class="form-check-label fw-bold">Ambos</label>
                 </div>
             </div>
         </div>
+*/
 <div class="row">
     <div class="col-12 col-lg-8 mx-auto">
         @if  (Model == null || !Model.Any())
