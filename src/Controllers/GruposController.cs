@@ -87,6 +87,7 @@ public GruposController(AppDbContext context, UserManager<Usuario> userManager)
             return View(grupos);
         }
 
+        // Função para salvar um grupo novo
         [HttpGet]
         public IActionResult Criar()
         {
