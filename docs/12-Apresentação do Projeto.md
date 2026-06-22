@@ -4,7 +4,7 @@
 
 ## Título do Projeto
 
-Nome e marca do projeto
+Conexão Solidária
 
 ## Conjunto de Slides (Estrutura)
 
