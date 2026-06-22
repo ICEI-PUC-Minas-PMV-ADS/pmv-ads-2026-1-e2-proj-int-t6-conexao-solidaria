@@ -40,7 +40,7 @@
     <input type="file" id="fotoInput" name="Foto" accept="image/*" class="d-none"
            onchange="mostrarPrevia(event)" />
 </div>
-<!-- campos do formulario -->
+<!-- campos do formulário -->
     <div class="flex-grow-1">
         <div class="col-12">
             <label asp-for="Nome" class="form-label fw-semibold">NOME DO GRUPO *</label>
@@ -53,6 +53,7 @@
                       placeholder="Descreva o objetivo do grupo..."></textarea>
             <span asp-validation-for="Descricao" class="text-danger small"></span>
         </div>
+    <!-- menu de cartões com 3 opções -->
   <div class="col-12">
     <label class="form-label fw-bold text-uppercase small">TIPO DE ATIVIDADE *</label>
     <div class="row g-3 mt-1">
@@ -92,6 +93,7 @@
 
     </div>
 </div>
+<!-- mais campos do formulário -->
  <div class="col-12">
             <label asp-for="DescricaoDetalhada" class="form-label fw-semibold">DESCRIÇÃO DETALHADA</label>
             <textarea asp-for="DescricaoDetalhada" class="form-control" rows="5"
@@ -123,6 +125,7 @@
          </div>
       </div>
    </div>
+<!-- caixa para marcação -->
   <div class="mt-4">
             <label class="form-label fw-bold text-uppercase small">Privacidade</label>
             <div class="form-check">
@@ -130,6 +133,7 @@
                 <label class="form-check-label">Grupo publico - qualquer usuario pode entrar</label>
             </div>
         </div>
+<!-- script para os 3 cards -->
 <script>
 function selecionarTipo(card, valor) {
     document.querySelectorAll('.cs-group-type').forEach(c => {
@@ -138,7 +142,7 @@ function selecionarTipo(card, valor) {
     card.classList.add('cs-group-type--selected');
     card.querySelector('input[type=radio]').checked = true;
 }
-
+<!-- script para previa da imagem do grupo -->
     function mostrarPrevia(event) {
         const file = event.target.files[0];
         if (!file) return;
