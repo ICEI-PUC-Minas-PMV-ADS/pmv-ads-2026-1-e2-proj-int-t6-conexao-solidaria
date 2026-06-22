@@ -4,7 +4,7 @@
 
 Conexão Solidária
 
-## Conjunto de Slides (Estrutura)[Conexao_Solidaria.pdf](https://github.com/user-attachments/files/29185933/Conexao_Solidaria.pdf)
+## Conjunto de Slides (Estrutura)
 
 
 O grupo deve elaborar um conjunto de slides que registre, de forma organizada, todas as etapas desenvolvidas ao longo do semestre. Esse material deve contemplar a linha do tempo do projeto, desde a concepção inicial até os resultados finais, podendo incluir também _prints_ das telas da aplicação para ilustrar a entrega concluída.
@@ -23,7 +23,7 @@ https://private-user-images.githubusercontent.com/232954358/559960394-9fa31f02-c
 
 ## Vídeo de apresentação - Etapa 05
 
-Inclua aqui o vídeo de APRESENTAÇÃO FINAL do projeto produzido na Etapa 05.
+Video aqui
 
 ### Orientações para Produção do Vídeo Pitch (Etapa 05)
 
