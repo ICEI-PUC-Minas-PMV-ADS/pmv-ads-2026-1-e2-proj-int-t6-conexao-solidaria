@@ -4,18 +4,45 @@
 
 Conexão Solidária
 
+## Identidade Visual (Marca, Design)
+
+### Cores primárias
+
+As cores primárias foram escolhidas em tons de azul para transmitir confiança, segurança e solidariedade — valores centrais da plataforma.
+
+| Cor | Hex | Uso |
+|---|---|---|
+| Azul Principal | `#1E73BE` | Sidebar, botões primários, destaques |
+| Azul Escuro | `#155A99` | Hover, estados ativos |
+| Verde | `#2DBE60` | Indicadores de sucesso, badges positivos |
+
+### Cores secundárias
+
+As cores secundárias complementam a paleta com calor e neutralidade, tornando a interface acolhedora e fácil de usar.
+
+| Cor | Hex | Uso |
+|---|---|---|
+| Laranja Acento | `#F28C28` | Botões de ação, logo, urgência média |
+| Teal | `#5CBFC2` | Gradiente de fundo nas telas públicas |
+| Vermelho | `#DC3545` | Alertas de urgência alta |
+| Cinza Texto | `#5A6478` | Textos secundários e metadados |
+| Fundo | `#F8FAFD` | Background geral da aplicação |
+
+### Tipografia
+
+A tipografia utilizada segue o stack do sistema operacional: `-apple-system`, `Segoe UI`, `Roboto`, `Helvetica`, `Arial`. Essa escolha garante leitura confortável e carregamento sem dependências externas de fonte.
+
+## Logo
+
+O logotipo da Conexão Solidária é composto por um ícone de mãos unidas sobre um fundo laranja (`#F28C28`), acompanhado do nome da plataforma em letras maiúsculas com o acento laranja na palavra "SOLIDÁRIA".
+
+![Logo Conexão Solidária](../src/wwwroot/imgs/logo.png)
+
 ## Conjunto de Slides (Estrutura)
 
+[Acesse a apresentação clicando aqui.](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2026-1-e2-proj-int-t6-conexao-solidaria/blob/main/presentation/Conexao_Solidaria.pdf)
 
-O grupo deve elaborar um conjunto de slides que registre, de forma organizada, todas as etapas desenvolvidas ao longo do semestre. Esse material deve contemplar a linha do tempo do projeto, desde a concepção inicial até os resultados finais, podendo incluir também _prints_ das telas da aplicação para ilustrar a entrega concluída.
-
-> **Links Úteis**:
-> - [A regra 10-20-30 para apresentações de sucesso](https://revistapegn.globo.com/Noticias/noticia/2014/07/regra-10-20-30-para-apresentacoes-de-sucesso.html)
-> - [Top Tips for Effective Presentations](https://www.skillsyouneed.com/present/presentation-tips.html)
-> - [How to make a great presentation](https://www.ted.com/playlists/574/how_to_make_a_great_presentation)
-> - [10 dicas de design para slides](https://rockcontent.com/blog/design-para-slides/)
-> - [7 dicas de design para criar apresentações de PowerPoint incríveis e eficientes](https://www.shutterstock.com/pt/blog/7-dicas-de-design-para-criar-apresentacoes-de-powerpoint-incriveis-e-eficientes)
-> - [Especialista do TED dá 10 dicas para criar slides eficazes e bonitos](https://soap.com.br/blog/especialista-do-ted-da-10-dicas-para-criar-slides-eficazes-e-bonitos)
+## Apresentação da Solução
 
 ## Vídeo de apresentação - Etapa 01
 
