@@ -15,6 +15,7 @@
 <form asp-controller="Grupos" asp-action="Criar" method="post" style="max-width:720px;">
 <div class="d-flex gap-4 align-items-start">
 
+<!-- Foto do grupo com prévia -->
 <div class="flex-shrink-0">
     <label class="form-label fw-bold text-uppercase small">Foto do Grupo</label>
 
@@ -39,6 +40,7 @@
     <input type="file" id="fotoInput" name="Foto" accept="image/*" class="d-none"
            onchange="mostrarPrevia(event)" />
 </div>
+<!-- campos do formulario -->
     <div class="flex-grow-1">
         <div class="col-12">
             <label asp-for="Nome" class="form-label fw-semibold">NOME DO GRUPO *</label>
